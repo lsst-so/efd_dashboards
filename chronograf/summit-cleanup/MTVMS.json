@@ -1,0 +1,3646 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "360",
+		"cells": [
+			{
+				"i": "1dde309b-f6d6-4e9f-89b3-96c02f3db769",
+				"x": 0,
+				"y": 6,
+				"w": 4,
+				"h": 6,
+				"name": "Acceletarion XYZ-0",
+				"queries": [
+					{
+						"query": "SELECT mean(\"accelerationX0\") AS \"mean_accelerationX0\", mean(\"accelerationY0\") AS \"mean_accelerationY0\", mean(\"accelerationZ0\") AS \"mean_accelerationZ0\" FROM \"efd\".\"autogen\".\"lsst.sal.MTVMS.data\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTVMS.data",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX0",
+									"args": [
+										{
+											"value": "accelerationX0",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY0",
+									"args": [
+										{
+											"value": "accelerationY0",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ0",
+									"args": [
+										{
+											"value": "accelerationZ0",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "a6f231fc-9a9f-4bd8-a152-1b28d485f21e",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "f0a96f3d-3856-49c6-93fd-25c6b38e047e",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "d44acae9-319d-4e8c-815a-e48f90dd796a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX0",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX1",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX2",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX3",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX4",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX5",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX6",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX7",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX8",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX9",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX10",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX11",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX12",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX13",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX14",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX15",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX16",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX17",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX18",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX19",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX20",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX21",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX22",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX23",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX24",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX25",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX26",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX27",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX28",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX29",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX30",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX31",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX32",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX33",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX34",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX35",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX36",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX37",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX38",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX39",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX40",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX41",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX42",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX43",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX44",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX45",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX46",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX47",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX48",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX49",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/360/cells/1dde309b-f6d6-4e9f-89b3-96c02f3db769"
+				}
+			},
+			{
+				"i": "7816024d-0d53-4178-8c0d-1db22e5d61f9",
+				"x": 8,
+				"y": 0,
+				"w": 4,
+				"h": 6,
+				"name": "Acceleration Z (0-49)",
+				"queries": [
+					{
+						"query": "SELECT mean(\"accelerationZ0\") AS \"mean_accelerationZ0\", mean(\"accelerationZ1\") AS \"mean_accelerationZ1\", mean(\"accelerationZ2\") AS \"mean_accelerationZ2\", mean(\"accelerationZ3\") AS \"mean_accelerationZ3\", mean(\"accelerationZ4\") AS \"mean_accelerationZ4\", mean(\"accelerationZ5\") AS \"mean_accelerationZ5\", mean(\"accelerationZ6\") AS \"mean_accelerationZ6\", mean(\"accelerationZ7\") AS \"mean_accelerationZ7\", mean(\"accelerationZ8\") AS \"mean_accelerationZ8\", mean(\"accelerationZ9\") AS \"mean_accelerationZ9\", mean(\"accelerationZ10\") AS \"mean_accelerationZ10\", mean(\"accelerationZ11\") AS \"mean_accelerationZ11\", mean(\"accelerationZ12\") AS \"mean_accelerationZ12\", mean(\"accelerationZ13\") AS \"mean_accelerationZ13\", mean(\"accelerationZ14\") AS \"mean_accelerationZ14\", mean(\"accelerationZ15\") AS \"mean_accelerationZ15\", mean(\"accelerationZ16\") AS \"mean_accelerationZ16\", mean(\"accelerationZ17\") AS \"mean_accelerationZ17\", mean(\"accelerationZ18\") AS \"mean_accelerationZ18\", mean(\"accelerationZ19\") AS \"mean_accelerationZ19\", mean(\"accelerationZ20\") AS \"mean_accelerationZ20\", mean(\"accelerationZ21\") AS \"mean_accelerationZ21\", mean(\"accelerationZ22\") AS \"mean_accelerationZ22\", mean(\"accelerationZ23\") AS \"mean_accelerationZ23\", mean(\"accelerationZ24\") AS \"mean_accelerationZ24\", mean(\"accelerationZ25\") AS \"mean_accelerationZ25\", mean(\"accelerationZ26\") AS \"mean_accelerationZ26\", mean(\"accelerationZ27\") AS \"mean_accelerationZ27\", mean(\"accelerationZ28\") AS \"mean_accelerationZ28\", mean(\"accelerationZ29\") AS \"mean_accelerationZ29\", mean(\"accelerationZ30\") AS \"mean_accelerationZ30\", mean(\"accelerationZ31\") AS \"mean_accelerationZ31\", mean(\"accelerationZ32\") AS \"mean_accelerationZ32\", mean(\"accelerationZ33\") AS \"mean_accelerationZ33\", mean(\"accelerationZ34\") AS \"mean_accelerationZ34\", mean(\"accelerationZ35\") AS \"mean_accelerationZ35\", mean(\"accelerationZ36\") AS \"mean_accelerationZ36\", mean(\"accelerationZ37\") AS \"mean_accelerationZ37\", mean(\"accelerationZ38\") AS \"mean_accelerationZ38\", mean(\"accelerationZ39\") AS \"mean_accelerationZ39\", mean(\"accelerationZ40\") AS \"mean_accelerationZ40\", mean(\"accelerationZ41\") AS \"mean_accelerationZ41\", mean(\"accelerationZ42\") AS \"mean_accelerationZ42\", mean(\"accelerationZ43\") AS \"mean_accelerationZ43\", mean(\"accelerationZ44\") AS \"mean_accelerationZ44\", mean(\"accelerationZ45\") AS \"mean_accelerationZ45\", mean(\"accelerationZ46\") AS \"mean_accelerationZ46\", mean(\"accelerationZ47\") AS \"mean_accelerationZ47\", mean(\"accelerationZ48\") AS \"mean_accelerationZ48\", mean(\"accelerationZ49\") AS \"mean_accelerationZ49\" FROM \"efd\".\"autogen\".\"lsst.sal.MTVMS.data\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTVMS.data",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ0",
+									"args": [
+										{
+											"value": "accelerationZ0",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ1",
+									"args": [
+										{
+											"value": "accelerationZ1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ2",
+									"args": [
+										{
+											"value": "accelerationZ2",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ3",
+									"args": [
+										{
+											"value": "accelerationZ3",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ4",
+									"args": [
+										{
+											"value": "accelerationZ4",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ5",
+									"args": [
+										{
+											"value": "accelerationZ5",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ6",
+									"args": [
+										{
+											"value": "accelerationZ6",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ7",
+									"args": [
+										{
+											"value": "accelerationZ7",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ8",
+									"args": [
+										{
+											"value": "accelerationZ8",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ9",
+									"args": [
+										{
+											"value": "accelerationZ9",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ10",
+									"args": [
+										{
+											"value": "accelerationZ10",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ11",
+									"args": [
+										{
+											"value": "accelerationZ11",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ12",
+									"args": [
+										{
+											"value": "accelerationZ12",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ13",
+									"args": [
+										{
+											"value": "accelerationZ13",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ14",
+									"args": [
+										{
+											"value": "accelerationZ14",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ15",
+									"args": [
+										{
+											"value": "accelerationZ15",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ16",
+									"args": [
+										{
+											"value": "accelerationZ16",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ17",
+									"args": [
+										{
+											"value": "accelerationZ17",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ18",
+									"args": [
+										{
+											"value": "accelerationZ18",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ19",
+									"args": [
+										{
+											"value": "accelerationZ19",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ20",
+									"args": [
+										{
+											"value": "accelerationZ20",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ21",
+									"args": [
+										{
+											"value": "accelerationZ21",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ22",
+									"args": [
+										{
+											"value": "accelerationZ22",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ23",
+									"args": [
+										{
+											"value": "accelerationZ23",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ24",
+									"args": [
+										{
+											"value": "accelerationZ24",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ25",
+									"args": [
+										{
+											"value": "accelerationZ25",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ26",
+									"args": [
+										{
+											"value": "accelerationZ26",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ27",
+									"args": [
+										{
+											"value": "accelerationZ27",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ28",
+									"args": [
+										{
+											"value": "accelerationZ28",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ29",
+									"args": [
+										{
+											"value": "accelerationZ29",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ30",
+									"args": [
+										{
+											"value": "accelerationZ30",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ31",
+									"args": [
+										{
+											"value": "accelerationZ31",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ32",
+									"args": [
+										{
+											"value": "accelerationZ32",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ33",
+									"args": [
+										{
+											"value": "accelerationZ33",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ34",
+									"args": [
+										{
+											"value": "accelerationZ34",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ35",
+									"args": [
+										{
+											"value": "accelerationZ35",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ36",
+									"args": [
+										{
+											"value": "accelerationZ36",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ37",
+									"args": [
+										{
+											"value": "accelerationZ37",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ38",
+									"args": [
+										{
+											"value": "accelerationZ38",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ39",
+									"args": [
+										{
+											"value": "accelerationZ39",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ40",
+									"args": [
+										{
+											"value": "accelerationZ40",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ41",
+									"args": [
+										{
+											"value": "accelerationZ41",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ42",
+									"args": [
+										{
+											"value": "accelerationZ42",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ43",
+									"args": [
+										{
+											"value": "accelerationZ43",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ44",
+									"args": [
+										{
+											"value": "accelerationZ44",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ45",
+									"args": [
+										{
+											"value": "accelerationZ45",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ46",
+									"args": [
+										{
+											"value": "accelerationZ46",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ47",
+									"args": [
+										{
+											"value": "accelerationZ47",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ48",
+									"args": [
+										{
+											"value": "accelerationZ48",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ49",
+									"args": [
+										{
+											"value": "accelerationZ49",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "a6f231fc-9a9f-4bd8-a152-1b28d485f21e",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "f0a96f3d-3856-49c6-93fd-25c6b38e047e",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "d44acae9-319d-4e8c-815a-e48f90dd796a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/360/cells/7816024d-0d53-4178-8c0d-1db22e5d61f9"
+				}
+			},
+			{
+				"i": "901bedc4-6c65-44b8-aefe-006aac7c6676",
+				"x": 4,
+				"y": 0,
+				"w": 4,
+				"h": 6,
+				"name": "Acceleration Y (0-49)",
+				"queries": [
+					{
+						"query": "SELECT mean(\"accelerationY0\") AS \"mean_accelerationY0\", mean(\"accelerationY1\") AS \"mean_accelerationY1\", mean(\"accelerationY2\") AS \"mean_accelerationY2\", mean(\"accelerationY3\") AS \"mean_accelerationY3\", mean(\"accelerationY4\") AS \"mean_accelerationY4\", mean(\"accelerationY5\") AS \"mean_accelerationY5\", mean(\"accelerationY6\") AS \"mean_accelerationY6\", mean(\"accelerationY7\") AS \"mean_accelerationY7\", mean(\"accelerationY8\") AS \"mean_accelerationY8\", mean(\"accelerationY9\") AS \"mean_accelerationY9\", mean(\"accelerationY10\") AS \"mean_accelerationY10\", mean(\"accelerationY11\") AS \"mean_accelerationY11\", mean(\"accelerationY12\") AS \"mean_accelerationY12\", mean(\"accelerationY13\") AS \"mean_accelerationY13\", mean(\"accelerationY14\") AS \"mean_accelerationY14\", mean(\"accelerationY15\") AS \"mean_accelerationY15\", mean(\"accelerationY16\") AS \"mean_accelerationY16\", mean(\"accelerationY17\") AS \"mean_accelerationY17\", mean(\"accelerationY18\") AS \"mean_accelerationY18\", mean(\"accelerationY19\") AS \"mean_accelerationY19\", mean(\"accelerationY20\") AS \"mean_accelerationY20\", mean(\"accelerationY21\") AS \"mean_accelerationY21\", mean(\"accelerationY22\") AS \"mean_accelerationY22\", mean(\"accelerationY23\") AS \"mean_accelerationY23\", mean(\"accelerationY24\") AS \"mean_accelerationY24\", mean(\"accelerationY25\") AS \"mean_accelerationY25\", mean(\"accelerationY26\") AS \"mean_accelerationY26\", mean(\"accelerationY27\") AS \"mean_accelerationY27\", mean(\"accelerationY28\") AS \"mean_accelerationY28\", mean(\"accelerationY29\") AS \"mean_accelerationY29\", mean(\"accelerationY30\") AS \"mean_accelerationY30\", mean(\"accelerationY31\") AS \"mean_accelerationY31\", mean(\"accelerationY32\") AS \"mean_accelerationY32\", mean(\"accelerationY33\") AS \"mean_accelerationY33\", mean(\"accelerationY34\") AS \"mean_accelerationY34\", mean(\"accelerationY35\") AS \"mean_accelerationY35\", mean(\"accelerationY36\") AS \"mean_accelerationY36\", mean(\"accelerationY37\") AS \"mean_accelerationY37\", mean(\"accelerationY38\") AS \"mean_accelerationY38\", mean(\"accelerationY39\") AS \"mean_accelerationY39\", mean(\"accelerationY40\") AS \"mean_accelerationY40\", mean(\"accelerationY41\") AS \"mean_accelerationY41\", mean(\"accelerationY42\") AS \"mean_accelerationY42\", mean(\"accelerationY43\") AS \"mean_accelerationY43\", mean(\"accelerationY44\") AS \"mean_accelerationY44\", mean(\"accelerationY45\") AS \"mean_accelerationY45\", mean(\"accelerationY46\") AS \"mean_accelerationY46\", mean(\"accelerationY47\") AS \"mean_accelerationY47\", mean(\"accelerationY48\") AS \"mean_accelerationY48\", mean(\"accelerationY49\") AS \"mean_accelerationY49\" FROM \"efd\".\"autogen\".\"lsst.sal.MTVMS.data\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTVMS.data",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY0",
+									"args": [
+										{
+											"value": "accelerationY0",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY1",
+									"args": [
+										{
+											"value": "accelerationY1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY2",
+									"args": [
+										{
+											"value": "accelerationY2",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY3",
+									"args": [
+										{
+											"value": "accelerationY3",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY4",
+									"args": [
+										{
+											"value": "accelerationY4",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY5",
+									"args": [
+										{
+											"value": "accelerationY5",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY6",
+									"args": [
+										{
+											"value": "accelerationY6",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY7",
+									"args": [
+										{
+											"value": "accelerationY7",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY8",
+									"args": [
+										{
+											"value": "accelerationY8",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY9",
+									"args": [
+										{
+											"value": "accelerationY9",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY10",
+									"args": [
+										{
+											"value": "accelerationY10",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY11",
+									"args": [
+										{
+											"value": "accelerationY11",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY12",
+									"args": [
+										{
+											"value": "accelerationY12",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY13",
+									"args": [
+										{
+											"value": "accelerationY13",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY14",
+									"args": [
+										{
+											"value": "accelerationY14",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY15",
+									"args": [
+										{
+											"value": "accelerationY15",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY16",
+									"args": [
+										{
+											"value": "accelerationY16",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY17",
+									"args": [
+										{
+											"value": "accelerationY17",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY18",
+									"args": [
+										{
+											"value": "accelerationY18",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY19",
+									"args": [
+										{
+											"value": "accelerationY19",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY20",
+									"args": [
+										{
+											"value": "accelerationY20",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY21",
+									"args": [
+										{
+											"value": "accelerationY21",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY22",
+									"args": [
+										{
+											"value": "accelerationY22",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY23",
+									"args": [
+										{
+											"value": "accelerationY23",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY24",
+									"args": [
+										{
+											"value": "accelerationY24",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY25",
+									"args": [
+										{
+											"value": "accelerationY25",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY26",
+									"args": [
+										{
+											"value": "accelerationY26",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY27",
+									"args": [
+										{
+											"value": "accelerationY27",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY28",
+									"args": [
+										{
+											"value": "accelerationY28",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY29",
+									"args": [
+										{
+											"value": "accelerationY29",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY30",
+									"args": [
+										{
+											"value": "accelerationY30",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY31",
+									"args": [
+										{
+											"value": "accelerationY31",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY32",
+									"args": [
+										{
+											"value": "accelerationY32",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY33",
+									"args": [
+										{
+											"value": "accelerationY33",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY34",
+									"args": [
+										{
+											"value": "accelerationY34",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY35",
+									"args": [
+										{
+											"value": "accelerationY35",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY36",
+									"args": [
+										{
+											"value": "accelerationY36",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY37",
+									"args": [
+										{
+											"value": "accelerationY37",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY38",
+									"args": [
+										{
+											"value": "accelerationY38",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY39",
+									"args": [
+										{
+											"value": "accelerationY39",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY40",
+									"args": [
+										{
+											"value": "accelerationY40",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY41",
+									"args": [
+										{
+											"value": "accelerationY41",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY42",
+									"args": [
+										{
+											"value": "accelerationY42",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY43",
+									"args": [
+										{
+											"value": "accelerationY43",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY44",
+									"args": [
+										{
+											"value": "accelerationY44",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY45",
+									"args": [
+										{
+											"value": "accelerationY45",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY46",
+									"args": [
+										{
+											"value": "accelerationY46",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY47",
+									"args": [
+										{
+											"value": "accelerationY47",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY48",
+									"args": [
+										{
+											"value": "accelerationY48",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY49",
+									"args": [
+										{
+											"value": "accelerationY49",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "a6f231fc-9a9f-4bd8-a152-1b28d485f21e",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "f0a96f3d-3856-49c6-93fd-25c6b38e047e",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "d44acae9-319d-4e8c-815a-e48f90dd796a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/360/cells/901bedc4-6c65-44b8-aefe-006aac7c6676"
+				}
+			},
+			{
+				"i": "e61851ba-a393-4937-97cb-9d5c6a729ecb",
+				"x": 0,
+				"y": 0,
+				"w": 4,
+				"h": 6,
+				"name": "Acceletarion X (0-49)",
+				"queries": [
+					{
+						"query": "SELECT mean(\"accelerationX0\") AS \"mean_accelerationX0\", mean(\"accelerationX1\") AS \"mean_accelerationX1\", mean(\"accelerationX2\") AS \"mean_accelerationX2\", mean(\"accelerationX3\") AS \"mean_accelerationX3\", mean(\"accelerationX4\") AS \"mean_accelerationX4\", mean(\"accelerationX5\") AS \"mean_accelerationX5\", mean(\"accelerationX6\") AS \"mean_accelerationX6\", mean(\"accelerationX7\") AS \"mean_accelerationX7\", mean(\"accelerationX8\") AS \"mean_accelerationX8\", mean(\"accelerationX9\") AS \"mean_accelerationX9\", mean(\"accelerationX10\") AS \"mean_accelerationX10\", mean(\"accelerationX11\") AS \"mean_accelerationX11\", mean(\"accelerationX12\") AS \"mean_accelerationX12\", mean(\"accelerationX13\") AS \"mean_accelerationX13\", mean(\"accelerationX14\") AS \"mean_accelerationX14\", mean(\"accelerationX15\") AS \"mean_accelerationX15\", mean(\"accelerationX16\") AS \"mean_accelerationX16\", mean(\"accelerationX17\") AS \"mean_accelerationX17\", mean(\"accelerationX18\") AS \"mean_accelerationX18\", mean(\"accelerationX19\") AS \"mean_accelerationX19\", mean(\"accelerationX20\") AS \"mean_accelerationX20\", mean(\"accelerationX21\") AS \"mean_accelerationX21\", mean(\"accelerationX22\") AS \"mean_accelerationX22\", mean(\"accelerationX23\") AS \"mean_accelerationX23\", mean(\"accelerationX24\") AS \"mean_accelerationX24\", mean(\"accelerationX25\") AS \"mean_accelerationX25\", mean(\"accelerationX26\") AS \"mean_accelerationX26\", mean(\"accelerationX27\") AS \"mean_accelerationX27\", mean(\"accelerationX28\") AS \"mean_accelerationX28\", mean(\"accelerationX29\") AS \"mean_accelerationX29\", mean(\"accelerationX30\") AS \"mean_accelerationX30\", mean(\"accelerationX31\") AS \"mean_accelerationX31\", mean(\"accelerationX32\") AS \"mean_accelerationX32\", mean(\"accelerationX33\") AS \"mean_accelerationX33\", mean(\"accelerationX34\") AS \"mean_accelerationX34\", mean(\"accelerationX35\") AS \"mean_accelerationX35\", mean(\"accelerationX36\") AS \"mean_accelerationX36\", mean(\"accelerationX37\") AS \"mean_accelerationX37\", mean(\"accelerationX38\") AS \"mean_accelerationX38\", mean(\"accelerationX39\") AS \"mean_accelerationX39\", mean(\"accelerationX40\") AS \"mean_accelerationX40\", mean(\"accelerationX41\") AS \"mean_accelerationX41\", mean(\"accelerationX42\") AS \"mean_accelerationX42\", mean(\"accelerationX43\") AS \"mean_accelerationX43\", mean(\"accelerationX44\") AS \"mean_accelerationX44\", mean(\"accelerationX45\") AS \"mean_accelerationX45\", mean(\"accelerationX46\") AS \"mean_accelerationX46\", mean(\"accelerationX47\") AS \"mean_accelerationX47\", mean(\"accelerationX48\") AS \"mean_accelerationX48\", mean(\"accelerationX49\") AS \"mean_accelerationX49\" FROM \"efd\".\"autogen\".\"lsst.sal.MTVMS.data\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTVMS.data",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX0",
+									"args": [
+										{
+											"value": "accelerationX0",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX1",
+									"args": [
+										{
+											"value": "accelerationX1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX2",
+									"args": [
+										{
+											"value": "accelerationX2",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX3",
+									"args": [
+										{
+											"value": "accelerationX3",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX4",
+									"args": [
+										{
+											"value": "accelerationX4",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX5",
+									"args": [
+										{
+											"value": "accelerationX5",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX6",
+									"args": [
+										{
+											"value": "accelerationX6",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX7",
+									"args": [
+										{
+											"value": "accelerationX7",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX8",
+									"args": [
+										{
+											"value": "accelerationX8",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX9",
+									"args": [
+										{
+											"value": "accelerationX9",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX10",
+									"args": [
+										{
+											"value": "accelerationX10",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX11",
+									"args": [
+										{
+											"value": "accelerationX11",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX12",
+									"args": [
+										{
+											"value": "accelerationX12",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX13",
+									"args": [
+										{
+											"value": "accelerationX13",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX14",
+									"args": [
+										{
+											"value": "accelerationX14",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX15",
+									"args": [
+										{
+											"value": "accelerationX15",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX16",
+									"args": [
+										{
+											"value": "accelerationX16",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX17",
+									"args": [
+										{
+											"value": "accelerationX17",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX18",
+									"args": [
+										{
+											"value": "accelerationX18",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX19",
+									"args": [
+										{
+											"value": "accelerationX19",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX20",
+									"args": [
+										{
+											"value": "accelerationX20",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX21",
+									"args": [
+										{
+											"value": "accelerationX21",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX22",
+									"args": [
+										{
+											"value": "accelerationX22",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX23",
+									"args": [
+										{
+											"value": "accelerationX23",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX24",
+									"args": [
+										{
+											"value": "accelerationX24",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX25",
+									"args": [
+										{
+											"value": "accelerationX25",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX26",
+									"args": [
+										{
+											"value": "accelerationX26",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX27",
+									"args": [
+										{
+											"value": "accelerationX27",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX28",
+									"args": [
+										{
+											"value": "accelerationX28",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX29",
+									"args": [
+										{
+											"value": "accelerationX29",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX30",
+									"args": [
+										{
+											"value": "accelerationX30",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX31",
+									"args": [
+										{
+											"value": "accelerationX31",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX32",
+									"args": [
+										{
+											"value": "accelerationX32",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX33",
+									"args": [
+										{
+											"value": "accelerationX33",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX34",
+									"args": [
+										{
+											"value": "accelerationX34",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX35",
+									"args": [
+										{
+											"value": "accelerationX35",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX36",
+									"args": [
+										{
+											"value": "accelerationX36",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX37",
+									"args": [
+										{
+											"value": "accelerationX37",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX38",
+									"args": [
+										{
+											"value": "accelerationX38",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX39",
+									"args": [
+										{
+											"value": "accelerationX39",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX40",
+									"args": [
+										{
+											"value": "accelerationX40",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX41",
+									"args": [
+										{
+											"value": "accelerationX41",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX42",
+									"args": [
+										{
+											"value": "accelerationX42",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX43",
+									"args": [
+										{
+											"value": "accelerationX43",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX44",
+									"args": [
+										{
+											"value": "accelerationX44",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX45",
+									"args": [
+										{
+											"value": "accelerationX45",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX46",
+									"args": [
+										{
+											"value": "accelerationX46",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX47",
+									"args": [
+										{
+											"value": "accelerationX47",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX48",
+									"args": [
+										{
+											"value": "accelerationX48",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX49",
+									"args": [
+										{
+											"value": "accelerationX49",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "a6f231fc-9a9f-4bd8-a152-1b28d485f21e",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "f0a96f3d-3856-49c6-93fd-25c6b38e047e",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "d44acae9-319d-4e8c-815a-e48f90dd796a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX0",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX1",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX2",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX3",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX4",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX5",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX6",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX7",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX8",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX9",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX10",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX11",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX12",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX13",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX14",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX15",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX16",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX17",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX18",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX19",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX20",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX21",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX22",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX23",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX24",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX25",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX26",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX27",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX28",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX29",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX30",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX31",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX32",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX33",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX34",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX35",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX36",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX37",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX38",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX39",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX40",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX41",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX42",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX43",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX44",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX45",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX46",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX47",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX48",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX49",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/360/cells/e61851ba-a393-4937-97cb-9d5c6a729ecb"
+				}
+			},
+			{
+				"i": "f18c74c5-4390-4068-9c82-4709c6dc4cac",
+				"x": 4,
+				"y": 6,
+				"w": 4,
+				"h": 6,
+				"name": "Acceletarion XYZ-1",
+				"queries": [
+					{
+						"query": "SELECT mean(\"accelerationX1\") AS \"mean_accelerationX1\", mean(\"accelerationY1\") AS \"mean_accelerationY1\", mean(\"accelerationZ1\") AS \"mean_accelerationZ1\" FROM \"efd\".\"autogen\".\"lsst.sal.MTVMS.data\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTVMS.data",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX1",
+									"args": [
+										{
+											"value": "accelerationX1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY1",
+									"args": [
+										{
+											"value": "accelerationY1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ1",
+									"args": [
+										{
+											"value": "accelerationZ1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "a6f231fc-9a9f-4bd8-a152-1b28d485f21e",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "f0a96f3d-3856-49c6-93fd-25c6b38e047e",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "d44acae9-319d-4e8c-815a-e48f90dd796a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX0",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX1",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX2",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX3",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX4",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX5",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX6",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX7",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX8",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX9",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX10",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX11",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX12",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX13",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX14",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX15",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX16",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX17",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX18",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX19",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX20",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX21",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX22",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX23",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX24",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX25",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX26",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX27",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX28",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX29",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX30",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX31",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX32",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX33",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX34",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX35",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX36",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX37",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX38",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX39",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX40",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX41",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX42",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX43",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX44",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX45",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX46",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX47",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX48",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX49",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/360/cells/f18c74c5-4390-4068-9c82-4709c6dc4cac"
+				}
+			},
+			{
+				"i": "270aa2d7-9ad3-4bba-8dea-c38463a68fd2",
+				"x": 8,
+				"y": 6,
+				"w": 4,
+				"h": 6,
+				"name": "Acceletarion XYZ-2",
+				"queries": [
+					{
+						"query": "SELECT mean(\"accelerationX2\") AS \"mean_accelerationX2\", mean(\"accelerationY2\") AS \"mean_accelerationY2\", mean(\"accelerationZ2\") AS \"mean_accelerationZ2\" FROM \"efd\".\"autogen\".\"lsst.sal.MTVMS.data\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTVMS.data",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationX2",
+									"args": [
+										{
+											"value": "accelerationX2",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationY2",
+									"args": [
+										{
+											"value": "accelerationY2",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_accelerationZ2",
+									"args": [
+										{
+											"value": "accelerationZ2",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "a6f231fc-9a9f-4bd8-a152-1b28d485f21e",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "f0a96f3d-3856-49c6-93fd-25c6b38e047e",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "d44acae9-319d-4e8c-815a-e48f90dd796a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX0",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX1",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX2",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX3",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX4",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX5",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX6",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX7",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX8",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX9",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX10",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX11",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX12",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX13",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX14",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX15",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX16",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX17",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX18",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX19",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX20",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX21",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX22",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX23",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX24",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX25",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX26",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX27",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX28",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX29",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX30",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX31",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX32",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX33",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX34",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX35",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX36",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX37",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX38",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX39",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX40",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX41",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX42",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX43",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX44",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX45",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX46",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX47",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX48",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTVMS.data.mean_accelerationX49",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/360/cells/270aa2d7-9ad3-4bba-8dea-c38463a68fd2"
+				}
+			}
+		],
+		"templates": [],
+		"name": "MTVMS",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/360",
+			"cells": "/chronograf/v1/dashboards/360/cells",
+			"templates": "/chronograf/v1/dashboards/360/templates"
+		}
+	}
+}

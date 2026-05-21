@@ -1,0 +1,551 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "296",
+		"cells": [
+			{
+				"i": "4fccf7e9-016a-4b66-8767-b9537e23449a",
+				"x": 0,
+				"y": 0,
+				"w": 5,
+				"h": 3,
+				"name": "Untitled Graph",
+				"queries": [
+					{
+						"query": "commVoltageRec =\n  from(bucket: \"efd/autogen\")\n    |> range(start: -inf)\n    |> filter(fn: (r) =>\n      r._measurement == \"lsst.sal.MTM2.powerStatus\" and\n      r._field == \"commVoltage\"\n    )\n    |> last()\n    |> findRecord(fn: (key) => true, idx: 0)\n\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.MTM2.logevent_closedLoopControlMode\" and\n    r._field == \"mode\"\n  )\n  |> last() // Get the most recent mode\n  |> map(fn: (r) => ({\n      _time: r._time,\n      commVoltage: float(v: commVoltageRec._value),\n      description:\n        if float(v: commVoltageRec._value) < 20.0 then \"IDLE (power off)\"\n        else if r._value == 1.00 then \"Idle\"\n        else if r._value == 2.00 then \"TELEMETRY ONLY\"\n        else if r._value == 3.00 then \"OPEN LOOP\"\n        else if r._value == 4.00 then \"CLOSED LOOP\"\n        else \"UNKNOWN\"\n    }))\n  |> keep(columns: [\"_time\", \"commVoltage\", \"description\"])",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "commVoltageRec =\n  from(bucket: \"efd/autogen\")\n    |> range(start: -inf)\n    |> filter(fn: (r) =>\n      r._measurement == \"lsst.sal.MTM2.powerStatus\" and\n      r._field == \"commVoltage\"\n    )\n    |> last()\n    |> findRecord(fn: (key) => true, idx: 0)\n\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.MTM2.logevent_closedLoopControlMode\" and\n    r._field == \"mode\"\n  )\n  |> last() // Get the most recent mode\n  |> map(fn: (r) => ({\n      _time: r._time,\n      commVoltage: float(v: commVoltageRec._value),\n      description:\n        if float(v: commVoltageRec._value) < 20.0 then \"IDLE (power off)\"\n        else if r._value == 1.00 then \"Idle\"\n        else if r._value == 2.00 then \"TELEMETRY ONLY\"\n        else if r._value == 3.00 then \"OPEN LOOP\"\n        else if r._value == 4.00 then \"CLOSED LOOP\"\n        else \"UNKNOWN\"\n    }))\n  |> keep(columns: [\"_time\", \"commVoltage\", \"description\"])",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "commVoltage",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "description",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/296/cells/4fccf7e9-016a-4b66-8767-b9537e23449a"
+				}
+			},
+			{
+				"i": "49397224-ecb3-4f95-9022-8f24ff1f5bbc",
+				"x": 2,
+				"y": 3,
+				"w": 2,
+				"h": 3,
+				"name": "Ultimo SummaryState (30d)",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.MTM2.logevent_summaryState\" and\n    r._field == \"summaryState\"\n  )\n  |> last()",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.MTM2.logevent_summaryState\" and\n    r._field == \"summaryState\"\n  )\n  |> last()",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/296/cells/49397224-ecb3-4f95-9022-8f24ff1f5bbc"
+				}
+			},
+			{
+				"i": "52da5366-16c5-40f3-a40e-6578c713bfc2",
+				"x": 0,
+				"y": 3,
+				"w": 2,
+				"h": 3,
+				"name": "Ultimo Voltaje",
+				"queries": [
+					{
+						"query": "// Obtener el último valor de commVoltage del MTM2\nlastCommVoltage = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.MTM2.powerStatus\" and\n    r._field == \"commVoltage\"\n  )\n  |> last()\n  |> yield(name: \"last_commVoltage\")  // Opcional para depuración",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "// Obtener el último valor de commVoltage del MTM2\nlastCommVoltage = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.MTM2.powerStatus\" and\n    r._field == \"commVoltage\"\n  )\n  |> last()\n  |> yield(name: \"last_commVoltage\")  // Opcional para depuración",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/296/cells/52da5366-16c5-40f3-a40e-6578c713bfc2"
+				}
+			},
+			{
+				"i": "25abfcfc-4844-4d04-91d1-5d9985d94647",
+				"x": 4,
+				"y": 3,
+				"w": 6,
+				"h": 2,
+				"name": "Untitled Graph",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "Warning: This just can be monitoring under USDF Chronograf. We are waiting to move to InfluxDB Enterprise at the summit.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/296/cells/25abfcfc-4844-4d04-91d1-5d9985d94647"
+				}
+			},
+			{
+				"i": "8b6e2f5b-e6dc-4fa7-88a5-fa170fc13d1f",
+				"x": 5,
+				"y": 0,
+				"w": 5,
+				"h": 3,
+				"name": "Untitled Graph (clone 1)",
+				"queries": [
+					{
+						"query": "commVoltageRec =\n  from(bucket: \"efd/autogen\")\n    |> range(start: -inf)\n    |> filter(fn: (r) =>\n      r._measurement == \"lsst.sal.MTM2.powerStatus\" and\n      r._field == \"commVoltage\"\n    )\n    |> last()\n    |> findRecord(fn: (key) => true, idx: 0)\n\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.MTM2.logevent_closedLoopControlMode\" and\n    r._field == \"mode\"\n  )\n  |> last() // Get the most recent mode\n  |> map(fn: (r) => ({\n      _time: r._time,\n      commVoltage: float(v: commVoltageRec._value),\n      description:\n        if float(v: commVoltageRec._value) < 20.0 then \"IDLE (power off)\"\n        else if r._value == 1.00 then \"Idle\"\n        else if r._value == 2.00 then \"TELEMETRY ONLY\"\n        else if r._value == 3.00 then \"OPEN LOOP\"\n        else if r._value == 4.00 then \"CLOSED LOOP\"\n        else \"UNKNOWN\"\n    }))\n  |> keep(columns: [\"_time\", \"commVoltage\", \"description\"])",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "commVoltageRec =\n  from(bucket: \"efd/autogen\")\n    |> range(start: -inf)\n    |> filter(fn: (r) =>\n      r._measurement == \"lsst.sal.MTM2.powerStatus\" and\n      r._field == \"commVoltage\"\n    )\n    |> last()\n    |> findRecord(fn: (key) => true, idx: 0)\n\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.MTM2.logevent_closedLoopControlMode\" and\n    r._field == \"mode\"\n  )\n  |> last() // Get the most recent mode\n  |> map(fn: (r) => ({\n      _time: r._time,\n      commVoltage: float(v: commVoltageRec._value),\n      description:\n        if float(v: commVoltageRec._value) < 20.0 then \"IDLE (power off)\"\n        else if r._value == 1.00 then \"Idle\"\n        else if r._value == 2.00 then \"TELEMETRY ONLY\"\n        else if r._value == 3.00 then \"OPEN LOOP\"\n        else if r._value == 4.00 then \"CLOSED LOOP\"\n        else \"UNKNOWN\"\n    }))\n  |> keep(columns: [\"_time\", \"commVoltage\", \"description\"])",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "commVoltage",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "description",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/296/cells/8b6e2f5b-e6dc-4fa7-88a5-fa170fc13d1f"
+				}
+			}
+		],
+		"templates": [],
+		"name": "M2 Close Loop Status (SITCOM-1212) (OBS-566)",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/296",
+			"cells": "/chronograf/v1/dashboards/296/cells",
+			"templates": "/chronograf/v1/dashboards/296/templates"
+		}
+	}
+}

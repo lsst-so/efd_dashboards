@@ -1,0 +1,6640 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "473",
+		"cells": [
+			{
+				"i": "52c807fc-41c0-4b6c-a7c9-705c30e38942",
+				"x": 10,
+				"y": 8,
+				"w": 1,
+				"h": 1,
+				"name": "R04 HVbias  ",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R04' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R04"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/52c807fc-41c0-4b6c-a7c9-705c30e38942"
+				}
+			},
+			{
+				"i": "91d97d27-4dac-46d1-84f1-1dfda835b8f3",
+				"x": 10,
+				"y": 7,
+				"w": 1,
+				"h": 1,
+				"name": "R14 HVbias ",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R14' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R14"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/91d97d27-4dac-46d1-84f1-1dfda835b8f3"
+				}
+			},
+			{
+				"i": "a702492b-c64f-43a0-8bf6-ebca414a1db1",
+				"x": 10,
+				"y": 6,
+				"w": 1,
+				"h": 1,
+				"name": "R24 HVbias ",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R43' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R43"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/a702492b-c64f-43a0-8bf6-ebca414a1db1"
+				}
+			},
+			{
+				"i": "399a2dcd-a60c-4584-b9a3-9e99f7130555",
+				"x": 10,
+				"y": 5,
+				"w": 1,
+				"h": 1,
+				"name": "R34 HVbias ",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R43' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R43"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/399a2dcd-a60c-4584-b9a3-9e99f7130555"
+				}
+			},
+			{
+				"i": "b5706941-17fe-4e9e-bdec-5809f6433b21",
+				"x": 10,
+				"y": 4,
+				"w": 1,
+				"h": 1,
+				"name": "R44 HVbias",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R44' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R44"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/b5706941-17fe-4e9e-bdec-5809f6433b21"
+				}
+			},
+			{
+				"i": "e11b1cc6-7ef4-4585-91a6-b93e1633592e",
+				"x": 2,
+				"y": 8,
+				"w": 1,
+				"h": 1,
+				"name": "R00 HVbias  (clone 2)",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R00' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R00"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/e11b1cc6-7ef4-4585-91a6-b93e1633592e"
+				}
+			},
+			{
+				"i": "b8a519b9-465e-499e-ab76-aaf450361466",
+				"x": 2,
+				"y": 7,
+				"w": 1,
+				"h": 1,
+				"name": "R10 HVbias ",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R10' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R10"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/b8a519b9-465e-499e-ab76-aaf450361466"
+				}
+			},
+			{
+				"i": "ef99a8bc-d114-405e-bd96-5a4ee1639103",
+				"x": 4,
+				"y": 8,
+				"w": 1,
+				"h": 1,
+				"name": "R01 HVbias ",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R01' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R01"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/ef99a8bc-d114-405e-bd96-5a4ee1639103"
+				}
+			},
+			{
+				"i": "1f82179f-d7e5-4d98-90bb-1745af239de7",
+				"x": 4,
+				"y": 7,
+				"w": 1,
+				"h": 1,
+				"name": "R11 HVbias ",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R11' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R11"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/1f82179f-d7e5-4d98-90bb-1745af239de7"
+				}
+			},
+			{
+				"i": "1652aff7-5b88-437e-a1cd-99e8003a4546",
+				"x": 6,
+				"y": 8,
+				"w": 1,
+				"h": 1,
+				"name": "R02 HVbias ",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R02' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R02"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/1652aff7-5b88-437e-a1cd-99e8003a4546"
+				}
+			},
+			{
+				"i": "c3a3bcd4-8229-4243-8dc7-224ada7a99c3",
+				"x": 6,
+				"y": 7,
+				"w": 1,
+				"h": 1,
+				"name": "R12 HVbias ",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R12' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R12"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/c3a3bcd4-8229-4243-8dc7-224ada7a99c3"
+				}
+			},
+			{
+				"i": "6114ecdb-df45-4961-a9b8-1b180d126977",
+				"x": 6,
+				"y": 6,
+				"w": 1,
+				"h": 1,
+				"name": "R22 HVbias ",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R42' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R42"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/6114ecdb-df45-4961-a9b8-1b180d126977"
+				}
+			},
+			{
+				"i": "8ae79b7c-1637-442b-9bc5-2a0b78172bc1",
+				"x": 6,
+				"y": 5,
+				"w": 1,
+				"h": 1,
+				"name": "R32 HVbias ",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R42' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R42"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/8ae79b7c-1637-442b-9bc5-2a0b78172bc1"
+				}
+			},
+			{
+				"i": "78bd6016-debe-459d-ab6b-20c9806150a0",
+				"x": 8,
+				"y": 8,
+				"w": 1,
+				"h": 1,
+				"name": "R03 HVbias ",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R03' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R03"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/78bd6016-debe-459d-ab6b-20c9806150a0"
+				}
+			},
+			{
+				"i": "53c89e57-0f80-4d53-8bd7-2f7419cf472f",
+				"x": 8,
+				"y": 7,
+				"w": 1,
+				"h": 1,
+				"name": "R13 HVbias ",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R13' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R13"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/53c89e57-0f80-4d53-8bd7-2f7419cf472f"
+				}
+			},
+			{
+				"i": "beab763f-c310-4cb1-8ec4-ef73c35b9adb",
+				"x": 8,
+				"y": 6,
+				"w": 1,
+				"h": 1,
+				"name": "R23 HVbias ",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R43' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R43"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/beab763f-c310-4cb1-8ec4-ef73c35b9adb"
+				}
+			},
+			{
+				"i": "0caa2ed8-754e-4881-9778-467edd44416e",
+				"x": 8,
+				"y": 5,
+				"w": 1,
+				"h": 1,
+				"name": "R33 HVbias ",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R33' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R33"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/0caa2ed8-754e-4881-9778-467edd44416e"
+				}
+			},
+			{
+				"i": "5ccd2888-764e-4cf8-8e4c-4cef8914fa21",
+				"x": 4,
+				"y": 6,
+				"w": 1,
+				"h": 1,
+				"name": "R21 HVbias ",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R43' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R43"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/5ccd2888-764e-4cf8-8e4c-4cef8914fa21"
+				}
+			},
+			{
+				"i": "dcff078d-8592-4ac7-8776-868ffef1392c",
+				"x": 4,
+				"y": 4,
+				"w": 1,
+				"h": 1,
+				"name": "R41 HVbias",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R41' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R41"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/dcff078d-8592-4ac7-8776-868ffef1392c"
+				}
+			},
+			{
+				"i": "9b2adc3c-9638-47b3-9021-5dce58b86f59",
+				"x": 2,
+				"y": 5,
+				"w": 1,
+				"h": 1,
+				"name": "R30 HVbias",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R30' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R30"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/9b2adc3c-9638-47b3-9021-5dce58b86f59"
+				}
+			},
+			{
+				"i": "1380c0dd-6a4f-4bbe-b06b-70a1517e7b32",
+				"x": 4,
+				"y": 5,
+				"w": 1,
+				"h": 1,
+				"name": "R31 HVbias",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R31' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R31"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/1380c0dd-6a4f-4bbe-b06b-70a1517e7b32"
+				}
+			},
+			{
+				"i": "b9c3f74b-a423-47b2-97fc-a3e987b54cbf",
+				"x": 8,
+				"y": 4,
+				"w": 1,
+				"h": 1,
+				"name": "R43 HVbias",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R43' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R43"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/b9c3f74b-a423-47b2-97fc-a3e987b54cbf"
+				}
+			},
+			{
+				"i": "73d365ec-4b2d-4316-a879-a2596f339f14",
+				"x": 6,
+				"y": 4,
+				"w": 1,
+				"h": 1,
+				"name": "R42 HVbias",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R42' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R42"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/73d365ec-4b2d-4316-a879-a2596f339f14"
+				}
+			},
+			{
+				"i": "97fe9009-b7ef-4d9a-8dc6-ea807a189c40",
+				"x": 3,
+				"y": 9,
+				"w": 6,
+				"h": 4,
+				"name": "CCD Temps",
+				"queries": [
+					{
+						"query": "SELECT mean(\"Temp\") AS \"mean_Temp\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:), \"Raft\", \"Sensor\" FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_Temp",
+									"args": [
+										{
+											"value": "Temp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"Raft",
+									"Sensor"
+								]
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "b43dfbc1-3549-45e2-882d-191c942d197f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8e7df124-dbaa-4ae9-9099-6ed6f6fa1e98",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a74f8609-3519-4401-b62e-32a92477dda5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/97fe9009-b7ef-4d9a-8dc6-ea807a189c40"
+				}
+			},
+			{
+				"i": "361797ff-01d2-400f-9b4d-cb39b2a87a07",
+				"x": 2,
+				"y": 6,
+				"w": 1,
+				"h": 1,
+				"name": "R20 HVbias",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R20' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R20"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/361797ff-01d2-400f-9b4d-cb39b2a87a07"
+				}
+			},
+			{
+				"i": "ff13a3fb-9c54-4915-88dc-43ca2e45e8d9",
+				"x": 5,
+				"y": 6,
+				"w": 1,
+				"h": 1,
+				"name": "R22 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R22'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R22"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/ff13a3fb-9c54-4915-88dc-43ca2e45e8d9"
+				}
+			},
+			{
+				"i": "f6ddb445-4c8e-4021-b511-0c3003511ff9",
+				"x": 7,
+				"y": 6,
+				"w": 1,
+				"h": 1,
+				"name": "R23 VOD ",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R23'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R23"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/f6ddb445-4c8e-4021-b511-0c3003511ff9"
+				}
+			},
+			{
+				"i": "aaa7c1ae-b700-47f3-9e94-3a09888a84e1",
+				"x": 7,
+				"y": 7,
+				"w": 1,
+				"h": 1,
+				"name": "R13 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R13'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R13"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/aaa7c1ae-b700-47f3-9e94-3a09888a84e1"
+				}
+			},
+			{
+				"i": "2ce22003-fb12-4253-86a4-3bf1f51b88a4",
+				"x": 9,
+				"y": 6,
+				"w": 1,
+				"h": 1,
+				"name": "R24 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R24'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R24"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/2ce22003-fb12-4253-86a4-3bf1f51b88a4"
+				}
+			},
+			{
+				"i": "4ca95e60-4a66-4755-b475-b698eb17ae44",
+				"x": 9,
+				"y": 7,
+				"w": 1,
+				"h": 1,
+				"name": "R14 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R14'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R14"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/4ca95e60-4a66-4755-b475-b698eb17ae44"
+				}
+			},
+			{
+				"i": "41d9d8c3-f30a-45b6-b3b5-0e696d3be3d6",
+				"x": 9,
+				"y": 8,
+				"w": 1,
+				"h": 1,
+				"name": "R04 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R04'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R04"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/41d9d8c3-f30a-45b6-b3b5-0e696d3be3d6"
+				}
+			},
+			{
+				"i": "4d84a34d-165a-4609-b0aa-17baf7c79e7d",
+				"x": 3,
+				"y": 4,
+				"w": 1,
+				"h": 1,
+				"name": "R41 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R41'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R41"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/4d84a34d-165a-4609-b0aa-17baf7c79e7d"
+				}
+			},
+			{
+				"i": "ef361346-b466-4b63-8285-5bc34192d8ba",
+				"x": 3,
+				"y": 5,
+				"w": 1,
+				"h": 1,
+				"name": "R31 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R31'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R31"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/ef361346-b466-4b63-8285-5bc34192d8ba"
+				}
+			},
+			{
+				"i": "a4512191-191c-4cb0-8171-1c4c4320a69a",
+				"x": 3,
+				"y": 6,
+				"w": 1,
+				"h": 1,
+				"name": "R21 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R21'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R21"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/a4512191-191c-4cb0-8171-1c4c4320a69a"
+				}
+			},
+			{
+				"i": "f23363b7-69dd-4ad6-b71e-9632ccb8e5d4",
+				"x": 3,
+				"y": 7,
+				"w": 1,
+				"h": 1,
+				"name": "R11 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R11'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R11"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/f23363b7-69dd-4ad6-b71e-9632ccb8e5d4"
+				}
+			},
+			{
+				"i": "530cc8cb-e2d5-4706-8b59-3635649bf3a9",
+				"x": 1,
+				"y": 7,
+				"w": 1,
+				"h": 1,
+				"name": "R10 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R10'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R10"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/530cc8cb-e2d5-4706-8b59-3635649bf3a9"
+				}
+			},
+			{
+				"i": "633c0abd-7fb8-490b-bbaf-7dd5119ac238",
+				"x": 3,
+				"y": 8,
+				"w": 1,
+				"h": 1,
+				"name": "R01 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R01'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R01"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/633c0abd-7fb8-490b-bbaf-7dd5119ac238"
+				}
+			},
+			{
+				"i": "690038ad-8933-49e3-9c4e-7bda76b80002",
+				"x": 5,
+				"y": 5,
+				"w": 1,
+				"h": 1,
+				"name": "R32 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R32'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R32"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/690038ad-8933-49e3-9c4e-7bda76b80002"
+				}
+			},
+			{
+				"i": "2c760f64-3bec-4aef-ab54-cad4d293eb33",
+				"x": 7,
+				"y": 5,
+				"w": 1,
+				"h": 1,
+				"name": "R33 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R33'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R33"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/2c760f64-3bec-4aef-ab54-cad4d293eb33"
+				}
+			},
+			{
+				"i": "bcee127a-a4b0-44be-8076-dc9ef49e34d8",
+				"x": 9,
+				"y": 5,
+				"w": 1,
+				"h": 1,
+				"name": "R34 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R34'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R34"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/bcee127a-a4b0-44be-8076-dc9ef49e34d8"
+				}
+			},
+			{
+				"i": "ab8de2ad-548b-478e-a119-eeddc23172fb",
+				"x": 1,
+				"y": 8,
+				"w": 1,
+				"h": 1,
+				"name": "R00 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R00'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R00"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/ab8de2ad-548b-478e-a119-eeddc23172fb"
+				}
+			},
+			{
+				"i": "5370b189-70cf-405b-89eb-841dda777b46",
+				"x": 1,
+				"y": 6,
+				"w": 1,
+				"h": 1,
+				"name": "R20 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R20'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R20"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/5370b189-70cf-405b-89eb-841dda777b46"
+				}
+			},
+			{
+				"i": "e7ce6840-b130-47ae-b65d-95008c2fb442",
+				"x": 5,
+				"y": 8,
+				"w": 1,
+				"h": 1,
+				"name": "R02 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R02'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R02"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/e7ce6840-b130-47ae-b65d-95008c2fb442"
+				}
+			},
+			{
+				"i": "28db65d2-dedf-49f1-a36d-03588ac3d3b6",
+				"x": 5,
+				"y": 7,
+				"w": 1,
+				"h": 1,
+				"name": "R12 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R12'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R12"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/28db65d2-dedf-49f1-a36d-03588ac3d3b6"
+				}
+			},
+			{
+				"i": "a043edd8-635a-4f2e-8907-d869902ef2b0",
+				"x": 7,
+				"y": 8,
+				"w": 1,
+				"h": 1,
+				"name": "R03 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R03'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R03"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/a043edd8-635a-4f2e-8907-d869902ef2b0"
+				}
+			},
+			{
+				"i": "053e3ce2-27df-484b-b4d1-ecee77abbc9c",
+				"x": 5,
+				"y": 4,
+				"w": 1,
+				"h": 1,
+				"name": "R42 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R42'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R42"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/053e3ce2-27df-484b-b4d1-ecee77abbc9c"
+				}
+			},
+			{
+				"i": "7009b30f-4a35-4317-b70d-ca13abdd5959",
+				"x": 7,
+				"y": 4,
+				"w": 1,
+				"h": 1,
+				"name": "R43 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R43'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R43"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/7009b30f-4a35-4317-b70d-ca13abdd5959"
+				}
+			},
+			{
+				"i": "61ff4e0d-2f6a-4d1e-a5a6-8bb5a31fc8f7",
+				"x": 9,
+				"y": 4,
+				"w": 1,
+				"h": 1,
+				"name": "R44 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R44'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R44"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/61ff4e0d-2f6a-4d1e-a5a6-8bb5a31fc8f7"
+				}
+			},
+			{
+				"i": "c28461e2-a125-4418-be3b-2f2bb344aca3",
+				"x": 1,
+				"y": 5,
+				"w": 1,
+				"h": 1,
+				"name": "R30 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R30'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R30"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/c28461e2-a125-4418-be3b-2f2bb344aca3"
+				}
+			},
+			{
+				"i": "827ed7ad-06a1-45a3-b29b-9fdb30d0e96c",
+				"x": 8,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "Hex and Cryo Vacuum",
+				"queries": [
+					{
+						"query": "SELECT mean(\"CryoVac\") AS \"mean_CryoVac\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.vacuum_cryo\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.vacuum_cryo",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_CryoVac",
+									"args": [
+										{
+											"value": "CryoVac",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT mean(\"HexVac\") AS \"mean_HexVac\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.vacuum_hx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.vacuum_hx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_HexVac",
+									"args": [
+										{
+											"value": "HexVac",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "b43dfbc1-3549-45e2-882d-191c942d197f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8e7df124-dbaa-4ae9-9099-6ed6f6fa1e98",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a74f8609-3519-4401-b62e-32a92477dda5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/827ed7ad-06a1-45a3-b29b-9fdb30d0e96c"
+				}
+			},
+			{
+				"i": "98659076-d445-4664-8a9c-691557288117",
+				"x": 4,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "Cold RTDs",
+				"queries": [
+					{
+						"query": "SELECT mean(\"temperature\") AS \"mean_temperature\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.thermal_cold\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND (\"Source\"='RTD-00' OR \"Source\"='RTD-02' OR \"Source\"='RTD-03' OR \"Source\"='RTD-05' OR \"Source\"='RTD-50' OR \"Source\"='RTD-52' OR \"Source\"='RTD-53' OR \"Source\"='RTD-55') GROUP BY time(:interval:), \"Source\" FILL(none)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.thermal_cold",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_temperature",
+									"args": [
+										{
+											"value": "temperature",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Source": [
+									"RTD-00",
+									"RTD-02",
+									"RTD-03",
+									"RTD-05",
+									"RTD-50",
+									"RTD-52",
+									"RTD-53",
+									"RTD-55"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"Source"
+								]
+							},
+							"areTagsAccepted": true,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "b43dfbc1-3549-45e2-882d-191c942d197f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8e7df124-dbaa-4ae9-9099-6ed6f6fa1e98",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a74f8609-3519-4401-b62e-32a92477dda5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/98659076-d445-4664-8a9c-691557288117"
+				}
+			},
+			{
+				"i": "93679fa5-baea-4bcf-9af1-0b99c5256b4b",
+				"x": 0,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "Cryo RTDs",
+				"queries": [
+					{
+						"query": "SELECT \"temperature\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.thermal_cryo\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND (\"Source\"='RTD-02' OR \"Source\"='RTD-03' OR \"Source\"='RTD-04' OR \"Source\"='RTD-12' OR \"Source\"='RTD-13' OR \"Source\"='RTD-14' OR \"Source\"='RTD-21' OR \"Source\"='RTD-22' OR \"Source\"='RTD-24' OR \"Source\"='RTD-25' OR \"Source\"='RTD-30' OR \"Source\"='RTD-31' OR \"Source\"='RTD-33' OR \"Source\"='RTD-34' OR \"Source\"='RTD-41' OR \"Source\"='RTD-42' OR \"Source\"='RTD-43' OR \"Source\"='RTD-51' OR \"Source\"='RTD-53' OR \"Source\"='RTD-52') GROUP BY \"Source\" ",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.thermal_cryo",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "temperature",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Source": [
+									"RTD-02",
+									"RTD-03",
+									"RTD-04",
+									"RTD-12",
+									"RTD-13",
+									"RTD-14",
+									"RTD-21",
+									"RTD-22",
+									"RTD-24",
+									"RTD-25",
+									"RTD-30",
+									"RTD-31",
+									"RTD-33",
+									"RTD-34",
+									"RTD-41",
+									"RTD-42",
+									"RTD-43",
+									"RTD-51",
+									"RTD-53",
+									"RTD-52"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Source"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "b43dfbc1-3549-45e2-882d-191c942d197f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8e7df124-dbaa-4ae9-9099-6ed6f6fa1e98",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a74f8609-3519-4401-b62e-32a92477dda5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/93679fa5-baea-4bcf-9af1-0b99c5256b4b"
+				}
+			},
+			{
+				"i": "9edeeca1-0846-4250-a132-34c0ab047105",
+				"x": 1,
+				"y": 4,
+				"w": 1,
+				"h": 1,
+				"name": "R40 VOD",
+				"queries": [
+					{
+						"query": "SELECT \"ODV\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Raft\"='R40'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ODV",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R40"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/9edeeca1-0846-4250-a132-34c0ab047105"
+				}
+			},
+			{
+				"i": "d02a2937-3847-47e6-b59f-eeafb5f41491",
+				"x": 2,
+				"y": 4,
+				"w": 1,
+				"h": 1,
+				"name": "R40 HVbias",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='hvbias' AND \"Raft\"='R40' GROUP BY \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R40"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"30"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_sensor.ODV",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/473/cells/d02a2937-3847-47e6-b59f-eeafb5f41491"
+				}
+			}
+		],
+		"templates": [],
+		"name": "LSSTCam Temps, Vacuum, and VOD",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/473",
+			"cells": "/chronograf/v1/dashboards/473/cells",
+			"templates": "/chronograf/v1/dashboards/473/templates"
+		}
+	}
+}

@@ -1,0 +1,303 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "280",
+		"cells": [
+			{
+				"i": "a4747056-ee2e-4f2d-ba1e-04e81f5c2033",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 3,
+				"name": "Actual positions",
+				"queries": [
+					{
+						"query": "SELECT \"actualPosition\", \"demandPosition\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.azimuth\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.azimuth",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "actualPosition",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "demandPosition",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT \"actualPositionDrive0\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.azimuthCableWrap\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.azimuthCableWrap",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "actualPositionDrive0",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "CCW and Rotator Actual Positions",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "bae98bff-b5d6-44ee-8d3a-3957b7c5e1e8",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "674ac83a-034e-4bf0-9163-5d729441e7eb",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e6a93994-edfd-404c-831b-3ab2fc5cdcb7",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {
+					"type": "static",
+					"orientation": "bottom"
+				},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "It seems that we could not find data in the interval you set. Try to pick a different day to visualize the data.\n\nIf you want an example, try the date-time range: 2021-08-12 14:00 to 2021-08-12 16:00.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/280/cells/a4747056-ee2e-4f2d-ba1e-04e81f5c2033"
+				}
+			},
+			{
+				"i": "d5001c27-1bac-49df-b03c-e00090d941ac",
+				"x": 0,
+				"y": 3,
+				"w": 12,
+				"h": 3,
+				"name": "Difference in positions",
+				"queries": [
+					{
+						"query": "t1 = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.MTMount.azimuth/ and r._field == \"actualPosition\")\n  |> aggregateWindow(every: 1s, fn: mean)\n  |> keep(columns: [\"_time\", \"_value\"])\n  \nt2 = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.MTMount.azimuthCableWrap/ and r._field == \"actualPositionDrive0\")\n  |> aggregateWindow(every: 1s, fn: mean)\n  |> keep(columns: [\"_time\", \"_value\"])\n\njoin(tables: {t1: t1, t2: t2}, on: [\"_time\"])\n  |> map(fn: (r) => ({ r with _value: r._value_t2 - r._value_t1}))\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> yield(name: \"delta\")\n  ",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "t1 = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.MTMount.azimuth/ and r._field == \"actualPosition\")\n  |> aggregateWindow(every: 1s, fn: mean)\n  |> keep(columns: [\"_time\", \"_value\"])\n  \nt2 = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.MTMount.azimuthCableWrap/ and r._field == \"actualPositionDrive0\")\n  |> aggregateWindow(every: 1s, fn: mean)\n  |> keep(columns: [\"_time\", \"_value\"])\n\njoin(tables: {t1: t1, t2: t2}, on: [\"_time\"])\n  |> map(fn: (r) => ({ r with _value: r._value_t2 - r._value_t1}))\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> yield(name: \"delta\")\n  ",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "°",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "9c5a7f0f-1e00-4644-9607-137b58999065",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "22d078cc-b4e7-4bf1-86cd-dd043ea2114d",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ATMCS.mount_Nasmyth_Encoders.nasmyth1CalculatedAngle99",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/280/cells/d5001c27-1bac-49df-b03c-e00090d941ac"
+				}
+			}
+		],
+		"templates": [],
+		"name": "ACW + Azimuth Difference",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/280",
+			"cells": "/chronograf/v1/dashboards/280/cells",
+			"templates": "/chronograf/v1/dashboards/280/templates"
+		}
+	}
+}

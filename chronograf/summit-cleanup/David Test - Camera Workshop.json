@@ -1,0 +1,691 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "722",
+		"cells": [
+			{
+				"i": "b723b7e9-ffd8-4e95-b750-4bde57b2fa68",
+				"x": 0,
+				"y": 11,
+				"w": 12,
+				"h": 3,
+				"name": "HVAC Glycol Chil03 Supply Flow",
+				"queries": [
+					{
+						"query": "SELECT \"supplyFlowChiller03\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolLineSensors\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.glycolLineSensors",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "supplyFlowChiller03",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "09450a1c-c464-4968-b420-f404cd7dc601",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a449c99c-4f30-43eb-befd-7f04da26ca3b",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "1d98fcf5-821d-4012-8e29-efcf2fc07d89",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/722/cells/b723b7e9-ffd8-4e95-b750-4bde57b2fa68"
+				}
+			},
+			{
+				"i": "5911dc59-15a5-407b-b238-77e7726fe8b3",
+				"x": 0,
+				"y": 6,
+				"w": 12,
+				"h": 2,
+				"name": "Cryo Plate Temp",
+				"queries": [
+					{
+						"query": "SELECT mean(\"temperature\") AS \"mean_temperature\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.thermal_cryo\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='thermal' GROUP BY time(:interval:), \"Agent\" FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.thermal_cryo",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_temperature",
+									"args": [
+										{
+											"value": "temperature",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Agent": [
+									"thermal"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"Agent"
+								]
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "09450a1c-c464-4968-b420-f404cd7dc601",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a449c99c-4f30-43eb-befd-7f04da26ca3b",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "1d98fcf5-821d-4012-8e29-efcf2fc07d89",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/722/cells/5911dc59-15a5-407b-b238-77e7726fe8b3"
+				}
+			},
+			{
+				"i": "a8ff0e25-adf6-4a9c-86c9-3d5896909121",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 3,
+				"name": "Hex Vac Ion Pump 1&2 Current",
+				"queries": [
+					{
+						"query": "SELECT \"I\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.vacuum_hx_hip\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND (\"Hip\"='HIP1' OR \"Hip\"='HIP2') GROUP BY \"Hip\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.vacuum_hx_hip",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "I",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hip": [
+									"HIP1",
+									"HIP2"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Hip"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "09450a1c-c464-4968-b420-f404cd7dc601",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a449c99c-4f30-43eb-befd-7f04da26ca3b",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "1d98fcf5-821d-4012-8e29-efcf2fc07d89",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/722/cells/a8ff0e25-adf6-4a9c-86c9-3d5896909121"
+				}
+			},
+			{
+				"i": "c4a947e9-3f0e-4930-964a-0d9d93dc6f65",
+				"x": 0,
+				"y": 8,
+				"w": 12,
+				"h": 3,
+				"name": "Reb Total Power",
+				"queries": [
+					{
+						"query": "SELECT sum(\"power\") AS \"sum_power\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower_power\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND (\"Agent\"='rebpower' OR \"Agent\"='focal-plane') AND (\"Reb\"='Reb0' OR \"Reb\"='Reb1' OR \"Reb\"='Reb2' OR \"Reb\"='RebG' OR \"Reb\"='RebW') GROUP BY time(:interval:), \"Agent\" FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower_power",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "sum",
+									"type": "func",
+									"alias": "sum_power",
+									"args": [
+										{
+											"value": "power",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Agent": [
+									"rebpower",
+									"focal-plane"
+								],
+								"Reb": [
+									"Reb0",
+									"Reb1",
+									"Reb2",
+									"RebG",
+									"RebW"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"Agent"
+								]
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "09450a1c-c464-4968-b420-f404cd7dc601",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a449c99c-4f30-43eb-befd-7f04da26ca3b",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "1d98fcf5-821d-4012-8e29-efcf2fc07d89",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/722/cells/c4a947e9-3f0e-4930-964a-0d9d93dc6f65"
+				}
+			},
+			{
+				"i": "3c14cf57-df36-4fef-ac7c-49cdafcbc24f",
+				"x": 0,
+				"y": 3,
+				"w": 12,
+				"h": 3,
+				"name": "Hex Cryo Pressure",
+				"queries": [
+					{
+						"query": "SELECT \"HexVac\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.vacuum_hx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='vacuum'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.vacuum_hx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "HexVac",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Agent": [
+									"vacuum"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "7733ddde-ab09-444b-81ed-050f155f68be",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8bb5d3b7-e8df-4e4e-8858-d96661ce5924",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "bba36563-38c4-4c27-9d26-305dad22cdae",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.thermal_cryo.mean_temperature",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/722/cells/3c14cf57-df36-4fef-ac7c-49cdafcbc24f"
+				}
+			}
+		],
+		"templates": [],
+		"name": "David Test - Camera Workshop",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/722",
+			"cells": "/chronograf/v1/dashboards/722/cells",
+			"templates": "/chronograf/v1/dashboards/722/templates"
+		}
+	}
+}

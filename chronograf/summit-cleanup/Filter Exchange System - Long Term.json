@@ -1,0 +1,625 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "584",
+		"cells": [
+			{
+				"i": "59e60a5c-b6c0-44bb-876f-7b4920fcc477",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 4,
+				"name": "Clamp unlock time",
+				"queries": [
+					{
+						"query": "SELECT max(\"UNLOCK\") AS \"max_UNLOCK1\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.fcs_duration_carousel_clamps\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Socket\"='socket1' GROUP BY time(:interval:)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.fcs_duration_carousel_clamps",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "max_UNLOCK1",
+									"args": [
+										{
+											"value": "UNLOCK",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Socket": [
+									"socket1"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT max(\"UNLOCK\") AS \"max_UNLOCK2\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.fcs_duration_carousel_clamps\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Socket\"='socket2' GROUP BY time(:interval:)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.fcs_duration_carousel_clamps",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "max_UNLOCK2",
+									"args": [
+										{
+											"value": "UNLOCK",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Socket": [
+									"socket2"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT max(\"UNLOCK\") AS \"max_UNLOCK3\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.fcs_duration_carousel_clamps\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Socket\"='socket3' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.fcs_duration_carousel_clamps",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "max_UNLOCK3",
+									"args": [
+										{
+											"value": "UNLOCK",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Socket": [
+									"socket3"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT max(\"UNLOCK\") AS \"max_UNLOCK4\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.fcs_duration_carousel_clamps\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Socket\"='socket4' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.fcs_duration_carousel_clamps",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "max_UNLOCK4",
+									"args": [
+										{
+											"value": "UNLOCK",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Socket": [
+									"socket4"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT max(\"UNLOCK\") AS \"max_UNLOCK5\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.fcs_duration_carousel_clamps\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Socket\"='socket5' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.fcs_duration_carousel_clamps",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "max_UNLOCK5",
+									"args": [
+										{
+											"value": "UNLOCK",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Socket": [
+									"socket5"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "a7a6976e-93f1-4080-813f-ddfa3f9b773f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "9faf633c-c567-4c17-87ae-a6a3c35e5fc1",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "34fe28fa-6d1b-49be-aead-a07e091dd966",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/584/cells/59e60a5c-b6c0-44bb-876f-7b4920fcc477"
+				}
+			},
+			{
+				"i": "673c73d5-7e51-4497-86fd-aa42228487b6",
+				"x": 0,
+				"y": 4,
+				"w": 12,
+				"h": 4,
+				"name": "Rotation current",
+				"queries": [
+					{
+						"query": "SELECT max(\"current\") AS \"max_current\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.fcs_canbus_controller\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Controller\"='carouselController' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.fcs_canbus_controller",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "max_current",
+									"args": [
+										{
+											"value": "current",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Controller": [
+									"carouselController"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "a7a6976e-93f1-4080-813f-ddfa3f9b773f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "9faf633c-c567-4c17-87ae-a6a3c35e5fc1",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "34fe28fa-6d1b-49be-aead-a07e091dd966",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/584/cells/673c73d5-7e51-4497-86fd-aa42228487b6"
+				}
+			},
+			{
+				"i": "49ce80c1-1325-4ec4-9cbd-ae14cce91a91",
+				"x": 0,
+				"y": 8,
+				"w": 12,
+				"h": 4,
+				"name": "Autochanger trucks current",
+				"queries": [
+					{
+						"query": "SELECT max(\"current\") AS \"max_currentXminus\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.fcs_canbus_controller\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='autochanger' AND \"Controller\"='acTruckXminusController' GROUP BY time(:interval:)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.fcs_canbus_controller",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "max_currentXminus",
+									"args": [
+										{
+											"value": "current",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Controller": [
+									"acTruckXminusController"
+								],
+								"Hardware": [
+									"autochanger"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT max(\"current\") AS \"max_currentXplus\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.fcs_canbus_controller\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='autochanger' AND \"Controller\"='acTruckXplusController' GROUP BY time(:interval:)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.fcs_canbus_controller",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "max_currentXplus",
+									"args": [
+										{
+											"value": "current",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Controller": [
+									"acTruckXplusController"
+								],
+								"Hardware": [
+									"autochanger"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "",
+						"scale": ""
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "a7a6976e-93f1-4080-813f-ddfa3f9b773f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "9faf633c-c567-4c17-87ae-a6a3c35e5fc1",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "34fe28fa-6d1b-49be-aead-a07e091dd966",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/584/cells/49ce80c1-1325-4ec4-9cbd-ae14cce91a91"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Filter Exchange System - Long Term",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/584",
+			"cells": "/chronograf/v1/dashboards/584/cells",
+			"templates": "/chronograf/v1/dashboards/584/templates"
+		}
+	}
+}

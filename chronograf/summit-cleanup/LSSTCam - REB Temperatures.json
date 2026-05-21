@@ -1,0 +1,300 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "530",
+		"cells": [
+			{
+				"i": "06b2729f-0613-4a99-abee-eac2f17be002",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 4,
+				"name": "Focal Plane REB Temperature (RTD 6)",
+				"queries": [
+					{
+						"query": "SELECT mean(\"temperature\") FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_reb_temp\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Location\"='Temp6' GROUP BY \"Raft\", \"Reb\", time(30s) FILL(previous)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_reb_temp",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "",
+									"args": [
+										{
+											"value": "temperature",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Location": [
+									"Temp6"
+								]
+							},
+							"groupBy": {
+								"time": "30s",
+								"tags": [
+									"Raft",
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"fill": "previous",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "b9fb4fec-548d-4d08-9b6d-59153fca2e5a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7b16f254-ebc9-4b9f-b720-e412e612aea4",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "353c9c87-81d6-49fb-a6ef-3f808cfd2ecd",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/530/cells/06b2729f-0613-4a99-abee-eac2f17be002"
+				}
+			},
+			{
+				"i": "50c64c0a-bc14-4586-aac7-341f0d0a0d79",
+				"x": 0,
+				"y": 4,
+				"w": 12,
+				"h": 4,
+				"name": "REB Power Supply Temperature (each PS powers 6 REBs)",
+				"queries": [
+					{
+						"query": "SELECT mean(\"temperature\") AS \"mean_temperature\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebbpower_ps\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='rebpower' GROUP BY time(:interval:), \"Ps\", \"Location\" FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebbpower_ps",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_temperature",
+									"args": [
+										{
+											"value": "temperature",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Agent": [
+									"rebpower"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"Ps",
+									"Location"
+								]
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "00860c87-e19f-4d97-8af9-d4c841196c56",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "63e98f46-7fae-4359-9758-de8d37ab5335",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5551575e-b2d0-4c3f-806c-cfda6506e940",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/530/cells/50c64c0a-bc14-4586-aac7-341f0d0a0d79"
+				}
+			}
+		],
+		"templates": [],
+		"name": "LSSTCam - REB Temperatures",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/530",
+			"cells": "/chronograf/v1/dashboards/530/cells",
+			"templates": "/chronograf/v1/dashboards/530/templates"
+		}
+	}
+}

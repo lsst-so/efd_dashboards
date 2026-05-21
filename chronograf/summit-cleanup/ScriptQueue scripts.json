@@ -1,0 +1,250 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "741",
+		"cells": [
+			{
+				"i": "6d1b26d2-09cc-4b16-afbd-1de4c1a7d190",
+				"x": 0,
+				"y": 5,
+				"w": 12,
+				"h": 6,
+				"name": "MTQueue added scripts",
+				"queries": [
+					{
+						"query": "SELECT \"path\" FROM \"efd\".\"autogen\".\"lsst.sal.ScriptQueue.command_add\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 1",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"path\" FROM \"efd\".\"autogen\".\"lsst.sal.ScriptQueue.command_add\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 1",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ScriptQueue.command_add.path",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/741/cells/6d1b26d2-09cc-4b16-afbd-1de4c1a7d190"
+				}
+			},
+			{
+				"i": "c8b6c825-b3f4-45d6-b338-564510a7aaa5",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 5,
+				"name": "MTQueue scripts",
+				"queries": [
+					{
+						"query": "SELECT \"scriptSalIndex\", \"scriptState\", \"scriptState\" FROM \"efd\".\"autogen\".\"lsst.sal.ScriptQueue.logevent_script\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 1 AND scriptState = 0",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"scriptSalIndex\", \"scriptState\", \"scriptState\" FROM \"efd\".\"autogen\".\"lsst.sal.ScriptQueue.logevent_script\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 1 AND scriptState = 0",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ScriptQueue.logevent_script.scriptSalIndex",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ScriptQueue.logevent_script.scriptState",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ScriptQueue.logevent_script.scriptState_1",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/741/cells/c8b6c825-b3f4-45d6-b338-564510a7aaa5"
+				}
+			}
+		],
+		"templates": [],
+		"name": "ScriptQueue scripts",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/741",
+			"cells": "/chronograf/v1/dashboards/741/cells",
+			"templates": "/chronograf/v1/dashboards/741/templates"
+		}
+	}
+}

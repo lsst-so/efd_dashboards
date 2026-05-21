@@ -1,0 +1,1034 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "411",
+		"cells": [
+			{
+				"i": "238cbba4-a925-4ddd-af88-d740b7217df4",
+				"x": 6,
+				"y": 9,
+				"w": 6,
+				"h": 3,
+				"name": "Azimuth Motion State",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d)\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /lsst.sal.MTDome.logevent_azMotion/ )\n  |> last()\n  |> pivot(rowKey: [\"_measurement\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> group()\n  |> map(fn: (r) => ({\n    r with\n    \"1\": \n      if r.state == 1 then \"ERROR\"\n      else if r.state == 2 then \"CLOSED\"\n      else if r.state == 3 then \"CLOSING\"\n      else if r.state == 4 then \"CRAWLING\"\n      else if r.state == 5 then \"MOVING\"\n      else if r.state == 6 then \"OPEN\"\n      else if r.state == 7 then \"OPENING\"\n      else if r.state == 8 then \"PARKED\"\n      else if r.state == 9 then \"PARKING\"\n      else if r.state == 10 then \"STOPPED\"\n      else if r.state == 11 then \"STOPPING\"\n      else if r.state == 12 then \"STOPPING_BRAKING\"\n      else if r.state == 13 then \"STOPPED_BRAKED\"\n      else if r.state == 14 then \"BRAKE_DISENGAGED\"\n      else if r.state == 15 then \"BRAKES_DISENGAGED\"\n      else if r.state == 16 then \"BRAKE_ENGAGED\"\n      else if r.state == 17 then \"BRAKES_ENGAGED\"\n      else if r.state == 18 then \"DEFLATED\"\n      else if r.state == 19 then \"DEFLATING\"\n      else if r.state == 20 then \"DISABLING_MOTOR_POWER\"\n      else if r.state == 21 then \"DISENGAGING_BRAKE\"\n      else if r.state == 22 then \"DISENGAGING_BRAKES\"\n      else if r.state == 23 then \"ENABLING_MOTOR_POWER\"\n      else if r.state == 24 then \"ENGAGING_BRAKE\"\n      else if r.state == 25 then \"ENGAGING_BRAKES\"\n      else if r.state == 26 then \"FINAL_DOWN_CLOSE_LS_ENGAGED\"\n      else if r.state == 27 then \"FINAL_DOWN_OPEN_LS_ENGAGED\"\n      else if r.state == 28 then \"FINAL_UP_CLOSE_LS_ENGAGED\"\n      else if r.state == 29 then \"FINAL_UP_OPEN_LS_ENGAGED\"\n      else if r.state == 30 then \"GLYCOL_FLOWING\"\n      else if r.state == 31 then \"GO_DEGRADED\"\n      else if r.state == 32 then \"GO_NORMAL\"\n      else if r.state == 33 then \"GO_STATIONARY\"\n      else if r.state == 34 then \"INCLINED\"\n      else if r.state == 35 then \"INFLATED\"\n      else if r.state == 36 then \"INFLATING\"\n      else if r.state == 37 then \"LP_DISENGAGED\"\n      else if r.state == 38 then \"LP_DISENGAGING\"\n      else if r.state == 39 then \"LP_ENGAGED\"\n      else if r.state == 40 then \"LP_ENGAGING\"\n      else if r.state == 41 then \"MOTOR_COOLING_OFF\"\n      else if r.state == 42 then \"MOTOR_COOLING_ON\"\n      else if r.state == 43 then \"MOTOR_POWER_OFF\"\n      else if r.state == 44 then \"MOTOR_POWER_ON\"\n      else if r.state == 45 then \"PROXIMITY_CLOSED_LS_ENGAGED\"\n      else if r.state == 46 then \"PROXIMITY_OPEN_LS_ENGAGED\"\n      else if r.state == 47 then \"STARTING_MOTOR_COOLING\"\n      else if r.state == 48 then \"STOPPING_MOTOR_COOLING\"\n      else if r.state == 49 then \"UNDETERMINED\"\n      else if r.state == 50 then \"VERTICAL\"\n      else if r.state == 51 then \"WAITING_AMCS_STATIONARY\"\n      else if r.state == 52 then \"DISABLED\"\n      else if r.state == 53 then \"DISABLING\"\n      else if r.state == 54 then \"ENABLED\"\n      else if r.state == 55 then \"ENABLING\"\n      else \"UNKNOWN\",\n    })\n  )\n  |> keep(columns: [\n    \"1\", \n  ])\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d)\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /lsst.sal.MTDome.logevent_azMotion/ )\n  |> last()\n  |> pivot(rowKey: [\"_measurement\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> group()\n  |> map(fn: (r) => ({\n    r with\n    \"1\": \n      if r.state == 1 then \"ERROR\"\n      else if r.state == 2 then \"CLOSED\"\n      else if r.state == 3 then \"CLOSING\"\n      else if r.state == 4 then \"CRAWLING\"\n      else if r.state == 5 then \"MOVING\"\n      else if r.state == 6 then \"OPEN\"\n      else if r.state == 7 then \"OPENING\"\n      else if r.state == 8 then \"PARKED\"\n      else if r.state == 9 then \"PARKING\"\n      else if r.state == 10 then \"STOPPED\"\n      else if r.state == 11 then \"STOPPING\"\n      else if r.state == 12 then \"STOPPING_BRAKING\"\n      else if r.state == 13 then \"STOPPED_BRAKED\"\n      else if r.state == 14 then \"BRAKE_DISENGAGED\"\n      else if r.state == 15 then \"BRAKES_DISENGAGED\"\n      else if r.state == 16 then \"BRAKE_ENGAGED\"\n      else if r.state == 17 then \"BRAKES_ENGAGED\"\n      else if r.state == 18 then \"DEFLATED\"\n      else if r.state == 19 then \"DEFLATING\"\n      else if r.state == 20 then \"DISABLING_MOTOR_POWER\"\n      else if r.state == 21 then \"DISENGAGING_BRAKE\"\n      else if r.state == 22 then \"DISENGAGING_BRAKES\"\n      else if r.state == 23 then \"ENABLING_MOTOR_POWER\"\n      else if r.state == 24 then \"ENGAGING_BRAKE\"\n      else if r.state == 25 then \"ENGAGING_BRAKES\"\n      else if r.state == 26 then \"FINAL_DOWN_CLOSE_LS_ENGAGED\"\n      else if r.state == 27 then \"FINAL_DOWN_OPEN_LS_ENGAGED\"\n      else if r.state == 28 then \"FINAL_UP_CLOSE_LS_ENGAGED\"\n      else if r.state == 29 then \"FINAL_UP_OPEN_LS_ENGAGED\"\n      else if r.state == 30 then \"GLYCOL_FLOWING\"\n      else if r.state == 31 then \"GO_DEGRADED\"\n      else if r.state == 32 then \"GO_NORMAL\"\n      else if r.state == 33 then \"GO_STATIONARY\"\n      else if r.state == 34 then \"INCLINED\"\n      else if r.state == 35 then \"INFLATED\"\n      else if r.state == 36 then \"INFLATING\"\n      else if r.state == 37 then \"LP_DISENGAGED\"\n      else if r.state == 38 then \"LP_DISENGAGING\"\n      else if r.state == 39 then \"LP_ENGAGED\"\n      else if r.state == 40 then \"LP_ENGAGING\"\n      else if r.state == 41 then \"MOTOR_COOLING_OFF\"\n      else if r.state == 42 then \"MOTOR_COOLING_ON\"\n      else if r.state == 43 then \"MOTOR_POWER_OFF\"\n      else if r.state == 44 then \"MOTOR_POWER_ON\"\n      else if r.state == 45 then \"PROXIMITY_CLOSED_LS_ENGAGED\"\n      else if r.state == 46 then \"PROXIMITY_OPEN_LS_ENGAGED\"\n      else if r.state == 47 then \"STARTING_MOTOR_COOLING\"\n      else if r.state == 48 then \"STOPPING_MOTOR_COOLING\"\n      else if r.state == 49 then \"UNDETERMINED\"\n      else if r.state == 50 then \"VERTICAL\"\n      else if r.state == 51 then \"WAITING_AMCS_STATIONARY\"\n      else if r.state == 52 then \"DISABLED\"\n      else if r.state == 53 then \"DISABLING\"\n      else if r.state == 54 then \"ENABLED\"\n      else if r.state == 55 then \"ENABLING\"\n      else \"UNKNOWN\",\n    })\n  )\n  |> keep(columns: [\n    \"1\", \n  ])\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "1",
+						"displayName": "state",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/411/cells/238cbba4-a925-4ddd-af88-d740b7217df4"
+				}
+			},
+			{
+				"i": "a7438829-895a-40f2-a61c-fb15976623d8",
+				"x": 0,
+				"y": 12,
+				"w": 12,
+				"h": 2,
+				"name": "Drive Temperatures",
+				"queries": [
+					{
+						"query": "SELECT \"driveTemperature0\", \"driveTemperature1\", \"driveTemperature10\", \"driveTemperature11\", \"driveTemperature12\", \"driveTemperature2\", \"driveTemperature3\", \"driveTemperature4\", \"driveTemperature5\", \"driveTemperature6\", \"driveTemperature7\", \"driveTemperature8\", \"driveTemperature9\" FROM \"efd\".\"autogen\".\"lsst.sal.MTDome.azimuth\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTDome.azimuth",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "driveTemperature0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "driveTemperature1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "driveTemperature10",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "driveTemperature11",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "driveTemperature12",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "driveTemperature2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "driveTemperature3",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "driveTemperature4",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "driveTemperature5",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "driveTemperature6",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "driveTemperature7",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "driveTemperature8",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "driveTemperature9",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e957a1bf-c82e-4f0d-bacb-5a17cc6b9df1",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a473e160-d886-4ea5-9818-76a9cd5f02a3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e1bd0167-f133-4293-a1ab-868e05b59f01",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/411/cells/a7438829-895a-40f2-a61c-fb15976623d8"
+				}
+			},
+			{
+				"i": "2c2a85f6-641e-42d9-b614-8e995234c5b0",
+				"x": 0,
+				"y": 6,
+				"w": 6,
+				"h": 3,
+				"name": "Azimuth Drive Currents",
+				"queries": [
+					{
+						"query": "SELECT \"driveCurrentActual0\", \"driveCurrentActual1\", \"driveCurrentActual2\", \"driveCurrentActual3\", \"driveCurrentActual4\" FROM \"efd\".\"autogen\".\"lsst.sal.MTDome.azimuth\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTDome.azimuth",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "driveCurrentActual0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "driveCurrentActual1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "driveCurrentActual2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "driveCurrentActual3",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "driveCurrentActual4",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "fd17e165-7f39-4473-a8a1-522dae1d355c",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "fa1fef3e-12b9-4023-bbff-a5565256b401",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5b3a9948-cbca-4a39-b490-efb33f791795",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/411/cells/2c2a85f6-641e-42d9-b614-8e995234c5b0"
+				}
+			},
+			{
+				"i": "2ee5d43b-f9d8-44bd-9682-713762b5cda2",
+				"x": 6,
+				"y": 3,
+				"w": 6,
+				"h": 3,
+				"name": "Azimuth Control Software Status",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d)\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /lsst.sal.MTDome.logevent_azEnabled/ )\n  |> last()\n  |> pivot(rowKey: [\"_measurement\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> group()\n  |> map(fn: (r) => ({\n    r with\n    \"1\": \n      if r.state == 1.00 then \"DISABLED\"\n      else if r.state == 2.00 then \"ENABLED\"\n      else if r.state == 3.00 then \"FAULT\"\n      else \"UNKNOWN\",\n    \"2\": r.faultCode,\n    })\n  )\n  |> keep(columns: [\n    \"1\", \n    \"2\"\n  ])\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d)\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /lsst.sal.MTDome.logevent_azEnabled/ )\n  |> last()\n  |> pivot(rowKey: [\"_measurement\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> group()\n  |> map(fn: (r) => ({\n    r with\n    \"1\": \n      if r.state == 1.00 then \"DISABLED\"\n      else if r.state == 2.00 then \"ENABLED\"\n      else if r.state == 3.00 then \"FAULT\"\n      else \"UNKNOWN\",\n    \"2\": r.faultCode,\n    })\n  )\n  |> keep(columns: [\n    \"1\", \n    \"2\"\n  ])\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "1",
+						"displayName": "state",
+						"visible": true
+					},
+					{
+						"internalName": "2",
+						"displayName": "fault code",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/411/cells/2ee5d43b-f9d8-44bd-9682-713762b5cda2"
+				}
+			},
+			{
+				"i": "331652ef-3b05-49ca-a963-ee3548604737",
+				"x": 0,
+				"y": 3,
+				"w": 6,
+				"h": 3,
+				"name": "Azimuth Velocity",
+				"queries": [
+					{
+						"query": "SELECT \"velocityActual\", \"velocityCommanded\" FROM \"efd\".\"autogen\".\"lsst.sal.MTDome.azimuth\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTDome.azimuth",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "velocityActual",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "velocityCommanded",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"-1",
+							"1"
+						],
+						"label": "Azimuth Velocity",
+						"prefix": "",
+						"suffix": "º/s",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "c19f385a-cfc1-4ba1-9393-3ec502da7ca0",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5860a427-60cb-460a-903a-5978f1aa5d89",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5183a5c5-108a-44a1-ac7e-634ecd698efe",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/411/cells/331652ef-3b05-49ca-a963-ee3548604737"
+				}
+			},
+			{
+				"i": "33260bb7-f588-4090-bdf9-8b50a5b8fa60",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 3,
+				"name": "Azimuth Position",
+				"queries": [
+					{
+						"query": "SELECT \"positionActual\", \"positionCommanded\" FROM \"efd\".\"autogen\".\"lsst.sal.MTDome.azimuth\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTDome.azimuth",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "positionActual",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "positionCommanded",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							"360"
+						],
+						"label": "Azimuth",
+						"prefix": "",
+						"suffix": "º",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5cb24417-cebe-455d-8673-9665ae5911a6",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "6e00a57c-7215-4f57-95d7-248d1bcb02be",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/411/cells/33260bb7-f588-4090-bdf9-8b50a5b8fa60"
+				}
+			},
+			{
+				"i": "6b3661c4-bd52-48fa-9621-8c9c167df582",
+				"x": 6,
+				"y": 6,
+				"w": 6,
+				"h": 3,
+				"name": "Fault Code ",
+				"queries": [
+					{
+						"query": "SELECT \"faultCode\" FROM \"efd\".\"autogen\".\"lsst.sal.MTDome.logevent_azEnabled\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTDome.logevent_azEnabled",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "faultCode",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTDome.logevent_azEnabled.faultCode",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/411/cells/6b3661c4-bd52-48fa-9621-8c9c167df582"
+				}
+			},
+			{
+				"i": "93a22723-28ec-4643-8269-227bd464acf0",
+				"x": 0,
+				"y": 9,
+				"w": 6,
+				"h": 3,
+				"name": "Dome following",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTDomeTrajectory.logevent_followingMode\")\n  |> filter(fn: (r) => r[\"_field\"] == \"enabled\")\n  |> last()\n  |> pivot(rowKey: [\"_measurement\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> map(fn: (r) => ({\n    r with\n    \"1\": \n      if r.enabled == true then \"Dome following ENABLED\"\n      else \"Dome following DISABLED\"\n})\n)\n|> keep(columns: [\n    \"1\"\n  ])",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTDomeTrajectory.logevent_followingMode\")\n  |> filter(fn: (r) => r[\"_field\"] == \"enabled\")\n  |> last()\n  |> pivot(rowKey: [\"_measurement\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> map(fn: (r) => ({\n    r with\n    \"1\": \n      if r.enabled == true then \"Dome following ENABLED\"\n      else \"Dome following DISABLED\"\n})\n)\n|> keep(columns: [\n    \"1\"\n  ])",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "1",
+						"displayName": "Dome following",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/411/cells/93a22723-28ec-4643-8269-227bd464acf0"
+				}
+			}
+		],
+		"templates": [],
+		"name": "LOVE-MTDome",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/411",
+			"cells": "/chronograf/v1/dashboards/411/cells",
+			"templates": "/chronograf/v1/dashboards/411/templates"
+		}
+	}
+}

@@ -1,0 +1,637 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "501",
+		"cells": [
+			{
+				"i": "2879cf9e-ae1c-4d33-8367-8a978b2d99fa",
+				"x": 8,
+				"y": 0,
+				"w": 3,
+				"h": 2,
+				"name": "Dome Azimuth ",
+				"queries": [
+					{
+						"query": "SELECT \"positionActual\" FROM \"efd\".\"autogen\".\"lsst.sal.MTDome.azimuth\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTDome.azimuth",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "positionActual",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "°",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "39a8ebec-d75a-4abe-a752-9ce4574f12f6",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "156d03a6-1fc6-4da7-9f64-7e7b3cf2688c",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/501/cells/2879cf9e-ae1c-4d33-8367-8a978b2d99fa"
+				}
+			},
+			{
+				"i": "aa52ed4f-7477-469e-9929-45cc164a979d",
+				"x": 6,
+				"y": 0,
+				"w": 2,
+				"h": 2,
+				"name": "Elevation",
+				"queries": [
+					{
+						"query": "SELECT mean(\"demandPosition\") AS \"mean_demandPosition\", mean(\"actualPosition\") AS \"mean_actualPosition\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.elevation\" WHERE time > :dashboardTime: FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.elevation",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_demandPosition",
+									"args": [
+										{
+											"value": "demandPosition",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_actualPosition",
+									"args": [
+										{
+											"value": "actualPosition",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "°",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#4ED8A0",
+						"name": "rainforest",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/501/cells/aa52ed4f-7477-469e-9929-45cc164a979d"
+				}
+			},
+			{
+				"i": "762bc690-025a-4677-b6f0-784a61101a76",
+				"x": 6,
+				"y": 2,
+				"w": 2,
+				"h": 2,
+				"name": "Azimuth position",
+				"queries": [
+					{
+						"query": "SELECT mean(\"demandPosition\") AS \"mean_demandPosition\", mean(\"actualPosition\") AS \"mean_actualPosition\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.azimuth\" WHERE time > :dashboardTime: FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.azimuth",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_demandPosition",
+									"args": [
+										{
+											"value": "demandPosition",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_actualPosition",
+									"args": [
+										{
+											"value": "actualPosition",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "°",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/501/cells/762bc690-025a-4677-b6f0-784a61101a76"
+				}
+			},
+			{
+				"i": "631b3ce7-0324-4a39-b123-c9548c7286f2",
+				"x": 4,
+				"y": 0,
+				"w": 2,
+				"h": 4,
+				"name": "Dome Shutter",
+				"queries": [
+					{
+						"query": "SELECT \"positionActual0\", \"positionActual1\", \"positionCommanded0\", \"positionCommanded1\" FROM \"efd\".\"autogen\".\"lsst.sal.MTDome.apertureShutter\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTDome.apertureShutter",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "positionActual0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "positionActual1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "positionCommanded0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "positionCommanded1",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " %",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "gauge",
+				"colors": [
+					{
+						"id": "0",
+						"type": "min",
+						"hex": "#383846",
+						"name": "pepper",
+						"value": "0"
+					},
+					{
+						"id": "1",
+						"type": "max",
+						"hex": "#4ED8A0",
+						"name": "rainforest",
+						"value": "100"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 1
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/501/cells/631b3ce7-0324-4a39-b123-c9548c7286f2"
+				}
+			},
+			{
+				"i": "ec3da915-ae99-4fdc-ab37-710490a6b0ca",
+				"x": 0,
+				"y": 0,
+				"w": 4,
+				"h": 2,
+				"name": "Simony status TEST",
+				"queries": [
+					{
+						"query": "azimuthHomed = from(bucket: \"efd/autogen\")\n  |> range(start: -60d) // Large range to ensure the most recent record is found\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_azimuthHomed\" and r[\"_field\"] == \"homed\")\n  |> last()\n  |> map(fn: (r) => ({\n    azimuthHomed: if r._value == true then \"HOMED\" else \"NOT HOMED\"\n    }))\n\nelevationHomed = from(bucket: \"efd/autogen\")\n  |> range(start: -90d) // Large range to ensure the most recent record is found\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_elevationHomed\" and r[\"_field\"] == \"homed\")\n  |> last()\n  |> map(fn: (r) => ({\n    elevationHomed: if r._value == true then \"HOMED\" else \"NOT HOMED\"\n    }))\n\nunion(\n  tables: [azimuthHomed, elevationHomed]\n)\n  |> reduce(\n    identity: {azimuth: \"NOT HOMED\", elevation: \"NOT HOMED\"},\n    fn: (r, accumulator) => ({\n      azimuth: if exists r.azimuthHomed then r.azimuthHomed else accumulator.azimuth,\n      elevation: if exists r.elevationHomed then r.elevationHomed else accumulator.elevation\n    })\n  )\n  |> map(fn: (r) => ({\n    status: if r.azimuth == \"HOMED\" and r.elevation == \"HOMED\" then \"HOMED\"\n            else if r.azimuth == \"HOMED\" and r.elevation == \"NOT HOMED\" then \"AZIMUTH ONLY\"\n            else if r.azimuth == \"NOT HOMED\" and r.elevation == \"HOMED\" then \"ELEVATION ONLY\"\n            else \"NOT HOMED\"\n    }))\n  |> keep(columns: [\"status\"]) // Keep only the final status column\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "azimuthHomed = from(bucket: \"efd/autogen\")\n  |> range(start: -60d) // Large range to ensure the most recent record is found\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_azimuthHomed\" and r[\"_field\"] == \"homed\")\n  |> last()\n  |> map(fn: (r) => ({\n    azimuthHomed: if r._value == true then \"HOMED\" else \"NOT HOMED\"\n    }))\n\nelevationHomed = from(bucket: \"efd/autogen\")\n  |> range(start: -90d) // Large range to ensure the most recent record is found\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_elevationHomed\" and r[\"_field\"] == \"homed\")\n  |> last()\n  |> map(fn: (r) => ({\n    elevationHomed: if r._value == true then \"HOMED\" else \"NOT HOMED\"\n    }))\n\nunion(\n  tables: [azimuthHomed, elevationHomed]\n)\n  |> reduce(\n    identity: {azimuth: \"NOT HOMED\", elevation: \"NOT HOMED\"},\n    fn: (r, accumulator) => ({\n      azimuth: if exists r.azimuthHomed then r.azimuthHomed else accumulator.azimuth,\n      elevation: if exists r.elevationHomed then r.elevationHomed else accumulator.elevation\n    })\n  )\n  |> map(fn: (r) => ({\n    status: if r.azimuth == \"HOMED\" and r.elevation == \"HOMED\" then \"HOMED\"\n            else if r.azimuth == \"HOMED\" and r.elevation == \"NOT HOMED\" then \"AZIMUTH ONLY\"\n            else if r.azimuth == \"NOT HOMED\" and r.elevation == \"HOMED\" then \"ELEVATION ONLY\"\n            else \"NOT HOMED\"\n    }))\n  |> keep(columns: [\"status\"]) // Keep only the final status column\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "Status",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "status",
+						"displayName": "Axis Status",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/501/cells/ec3da915-ae99-4fdc-ab37-710490a6b0ca"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Simonyi stationaries status Test",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/501",
+			"cells": "/chronograf/v1/dashboards/501/cells",
+			"templates": "/chronograf/v1/dashboards/501/templates"
+		}
+	}
+}

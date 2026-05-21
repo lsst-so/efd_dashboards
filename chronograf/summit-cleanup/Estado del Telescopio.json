@@ -1,0 +1,3191 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "585",
+		"cells": [
+			{
+				"i": "b82842cd-e5ff-4a3d-96f7-19b6b53f256f",
+				"x": 6,
+				"y": 14,
+				"w": 5,
+				"h": 2,
+				"name": "Shutters Drive Current",
+				"queries": [
+					{
+						"query": "SELECT /driveCurrentActual/ FROM \"efd\".\"autogen\".\"lsst.sal.MTDome.apertureShutter\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT /driveCurrentActual/ FROM \"efd\".\"autogen\".\"lsst.sal.MTDome.apertureShutter\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "07b0d75a-13d8-4575-89da-a9c1d86f5a37",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "76ab0de4-16f5-43f2-8760-c09aab17f98d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7f275ae4-62a9-4e03-83f4-83104ea514c6",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/b82842cd-e5ff-4a3d-96f7-19b6b53f256f"
+				}
+			},
+			{
+				"i": "edad64ae-4350-4df1-8dc8-43b1d862f0f9",
+				"x": 7,
+				"y": 0,
+				"w": 5,
+				"h": 2,
+				"name": "Link to LSSTCam Critical Monitoring Dashboard",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "#\n### \n# [LSSTCam Critical — Cryo Derivative Degradation Leading Indicators](https://summit-lsp.lsst.codes/chronograf/sources/1/dashboards/572?refresh=Paused&amp;lower=now%28%29%20-%2015m)\n### \n",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/edad64ae-4350-4df1-8dc8-43b1d862f0f9"
+				}
+			},
+			{
+				"i": "d60b7151-9f6b-4a22-9698-edc39f342db3",
+				"x": 9,
+				"y": 8,
+				"w": 3,
+				"h": 2,
+				"name": "MTDome - Dome Azimuth Operational Mode",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d) // or -inf if you want to be sure you catch it\n  |> filter(fn: (r) =>\n    r[\"_measurement\"] == \"lsst.sal.MTDome.logevent_operationalMode\" and\n    (r[\"_field\"] == \"operationalMode\" or r[\"_field\"] == \"subSystemId\")\n  )\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> filter(fn: (r) => r.subSystemId == 1)\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)\n  |> map(fn: (r) => ({\n    _time: r._time,\n    mode: \n      if r.operationalMode == 1 then \"NORMAL\"\n      else if r.operationalMode == 2 then \"DEGRADED\"\n      else \"UNKNOWN\"\n  }))\n  |> keep(columns: [\"_time\", \"mode\"])\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d) // or -inf if you want to be sure you catch it\n  |> filter(fn: (r) =>\n    r[\"_measurement\"] == \"lsst.sal.MTDome.logevent_operationalMode\" and\n    (r[\"_field\"] == \"operationalMode\" or r[\"_field\"] == \"subSystemId\")\n  )\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> filter(fn: (r) => r.subSystemId == 1)\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)\n  |> map(fn: (r) => ({\n    _time: r._time,\n    mode: \n      if r.operationalMode == 1 then \"NORMAL\"\n      else if r.operationalMode == 2 then \"DEGRADED\"\n      else \"UNKNOWN\"\n  }))\n  |> keep(columns: [\"_time\", \"mode\"])\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"100"
+						],
+						"label": "Aperture Shutter (% Open)",
+						"prefix": "% ",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "mode",
+						"displayName": "Operational Mode",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/d60b7151-9f6b-4a22-9698-edc39f342db3"
+				}
+			},
+			{
+				"i": "812fbaa1-b1a2-43c4-868b-56ea24587c93",
+				"x": 7,
+				"y": 16,
+				"w": 4,
+				"h": 2,
+				"name": "TMA - Deployable Platforms Motion State",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d, stop: now())\n  |> filter(fn: (r) =>\n      r._measurement == \"lsst.sal.MTMount.logevent_deployablePlatformsMotionState\" and\n      (r._field == \"state\" or\n       r._field == \"elementsState0\" or\n       r._field == \"elementsState1\")\n    )\n  |> last()  \n  |> pivot(\n      rowKey:   [\"_time\"],\n      columnKey: [\"_field\"],\n      valueColumn: \"_value\"\n    )\n  |> map(fn: (r) => ({\n      _time: r._time,\n      state: \n        if r.state == 0 then \"RETRACTED\"\n        else if r.state == 1 then \"DEPLOYED\"\n        else if r.state == 2 then \"RETRACTING\"\n        else if r.state == 3 then \"DEPLOYING\"\n        else if r.state == 4 then \"LOST\"\n        else \"UNKNOWN\",\n      elementsState0:\n        if r.elementsState0 == 0 then \"RETRACTED\"\n        else if r.elementsState0 == 1 then \"DEPLOYED\"\n        else if r.elementsState0 == 2 then \"RETRACTING\"\n        else if r.elementsState0 == 3 then \"DEPLOYING\"\n        else if r.elementsState0 == 4 then \"LOST\"\n        else \"UNKNOWN\",\n      elementsState1:\n        if r.elementsState1 == 0 then \"RETRACTED\"\n        else if r.elementsState1 == 1 then \"DEPLOYED\"\n        else if r.elementsState1 == 2 then \"RETRACTING\"\n        else if r.elementsState1 == 3 then \"DEPLOYING\"\n        else if r.elementsState1 == 4 then \"LOST\"\n        else \"UNKNOWN\"\n    }))\n  |> keep(columns: [\"_time\", \"state\", \"elementsState0\", \"elementsState1\"])\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d, stop: now())\n  |> filter(fn: (r) =>\n      r._measurement == \"lsst.sal.MTMount.logevent_deployablePlatformsMotionState\" and\n      (r._field == \"state\" or\n       r._field == \"elementsState0\" or\n       r._field == \"elementsState1\")\n    )\n  |> last()  \n  |> pivot(\n      rowKey:   [\"_time\"],\n      columnKey: [\"_field\"],\n      valueColumn: \"_value\"\n    )\n  |> map(fn: (r) => ({\n      _time: r._time,\n      state: \n        if r.state == 0 then \"RETRACTED\"\n        else if r.state == 1 then \"DEPLOYED\"\n        else if r.state == 2 then \"RETRACTING\"\n        else if r.state == 3 then \"DEPLOYING\"\n        else if r.state == 4 then \"LOST\"\n        else \"UNKNOWN\",\n      elementsState0:\n        if r.elementsState0 == 0 then \"RETRACTED\"\n        else if r.elementsState0 == 1 then \"DEPLOYED\"\n        else if r.elementsState0 == 2 then \"RETRACTING\"\n        else if r.elementsState0 == 3 then \"DEPLOYING\"\n        else if r.elementsState0 == 4 then \"LOST\"\n        else \"UNKNOWN\",\n      elementsState1:\n        if r.elementsState1 == 0 then \"RETRACTED\"\n        else if r.elementsState1 == 1 then \"DEPLOYED\"\n        else if r.elementsState1 == 2 then \"RETRACTING\"\n        else if r.elementsState1 == 3 then \"DEPLOYING\"\n        else if r.elementsState1 == 4 then \"LOST\"\n        else \"UNKNOWN\"\n    }))\n  |> keep(columns: [\"_time\", \"state\", \"elementsState0\", \"elementsState1\"])\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "elementsState0",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "elementsState1",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "state",
+						"displayName": "State",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/812fbaa1-b1a2-43c4-868b-56ea24587c93"
+				}
+			},
+			{
+				"i": "613cdd76-865f-4f65-86eb-2167bf24659a",
+				"x": 9,
+				"y": 6,
+				"w": 3,
+				"h": 2,
+				"name": "MTDome - Azimuth Motion State",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d)\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /lsst.sal.MTDome.logevent_azMotion/)\n  |> last()\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> group()\n  |> map(fn: (r) => ({\n    time: r._time,\n    state: \n      if r.state == 1 then \"ERROR\"\n      else if r.state == 2 then \"CLOSED\"\n      else if r.state == 3 then \"CLOSING\"\n      else if r.state == 4 then \"CRAWLING\"\n      else if r.state == 5 then \"MOVING\"\n      else if r.state == 6 then \"OPEN\"\n      else if r.state == 7 then \"OPENING\"\n      else if r.state == 8 then \"PARKED\"\n      else if r.state == 9 then \"PARKING\"\n      else if r.state == 10 then \"STOPPED\"\n      else if r.state == 11 then \"STOPPING\"\n      else if r.state == 12 then \"STOPPING_BRAKING\"\n      else if r.state == 13 then \"STOPPED_BRAKED\"\n      else if r.state == 14 then \"BRAKE_DISENGAGED\"\n      else if r.state == 15 then \"BRAKES_DISENGAGED\"\n      else if r.state == 16 then \"BRAKE_ENGAGED\"\n      else if r.state == 17 then \"BRAKES_ENGAGED\"\n      else if r.state == 18 then \"DEFLATED\"\n      else if r.state == 19 then \"DEFLATING\"\n      else if r.state == 20 then \"DISABLING_MOTOR_POWER\"\n      else if r.state == 21 then \"DISENGAGING_BRAKE\"\n      else if r.state == 22 then \"DISENGAGING_BRAKES\"\n      else if r.state == 23 then \"ENABLING_MOTOR_POWER\"\n      else if r.state == 24 then \"ENGAGING_BRAKE\"\n      else if r.state == 25 then \"ENGAGING_BRAKES\"\n      else if r.state == 26 then \"FINAL_DOWN_CLOSE_LS_ENGAGED\"\n      else if r.state == 27 then \"FINAL_DOWN_OPEN_LS_ENGAGED\"\n      else if r.state == 28 then \"FINAL_UP_CLOSE_LS_ENGAGED\"\n      else if r.state == 29 then \"FINAL_UP_OPEN_LS_ENGAGED\"\n      else if r.state == 30 then \"GLYCOL_FLOWING\"\n      else if r.state == 31 then \"GO_DEGRADED\"\n      else if r.state == 32 then \"GO_NORMAL\"\n      else if r.state == 33 then \"GO_STATIONARY\"\n      else if r.state == 34 then \"INCLINED\"\n      else if r.state == 35 then \"INFLATED\"\n      else if r.state == 36 then \"INFLATING\"\n      else if r.state == 37 then \"LP_DISENGAGED\"\n      else if r.state == 38 then \"LP_DISENGAGING\"\n      else if r.state == 39 then \"LP_ENGAGED\"\n      else if r.state == 40 then \"LP_ENGAGING\"\n      else if r.state == 41 then \"MOTOR_COOLING_OFF\"\n      else if r.state == 42 then \"MOTOR_COOLING_ON\"\n      else if r.state == 43 then \"MOTOR_POWER_OFF\"\n      else if r.state == 44 then \"MOTOR_POWER_ON\"\n      else if r.state == 45 then \"PROXIMITY_CLOSED_LS_ENGAGED\"\n      else if r.state == 46 then \"PROXIMITY_OPEN_LS_ENGAGED\"\n      else if r.state == 47 then \"STARTING_MOTOR_COOLING\"\n      else if r.state == 48 then \"STOPPING_MOTOR_COOLING\"\n      else if r.state == 49 then \"UNDETERMINED\"\n      else if r.state == 50 then \"VERTICAL\"\n      else if r.state == 51 then \"WAITING_AMCS_STATIONARY\"\n      else if r.state == 52 then \"DISABLED\"\n      else if r.state == 53 then \"DISABLING\"\n      else if r.state == 54 then \"ENABLED\"\n      else if r.state == 55 then \"ENABLING\"\n      else \"UNKNOWN\"\n  }))\n  |> keep(columns: [\"time\", \"state\"])\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d)\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /lsst.sal.MTDome.logevent_azMotion/)\n  |> last()\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> group()\n  |> map(fn: (r) => ({\n    time: r._time,\n    state: \n      if r.state == 1 then \"ERROR\"\n      else if r.state == 2 then \"CLOSED\"\n      else if r.state == 3 then \"CLOSING\"\n      else if r.state == 4 then \"CRAWLING\"\n      else if r.state == 5 then \"MOVING\"\n      else if r.state == 6 then \"OPEN\"\n      else if r.state == 7 then \"OPENING\"\n      else if r.state == 8 then \"PARKED\"\n      else if r.state == 9 then \"PARKING\"\n      else if r.state == 10 then \"STOPPED\"\n      else if r.state == 11 then \"STOPPING\"\n      else if r.state == 12 then \"STOPPING_BRAKING\"\n      else if r.state == 13 then \"STOPPED_BRAKED\"\n      else if r.state == 14 then \"BRAKE_DISENGAGED\"\n      else if r.state == 15 then \"BRAKES_DISENGAGED\"\n      else if r.state == 16 then \"BRAKE_ENGAGED\"\n      else if r.state == 17 then \"BRAKES_ENGAGED\"\n      else if r.state == 18 then \"DEFLATED\"\n      else if r.state == 19 then \"DEFLATING\"\n      else if r.state == 20 then \"DISABLING_MOTOR_POWER\"\n      else if r.state == 21 then \"DISENGAGING_BRAKE\"\n      else if r.state == 22 then \"DISENGAGING_BRAKES\"\n      else if r.state == 23 then \"ENABLING_MOTOR_POWER\"\n      else if r.state == 24 then \"ENGAGING_BRAKE\"\n      else if r.state == 25 then \"ENGAGING_BRAKES\"\n      else if r.state == 26 then \"FINAL_DOWN_CLOSE_LS_ENGAGED\"\n      else if r.state == 27 then \"FINAL_DOWN_OPEN_LS_ENGAGED\"\n      else if r.state == 28 then \"FINAL_UP_CLOSE_LS_ENGAGED\"\n      else if r.state == 29 then \"FINAL_UP_OPEN_LS_ENGAGED\"\n      else if r.state == 30 then \"GLYCOL_FLOWING\"\n      else if r.state == 31 then \"GO_DEGRADED\"\n      else if r.state == 32 then \"GO_NORMAL\"\n      else if r.state == 33 then \"GO_STATIONARY\"\n      else if r.state == 34 then \"INCLINED\"\n      else if r.state == 35 then \"INFLATED\"\n      else if r.state == 36 then \"INFLATING\"\n      else if r.state == 37 then \"LP_DISENGAGED\"\n      else if r.state == 38 then \"LP_DISENGAGING\"\n      else if r.state == 39 then \"LP_ENGAGED\"\n      else if r.state == 40 then \"LP_ENGAGING\"\n      else if r.state == 41 then \"MOTOR_COOLING_OFF\"\n      else if r.state == 42 then \"MOTOR_COOLING_ON\"\n      else if r.state == 43 then \"MOTOR_POWER_OFF\"\n      else if r.state == 44 then \"MOTOR_POWER_ON\"\n      else if r.state == 45 then \"PROXIMITY_CLOSED_LS_ENGAGED\"\n      else if r.state == 46 then \"PROXIMITY_OPEN_LS_ENGAGED\"\n      else if r.state == 47 then \"STARTING_MOTOR_COOLING\"\n      else if r.state == 48 then \"STOPPING_MOTOR_COOLING\"\n      else if r.state == 49 then \"UNDETERMINED\"\n      else if r.state == 50 then \"VERTICAL\"\n      else if r.state == 51 then \"WAITING_AMCS_STATIONARY\"\n      else if r.state == 52 then \"DISABLED\"\n      else if r.state == 53 then \"DISABLING\"\n      else if r.state == 54 then \"ENABLED\"\n      else if r.state == 55 then \"ENABLING\"\n      else \"UNKNOWN\"\n  }))\n  |> keep(columns: [\"time\", \"state\"])\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "state",
+						"displayName": "State",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/613cdd76-865f-4f65-86eb-2167bf24659a"
+				}
+			},
+			{
+				"i": "eff0579e-e76a-40b5-86a9-72be8ff3e0ea",
+				"x": 6,
+				"y": 4,
+				"w": 6,
+				"h": 2,
+				"name": "MTDome - Azimuth Control Software Status",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d)\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /lsst.sal.MTDome.logevent_azEnabled/)\n  |> last()\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> map(fn: (r) => ({\n    time: r._time,\n    state: \n      if r.state == 1.00 then \"DISABLED\"\n      else if r.state == 2.00 then \"ENABLED\"\n      else if r.state == 3.00 then \"FAULT\"\n      else \"UNKNOWN\",\n    faultCode: r.faultCode\n  }))\n  |> keep(columns: [\"time\", \"state\", \"faultCode\"])",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d)\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /lsst.sal.MTDome.logevent_azEnabled/)\n  |> last()\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> map(fn: (r) => ({\n    time: r._time,\n    state: \n      if r.state == 1.00 then \"DISABLED\"\n      else if r.state == 2.00 then \"ENABLED\"\n      else if r.state == 3.00 then \"FAULT\"\n      else \"UNKNOWN\",\n    faultCode: r.faultCode\n  }))\n  |> keep(columns: [\"time\", \"state\", \"faultCode\"])",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "state",
+						"displayName": "State",
+						"visible": true
+					},
+					{
+						"internalName": "faultCode",
+						"displayName": "Fault Code",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/eff0579e-e76a-40b5-86a9-72be8ff3e0ea"
+				}
+			},
+			{
+				"i": "fd653fd9-46fd-47d9-8728-9f639f30e6f8",
+				"x": 0,
+				"y": 16,
+				"w": 7,
+				"h": 4,
+				"name": "MTQueue - Last Script Config",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: -7d, stop: now())\n  |> filter(fn: (r) =>\n    r[\"_measurement\"] == \"lsst.sal.ScriptQueue.command_add\" and\n    (r[\"_field\"] == \"path\" or r[\"_field\"] == \"config\" or r[\"_field\"] == \"block\" or r[\"_field\"] == \"salIndex\")\n  )\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> filter(fn: (r) => r.salIndex == 1.0)\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)\n  |> keep(columns: [\"_time\", \"path\", \"config\", \"block\"])\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: -7d, stop: now())\n  |> filter(fn: (r) =>\n    r[\"_measurement\"] == \"lsst.sal.ScriptQueue.command_add\" and\n    (r[\"_field\"] == \"path\" or r[\"_field\"] == \"config\" or r[\"_field\"] == \"block\" or r[\"_field\"] == \"salIndex\")\n  )\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> filter(fn: (r) => r.salIndex == 1.0)\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)\n  |> keep(columns: [\"_time\", \"path\", \"config\", \"block\"])\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "path",
+						"displayName": "Script",
+						"visible": true
+					},
+					{
+						"internalName": "config",
+						"displayName": "Config",
+						"visible": true
+					},
+					{
+						"internalName": "block",
+						"displayName": "Block",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/fd653fd9-46fd-47d9-8728-9f639f30e6f8"
+				}
+			},
+			{
+				"i": "3d9a2452-d0ef-4816-9458-72a8bec82fee",
+				"x": 6,
+				"y": 8,
+				"w": 3,
+				"h": 2,
+				"name": "MTDome - Aperture Shutter Operational Mode",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d) // or -inf if you want to be sure you catch it\n  |> filter(fn: (r) =>\n    r[\"_measurement\"] == \"lsst.sal.MTDome.logevent_operationalMode\" and\n    (r[\"_field\"] == \"operationalMode\" or r[\"_field\"] == \"subSystemId\")\n  )\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> filter(fn: (r) => r.subSystemId == 4)\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)\n  |> map(fn: (r) => ({\n    _time: r._time,\n    mode: \n      if r.operationalMode == 1 then \"NORMAL\"\n      else if r.operationalMode == 2 then \"DEGRADED\"\n      else \"UNKNOWN\"\n  }))\n  |> keep(columns: [\"_time\", \"mode\"])\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d) // or -inf if you want to be sure you catch it\n  |> filter(fn: (r) =>\n    r[\"_measurement\"] == \"lsst.sal.MTDome.logevent_operationalMode\" and\n    (r[\"_field\"] == \"operationalMode\" or r[\"_field\"] == \"subSystemId\")\n  )\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> filter(fn: (r) => r.subSystemId == 4)\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)\n  |> map(fn: (r) => ({\n    _time: r._time,\n    mode: \n      if r.operationalMode == 1 then \"NORMAL\"\n      else if r.operationalMode == 2 then \"DEGRADED\"\n      else \"UNKNOWN\"\n  }))\n  |> keep(columns: [\"_time\", \"mode\"])\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"100"
+						],
+						"label": "Aperture Shutter (% Open)",
+						"prefix": "% ",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "mode",
+						"displayName": "Operational Mode",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/3d9a2452-d0ef-4816-9458-72a8bec82fee"
+				}
+			},
+			{
+				"i": "7d0933e2-d421-43e4-9b32-97fe5de7f722",
+				"x": 6,
+				"y": 12,
+				"w": 5,
+				"h": 2,
+				"name": "MTDome - Aperture Shutter (% Open)",
+				"queries": [
+					{
+						"query": "SELECT \"positionActual0\", \"positionActual1\", \"positionCommanded0\", \"positionCommanded1\" FROM \"efd\".\"autogen\".\"lsst.sal.MTDome.apertureShutter\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTDome.apertureShutter",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "positionActual0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "positionActual1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "positionCommanded0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "positionCommanded1",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"100"
+						],
+						"label": "Aperture Shutter (% Open)",
+						"prefix": "",
+						"suffix": " %",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "9eaba742-aba0-4bf9-8772-96b7069f4696",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7036df87-bd02-4f43-8aa8-3d50da1fc856",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTDome.apertureShutter.positionActual0",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTDome.apertureShutter.positionActual1",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTDome.apertureShutter.positionCommanded0",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTDome.apertureShutter.positionCommanded1",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/7d0933e2-d421-43e4-9b32-97fe5de7f722"
+				}
+			},
+			{
+				"i": "e82927a2-bbf2-403b-a5d6-f3e57af4283b",
+				"x": 3,
+				"y": 0,
+				"w": 4,
+				"h": 2,
+				"name": "TMA - ACW (deg)",
+				"queries": [
+					{
+						"query": "SELECT \"actualPositionDrive0\", \"actualPositionDrive1\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.azimuthCableWrap\" WHERE time > now() - 1d AND time < now() ORDER by time DESC LIMIT 1",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"actualPositionDrive0\", \"actualPositionDrive1\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.azimuthCableWrap\" WHERE time > now() - 1d AND time < now() ORDER by time DESC LIMIT 1",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": false
+					},
+					{
+						"internalName": "lsst.sal.MTMount.azimuthCableWrap.actualPositionDrive0",
+						"displayName": "ACW Position Drive0",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTMount.azimuthCableWrap.actualPositionDrive1",
+						"displayName": "ACW Position Drive1",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/e82927a2-bbf2-403b-a5d6-f3e57af4283b"
+				}
+			},
+			{
+				"i": "1bbc4e81-3455-4528-957f-2f16ee290a06",
+				"x": 0,
+				"y": 14,
+				"w": 6,
+				"h": 2,
+				"name": "MTQueue - Last Script",
+				"queries": [
+					{
+						"query": "// Query for Script Data\nscriptData = from(bucket: \"efd/autogen\")\n  |> range(start: -12d) // Retrieve data from the last 6 hours\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.ScriptQueue.logevent_script\")\n  |> filter(fn: (r) => r[\"_field\"] == \"scriptSalIndex\" or r[\"_field\"] == \"processState\" or r[\"_field\"] == \"path\" or r[\"_field\"] == \"scriptState\" or r[\"_field\"] == \"salIndex\")\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\") // Pivot data for easier processing\n  |> filter(fn: (r) => r.salIndex == 1.00) // Filter for salIndex = 1\n  |> sort(columns: [\"_time\"], desc: true) // Sort by time in descending order\n  |> limit(n: 1) // Limit to the last 5 entries\n  |> map(fn: (r) => ({\n    TimeAndScriptSalIndex: string(v: int(v: r.scriptSalIndex)) + \" @ \" + string(v: r._time), // Concatenate scriptSalIndex and time\n    processState: \n      if r.processState == 0 then \"UNKNOWN\"\n      else if r.processState == 1 then \"LOADING\"\n      else if r.processState == 2 then \"CONFIGURED\"\n      else if r.processState == 3 then \"RUNNING\"\n      else if r.processState == 4 then \"DONE\"\n      else if r.processState == 5 then \"LOADFAILED\"\n      else if r.processState == 6 then \"CONFIGURE_FAILED\"\n      else if r.processState == 7 then \"TERMINATED\"\n      else \"UNKNOWN\",\n    scriptState:\n      if r.scriptState == 0 then \"UNKNOWN\"\n      else if r.scriptState == 1 then \"UNCONFIGURED\"\n      else if r.scriptState == 2 then \"CONFIGURED\"\n      else if r.scriptState == 3 then \"RUNNING\"\n      else if r.scriptState == 4 then \"PAUSED\"\n      else if r.scriptState == 5 then \"ENDING\"\n      else if r.scriptState == 6 then \"STOPPING\"\n      else if r.scriptState == 7 then \"FAILING\"\n      else if r.scriptState == 8 then \"DONE\"\n      else if r.scriptState == 9 then \"STOPPED\"\n      else if r.scriptState == 10 then \"FAILED\"\n      else if r.scriptState == 11 then \"CONFIGURE_FAILED\"\n      else \"UNKNOWN\",\n    path: r.path\n  }))\n  |> keep(columns: [\"TimeAndScriptSalIndex\", \"path\", \"processState\", \"scriptState\"]) // Keep only relevant columns\n\n// Output the result\nscriptData\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "// Query for Script Data\nscriptData = from(bucket: \"efd/autogen\")\n  |> range(start: -12d) // Retrieve data from the last 6 hours\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.ScriptQueue.logevent_script\")\n  |> filter(fn: (r) => r[\"_field\"] == \"scriptSalIndex\" or r[\"_field\"] == \"processState\" or r[\"_field\"] == \"path\" or r[\"_field\"] == \"scriptState\" or r[\"_field\"] == \"salIndex\")\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\") // Pivot data for easier processing\n  |> filter(fn: (r) => r.salIndex == 1.00) // Filter for salIndex = 1\n  |> sort(columns: [\"_time\"], desc: true) // Sort by time in descending order\n  |> limit(n: 1) // Limit to the last 5 entries\n  |> map(fn: (r) => ({\n    TimeAndScriptSalIndex: string(v: int(v: r.scriptSalIndex)) + \" @ \" + string(v: r._time), // Concatenate scriptSalIndex and time\n    processState: \n      if r.processState == 0 then \"UNKNOWN\"\n      else if r.processState == 1 then \"LOADING\"\n      else if r.processState == 2 then \"CONFIGURED\"\n      else if r.processState == 3 then \"RUNNING\"\n      else if r.processState == 4 then \"DONE\"\n      else if r.processState == 5 then \"LOADFAILED\"\n      else if r.processState == 6 then \"CONFIGURE_FAILED\"\n      else if r.processState == 7 then \"TERMINATED\"\n      else \"UNKNOWN\",\n    scriptState:\n      if r.scriptState == 0 then \"UNKNOWN\"\n      else if r.scriptState == 1 then \"UNCONFIGURED\"\n      else if r.scriptState == 2 then \"CONFIGURED\"\n      else if r.scriptState == 3 then \"RUNNING\"\n      else if r.scriptState == 4 then \"PAUSED\"\n      else if r.scriptState == 5 then \"ENDING\"\n      else if r.scriptState == 6 then \"STOPPING\"\n      else if r.scriptState == 7 then \"FAILING\"\n      else if r.scriptState == 8 then \"DONE\"\n      else if r.scriptState == 9 then \"STOPPED\"\n      else if r.scriptState == 10 then \"FAILED\"\n      else if r.scriptState == 11 then \"CONFIGURE_FAILED\"\n      else \"UNKNOWN\",\n    path: r.path\n  }))\n  |> keep(columns: [\"TimeAndScriptSalIndex\", \"path\", \"processState\", \"scriptState\"]) // Keep only relevant columns\n\n// Output the result\nscriptData\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "TimeAndScriptSalIndex",
+						"displayName": "SalIndex and Time",
+						"visible": true
+					},
+					{
+						"internalName": "path",
+						"displayName": "Script",
+						"visible": true
+					},
+					{
+						"internalName": "scriptState",
+						"displayName": "Script State",
+						"visible": true
+					},
+					{
+						"internalName": "processState",
+						"displayName": "Process State",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/1bbc4e81-3455-4528-957f-2f16ee290a06"
+				}
+			},
+			{
+				"i": "22bfb07e-847d-4f42-8ed8-cec1b1ae6973",
+				"x": 2,
+				"y": 12,
+				"w": 4,
+				"h": 2,
+				"name": "LSSTCam - Filter Status",
+				"queries": [
+					{
+						"query": "// Query for Available Filters\navailableFilters = from(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTCamera.logevent_availableFilters\" and r[\"_field\"] == \"filterNames\")\n  |> last()\n  |> map(fn: (r) => ({\n    category: \"Filters\",\n    availableFilters: r._value\n  }))\n  |> keep(columns: [\"category\", \"availableFilters\"])\n\n// Query for Current Filter\ncurrentFilter = from(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTCamera.logevent_endSetFilter\" and r[\"_field\"] == \"filterName\")\n  |> last()\n  |> map(fn: (r) => ({\n    category: \"Filters\",\n    currentFilter: r._value\n  }))\n  |> keep(columns: [\"category\", \"currentFilter\"])\n\n// Query for Commanded Filter\ncommandedFilter = from(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTCamera.command_setFilter\" and r[\"_field\"] == \"name\")\n  |> last()\n  |> map(fn: (r) => ({\n    category: \"Filters\",\n    commandedFilter: r._value\n  }))\n  |> keep(columns: [\"category\", \"commandedFilter\"])\n\n// Join Available Filters and Current Filter\nfiltersDashboard1 = join(\n  tables: {available: availableFilters, current: currentFilter},\n  on: [\"category\"]\n)\n\n// Join the Result with Commanded Filter\nfiltersDashboard2 = join(\n  tables: {filtersDashboard1: filtersDashboard1, commanded: commandedFilter},\n  on: [\"category\"]\n)\n\n// Final Output\nfiltersDashboard2\n  |> keep(columns: [\"availableFilters\", \"currentFilter\", \"commandedFilter\"])\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "// Query for Available Filters\navailableFilters = from(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTCamera.logevent_availableFilters\" and r[\"_field\"] == \"filterNames\")\n  |> last()\n  |> map(fn: (r) => ({\n    category: \"Filters\",\n    availableFilters: r._value\n  }))\n  |> keep(columns: [\"category\", \"availableFilters\"])\n\n// Query for Current Filter\ncurrentFilter = from(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTCamera.logevent_endSetFilter\" and r[\"_field\"] == \"filterName\")\n  |> last()\n  |> map(fn: (r) => ({\n    category: \"Filters\",\n    currentFilter: r._value\n  }))\n  |> keep(columns: [\"category\", \"currentFilter\"])\n\n// Query for Commanded Filter\ncommandedFilter = from(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTCamera.command_setFilter\" and r[\"_field\"] == \"name\")\n  |> last()\n  |> map(fn: (r) => ({\n    category: \"Filters\",\n    commandedFilter: r._value\n  }))\n  |> keep(columns: [\"category\", \"commandedFilter\"])\n\n// Join Available Filters and Current Filter\nfiltersDashboard1 = join(\n  tables: {available: availableFilters, current: currentFilter},\n  on: [\"category\"]\n)\n\n// Join the Result with Commanded Filter\nfiltersDashboard2 = join(\n  tables: {filtersDashboard1: filtersDashboard1, commanded: commandedFilter},\n  on: [\"category\"]\n)\n\n// Final Output\nfiltersDashboard2\n  |> keep(columns: [\"availableFilters\", \"currentFilter\", \"commandedFilter\"])\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "background",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "currentFilter",
+						"displayName": "Current Filter",
+						"visible": true
+					},
+					{
+						"internalName": "availableFilters",
+						"displayName": "Available Filters",
+						"visible": true
+					},
+					{
+						"internalName": "commandedFilter",
+						"displayName": "Last SetFilter Command",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": false,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/22bfb07e-847d-4f42-8ed8-cec1b1ae6973"
+				}
+			},
+			{
+				"i": "5ab9c8a1-33be-43c3-923c-3259f2649c38",
+				"x": 5,
+				"y": 20,
+				"w": 5,
+				"h": 2,
+				"name": "MTPtg - Dec",
+				"queries": [
+					{
+						"query": "import \"math\"\n\n// Define the time range and filter for Dec data\ndata = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => r._measurement == \"lsst.sal.MTPtg.mountStatus\" and r._field == \"mountDec\")\n  |> last()  // Retrieve only the last data point\n\n// Function to convert Dec from decimal degrees to +DD:MM:SS.S format\nformatDec = (dec) => {\n  degrees = int(v: dec)\n  minutes_decimal = math.abs(x: (float(v: dec) - float(v: degrees)) * 60.0)\n  minutes = int(v: minutes_decimal)\n  minutes_str = if minutes < 10 then \"0\" + string(v: minutes) else string(v: minutes)  // Add leading zero if minutes < 10\n  seconds = (minutes_decimal - float(v: minutes)) * 60.0\n  seconds_str = if seconds < 10.0 then \"0\" + string(v: math.round(x: seconds * 10.0) / 10.0) else string(v: math.round(x: seconds * 10.0) / 10.0)  // Add leading zero if seconds < 10\n  sign = if dec < 0.0 then \"-\" else \"+\"\n  return sign + string(v: math.abs(x: float(v: degrees))) + \":\" + minutes_str + \":\" + seconds_str\n}\n\n// Map over the data to include raw and formatted Dec\ndata\n  |> map(fn: (r) => ({\n    _time: r._time,\n    raw_Dec_degrees: r._value,  // Raw Dec in degrees\n    formatted_Dec: formatDec(dec: r._value)  // Format Dec in +DD:MM:SS.S\n  }))\n  |> yield(name: \"Last_Dec_with_conversion\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"math\"\n\n// Define the time range and filter for Dec data\ndata = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => r._measurement == \"lsst.sal.MTPtg.mountStatus\" and r._field == \"mountDec\")\n  |> last()  // Retrieve only the last data point\n\n// Function to convert Dec from decimal degrees to +DD:MM:SS.S format\nformatDec = (dec) => {\n  degrees = int(v: dec)\n  minutes_decimal = math.abs(x: (float(v: dec) - float(v: degrees)) * 60.0)\n  minutes = int(v: minutes_decimal)\n  minutes_str = if minutes < 10 then \"0\" + string(v: minutes) else string(v: minutes)  // Add leading zero if minutes < 10\n  seconds = (minutes_decimal - float(v: minutes)) * 60.0\n  seconds_str = if seconds < 10.0 then \"0\" + string(v: math.round(x: seconds * 10.0) / 10.0) else string(v: math.round(x: seconds * 10.0) / 10.0)  // Add leading zero if seconds < 10\n  sign = if dec < 0.0 then \"-\" else \"+\"\n  return sign + string(v: math.abs(x: float(v: degrees))) + \":\" + minutes_str + \":\" + seconds_str\n}\n\n// Map over the data to include raw and formatted Dec\ndata\n  |> map(fn: (r) => ({\n    _time: r._time,\n    raw_Dec_degrees: r._value,  // Raw Dec in degrees\n    formatted_Dec: formatDec(dec: r._value)  // Format Dec in +DD:MM:SS.S\n  }))\n  |> yield(name: \"Last_Dec_with_conversion\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "raw_Dec_degrees",
+						"displayName": "Dec (deg)",
+						"visible": true
+					},
+					{
+						"internalName": "formatted_Dec",
+						"displayName": "Dec (dd:mm:s.s)",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/5ab9c8a1-33be-43c3-923c-3259f2649c38"
+				}
+			},
+			{
+				"i": "50b5bf07-7a86-4336-9cd7-d1739c143427",
+				"x": 0,
+				"y": 20,
+				"w": 5,
+				"h": 2,
+				"name": "MTPtg - RA ",
+				"queries": [
+					{
+						"query": "import \"math\"\n\n// Define the time range and filter for RA data\ndata = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => r._measurement == \"lsst.sal.MTPtg.mountStatus\" and r._field == \"mountRA\")\n  |> last()  // Retrieve only the last data point\n\n// Function to convert RA from decimal hours to HH:MM:SS.S format\nformatRA = (ra) => {\n  hours = int(v: ra)\n  minutes_decimal = (ra - float(v: hours)) * 60.0\n  minutes = int(v: minutes_decimal)\n  minutes_str = if minutes < 10 then \"0\" + string(v: minutes) else string(v: minutes)  // Add leading zero if minutes < 10\n  seconds = (minutes_decimal - float(v: minutes)) * 60.0\n  seconds_str = if seconds < 10.0 then \"0\" + string(v: math.round(x: seconds * 10.0) / 10.0) else string(v: math.round(x: seconds * 10.0) / 10.0)\n  return string(v: hours) + \":\" + minutes_str + \":\" + seconds_str\n}\n// Map over the data to include degrees, raw decimal hours, and formatted RA\ndata\n  |> map(fn: (r) => ({\n    _time: r._time,\n    raw_RA_degrees: r._value * 15.0,  // Convert RA in hours to degrees\n    raw_RA_hours: r._value,           // Raw RA in decimal hours\n    formatted_RA: formatRA(ra: r._value)  // Convert RA in decimal hours to HH:MM:SS.S\n  }))\n  |> yield(name: \"Last_RA_with_conversion\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"math\"\n\n// Define the time range and filter for RA data\ndata = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => r._measurement == \"lsst.sal.MTPtg.mountStatus\" and r._field == \"mountRA\")\n  |> last()  // Retrieve only the last data point\n\n// Function to convert RA from decimal hours to HH:MM:SS.S format\nformatRA = (ra) => {\n  hours = int(v: ra)\n  minutes_decimal = (ra - float(v: hours)) * 60.0\n  minutes = int(v: minutes_decimal)\n  minutes_str = if minutes < 10 then \"0\" + string(v: minutes) else string(v: minutes)  // Add leading zero if minutes < 10\n  seconds = (minutes_decimal - float(v: minutes)) * 60.0\n  seconds_str = if seconds < 10.0 then \"0\" + string(v: math.round(x: seconds * 10.0) / 10.0) else string(v: math.round(x: seconds * 10.0) / 10.0)\n  return string(v: hours) + \":\" + minutes_str + \":\" + seconds_str\n}\n// Map over the data to include degrees, raw decimal hours, and formatted RA\ndata\n  |> map(fn: (r) => ({\n    _time: r._time,\n    raw_RA_degrees: r._value * 15.0,  // Convert RA in hours to degrees\n    raw_RA_hours: r._value,           // Raw RA in decimal hours\n    formatted_RA: formatRA(ra: r._value)  // Convert RA in decimal hours to HH:MM:SS.S\n  }))\n  |> yield(name: \"Last_RA_with_conversion\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "raw_RA_degrees",
+						"displayName": "RA (deg)",
+						"visible": true
+					},
+					{
+						"internalName": "raw_RA_hours",
+						"displayName": "RA (hours)",
+						"visible": true
+					},
+					{
+						"internalName": "formatted_RA",
+						"displayName": "RA (hh:mm:ss.s)",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/50b5bf07-7a86-4336-9cd7-d1739c143427"
+				}
+			},
+			{
+				"i": "f8d55ec2-f4cd-403b-a559-87cd4ce41658",
+				"x": 0,
+				"y": 12,
+				"w": 2,
+				"h": 2,
+				"name": "Laser Tracker Status - Does not work if using PDU to turn on/off",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d) // Restrict to the last 3 days\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_laserStatus\")\n  |> filter(fn: (r) => r[\"_field\"] == \"status\" or r[\"_field\"] == \"salIndex\") // Include salIndex and status fields\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\") // Pivot for easier processing\n  |> filter(fn: (r) => r.salIndex == 1) // Filter for salIndex = 1\n  |> sort(columns: [\"_time\"], desc: true) // Sort by time in descending order\n  |> limit(n: 2) // Retrieve the last two entries\n  |> map(fn: (r) => ({\n    _time: r._time,\n    status_string:\n      if r.status == 1 then \"NOT_CONNECTED\"\n      else if r.status == 2 then \"OFF\"\n      else if r.status == 3 then \"WARMING\"\n      else if r.status == 4 then \"ON\"\n      else \"UNKNOWN\"\n  }))\n  |> keep(columns: [\"_time\", \"status_string\"]) // Keep only the time and status string\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d) // Restrict to the last 3 days\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_laserStatus\")\n  |> filter(fn: (r) => r[\"_field\"] == \"status\" or r[\"_field\"] == \"salIndex\") // Include salIndex and status fields\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\") // Pivot for easier processing\n  |> filter(fn: (r) => r.salIndex == 1) // Filter for salIndex = 1\n  |> sort(columns: [\"_time\"], desc: true) // Sort by time in descending order\n  |> limit(n: 2) // Retrieve the last two entries\n  |> map(fn: (r) => ({\n    _time: r._time,\n    status_string:\n      if r.status == 1 then \"NOT_CONNECTED\"\n      else if r.status == 2 then \"OFF\"\n      else if r.status == 3 then \"WARMING\"\n      else if r.status == 4 then \"ON\"\n      else \"UNKNOWN\"\n  }))\n  |> keep(columns: [\"_time\", \"status_string\"]) // Keep only the time and status string\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "status_string",
+						"displayName": "Status",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/f8d55ec2-f4cd-403b-a559-87cd4ce41658"
+				}
+			},
+			{
+				"i": "10e26798-c640-4e46-bb7c-d589b8ef7d50",
+				"x": 5,
+				"y": 10,
+				"w": 4,
+				"h": 2,
+				"name": "MTDome - Dome Azimuth Position",
+				"queries": [
+					{
+						"query": "SELECT \"positionActual\", \"positionCommanded\" FROM \"efd\".\"autogen\".\"lsst.sal.MTDome.azimuth\" ORDER BY time DESC LIMIT 1",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"positionActual\", \"positionCommanded\" FROM \"efd\".\"autogen\".\"lsst.sal.MTDome.azimuth\" ORDER BY time DESC LIMIT 1",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTDome.azimuth.positionActual",
+						"displayName": "Az Actual Position (deg)",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTDome.azimuth.positionCommanded",
+						"displayName": "Az Comanded Position (deg)",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/10e26798-c640-4e46-bb7c-d589b8ef7d50"
+				}
+			},
+			{
+				"i": "00e7e103-189b-4958-95fa-03b4938cdd36",
+				"x": 9,
+				"y": 10,
+				"w": 3,
+				"h": 2,
+				"name": "TMA - Locking Pins",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: -15d) // Restrict to the last 1 day\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_elevationLockingPinMotionState\")\n  |> filter(fn: (r) => r[\"_field\"] == \"elementsState0\" or r[\"_field\"] == \"elementsState1\")\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\") // Pivot for easier processing\n  |> sort(columns: [\"_time\"], desc: true) // Sort by time in descending order\n  |> limit(n: 1) // Get the most recent entry\n  |> map(fn: (r) => ({\n    time: r._time,\n    lockingPin0:\n      if r.elementsState0 == 0 then \"LOCKED\"\n      else if r.elementsState0 == 1 then \"TEST\"\n      else if r.elementsState0 == 2 then \"FREE\"\n      else if r.elementsState0 == 3 then \"MOVING\"\n      else if r.elementsState0 == 4 then \"MISMATCH\"\n      else \"UNKNOWN\",\n    lockingPin1:\n      if r.elementsState1 == 0 then \"LOCKED\"\n      else if r.elementsState1 == 1 then \"TEST\"\n      else if r.elementsState1 == 2 then \"FREE\"\n      else if r.elementsState1 == 3 then \"MOVING\"\n      else if r.elementsState1 == 4 then \"MISMATCH\"\n      else \"UNKNOWN\"\n  }))\n  |> keep(columns: [\"lockingPin0\", \"lockingPin1\"]) // Keep only the locking pin states\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: -15d) // Restrict to the last 1 day\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_elevationLockingPinMotionState\")\n  |> filter(fn: (r) => r[\"_field\"] == \"elementsState0\" or r[\"_field\"] == \"elementsState1\")\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\") // Pivot for easier processing\n  |> sort(columns: [\"_time\"], desc: true) // Sort by time in descending order\n  |> limit(n: 1) // Get the most recent entry\n  |> map(fn: (r) => ({\n    time: r._time,\n    lockingPin0:\n      if r.elementsState0 == 0 then \"LOCKED\"\n      else if r.elementsState0 == 1 then \"TEST\"\n      else if r.elementsState0 == 2 then \"FREE\"\n      else if r.elementsState0 == 3 then \"MOVING\"\n      else if r.elementsState0 == 4 then \"MISMATCH\"\n      else \"UNKNOWN\",\n    lockingPin1:\n      if r.elementsState1 == 0 then \"LOCKED\"\n      else if r.elementsState1 == 1 then \"TEST\"\n      else if r.elementsState1 == 2 then \"FREE\"\n      else if r.elementsState1 == 3 then \"MOVING\"\n      else if r.elementsState1 == 4 then \"MISMATCH\"\n      else \"UNKNOWN\"\n  }))\n  |> keep(columns: [\"lockingPin0\", \"lockingPin1\"]) // Keep only the locking pin states\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "lockingPin0",
+						"displayName": "Locking Pin 0",
+						"visible": true
+					},
+					{
+						"internalName": "lockingPin1",
+						"displayName": "Locking Pin 1",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/00e7e103-189b-4958-95fa-03b4938cdd36"
+				}
+			},
+			{
+				"i": "0f08a61a-ef5f-4d36-af42-8f79eb17d89a",
+				"x": 5,
+				"y": 2,
+				"w": 2,
+				"h": 2,
+				"name": "TMA - Camera Rotator (deg)",
+				"queries": [
+					{
+						"query": "SELECT \"mountRot\" FROM \"efd\".\"autogen\".\"lsst.sal.MTPtg.mountStatus\" ORDER BY time DESC LIMIT 1",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"mountRot\" FROM \"efd\".\"autogen\".\"lsst.sal.MTPtg.mountStatus\" ORDER BY time DESC LIMIT 1",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTPtg.mountStatus.mountRot",
+						"displayName": "Rotator Pos (deg)",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 3
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/0f08a61a-ef5f-4d36-af42-8f79eb17d89a"
+				}
+			},
+			{
+				"i": "0da2094a-1f1c-4f61-8c7e-10ddbb45b29b",
+				"x": 0,
+				"y": 0,
+				"w": 3,
+				"h": 3,
+				"name": "TMA - Az El Position",
+				"queries": [
+					{
+						"query": "// Query for Azimuth Position\nazimuthPosition = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.azimuth\" and r[\"_field\"] == \"actualPosition\")\n  |> last()\n  |> map(fn: (r) => ({\n    axis: \"Azimuth\",\n    time: r._time,\n    position: r._value\n  }))\n\n// Query for Azimuth Motion State\nazimuthMotionState = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_azimuthMotionState\" and r[\"_field\"] == \"state\")\n  |> last()\n  |> map(fn: (r) => ({\n    axis: \"Azimuth\",\n    time: r._time,\n    motionState:\n      if r._value == 0 then \"STOPPING\"\n      else if r._value == 1 then \"STOPPED\"\n      else if r._value == 2 then \"MOVING_POINT_TO_POINT\"\n      else if r._value == 3 then \"JOGGING\"\n      else if r._value == 4 then \"TRACKING\"\n      else if r._value == 5 then \"TRACKING_PAUSED\"\n      else \"UNKNOWN\"\n  }))\n\n// Query for Elevation Position\nelevationPosition = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.elevation\" and r[\"_field\"] == \"actualPosition\")\n  |> last()\n  |> map(fn: (r) => ({\n    axis: \"Elevation\",\n    time: r._time,\n    position: r._value\n  }))\n\n// Query for Elevation Motion State\nelevationMotionState = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_elevationMotionState\" and r[\"_field\"] == \"state\")\n  |> last()\n  |> map(fn: (r) => ({\n    axis: \"Elevation\",\n    time: r._time,\n    motionState:\n      if r._value == 0 then \"STOPPING\"\n      else if r._value == 1 then \"STOPPED\"\n      else if r._value == 2 then \"MOVING_POINT_TO_POINT\"\n      else if r._value == 3 then \"JOGGING\"\n      else if r._value == 4 then \"TRACKING\"\n      else if r._value == 5 then \"TRACKING_PAUSED\"\n      else \"UNKNOWN\"\n  }))\n\n// Combine Position and Motion State Queries\nazimuthData = join(\n  tables: {pos: azimuthPosition, state: azimuthMotionState},\n  on: [\"axis\"]\n)\n\nelevationData = join(\n  tables: {pos: elevationPosition, state: elevationMotionState},\n  on: [\"axis\"]\n)\n\n// Combine Both Axes Data into a Single Table\nunion(tables: [azimuthData, elevationData])\n  |> keep(columns: [\"axis\", \"time\", \"position\", \"motionState\"]) // Keep relevant columns\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "// Query for Azimuth Position\nazimuthPosition = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.azimuth\" and r[\"_field\"] == \"actualPosition\")\n  |> last()\n  |> map(fn: (r) => ({\n    axis: \"Azimuth\",\n    time: r._time,\n    position: r._value\n  }))\n\n// Query for Azimuth Motion State\nazimuthMotionState = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_azimuthMotionState\" and r[\"_field\"] == \"state\")\n  |> last()\n  |> map(fn: (r) => ({\n    axis: \"Azimuth\",\n    time: r._time,\n    motionState:\n      if r._value == 0 then \"STOPPING\"\n      else if r._value == 1 then \"STOPPED\"\n      else if r._value == 2 then \"MOVING_POINT_TO_POINT\"\n      else if r._value == 3 then \"JOGGING\"\n      else if r._value == 4 then \"TRACKING\"\n      else if r._value == 5 then \"TRACKING_PAUSED\"\n      else \"UNKNOWN\"\n  }))\n\n// Query for Elevation Position\nelevationPosition = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.elevation\" and r[\"_field\"] == \"actualPosition\")\n  |> last()\n  |> map(fn: (r) => ({\n    axis: \"Elevation\",\n    time: r._time,\n    position: r._value\n  }))\n\n// Query for Elevation Motion State\nelevationMotionState = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_elevationMotionState\" and r[\"_field\"] == \"state\")\n  |> last()\n  |> map(fn: (r) => ({\n    axis: \"Elevation\",\n    time: r._time,\n    motionState:\n      if r._value == 0 then \"STOPPING\"\n      else if r._value == 1 then \"STOPPED\"\n      else if r._value == 2 then \"MOVING_POINT_TO_POINT\"\n      else if r._value == 3 then \"JOGGING\"\n      else if r._value == 4 then \"TRACKING\"\n      else if r._value == 5 then \"TRACKING_PAUSED\"\n      else \"UNKNOWN\"\n  }))\n\n// Combine Position and Motion State Queries\nazimuthData = join(\n  tables: {pos: azimuthPosition, state: azimuthMotionState},\n  on: [\"axis\"]\n)\n\nelevationData = join(\n  tables: {pos: elevationPosition, state: elevationMotionState},\n  on: [\"axis\"]\n)\n\n// Combine Both Axes Data into a Single Table\nunion(tables: [azimuthData, elevationData])\n  |> keep(columns: [\"axis\", \"time\", \"position\", \"motionState\"]) // Keep relevant columns\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "axis",
+						"displayName": "Axis",
+						"visible": true
+					},
+					{
+						"internalName": "position",
+						"displayName": "Position (deg)",
+						"visible": true
+					},
+					{
+						"internalName": "motionState",
+						"displayName": "Motion State",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/0da2094a-1f1c-4f61-8c7e-10ddbb45b29b"
+				}
+			},
+			{
+				"i": "ee3bf4ae-2fe4-49cf-bd4a-b02e8c8746c4",
+				"x": 0,
+				"y": 10,
+				"w": 5,
+				"h": 2,
+				"name": "M1M3 - Mirror Covers Status",
+				"queries": [
+					{
+						"query": "// Query for the TMA Mirror Covers State\nfrom(bucket: \"efd/autogen\")\n  |> range(start: -30d) // Restrict to the last 1 day\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_mirrorCoversMotionState\")\n  |> filter(fn: (r) => r[\"_field\"] == \"state\" or r[\"_field\"] == \"elementsState0\" or r[\"_field\"] == \"elementsState1\" or r[\"_field\"] == \"elementsState2\" or r[\"_field\"] == \"elementsState3\")\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\") // Pivot the data for easier processing\n  |> sort(columns: [\"_time\"], desc: true) // Sort by time in descending order\n  |> limit(n: 1) // Get the most recent entry\n  |> map(fn: (r) => ({\n    time: r._time,\n    allState:\n      if r.state == 0 then \"OPENED\"\n      else if r.state == 1 then \"CLOSED\"\n      else if r.state == 2 then \"OPENING\"\n      else if r.state == 3 then \"CLOSING\"\n      else if r.state == 4 then \"LOST\"\n      else \"UNKNOWN\",\n    xPlusState:\n      if r.elementsState0 == 0 then \"OPENED\"\n      else if r.elementsState0 == 1 then \"CLOSED\"\n      else if r.elementsState0 == 2 then \"OPENING\"\n      else if r.elementsState0 == 3 then \"CLOSING\"\n      else if r.elementsState0 == 4 then \"LOST\"\n      else \"UNKNOWN\",\n    yPlusState:\n      if r.elementsState1 == 0 then \"OPENED\"\n      else if r.elementsState1 == 1 then \"CLOSED\"\n      else if r.elementsState1 == 2 then \"OPENING\"\n      else if r.elementsState1 == 3 then \"CLOSING\"\n      else if r.elementsState1 == 4 then \"LOST\"\n      else \"UNKNOWN\",\n    xMinusState:\n      if r.elementsState2 == 0 then \"OPENED\"\n      else if r.elementsState2 == 1 then \"CLOSED\"\n      else if r.elementsState2 == 2 then \"OPENING\"\n      else if r.elementsState2 == 3 then \"CLOSING\"\n      else if r.elementsState2 == 4 then \"LOST\"\n      else \"UNKNOWN\",\n    yMinusState:\n      if r.elementsState3 == 0 then \"OPENED\"\n      else if r.elementsState3 == 1 then \"CLOSED\"\n      else if r.elementsState3 == 2 then \"OPENING\"\n      else if r.elementsState3 == 3 then \"CLOSING\"\n      else if r.elementsState3 == 4 then \"LOST\"\n      else \"UNKNOWN\"\n  }))\n  |> keep(columns: [\"allState\", \"xPlusState\", \"yPlusState\", \"xMinusState\", \"yMinusState\"]) // Keep relevant columns\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "// Query for the TMA Mirror Covers State\nfrom(bucket: \"efd/autogen\")\n  |> range(start: -30d) // Restrict to the last 1 day\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_mirrorCoversMotionState\")\n  |> filter(fn: (r) => r[\"_field\"] == \"state\" or r[\"_field\"] == \"elementsState0\" or r[\"_field\"] == \"elementsState1\" or r[\"_field\"] == \"elementsState2\" or r[\"_field\"] == \"elementsState3\")\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\") // Pivot the data for easier processing\n  |> sort(columns: [\"_time\"], desc: true) // Sort by time in descending order\n  |> limit(n: 1) // Get the most recent entry\n  |> map(fn: (r) => ({\n    time: r._time,\n    allState:\n      if r.state == 0 then \"OPENED\"\n      else if r.state == 1 then \"CLOSED\"\n      else if r.state == 2 then \"OPENING\"\n      else if r.state == 3 then \"CLOSING\"\n      else if r.state == 4 then \"LOST\"\n      else \"UNKNOWN\",\n    xPlusState:\n      if r.elementsState0 == 0 then \"OPENED\"\n      else if r.elementsState0 == 1 then \"CLOSED\"\n      else if r.elementsState0 == 2 then \"OPENING\"\n      else if r.elementsState0 == 3 then \"CLOSING\"\n      else if r.elementsState0 == 4 then \"LOST\"\n      else \"UNKNOWN\",\n    yPlusState:\n      if r.elementsState1 == 0 then \"OPENED\"\n      else if r.elementsState1 == 1 then \"CLOSED\"\n      else if r.elementsState1 == 2 then \"OPENING\"\n      else if r.elementsState1 == 3 then \"CLOSING\"\n      else if r.elementsState1 == 4 then \"LOST\"\n      else \"UNKNOWN\",\n    xMinusState:\n      if r.elementsState2 == 0 then \"OPENED\"\n      else if r.elementsState2 == 1 then \"CLOSED\"\n      else if r.elementsState2 == 2 then \"OPENING\"\n      else if r.elementsState2 == 3 then \"CLOSING\"\n      else if r.elementsState2 == 4 then \"LOST\"\n      else \"UNKNOWN\",\n    yMinusState:\n      if r.elementsState3 == 0 then \"OPENED\"\n      else if r.elementsState3 == 1 then \"CLOSED\"\n      else if r.elementsState3 == 2 then \"OPENING\"\n      else if r.elementsState3 == 3 then \"CLOSING\"\n      else if r.elementsState3 == 4 then \"LOST\"\n      else \"UNKNOWN\"\n  }))\n  |> keep(columns: [\"allState\", \"xPlusState\", \"yPlusState\", \"xMinusState\", \"yMinusState\"]) // Keep relevant columns\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "allState",
+						"displayName": "All",
+						"visible": true
+					},
+					{
+						"internalName": "yPlusState",
+						"displayName": "Y+",
+						"visible": true
+					},
+					{
+						"internalName": "yMinusState",
+						"displayName": "Y-",
+						"visible": true
+					},
+					{
+						"internalName": "xPlusState",
+						"displayName": "X+",
+						"visible": true
+					},
+					{
+						"internalName": "xMinusState",
+						"displayName": "X-",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/ee3bf4ae-2fe4-49cf-bd4a-b02e8c8746c4"
+				}
+			},
+			{
+				"i": "7fbd193a-2a26-42f6-be1b-fea95b21cc30",
+				"x": 7,
+				"y": 2,
+				"w": 2,
+				"h": 2,
+				"name": "Dashboard Note",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "All queries on this dashboard retrieve data from the past 1 day (1d). Adjusting the dashboard&#39;s time range will not affect the queries, but you can change the refresh interval to control how frequently the data is updated.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/7fbd193a-2a26-42f6-be1b-fea95b21cc30"
+				}
+			},
+			{
+				"i": "a4d15137-87d7-47b3-90a1-9d5284d9d89b",
+				"x": 0,
+				"y": 3,
+				"w": 3,
+				"h": 3,
+				"name": "TMA - Hexapods Status",
+				"queries": [
+					{
+						"query": "// Camera Hexapod (salIndex = 1.00) - CSC Status and Compensation Mode\ncameraHexapodCSC = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTHexapod.logevent_summaryState\")\n  |> filter(fn: (r) => r[\"_field\"] == \"summaryState\" or r[\"_field\"] == \"salIndex\")\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> filter(fn: (r) => r.salIndex == 1.00)\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)\n  |> map(fn: (r) => ({\n    hexapod: \"Camera Hexapod (:1)\",\n    time: r._time,\n    cscStatus:\n      if r.summaryState == 5.00 then \"STANDBY\"\n      else if r.summaryState == 4.00 then \"OFFLINE\"\n      else if r.summaryState == 3.00 then \"FAULT\"\n      else if r.summaryState == 2.00 then \"ENABLED\"\n      else if r.summaryState == 1.00 then \"DISABLED\"\n      else \"UNKNOWN\"\n  }))\n  |> keep(columns: [\"hexapod\", \"cscStatus\"])\n\n// Camera Hexapod Compensation Mode\ncameraHexapodComp = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTHexapod.logevent_compensationMode\")\n  |> filter(fn: (r) => r[\"_field\"] == \"enabled\" or r[\"_field\"] == \"salIndex\")\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> filter(fn: (r) => r.salIndex == 1.00)\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)\n  |> map(fn: (r) => ({\n    hexapod: \"Camera Hexapod (:1)\",\n    time: r._time,\n    compensationMode: if r.enabled == true then \"ENABLED\" else \"DISABLED\"\n  }))\n  |> keep(columns: [\"hexapod\", \"compensationMode\"])\n\n// M2 Hexapod (salIndex = 2.00) - CSC Status and Compensation Mode\nm2HexapodCSC = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTHexapod.logevent_summaryState\")\n  |> filter(fn: (r) => r[\"_field\"] == \"summaryState\" or r[\"_field\"] == \"salIndex\")\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> filter(fn: (r) => r.salIndex == 2.00)\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)\n  |> map(fn: (r) => ({\n    hexapod: \"M2 Hexapod (:2)\",\n    time: r._time,\n    cscStatus:\n      if r.summaryState == 5.00 then \"STANDBY\"\n      else if r.summaryState == 4.00 then \"OFFLINE\"\n      else if r.summaryState == 3.00 then \"FAULT\"\n      else if r.summaryState == 2.00 then \"ENABLED\"\n      else if r.summaryState == 1.00 then \"DISABLED\"\n      else \"UNKNOWN\"\n  }))\n  |> keep(columns: [\"hexapod\", \"cscStatus\"])\n\n// M2 Hexapod Compensation Mode\nm2HexapodComp = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTHexapod.logevent_compensationMode\")\n  |> filter(fn: (r) => r[\"_field\"] == \"enabled\" or r[\"_field\"] == \"salIndex\")\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> filter(fn: (r) => r.salIndex == 2.00)\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)\n  |> map(fn: (r) => ({\n    hexapod: \"M2 Hexapod (:2)\",\n    time: r._time,\n    compensationMode: if r.enabled == true then \"ENABLED\" else \"DISABLED\"\n  }))\n  |> keep(columns: [\"hexapod\", \"compensationMode\"])\n\n// Combine CSC and Compensation Mode for Camera Hexapod\ncameraHexapod = join(\n  tables: {csc: cameraHexapodCSC, comp: cameraHexapodComp},\n  on: [\"hexapod\"]\n)\n\n// Combine CSC and Compensation Mode for M2 Hexapod\nm2Hexapod = join(\n  tables: {csc: m2HexapodCSC, comp: m2HexapodComp},\n  on: [\"hexapod\"]\n)\n\n// Combine Both Hexapods\nunion(tables: [cameraHexapod, m2Hexapod])",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "// Camera Hexapod (salIndex = 1.00) - CSC Status and Compensation Mode\ncameraHexapodCSC = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTHexapod.logevent_summaryState\")\n  |> filter(fn: (r) => r[\"_field\"] == \"summaryState\" or r[\"_field\"] == \"salIndex\")\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> filter(fn: (r) => r.salIndex == 1.00)\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)\n  |> map(fn: (r) => ({\n    hexapod: \"Camera Hexapod (:1)\",\n    time: r._time,\n    cscStatus:\n      if r.summaryState == 5.00 then \"STANDBY\"\n      else if r.summaryState == 4.00 then \"OFFLINE\"\n      else if r.summaryState == 3.00 then \"FAULT\"\n      else if r.summaryState == 2.00 then \"ENABLED\"\n      else if r.summaryState == 1.00 then \"DISABLED\"\n      else \"UNKNOWN\"\n  }))\n  |> keep(columns: [\"hexapod\", \"cscStatus\"])\n\n// Camera Hexapod Compensation Mode\ncameraHexapodComp = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTHexapod.logevent_compensationMode\")\n  |> filter(fn: (r) => r[\"_field\"] == \"enabled\" or r[\"_field\"] == \"salIndex\")\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> filter(fn: (r) => r.salIndex == 1.00)\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)\n  |> map(fn: (r) => ({\n    hexapod: \"Camera Hexapod (:1)\",\n    time: r._time,\n    compensationMode: if r.enabled == true then \"ENABLED\" else \"DISABLED\"\n  }))\n  |> keep(columns: [\"hexapod\", \"compensationMode\"])\n\n// M2 Hexapod (salIndex = 2.00) - CSC Status and Compensation Mode\nm2HexapodCSC = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTHexapod.logevent_summaryState\")\n  |> filter(fn: (r) => r[\"_field\"] == \"summaryState\" or r[\"_field\"] == \"salIndex\")\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> filter(fn: (r) => r.salIndex == 2.00)\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)\n  |> map(fn: (r) => ({\n    hexapod: \"M2 Hexapod (:2)\",\n    time: r._time,\n    cscStatus:\n      if r.summaryState == 5.00 then \"STANDBY\"\n      else if r.summaryState == 4.00 then \"OFFLINE\"\n      else if r.summaryState == 3.00 then \"FAULT\"\n      else if r.summaryState == 2.00 then \"ENABLED\"\n      else if r.summaryState == 1.00 then \"DISABLED\"\n      else \"UNKNOWN\"\n  }))\n  |> keep(columns: [\"hexapod\", \"cscStatus\"])\n\n// M2 Hexapod Compensation Mode\nm2HexapodComp = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTHexapod.logevent_compensationMode\")\n  |> filter(fn: (r) => r[\"_field\"] == \"enabled\" or r[\"_field\"] == \"salIndex\")\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> filter(fn: (r) => r.salIndex == 2.00)\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)\n  |> map(fn: (r) => ({\n    hexapod: \"M2 Hexapod (:2)\",\n    time: r._time,\n    compensationMode: if r.enabled == true then \"ENABLED\" else \"DISABLED\"\n  }))\n  |> keep(columns: [\"hexapod\", \"compensationMode\"])\n\n// Combine CSC and Compensation Mode for Camera Hexapod\ncameraHexapod = join(\n  tables: {csc: cameraHexapodCSC, comp: cameraHexapodComp},\n  on: [\"hexapod\"]\n)\n\n// Combine CSC and Compensation Mode for M2 Hexapod\nm2Hexapod = join(\n  tables: {csc: m2HexapodCSC, comp: m2HexapodComp},\n  on: [\"hexapod\"]\n)\n\n// Combine Both Hexapods\nunion(tables: [cameraHexapod, m2Hexapod])",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "position",
+						"displayName": "Position (deg)",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "hexapod",
+						"displayName": "Hexapod",
+						"visible": true
+					},
+					{
+						"internalName": "cscStatus",
+						"displayName": "CSC Status",
+						"visible": true
+					},
+					{
+						"internalName": "compensationMode",
+						"displayName": "Compensation Mode",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/a4d15137-87d7-47b3-90a1-9d5284d9d89b"
+				}
+			},
+			{
+				"i": "bcb02326-e3ef-4f24-9040-35fdcf70b657",
+				"x": 3,
+				"y": 2,
+				"w": 2,
+				"h": 2,
+				"name": "TMA - Axes Home Status",
+				"queries": [
+					{
+						"query": "azimuthHomed = from(bucket: \"efd/autogen\")\n  |> range(start: -7d) // Large range to ensure the most recent record is found\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_azimuthHomed\" and r[\"_field\"] == \"homed\")\n  |> last()\n  |> map(fn: (r) => ({\n    azimuthHomed: if r._value == true then \"HOMED\" else \"NOT HOMED\"\n    }))\n\nelevationHomed = from(bucket: \"efd/autogen\")\n  |> range(start: -7d) // Large range to ensure the most recent record is found\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_elevationHomed\" and r[\"_field\"] == \"homed\")\n  |> last()\n  |> map(fn: (r) => ({\n    elevationHomed: if r._value == true then \"HOMED\" else \"NOT HOMED\"\n    }))\n\nunion(\n  tables: [azimuthHomed, elevationHomed]\n)\n  |> reduce(\n    identity: {azimuth: \"NOT HOMED\", elevation: \"NOT HOMED\"},\n    fn: (r, accumulator) => ({\n      azimuth: if exists r.azimuthHomed then r.azimuthHomed else accumulator.azimuth,\n      elevation: if exists r.elevationHomed then r.elevationHomed else accumulator.elevation\n    })\n  )\n  |> map(fn: (r) => ({\n    status: if r.azimuth == \"HOMED\" and r.elevation == \"HOMED\" then \"HOMED\"\n            else if r.azimuth == \"HOMED\" and r.elevation == \"NOT HOMED\" then \"AZIMUTH ONLY\"\n            else if r.azimuth == \"NOT HOMED\" and r.elevation == \"HOMED\" then \"ELEVATION ONLY\"\n            else \"NOT HOMED\"\n    }))\n  |> keep(columns: [\"status\"]) // Keep only the final status column\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "azimuthHomed = from(bucket: \"efd/autogen\")\n  |> range(start: -7d) // Large range to ensure the most recent record is found\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_azimuthHomed\" and r[\"_field\"] == \"homed\")\n  |> last()\n  |> map(fn: (r) => ({\n    azimuthHomed: if r._value == true then \"HOMED\" else \"NOT HOMED\"\n    }))\n\nelevationHomed = from(bucket: \"efd/autogen\")\n  |> range(start: -7d) // Large range to ensure the most recent record is found\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_elevationHomed\" and r[\"_field\"] == \"homed\")\n  |> last()\n  |> map(fn: (r) => ({\n    elevationHomed: if r._value == true then \"HOMED\" else \"NOT HOMED\"\n    }))\n\nunion(\n  tables: [azimuthHomed, elevationHomed]\n)\n  |> reduce(\n    identity: {azimuth: \"NOT HOMED\", elevation: \"NOT HOMED\"},\n    fn: (r, accumulator) => ({\n      azimuth: if exists r.azimuthHomed then r.azimuthHomed else accumulator.azimuth,\n      elevation: if exists r.elevationHomed then r.elevationHomed else accumulator.elevation\n    })\n  )\n  |> map(fn: (r) => ({\n    status: if r.azimuth == \"HOMED\" and r.elevation == \"HOMED\" then \"HOMED\"\n            else if r.azimuth == \"HOMED\" and r.elevation == \"NOT HOMED\" then \"AZIMUTH ONLY\"\n            else if r.azimuth == \"NOT HOMED\" and r.elevation == \"HOMED\" then \"ELEVATION ONLY\"\n            else \"NOT HOMED\"\n    }))\n  |> keep(columns: [\"status\"]) // Keep only the final status column\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "background",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "status",
+						"displayName": "Home Status",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/bcb02326-e3ef-4f24-9040-35fdcf70b657"
+				}
+			},
+			{
+				"i": "e07bcd7c-b80f-436f-882b-daae0b12ae6f",
+				"x": 3,
+				"y": 4,
+				"w": 3,
+				"h": 2,
+				"name": "TMA - Camera Cable Wrap Status",
+				"queries": [
+					{
+						"query": "import \"math\"\n\n// Enable State Query\nenableState = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_cameraCableWrapFollowing\" and r[\"_field\"] == \"enabled\")\n  |> last()\n  |> map(fn: (r) => ({\n    wrap: \"Camera Cable Wrap\",\n    time: r._time,\n    enableState: if r._value == 1 then \"ENABLED\" else \"DISABLED\"\n  }))\n  |> keep(columns: [\"wrap\", \"enableState\"])\n\n// Motion State Query\nmotionState = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_cameraCableWrapMotionState\" and r[\"_field\"] == \"state\")\n  |> last()\n  |> map(fn: (r) => ({\n    wrap: \"Camera Cable Wrap\",\n    time: r._time,\n    motionState: \n      if r._value == 0 then \"STOPPING\"\n      else if r._value == 1 then \"STOPPED\"\n      else if r._value == 2 then \"MOVING_POINT_TO_POINT\"\n      else if r._value == 3 then \"JOGGING\"\n      else if r._value == 4 then \"TRACKING\"\n      else if r._value == 5 then \"TRACKING_PAUSED\"\n      else \"UNKNOWN\"\n  }))\n  |> keep(columns: [\"wrap\", \"motionState\"])\n\n// Position Query with 2 Decimal Places Formatting\npositionState = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.cameraCableWrap\" and r[\"_field\"] == \"actualPosition\")\n  |> last()\n  |> map(fn: (r) => ({\n    wrap: \"Camera Cable Wrap\",\n    time: r._time,\n    position: string(v: math.round(x: r._value * 100.0) / 100.0) // Round to 2 decimal places\n  }))\n  |> keep(columns: [\"wrap\", \"position\"])\n\n// Join Enable State and Motion State\nwrapState = join(\n  tables: {enable: enableState, motion: motionState},\n  on: [\"wrap\"]\n)\n\n// Join with Position\nwrapFullState = join(\n  tables: {state: wrapState, position: positionState},\n  on: [\"wrap\"]\n)\n\n// Final Result\nwrapFullState\n  |> keep(columns: [\"wrap\", \"enableState\", \"motionState\", \"position\"])\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"math\"\n\n// Enable State Query\nenableState = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_cameraCableWrapFollowing\" and r[\"_field\"] == \"enabled\")\n  |> last()\n  |> map(fn: (r) => ({\n    wrap: \"Camera Cable Wrap\",\n    time: r._time,\n    enableState: if r._value == 1 then \"ENABLED\" else \"DISABLED\"\n  }))\n  |> keep(columns: [\"wrap\", \"enableState\"])\n\n// Motion State Query\nmotionState = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.logevent_cameraCableWrapMotionState\" and r[\"_field\"] == \"state\")\n  |> last()\n  |> map(fn: (r) => ({\n    wrap: \"Camera Cable Wrap\",\n    time: r._time,\n    motionState: \n      if r._value == 0 then \"STOPPING\"\n      else if r._value == 1 then \"STOPPED\"\n      else if r._value == 2 then \"MOVING_POINT_TO_POINT\"\n      else if r._value == 3 then \"JOGGING\"\n      else if r._value == 4 then \"TRACKING\"\n      else if r._value == 5 then \"TRACKING_PAUSED\"\n      else \"UNKNOWN\"\n  }))\n  |> keep(columns: [\"wrap\", \"motionState\"])\n\n// Position Query with 2 Decimal Places Formatting\npositionState = from(bucket: \"efd/autogen\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.cameraCableWrap\" and r[\"_field\"] == \"actualPosition\")\n  |> last()\n  |> map(fn: (r) => ({\n    wrap: \"Camera Cable Wrap\",\n    time: r._time,\n    position: string(v: math.round(x: r._value * 100.0) / 100.0) // Round to 2 decimal places\n  }))\n  |> keep(columns: [\"wrap\", \"position\"])\n\n// Join Enable State and Motion State\nwrapState = join(\n  tables: {enable: enableState, motion: motionState},\n  on: [\"wrap\"]\n)\n\n// Join with Position\nwrapFullState = join(\n  tables: {state: wrapState, position: positionState},\n  on: [\"wrap\"]\n)\n\n// Final Result\nwrapFullState\n  |> keep(columns: [\"wrap\", \"enableState\", \"motionState\", \"position\"])\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "position",
+						"displayName": "Position (deg)",
+						"visible": true
+					},
+					{
+						"internalName": "motionState",
+						"displayName": "Motion State",
+						"visible": true
+					},
+					{
+						"internalName": "enableState",
+						"displayName": "CCW Following",
+						"visible": true
+					},
+					{
+						"internalName": "wrap",
+						"displayName": "",
+						"visible": false
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/e07bcd7c-b80f-436f-882b-daae0b12ae6f"
+				}
+			},
+			{
+				"i": "5b6936b9-88df-47a3-855b-a88158a6f5da",
+				"x": 6,
+				"y": 6,
+				"w": 3,
+				"h": 2,
+				"name": "MTDome - Following Mode Status",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: -inf) // Large range to ensure the most recent record is found\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTDomeTrajectory.logevent_followingMode\" and r[\"_field\"] == \"enabled\")\n  |> last() // Fetch the most recent record\n  |> map(fn: (r) => ({\n    _time: r._time,\n    enabled: if r._value == true then \"ENABLED\" else \"DISABLED\"\n    }))\n  |> keep(columns: [\"_time\", \"enabled\"]) // Keep only time and enabled status\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: -inf) // Large range to ensure the most recent record is found\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTDomeTrajectory.logevent_followingMode\" and r[\"_field\"] == \"enabled\")\n  |> last() // Fetch the most recent record\n  |> map(fn: (r) => ({\n    _time: r._time,\n    enabled: if r._value == true then \"ENABLED\" else \"DISABLED\"\n    }))\n  |> keep(columns: [\"_time\", \"enabled\"]) // Keep only time and enabled status\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "enabled",
+						"displayName": "Dome Following Mode",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/5b6936b9-88df-47a3-855b-a88158a6f5da"
+				}
+			},
+			{
+				"i": "b4e6df75-c412-42de-8d56-91a58c74c14d",
+				"x": 3,
+				"y": 6,
+				"w": 3,
+				"h": 2,
+				"name": "M2 - Loop Control Mode",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTM2.logevent_closedLoopControlMode\" and r[\"_field\"] == \"mode\")\n  |> last() // Get the most recent mode\n  |> map(fn: (r) => ({\n    _time: r._time,\n    description: \n      if r._value == 1.00 then \"Idle\"\n      else if r._value == 2.00 then \"TELEMETRY ONLY\"\n      else if r._value == 3.00 then \"OPEN LOOP\"\n      else if r._value == 4.00 then \"CLOSED LOOP\"\n      else \"UNKNOWN\"\n    }))\n  |> keep(columns: [\"_time\", \"description\"])\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: -30d)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTM2.logevent_closedLoopControlMode\" and r[\"_field\"] == \"mode\")\n  |> last() // Get the most recent mode\n  |> map(fn: (r) => ({\n    _time: r._time,\n    description: \n      if r._value == 1.00 then \"Idle\"\n      else if r._value == 2.00 then \"TELEMETRY ONLY\"\n      else if r._value == 3.00 then \"OPEN LOOP\"\n      else if r._value == 4.00 then \"CLOSED LOOP\"\n      else \"UNKNOWN\"\n    }))\n  |> keep(columns: [\"_time\", \"description\"])\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "description",
+						"displayName": "Loop Control Mode",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/b4e6df75-c412-42de-8d56-91a58c74c14d"
+				}
+			},
+			{
+				"i": "c8ee1599-4172-497e-a733-39652ec678a4",
+				"x": 0,
+				"y": 8,
+				"w": 6,
+				"h": 2,
+				"name": "M1M3 - Slew Flags",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: -7d) // Large range to ensure the most recent record is found\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTM1M3.logevent_slewControllerSettings\")\n  |> filter(fn: (r) => r[\"_field\"] == \"useVelocityForces\" or \n                       r[\"_field\"] == \"useBalanceForces\" or \n                       r[\"_field\"] == \"useAccelerationForces\" or \n                       r[\"_field\"] == \"triggerBoosterValves\")\n  |> last() // Fetch the most recent record for each field\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> map(fn: (r) => ({\n    _time: r._time,\n    useVelocityForces: if r.useVelocityForces == true then \"TRUE\" else \"FALSE\",\n    useBalanceForces: if r.useBalanceForces == true then \"TRUE\" else \"FALSE\",\n    useAccelerationForces: if r.useAccelerationForces == true then \"TRUE\" else \"FALSE\",\n    triggerBoosterValves: if r.triggerBoosterValves == true then \"TRUE\" else \"FALSE\"\n  }))\n  |> keep(columns: [\"_time\", \"useVelocityForces\", \"useBalanceForces\", \"useAccelerationForces\", \"triggerBoosterValves\"])\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: -7d) // Large range to ensure the most recent record is found\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTM1M3.logevent_slewControllerSettings\")\n  |> filter(fn: (r) => r[\"_field\"] == \"useVelocityForces\" or \n                       r[\"_field\"] == \"useBalanceForces\" or \n                       r[\"_field\"] == \"useAccelerationForces\" or \n                       r[\"_field\"] == \"triggerBoosterValves\")\n  |> last() // Fetch the most recent record for each field\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> map(fn: (r) => ({\n    _time: r._time,\n    useVelocityForces: if r.useVelocityForces == true then \"TRUE\" else \"FALSE\",\n    useBalanceForces: if r.useBalanceForces == true then \"TRUE\" else \"FALSE\",\n    useAccelerationForces: if r.useAccelerationForces == true then \"TRUE\" else \"FALSE\",\n    triggerBoosterValves: if r.triggerBoosterValves == true then \"TRUE\" else \"FALSE\"\n  }))\n  |> keep(columns: [\"_time\", \"useVelocityForces\", \"useBalanceForces\", \"useAccelerationForces\", \"triggerBoosterValves\"])\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "background",
+						"hex": "#7A65F2",
+						"name": "star",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "useAccelerationForces",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "useBalanceForces",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "useVelocityForces",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "triggerBoosterValves",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/c8ee1599-4172-497e-a733-39652ec678a4"
+				}
+			},
+			{
+				"i": "f1552833-1ab3-4973-9f64-18855a7256f2",
+				"x": 0,
+				"y": 6,
+				"w": 3,
+				"h": 2,
+				"name": "M1M3 - Mirror Status",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: -7d) // Large range to ensure the most recent record is found\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTM1M3.logevent_detailedState\" and r[\"_field\"] == \"detailedState\")\n  |> last() // Fetch the most recent detailedState\n  |> map(fn: (r) => ({\n    _time: r._time,\n    detailedState: \n      if r._value == 1.00 then \"DISABLED\"\n      else if r._value == 2.00 then \"FAULT\"\n      else if r._value == 3.00 then \"OFFLINE\"\n      else if r._value == 4.00 then \"STANDBY\"\n      else if r._value == 5.00 then \"PARKED\"\n      else if r._value == 6.00 then \"RAISING\"\n      else if r._value == 7.00 then \"ACTIVE\"\n      else if r._value == 8.00 then \"LOWERING\"\n      else if r._value == 9.00 then \"PARKEDENGINEERING\"\n      else if r._value == 10.00 then \"RAISINGENGINEERING\"\n      else if r._value == 11.00 then \"ACTIVEENGINEERING\"\n      else if r._value == 12.00 then \"LOWERINGENGINEERING\"\n      else if r._value == 13.00 then \"LOWERINGFAULT\"\n      else if r._value == 14.00 then \"PROFILEHARDPOINTCORRECTIONS\"\n      else if r._value == 15.00 then \"PAUSEDRAISING\"\n      else if r._value == 16.00 then \"PAUSEDRAISINGENGINEERING\"\n      else if r._value == 17.00 then \"PAUSEDLOWERING\"\n      else if r._value == 18.00 then \"PAUSEDLOWERINGENGINEERING\"\n      else \"UNKNOWN\"\n    }))\n  |> keep(columns: [\"_time\", \"detailedState\"]) // Retain both time and state\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: -7d) // Large range to ensure the most recent record is found\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTM1M3.logevent_detailedState\" and r[\"_field\"] == \"detailedState\")\n  |> last() // Fetch the most recent detailedState\n  |> map(fn: (r) => ({\n    _time: r._time,\n    detailedState: \n      if r._value == 1.00 then \"DISABLED\"\n      else if r._value == 2.00 then \"FAULT\"\n      else if r._value == 3.00 then \"OFFLINE\"\n      else if r._value == 4.00 then \"STANDBY\"\n      else if r._value == 5.00 then \"PARKED\"\n      else if r._value == 6.00 then \"RAISING\"\n      else if r._value == 7.00 then \"ACTIVE\"\n      else if r._value == 8.00 then \"LOWERING\"\n      else if r._value == 9.00 then \"PARKEDENGINEERING\"\n      else if r._value == 10.00 then \"RAISINGENGINEERING\"\n      else if r._value == 11.00 then \"ACTIVEENGINEERING\"\n      else if r._value == 12.00 then \"LOWERINGENGINEERING\"\n      else if r._value == 13.00 then \"LOWERINGFAULT\"\n      else if r._value == 14.00 then \"PROFILEHARDPOINTCORRECTIONS\"\n      else if r._value == 15.00 then \"PAUSEDRAISING\"\n      else if r._value == 16.00 then \"PAUSEDRAISINGENGINEERING\"\n      else if r._value == 17.00 then \"PAUSEDLOWERING\"\n      else if r._value == 18.00 then \"PAUSEDLOWERINGENGINEERING\"\n      else \"UNKNOWN\"\n    }))\n  |> keep(columns: [\"_time\", \"detailedState\"]) // Retain both time and state\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "detailedState",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/585/cells/f1552833-1ab3-4973-9f64-18855a7256f2"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Estado del Telescopio",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/585",
+			"cells": "/chronograf/v1/dashboards/585/cells",
+			"templates": "/chronograf/v1/dashboards/585/templates"
+		}
+	}
+}

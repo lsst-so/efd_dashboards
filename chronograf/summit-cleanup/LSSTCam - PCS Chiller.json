@@ -1,0 +1,1025 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "522",
+		"cells": [
+			{
+				"i": "8c388384-6072-4ec3-bf95-cac765b85641",
+				"x": 6,
+				"y": 0,
+				"w": 6,
+				"h": 5,
+				"name": "Chiller cool/heat percentage",
+				"queries": [
+					{
+						"query": "SELECT \"CoolPercentage\", \"HeatPercentage\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.chiller\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='chiller2'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.chiller",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "CoolPercentage",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "HeatPercentage",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Agent": [
+									"chiller2"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "21d2f6de-0650-454a-ab0b-0911009eb109",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7aa49302-7c89-423a-b8e6-9817c6241bf3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7468a945-6411-4539-b8cf-8c95299c1574",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/522/cells/8c388384-6072-4ec3-bf95-cac765b85641"
+				}
+			},
+			{
+				"i": "7b9ef7d3-b12e-4144-bf9a-05ae8d87e4ab",
+				"x": 0,
+				"y": 0,
+				"w": 6,
+				"h": 5,
+				"name": "Chiller temperature",
+				"queries": [
+					{
+						"query": "SELECT mean(\"FluidTemperature\") AS \"mean_FluidTemperature\", mean(\"TempDynamicSetPt\") AS \"mean_TempDynamicSetPt\", mean(\"TempSetPoint\") AS \"mean_TempSetPoint\", mean(\"TempStage2Evap\") AS \"mean_TempStage2Evap\", mean(\"TempTXVBulb\") AS \"mean_TempTXVBulb\", mean(\"TempCondenser\") AS \"mean_TempCondenser\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.chiller\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='chiller2' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.chiller",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_FluidTemperature",
+									"args": [
+										{
+											"value": "FluidTemperature",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_TempDynamicSetPt",
+									"args": [
+										{
+											"value": "TempDynamicSetPt",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_TempSetPoint",
+									"args": [
+										{
+											"value": "TempSetPoint",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_TempStage2Evap",
+									"args": [
+										{
+											"value": "TempStage2Evap",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_TempTXVBulb",
+									"args": [
+										{
+											"value": "TempTXVBulb",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_TempCondenser",
+									"args": [
+										{
+											"value": "TempCondenser",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Agent": [
+									"chiller2"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "21d2f6de-0650-454a-ab0b-0911009eb109",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7aa49302-7c89-423a-b8e6-9817c6241bf3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7468a945-6411-4539-b8cf-8c95299c1574",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/522/cells/7b9ef7d3-b12e-4144-bf9a-05ae8d87e4ab"
+				}
+			},
+			{
+				"i": "69dc78d7-a898-4e99-9263-3edf30f43bd7",
+				"x": 0,
+				"y": 5,
+				"w": 6,
+				"h": 5,
+				"name": "Chiller Pressure In/Out",
+				"queries": [
+					{
+						"query": "SELECT mean(\"PressureIn\") AS \"mean_PressureIn\", mean(\"PressureOut\") AS \"mean_PressureOut\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.chiller\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='chiller2' GROUP BY time(1s) FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.chiller",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_PressureIn",
+									"args": [
+										{
+											"value": "PressureIn",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_PressureOut",
+									"args": [
+										{
+											"value": "PressureOut",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Agent": [
+									"chiller2"
+								]
+							},
+							"groupBy": {
+								"time": "1s",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "21d2f6de-0650-454a-ab0b-0911009eb109",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7aa49302-7c89-423a-b8e6-9817c6241bf3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7468a945-6411-4539-b8cf-8c95299c1574",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/522/cells/69dc78d7-a898-4e99-9263-3edf30f43bd7"
+				}
+			},
+			{
+				"i": "6d11929e-85ba-41c1-b804-04bc9525b8a4",
+				"x": 6,
+				"y": 5,
+				"w": 6,
+				"h": 5,
+				"name": "Glycol Input flow to Chiller",
+				"queries": [
+					{
+						"query": "SELECT mean(\"FlowRate\") AS \"mean_FlowRate\", mean(\"FlowSetPoint\") AS \"mean_FlowSetPoint\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.chiller\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='chiller2' GROUP BY time(2s) FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.chiller",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_FlowRate",
+									"args": [
+										{
+											"value": "FlowRate",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_FlowSetPoint",
+									"args": [
+										{
+											"value": "FlowSetPoint",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Agent": [
+									"chiller2"
+								]
+							},
+							"groupBy": {
+								"time": "2s",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT mean(\"GlycInputFlow\") AS \"mean_GlycInputFlow\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.chiller_maq20\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='chiller2' GROUP BY time(2s) FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.chiller_maq20",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_GlycInputFlow",
+									"args": [
+										{
+											"value": "GlycInputFlow",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Agent": [
+									"chiller2"
+								]
+							},
+							"groupBy": {
+								"time": "2s",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "21d2f6de-0650-454a-ab0b-0911009eb109",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7aa49302-7c89-423a-b8e6-9817c6241bf3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7468a945-6411-4539-b8cf-8c95299c1574",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/522/cells/6d11929e-85ba-41c1-b804-04bc9525b8a4"
+				}
+			},
+			{
+				"i": "060f1828-5a15-4786-be85-6eee6e6fd59a",
+				"x": 0,
+				"y": 10,
+				"w": 6,
+				"h": 5,
+				"name": "Chiller Temperatures",
+				"queries": [
+					{
+						"query": "SELECT mean(\"Stg1CondensOut\") AS \"mean_Stg1CondensOut\", mean(\"Stg1TXVBulb\") AS \"mean_Stg1TXVBulb\", mean(\"Stg2DeSuHtrOut\") AS \"mean_Stg2DeSuHtrOut\", mean(\"Stg2EvapIn\") AS \"mean_Stg2EvapIn\", mean(\"Stg2EvapOut\") AS \"mean_Stg2EvapOut\", mean(\"AmbientTemp\") AS \"mean_AmbientTemp\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.chiller_maq20\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='chiller2' GROUP BY time(1s) FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.chiller_maq20",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_Stg1CondensOut",
+									"args": [
+										{
+											"value": "Stg1CondensOut",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_Stg1TXVBulb",
+									"args": [
+										{
+											"value": "Stg1TXVBulb",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_Stg2DeSuHtrOut",
+									"args": [
+										{
+											"value": "Stg2DeSuHtrOut",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_Stg2EvapIn",
+									"args": [
+										{
+											"value": "Stg2EvapIn",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_Stg2EvapOut",
+									"args": [
+										{
+											"value": "Stg2EvapOut",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_AmbientTemp",
+									"args": [
+										{
+											"value": "AmbientTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Agent": [
+									"chiller2"
+								]
+							},
+							"groupBy": {
+								"time": "1s",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "21d2f6de-0650-454a-ab0b-0911009eb109",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7aa49302-7c89-423a-b8e6-9817c6241bf3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7468a945-6411-4539-b8cf-8c95299c1574",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/522/cells/060f1828-5a15-4786-be85-6eee6e6fd59a"
+				}
+			},
+			{
+				"i": "aec9ba4d-5bd1-4bca-b5b0-717594799f58",
+				"x": 6,
+				"y": 10,
+				"w": 6,
+				"h": 5,
+				"name": "Glycol Chiller in/out temperature",
+				"queries": [
+					{
+						"query": "SELECT mean(\"GlycChillerIn\") AS \"mean_GlycChillerIn\", mean(\"GlycChillerOut\") AS \"mean_GlycChillerOut\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.chiller_maq20\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='chiller2' GROUP BY time(1s) FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.chiller_maq20",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_GlycChillerIn",
+									"args": [
+										{
+											"value": "GlycChillerIn",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_GlycChillerOut",
+									"args": [
+										{
+											"value": "GlycChillerOut",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Agent": [
+									"chiller2"
+								]
+							},
+							"groupBy": {
+								"time": "1s",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "21d2f6de-0650-454a-ab0b-0911009eb109",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7aa49302-7c89-423a-b8e6-9817c6241bf3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7468a945-6411-4539-b8cf-8c95299c1574",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/522/cells/aec9ba4d-5bd1-4bca-b5b0-717594799f58"
+				}
+			}
+		],
+		"templates": [],
+		"name": "LSSTCam - PCS Chiller",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/522",
+			"cells": "/chronograf/v1/dashboards/522/cells",
+			"templates": "/chronograf/v1/dashboards/522/templates"
+		}
+	}
+}

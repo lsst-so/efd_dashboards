@@ -1,0 +1,2457 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "389",
+		"cells": [
+			{
+				"i": "62d2a4e8-7a88-49cd-b369-d054c0f71eb3",
+				"x": 6,
+				"y": 13,
+				"w": 3,
+				"h": 3,
+				"name": "Elevation",
+				"queries": [
+					{
+						"query": "SELECT mean(\"actualPosition\") AS \"mean_actualPosition\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.elevation\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.elevation",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_actualPosition",
+									"args": [
+										{
+											"value": "actualPosition",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "deg",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "794d362c-88dc-4053-bba8-cbfa3478e61d",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7d8b1767-6310-4f61-bf7e-69d59d6a8955",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e2fb0f82-0d24-4b98-b818-1459f54f9aba",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/62d2a4e8-7a88-49cd-b369-d054c0f71eb3"
+				}
+			},
+			{
+				"i": "98557013-a57d-4c5a-800b-fc0bd92c1489",
+				"x": 6,
+				"y": 5,
+				"w": 3,
+				"h": 3,
+				"name": "Elevation",
+				"queries": [
+					{
+						"query": "SELECT mean(\"actualPosition\") AS \"mean_actualPosition\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.elevation\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.elevation",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_actualPosition",
+									"args": [
+										{
+											"value": "actualPosition",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "794d362c-88dc-4053-bba8-cbfa3478e61d",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7d8b1767-6310-4f61-bf7e-69d59d6a8955",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e2fb0f82-0d24-4b98-b818-1459f54f9aba",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/98557013-a57d-4c5a-800b-fc0bd92c1489"
+				}
+			},
+			{
+				"i": "8a8e19ae-5915-49d1-886e-57ef0cfd49e8",
+				"x": 6,
+				"y": 21,
+				"w": 3,
+				"h": 3,
+				"name": "Elevation",
+				"queries": [
+					{
+						"query": "SELECT mean(\"actualPosition\") AS \"mean_actualPosition\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.elevation\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.elevation",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_actualPosition",
+									"args": [
+										{
+											"value": "actualPosition",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "794d362c-88dc-4053-bba8-cbfa3478e61d",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7d8b1767-6310-4f61-bf7e-69d59d6a8955",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e2fb0f82-0d24-4b98-b818-1459f54f9aba",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/8a8e19ae-5915-49d1-886e-57ef0cfd49e8"
+				}
+			},
+			{
+				"i": "32104dec-a50f-493a-8c63-30b05d82cb66",
+				"x": 6,
+				"y": 2,
+				"w": 3,
+				"h": 3,
+				"name": "TMA_CENTRAL dY",
+				"queries": [
+					{
+						"query": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dY\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"TMA_CENTRAL\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dY\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"TMA_CENTRAL\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "3a366585-3b9c-44b9-a029-bbebe810f22f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8ce7f788-efd8-484b-8deb-b7770352c81d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e259e2f9-1434-42c4-a9cb-768deb61b3a5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/32104dec-a50f-493a-8c63-30b05d82cb66"
+				}
+			},
+			{
+				"i": "d71c99bc-dfea-4a5f-99d7-fc419254793c",
+				"x": 3,
+				"y": 2,
+				"w": 3,
+				"h": 3,
+				"name": "TMA_CENTRAL dX",
+				"queries": [
+					{
+						"query": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dX\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"TMA_CENTRAL\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dX\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"TMA_CENTRAL\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "3a366585-3b9c-44b9-a029-bbebe810f22f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8ce7f788-efd8-484b-8deb-b7770352c81d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e259e2f9-1434-42c4-a9cb-768deb61b3a5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/d71c99bc-dfea-4a5f-99d7-fc419254793c"
+				}
+			},
+			{
+				"i": "e265d47f-0ae0-4d52-8d6b-38b67549be9c",
+				"x": 3,
+				"y": 5,
+				"w": 3,
+				"h": 3,
+				"name": "TMA_CENTRAL dRY",
+				"queries": [
+					{
+						"query": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dRY\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"TMA_CENTRAL\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dRY\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"TMA_CENTRAL\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "3a366585-3b9c-44b9-a029-bbebe810f22f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8ce7f788-efd8-484b-8deb-b7770352c81d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e259e2f9-1434-42c4-a9cb-768deb61b3a5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/e265d47f-0ae0-4d52-8d6b-38b67549be9c"
+				}
+			},
+			{
+				"i": "b032255d-f3f5-4674-87e0-d4a3a40a856c",
+				"x": 0,
+				"y": 5,
+				"w": 3,
+				"h": 3,
+				"name": "TMA_CENTRAL dRX",
+				"queries": [
+					{
+						"query": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dRX\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"TMA_CENTRAL\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dRX\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"TMA_CENTRAL\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "3a366585-3b9c-44b9-a029-bbebe810f22f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8ce7f788-efd8-484b-8deb-b7770352c81d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e259e2f9-1434-42c4-a9cb-768deb61b3a5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/b032255d-f3f5-4674-87e0-d4a3a40a856c"
+				}
+			},
+			{
+				"i": "95974a43-a1b6-4b50-8910-ea9c4df0200d",
+				"x": 0,
+				"y": 2,
+				"w": 3,
+				"h": 3,
+				"name": "TMA_CENTRAL dZ",
+				"queries": [
+					{
+						"query": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dZ\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"TMA_CENTRAL\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dZ\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"TMA_CENTRAL\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "3a366585-3b9c-44b9-a029-bbebe810f22f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8ce7f788-efd8-484b-8deb-b7770352c81d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e259e2f9-1434-42c4-a9cb-768deb61b3a5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/95974a43-a1b6-4b50-8910-ea9c4df0200d"
+				}
+			},
+			{
+				"i": "3cfb6aa0-4628-4123-9644-52af631b6efd",
+				"x": 6,
+				"y": 10,
+				"w": 3,
+				"h": 3,
+				"name": "Camera dY",
+				"queries": [
+					{
+						"query": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dY\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"CAM\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dY\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"CAM\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "(um)",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "3a366585-3b9c-44b9-a029-bbebe810f22f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8ce7f788-efd8-484b-8deb-b7770352c81d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e259e2f9-1434-42c4-a9cb-768deb61b3a5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/3cfb6aa0-4628-4123-9644-52af631b6efd"
+				}
+			},
+			{
+				"i": "b44a8362-ee25-416b-8ccc-6c588320439d",
+				"x": 3,
+				"y": 10,
+				"w": 3,
+				"h": 3,
+				"name": "Camera dX",
+				"queries": [
+					{
+						"query": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dX\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"CAM\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dX\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"CAM\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "(um)",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "3a366585-3b9c-44b9-a029-bbebe810f22f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8ce7f788-efd8-484b-8deb-b7770352c81d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e259e2f9-1434-42c4-a9cb-768deb61b3a5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/b44a8362-ee25-416b-8ccc-6c588320439d"
+				}
+			},
+			{
+				"i": "b5004cc2-d301-421f-9958-e3a824499745",
+				"x": 0,
+				"y": 13,
+				"w": 3,
+				"h": 3,
+				"name": "Camera dRX",
+				"queries": [
+					{
+						"query": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dRX\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"CAM\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dRX\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"CAM\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "deg",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "3a366585-3b9c-44b9-a029-bbebe810f22f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8ce7f788-efd8-484b-8deb-b7770352c81d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e259e2f9-1434-42c4-a9cb-768deb61b3a5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/b5004cc2-d301-421f-9958-e3a824499745"
+				}
+			},
+			{
+				"i": "67dcc3d5-7221-4d64-9627-65397d88165c",
+				"x": 3,
+				"y": 13,
+				"w": 3,
+				"h": 3,
+				"name": "Camera dRY",
+				"queries": [
+					{
+						"query": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dRY\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"CAM\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dRY\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"CAM\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "deg",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "3a366585-3b9c-44b9-a029-bbebe810f22f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8ce7f788-efd8-484b-8deb-b7770352c81d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e259e2f9-1434-42c4-a9cb-768deb61b3a5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/67dcc3d5-7221-4d64-9627-65397d88165c"
+				}
+			},
+			{
+				"i": "732c987e-c7e8-459f-b63c-79ec1f7cd9f8",
+				"x": 0,
+				"y": 10,
+				"w": 3,
+				"h": 3,
+				"name": "Camera dZ",
+				"queries": [
+					{
+						"query": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dZ\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"CAM\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dZ\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"CAM\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "(um)",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "3a366585-3b9c-44b9-a029-bbebe810f22f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8ce7f788-efd8-484b-8deb-b7770352c81d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e259e2f9-1434-42c4-a9cb-768deb61b3a5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/732c987e-c7e8-459f-b63c-79ec1f7cd9f8"
+				}
+			},
+			{
+				"i": "2ffe9efc-0de2-4dfe-a5de-4fdb2b96ae86",
+				"x": 0,
+				"y": 0,
+				"w": 9,
+				"h": 2,
+				"name": "TMA Offsets Section",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "### TMA_CENTRAL Offsets\n\nBelow the measured offsets for target TMA_CENTRAL are shown",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/2ffe9efc-0de2-4dfe-a5de-4fdb2b96ae86"
+				}
+			},
+			{
+				"i": "401413b8-1b23-4cd3-96b5-0e5cc2e0751a",
+				"x": 0,
+				"y": 8,
+				"w": 9,
+				"h": 2,
+				"name": "Camera Offsets Section",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "### Camera Offsets\n\nBelow the measured offsets for target Camera are shown",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/401413b8-1b23-4cd3-96b5-0e5cc2e0751a"
+				}
+			},
+			{
+				"i": "513d1861-19d9-417f-a42f-99dabdbdb3dd",
+				"x": 3,
+				"y": 21,
+				"w": 3,
+				"h": 3,
+				"name": "M2 dRY",
+				"queries": [
+					{
+						"query": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dRY\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"M2\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dRY\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"M2\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "3a366585-3b9c-44b9-a029-bbebe810f22f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8ce7f788-efd8-484b-8deb-b7770352c81d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e259e2f9-1434-42c4-a9cb-768deb61b3a5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/513d1861-19d9-417f-a42f-99dabdbdb3dd"
+				}
+			},
+			{
+				"i": "88a99cce-1ee7-4b80-9aa0-a18351348578",
+				"x": 0,
+				"y": 21,
+				"w": 3,
+				"h": 3,
+				"name": "M2 dRX",
+				"queries": [
+					{
+						"query": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dRX\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"M2\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dRX\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"M2\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "3a366585-3b9c-44b9-a029-bbebe810f22f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8ce7f788-efd8-484b-8deb-b7770352c81d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e259e2f9-1434-42c4-a9cb-768deb61b3a5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/88a99cce-1ee7-4b80-9aa0-a18351348578"
+				}
+			},
+			{
+				"i": "75df87b2-f273-4d84-a670-34cce83b3a13",
+				"x": 0,
+				"y": 16,
+				"w": 9,
+				"h": 2,
+				"name": "M2 Offsets Section",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "### M2 Offsets\n\nBelow the measured offsets for target M2 are shown",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/75df87b2-f273-4d84-a670-34cce83b3a13"
+				}
+			},
+			{
+				"i": "200ffb5a-83ce-43ec-ad33-b62e31542bcc",
+				"x": 0,
+				"y": 18,
+				"w": 3,
+				"h": 3,
+				"name": "M2 dZ",
+				"queries": [
+					{
+						"query": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dZ\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"M2\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dZ\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"M2\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "3a366585-3b9c-44b9-a029-bbebe810f22f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8ce7f788-efd8-484b-8deb-b7770352c81d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e259e2f9-1434-42c4-a9cb-768deb61b3a5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/200ffb5a-83ce-43ec-ad33-b62e31542bcc"
+				}
+			},
+			{
+				"i": "37e30656-0aa6-4cf7-945c-899055fe0f3c",
+				"x": 3,
+				"y": 18,
+				"w": 3,
+				"h": 3,
+				"name": "M2 dX",
+				"queries": [
+					{
+						"query": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dX\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"M2\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dX\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"M2\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "3a366585-3b9c-44b9-a029-bbebe810f22f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8ce7f788-efd8-484b-8deb-b7770352c81d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e259e2f9-1434-42c4-a9cb-768deb61b3a5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/37e30656-0aa6-4cf7-945c-899055fe0f3c"
+				}
+			},
+			{
+				"i": "a326a90f-c073-4f19-86e2-a699f26d6085",
+				"x": 6,
+				"y": 18,
+				"w": 3,
+				"h": 3,
+				"name": "M2 dY",
+				"queries": [
+					{
+						"query": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dY\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"M2\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\n\nfirst_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dY\")\n\nsecond_table = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] ==  \"lsst.sal.LaserTracker.logevent_offsetsPublish\")\n  |> filter(fn: (r) => r[\"_field\"] == \"target\" )\n  |> filter(fn: (r) => strings.containsStr(v: r[\"_value\"], substr: \"M2\"))\n\n\njoin(tables: {mean: first_table, align: second_table}, on: [\"_time\"])\n\t|> yield(name: \"first_table_data\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "3a366585-3b9c-44b9-a029-bbebe810f22f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8ce7f788-efd8-484b-8deb-b7770352c81d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e259e2f9-1434-42c4-a9cb-768deb61b3a5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/389/cells/a326a90f-c073-4f19-86e2-a699f26d6085"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Laser Tracker Offsets",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/389",
+			"cells": "/chronograf/v1/dashboards/389/cells",
+			"templates": "/chronograf/v1/dashboards/389/templates"
+		}
+	}
+}

@@ -1,0 +1,526 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "505",
+		"cells": [
+			{
+				"i": "5bd842c8-0c2f-4625-9578-3d03e709ca5b",
+				"x": 0,
+				"y": 4,
+				"w": 4,
+				"h": 4,
+				"name": "Carousel Brakes Sensor",
+				"queries": [
+					{
+						"query": "from(bucket: \"lsst.MTCamera/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.MTCamera.fcs_carousel_brakes\")\n  |> filter(fn: (r) => r[\"_field\"] == \"sensor\")\n  |> filter(fn: (r) => r[\"Agent\"] == \"fcs\")\n  |> filter(fn: (r) => r[\"Bay\"] == \"bayX\" or r[\"Bay\"] == \"bayN\" or r[\"Bay\"] == \"bayI\" or r[\"Bay\"] == \"bayD\")\n  |> filter(fn: (r) => r[\"Hardware\"] == \"carousel\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> yield(name: \"mean\")",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"lsst.MTCamera/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.MTCamera.fcs_carousel_brakes\")\n  |> filter(fn: (r) => r[\"_field\"] == \"sensor\")\n  |> filter(fn: (r) => r[\"Agent\"] == \"fcs\")\n  |> filter(fn: (r) => r[\"Bay\"] == \"bayX\" or r[\"Bay\"] == \"bayN\" or r[\"Bay\"] == \"bayI\" or r[\"Bay\"] == \"bayD\")\n  |> filter(fn: (r) => r[\"Hardware\"] == \"carousel\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> yield(name: \"mean\")",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "22ccc1ed-e155-44bf-bf95-e8b45426c5b1",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e37df4ce-8320-4549-ac46-3f4edb6b56df",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "1a622a5e-d7b7-4725-9248-6abd13dc34ca",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/505/cells/5bd842c8-0c2f-4625-9578-3d03e709ca5b"
+				}
+			},
+			{
+				"i": "97f30fbb-20ba-4273-a9c5-a70b47417e6b",
+				"x": 4,
+				"y": 4,
+				"w": 4,
+				"h": 4,
+				"name": "Carousel Brakes Temperature",
+				"queries": [
+					{
+						"query": "from(bucket: \"lsst.MTCamera/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.MTCamera.fcs_carousel_brakes\")\n  |> filter(fn: (r) => r[\"_field\"] == \"temperature\")\n  |> filter(fn: (r) => r[\"Agent\"] == \"fcs\")\n  |> filter(fn: (r) => r[\"Bay\"] == \"bayX\" or r[\"Bay\"] == \"bayN\" or r[\"Bay\"] == \"bayI\" or r[\"Bay\"] == \"bayD\")\n  |> filter(fn: (r) => r[\"Hardware\"] == \"carousel\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> yield(name: \"mean\")",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"lsst.MTCamera/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.MTCamera.fcs_carousel_brakes\")\n  |> filter(fn: (r) => r[\"_field\"] == \"temperature\")\n  |> filter(fn: (r) => r[\"Agent\"] == \"fcs\")\n  |> filter(fn: (r) => r[\"Bay\"] == \"bayX\" or r[\"Bay\"] == \"bayN\" or r[\"Bay\"] == \"bayI\" or r[\"Bay\"] == \"bayD\")\n  |> filter(fn: (r) => r[\"Hardware\"] == \"carousel\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> yield(name: \"mean\")",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "C",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "22ccc1ed-e155-44bf-bf95-e8b45426c5b1",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e37df4ce-8320-4549-ac46-3f4edb6b56df",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "1a622a5e-d7b7-4725-9248-6abd13dc34ca",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/505/cells/97f30fbb-20ba-4273-a9c5-a70b47417e6b"
+				}
+			},
+			{
+				"i": "348451ad-5aae-4e7f-8b04-bf53d92f47cb",
+				"x": 0,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "Filter ID in Autochanger ",
+				"queries": [
+					{
+						"query": "SELECT \"filterID\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.fcs_autochanger_two_latches\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Hardware\"='autochanger'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.fcs_autochanger_two_latches",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "filterID",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Hardware": [
+									"autochanger"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "287722f2-212c-4c4e-a6a7-3d3f65109b53",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "db8f7993-c2e0-4a2e-a1eb-cd59da21f0b4",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {
+					"type": "static",
+					"orientation": "bottom"
+				},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/505/cells/348451ad-5aae-4e7f-8b04-bf53d92f47cb"
+				}
+			},
+			{
+				"i": "91225591-ed4a-4740-be72-c0e16a0da5df",
+				"x": 4,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "setFilter & setNoFilter execution time (in ms) ",
+				"queries": [
+					{
+						"query": "SELECT \"SET_NO_FILTER\", \"SET_FILTER\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.fcs_duration\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.fcs_duration",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "SET_NO_FILTER",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "SET_FILTER",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "821dd407-a79c-4e9b-bdc5-42dd92765a4b",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "250c4b9c-8428-4b46-9d63-749220f71c43",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "be8ea067-7b62-4035-adc8-cfcd3eed1e60",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.fcs_duration.SET_FILTER",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.fcs_duration.SET_NO_FILTER",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/505/cells/91225591-ed4a-4740-be72-c0e16a0da5df"
+				}
+			}
+		],
+		"templates": [],
+		"name": "FCS - CCS Recreation",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/505",
+			"cells": "/chronograf/v1/dashboards/505/cells",
+			"templates": "/chronograf/v1/dashboards/505/templates"
+		}
+	}
+}

@@ -1,0 +1,427 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "457",
+		"cells": [
+			{
+				"i": "bc2c6678-a3c2-4fd9-87b5-e2f47f9c427a",
+				"x": 0,
+				"y": 0,
+				"w": 9,
+				"h": 2,
+				"name": "Info",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "Last images ingested into the OODS.\n\nSelect an appropriate time window (e.g. `Past 24h`)\n\n",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/457/cells/bc2c6678-a3c2-4fd9-87b5-e2f47f9c427a"
+				}
+			},
+			{
+				"i": "2a0345d2-4901-4b6f-9d16-12054755527f",
+				"x": 0,
+				"y": 2,
+				"w": 11,
+				"h": 6,
+				"name": "Ingest sequence",
+				"queries": [
+					{
+						"query": "SELECT \"obsid\", \"statusCode\", \"description\", \"raft\", \"sensor\" FROM \"efd\".\"autogen\".\"lsst.sal.MTOODS.logevent_imageInOODS\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTOODS.logevent_imageInOODS",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "obsid",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "statusCode",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "description",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "raft",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "sensor",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTOODS.logevent_imageInOODS.description",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTOODS.logevent_imageInOODS.obsid",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTOODS.logevent_imageInOODS.statusCode",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTOODS.logevent_imageInOODS.raft",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTOODS.logevent_imageInOODS.sensor",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/457/cells/2a0345d2-4901-4b6f-9d16-12054755527f"
+				}
+			},
+			{
+				"i": "6e75d4ae-58cd-411c-b9d2-ca84f3f0d7a2",
+				"x": 0,
+				"y": 8,
+				"w": 11,
+				"h": 6,
+				"name": "Ingest sequence (clone 1)",
+				"queries": [
+					{
+						"query": "SELECT \"obsid\", \"statusCode\", \"description\", \"raft\", \"sensor\" FROM \"efd\".\"autogen\".\"lsst.sal.WFOODS.logevent_imageInOODS\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.WFOODS.logevent_imageInOODS",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "obsid",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "statusCode",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "description",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "raft",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "sensor",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.WFOODS.logevent_imageInOODS.description",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.WFOODS.logevent_imageInOODS.obsid",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.WFOODS.logevent_imageInOODS.raft",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.WFOODS.logevent_imageInOODS.sensor",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.WFOODS.logevent_imageInOODS.statusCode",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/457/cells/6e75d4ae-58cd-411c-b9d2-ca84f3f0d7a2"
+				}
+			}
+		],
+		"templates": [],
+		"name": "LSSTCam OODS Ingest Status",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/457",
+			"cells": "/chronograf/v1/dashboards/457/cells",
+			"templates": "/chronograf/v1/dashboards/457/templates"
+		}
+	}
+}

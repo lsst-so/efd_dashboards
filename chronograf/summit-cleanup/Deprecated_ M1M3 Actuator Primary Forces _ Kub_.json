@@ -1,0 +1,1608 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "196",
+		"cells": [
+			{
+				"i": "4f889eb6-280d-4d9f-a85d-d5b6938ea866",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 3,
+				"name": "ForceActuator primary applied force",
+				"queries": [
+					{
+						"query": "import \"strings\"\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTM1M3.appliedCylinderForces\")\n  |> filter(fn: (r) => r[\"_field\"] == strings.joinStr(arr:[\"primaryCylinderForces\", v.ActuatorID], v:\"\") )\n  |> map(fn: (r) => ({r with _value: float(v: r._value) / 1000.0}))",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTM1M3.appliedCylinderForces\")\n  |> filter(fn: (r) => r[\"_field\"] == strings.joinStr(arr:[\"primaryCylinderForces\", v.ActuatorID], v:\"\") )\n  |> map(fn: (r) => ({r with _value: float(v: r._value) / 1000.0}))",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stepplot",
+				"colors": [
+					{
+						"id": "c0f176a4-2a15-4b47-a9bf-85b890d54123",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "c097c613-b9ed-4e5f-b9e2-41a583a9276d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "2c509efb-c253-4a09-ac03-66b4d1041d86",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/196/cells/4f889eb6-280d-4d9f-a85d-d5b6938ea866"
+				}
+			},
+			{
+				"i": "de5f6218-aade-4a9a-a468-4700fc1f1d43",
+				"x": 0,
+				"y": 6,
+				"w": 12,
+				"h": 4,
+				"name": "ForceActuator primary cylinder following error",
+				"queries": [
+					{
+						"query": "SELECT \"primaryCylinderFollowingError:ActuatorID:\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM1M3.forceActuatorData\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTM1M3.forceActuatorData",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "primaryCylinderFollowingError:ActuatorID:",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stepplot",
+				"colors": [
+					{
+						"id": "c0f176a4-2a15-4b47-a9bf-85b890d54123",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "c097c613-b9ed-4e5f-b9e2-41a583a9276d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "2c509efb-c253-4a09-ac03-66b4d1041d86",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/196/cells/de5f6218-aade-4a9a-a468-4700fc1f1d43"
+				}
+			},
+			{
+				"i": "927fc436-a890-4c09-a32f-9cf50370709f",
+				"x": 0,
+				"y": 10,
+				"w": 12,
+				"h": 3,
+				"name": "zForces",
+				"queries": [
+					{
+						"query": "SELECT \"zForce:ActuatorID:\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM1M3.forceActuatorData\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTM1M3.forceActuatorData",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "zForce:ActuatorID:",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT \"zForces:ActuatorID:\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM1M3.appliedForces\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTM1M3.appliedForces",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "zForces:ActuatorID:",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stepplot",
+				"colors": [
+					{
+						"id": "6536e320-7325-4cf4-86fc-4c436bf19268",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "f9f1da8f-2952-43dd-bacb-bfe3ea74203e",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "016a3d47-8172-4fca-9a64-0af187f2de45",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/196/cells/927fc436-a890-4c09-a32f-9cf50370709f"
+				}
+			},
+			{
+				"i": "1b9087ca-09ae-46bc-b54b-2b4463db3efb",
+				"x": 0,
+				"y": 3,
+				"w": 12,
+				"h": 3,
+				"name": "ForceActuator primary cylinder force",
+				"queries": [
+					{
+						"query": "SELECT \"primaryCylinderForce:ActuatorID:\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM1M3.forceActuatorData\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTM1M3.forceActuatorData",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "primaryCylinderForce:ActuatorID:",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stepplot",
+				"colors": [
+					{
+						"id": "c0f176a4-2a15-4b47-a9bf-85b890d54123",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "c097c613-b9ed-4e5f-b9e2-41a583a9276d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "2c509efb-c253-4a09-ac03-66b4d1041d86",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/196/cells/1b9087ca-09ae-46bc-b54b-2b4463db3efb"
+				}
+			},
+			{
+				"i": "df4a9035-c6b7-4d96-9c5b-0a81fdbe7caf",
+				"x": 0,
+				"y": 13,
+				"w": 12,
+				"h": 3,
+				"name": "slewFlag",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTM1M3.logevent_boosterValveStatus\")\n  |> filter(fn: (r) => r[\"_field\"] == \"slewFlag\")\n  |> map(fn: (r) => ({r with _value: if r._value == true then 1 else 0}))",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTM1M3.logevent_boosterValveStatus\")\n  |> filter(fn: (r) => r[\"_field\"] == \"slewFlag\")\n  |> map(fn: (r) => ({r with _value: if r._value == true then 1 else 0}))",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stepplot",
+				"colors": [
+					{
+						"id": "929bd015-65d6-43c5-b08e-88737831bac4",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "c3022647-e146-4f5e-bf2c-a02f6d1a3a00",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e44c3620-878b-43de-b5ba-73c59f6dbec7",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/196/cells/df4a9035-c6b7-4d96-9c5b-0a81fdbe7caf"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":ActuatorID:",
+				"values": [
+					{
+						"value": "0",
+						"type": "map",
+						"selected": true,
+						"key": "101"
+					},
+					{
+						"value": "1",
+						"type": "map",
+						"selected": false,
+						"key": "102"
+					},
+					{
+						"value": "2",
+						"type": "map",
+						"selected": false,
+						"key": "103"
+					},
+					{
+						"value": "3",
+						"type": "map",
+						"selected": false,
+						"key": "104"
+					},
+					{
+						"value": "4",
+						"type": "map",
+						"selected": false,
+						"key": "105"
+					},
+					{
+						"value": "5",
+						"type": "map",
+						"selected": false,
+						"key": "106"
+					},
+					{
+						"value": "6",
+						"type": "map",
+						"selected": false,
+						"key": "107"
+					},
+					{
+						"value": "7",
+						"type": "map",
+						"selected": false,
+						"key": "108"
+					},
+					{
+						"value": "8",
+						"type": "map",
+						"selected": false,
+						"key": "109"
+					},
+					{
+						"value": "9",
+						"type": "map",
+						"selected": false,
+						"key": "110"
+					},
+					{
+						"value": "10",
+						"type": "map",
+						"selected": false,
+						"key": "111"
+					},
+					{
+						"value": "11",
+						"type": "map",
+						"selected": false,
+						"key": "112"
+					},
+					{
+						"value": "12",
+						"type": "map",
+						"selected": false,
+						"key": "113"
+					},
+					{
+						"value": "13",
+						"type": "map",
+						"selected": false,
+						"key": "114"
+					},
+					{
+						"value": "14",
+						"type": "map",
+						"selected": false,
+						"key": "115"
+					},
+					{
+						"value": "15",
+						"type": "map",
+						"selected": false,
+						"key": "116"
+					},
+					{
+						"value": "16",
+						"type": "map",
+						"selected": false,
+						"key": "117"
+					},
+					{
+						"value": "17",
+						"type": "map",
+						"selected": false,
+						"key": "118"
+					},
+					{
+						"value": "18",
+						"type": "map",
+						"selected": false,
+						"key": "119"
+					},
+					{
+						"value": "19",
+						"type": "map",
+						"selected": false,
+						"key": "120"
+					},
+					{
+						"value": "20",
+						"type": "map",
+						"selected": false,
+						"key": "121"
+					},
+					{
+						"value": "21",
+						"type": "map",
+						"selected": false,
+						"key": "122"
+					},
+					{
+						"value": "22",
+						"type": "map",
+						"selected": false,
+						"key": "123"
+					},
+					{
+						"value": "23",
+						"type": "map",
+						"selected": false,
+						"key": "124"
+					},
+					{
+						"value": "24",
+						"type": "map",
+						"selected": false,
+						"key": "125"
+					},
+					{
+						"value": "25",
+						"type": "map",
+						"selected": false,
+						"key": "126"
+					},
+					{
+						"value": "26",
+						"type": "map",
+						"selected": false,
+						"key": "127"
+					},
+					{
+						"value": "27",
+						"type": "map",
+						"selected": false,
+						"key": "128"
+					},
+					{
+						"value": "28",
+						"type": "map",
+						"selected": false,
+						"key": "129"
+					},
+					{
+						"value": "29",
+						"type": "map",
+						"selected": false,
+						"key": "130"
+					},
+					{
+						"value": "30",
+						"type": "map",
+						"selected": false,
+						"key": "131"
+					},
+					{
+						"value": "31",
+						"type": "map",
+						"selected": false,
+						"key": "132"
+					},
+					{
+						"value": "32",
+						"type": "map",
+						"selected": false,
+						"key": "133"
+					},
+					{
+						"value": "33",
+						"type": "map",
+						"selected": false,
+						"key": "134"
+					},
+					{
+						"value": "34",
+						"type": "map",
+						"selected": false,
+						"key": "135"
+					},
+					{
+						"value": "35",
+						"type": "map",
+						"selected": false,
+						"key": "136"
+					},
+					{
+						"value": "36",
+						"type": "map",
+						"selected": false,
+						"key": "137"
+					},
+					{
+						"value": "37",
+						"type": "map",
+						"selected": false,
+						"key": "138"
+					},
+					{
+						"value": "38",
+						"type": "map",
+						"selected": false,
+						"key": "139"
+					},
+					{
+						"value": "39",
+						"type": "map",
+						"selected": false,
+						"key": "140"
+					},
+					{
+						"value": "40",
+						"type": "map",
+						"selected": false,
+						"key": "141"
+					},
+					{
+						"value": "41",
+						"type": "map",
+						"selected": false,
+						"key": "142"
+					},
+					{
+						"value": "42",
+						"type": "map",
+						"selected": false,
+						"key": "143"
+					},
+					{
+						"value": "43",
+						"type": "map",
+						"selected": false,
+						"key": "207"
+					},
+					{
+						"value": "44",
+						"type": "map",
+						"selected": false,
+						"key": "208"
+					},
+					{
+						"value": "45",
+						"type": "map",
+						"selected": false,
+						"key": "209"
+					},
+					{
+						"value": "46",
+						"type": "map",
+						"selected": false,
+						"key": "210"
+					},
+					{
+						"value": "47",
+						"type": "map",
+						"selected": false,
+						"key": "211"
+					},
+					{
+						"value": "48",
+						"type": "map",
+						"selected": false,
+						"key": "212"
+					},
+					{
+						"value": "49",
+						"type": "map",
+						"selected": false,
+						"key": "214"
+					},
+					{
+						"value": "50",
+						"type": "map",
+						"selected": false,
+						"key": "215"
+					},
+					{
+						"value": "51",
+						"type": "map",
+						"selected": false,
+						"key": "216"
+					},
+					{
+						"value": "52",
+						"type": "map",
+						"selected": false,
+						"key": "217"
+					},
+					{
+						"value": "53",
+						"type": "map",
+						"selected": false,
+						"key": "218"
+					},
+					{
+						"value": "54",
+						"type": "map",
+						"selected": false,
+						"key": "219"
+					},
+					{
+						"value": "55",
+						"type": "map",
+						"selected": false,
+						"key": "220"
+					},
+					{
+						"value": "56",
+						"type": "map",
+						"selected": false,
+						"key": "221"
+					},
+					{
+						"value": "57",
+						"type": "map",
+						"selected": false,
+						"key": "222"
+					},
+					{
+						"value": "58",
+						"type": "map",
+						"selected": false,
+						"key": "223"
+					},
+					{
+						"value": "59",
+						"type": "map",
+						"selected": false,
+						"key": "224"
+					},
+					{
+						"value": "60",
+						"type": "map",
+						"selected": false,
+						"key": "225"
+					},
+					{
+						"value": "61",
+						"type": "map",
+						"selected": false,
+						"key": "227"
+					},
+					{
+						"value": "62",
+						"type": "map",
+						"selected": false,
+						"key": "228"
+					},
+					{
+						"value": "63",
+						"type": "map",
+						"selected": false,
+						"key": "229"
+					},
+					{
+						"value": "64",
+						"type": "map",
+						"selected": false,
+						"key": "230"
+					},
+					{
+						"value": "65",
+						"type": "map",
+						"selected": false,
+						"key": "231"
+					},
+					{
+						"value": "66",
+						"type": "map",
+						"selected": false,
+						"key": "232"
+					},
+					{
+						"value": "67",
+						"type": "map",
+						"selected": false,
+						"key": "233"
+					},
+					{
+						"value": "68",
+						"type": "map",
+						"selected": false,
+						"key": "234"
+					},
+					{
+						"value": "69",
+						"type": "map",
+						"selected": false,
+						"key": "235"
+					},
+					{
+						"value": "70",
+						"type": "map",
+						"selected": false,
+						"key": "236"
+					},
+					{
+						"value": "71",
+						"type": "map",
+						"selected": false,
+						"key": "237"
+					},
+					{
+						"value": "72",
+						"type": "map",
+						"selected": false,
+						"key": "238"
+					},
+					{
+						"value": "73",
+						"type": "map",
+						"selected": false,
+						"key": "239"
+					},
+					{
+						"value": "74",
+						"type": "map",
+						"selected": false,
+						"key": "240"
+					},
+					{
+						"value": "75",
+						"type": "map",
+						"selected": false,
+						"key": "241"
+					},
+					{
+						"value": "76",
+						"type": "map",
+						"selected": false,
+						"key": "242"
+					},
+					{
+						"value": "77",
+						"type": "map",
+						"selected": false,
+						"key": "243"
+					},
+					{
+						"value": "78",
+						"type": "map",
+						"selected": false,
+						"key": "301"
+					},
+					{
+						"value": "79",
+						"type": "map",
+						"selected": false,
+						"key": "302"
+					},
+					{
+						"value": "80",
+						"type": "map",
+						"selected": false,
+						"key": "303"
+					},
+					{
+						"value": "81",
+						"type": "map",
+						"selected": false,
+						"key": "304"
+					},
+					{
+						"value": "82",
+						"type": "map",
+						"selected": false,
+						"key": "305"
+					},
+					{
+						"value": "83",
+						"type": "map",
+						"selected": false,
+						"key": "306"
+					},
+					{
+						"value": "84",
+						"type": "map",
+						"selected": false,
+						"key": "307"
+					},
+					{
+						"value": "85",
+						"type": "map",
+						"selected": false,
+						"key": "308"
+					},
+					{
+						"value": "86",
+						"type": "map",
+						"selected": false,
+						"key": "309"
+					},
+					{
+						"value": "87",
+						"type": "map",
+						"selected": false,
+						"key": "310"
+					},
+					{
+						"value": "88",
+						"type": "map",
+						"selected": false,
+						"key": "311"
+					},
+					{
+						"value": "89",
+						"type": "map",
+						"selected": false,
+						"key": "312"
+					},
+					{
+						"value": "90",
+						"type": "map",
+						"selected": false,
+						"key": "313"
+					},
+					{
+						"value": "91",
+						"type": "map",
+						"selected": false,
+						"key": "314"
+					},
+					{
+						"value": "92",
+						"type": "map",
+						"selected": false,
+						"key": "315"
+					},
+					{
+						"value": "93",
+						"type": "map",
+						"selected": false,
+						"key": "316"
+					},
+					{
+						"value": "94",
+						"type": "map",
+						"selected": false,
+						"key": "317"
+					},
+					{
+						"value": "95",
+						"type": "map",
+						"selected": false,
+						"key": "318"
+					},
+					{
+						"value": "96",
+						"type": "map",
+						"selected": false,
+						"key": "319"
+					},
+					{
+						"value": "97",
+						"type": "map",
+						"selected": false,
+						"key": "320"
+					},
+					{
+						"value": "98",
+						"type": "map",
+						"selected": false,
+						"key": "321"
+					},
+					{
+						"value": "99",
+						"type": "map",
+						"selected": false,
+						"key": "322"
+					},
+					{
+						"value": "100",
+						"type": "map",
+						"selected": false,
+						"key": "323"
+					},
+					{
+						"value": "101",
+						"type": "map",
+						"selected": false,
+						"key": "324"
+					},
+					{
+						"value": "102",
+						"type": "map",
+						"selected": false,
+						"key": "325"
+					},
+					{
+						"value": "103",
+						"type": "map",
+						"selected": false,
+						"key": "326"
+					},
+					{
+						"value": "104",
+						"type": "map",
+						"selected": false,
+						"key": "327"
+					},
+					{
+						"value": "105",
+						"type": "map",
+						"selected": false,
+						"key": "328"
+					},
+					{
+						"value": "106",
+						"type": "map",
+						"selected": false,
+						"key": "329"
+					},
+					{
+						"value": "107",
+						"type": "map",
+						"selected": false,
+						"key": "330"
+					},
+					{
+						"value": "108",
+						"type": "map",
+						"selected": false,
+						"key": "331"
+					},
+					{
+						"value": "109",
+						"type": "map",
+						"selected": false,
+						"key": "332"
+					},
+					{
+						"value": "110",
+						"type": "map",
+						"selected": false,
+						"key": "333"
+					},
+					{
+						"value": "111",
+						"type": "map",
+						"selected": false,
+						"key": "334"
+					},
+					{
+						"value": "112",
+						"type": "map",
+						"selected": false,
+						"key": "335"
+					},
+					{
+						"value": "113",
+						"type": "map",
+						"selected": false,
+						"key": "336"
+					},
+					{
+						"value": "114",
+						"type": "map",
+						"selected": false,
+						"key": "337"
+					},
+					{
+						"value": "115",
+						"type": "map",
+						"selected": false,
+						"key": "338"
+					},
+					{
+						"value": "116",
+						"type": "map",
+						"selected": false,
+						"key": "339"
+					},
+					{
+						"value": "117",
+						"type": "map",
+						"selected": false,
+						"key": "340"
+					},
+					{
+						"value": "118",
+						"type": "map",
+						"selected": false,
+						"key": "341"
+					},
+					{
+						"value": "119",
+						"type": "map",
+						"selected": false,
+						"key": "342"
+					},
+					{
+						"value": "120",
+						"type": "map",
+						"selected": false,
+						"key": "343"
+					},
+					{
+						"value": "121",
+						"type": "map",
+						"selected": false,
+						"key": "407"
+					},
+					{
+						"value": "122",
+						"type": "map",
+						"selected": false,
+						"key": "408"
+					},
+					{
+						"value": "123",
+						"type": "map",
+						"selected": false,
+						"key": "409"
+					},
+					{
+						"value": "124",
+						"type": "map",
+						"selected": false,
+						"key": "410"
+					},
+					{
+						"value": "125",
+						"type": "map",
+						"selected": false,
+						"key": "411"
+					},
+					{
+						"value": "126",
+						"type": "map",
+						"selected": false,
+						"key": "412"
+					},
+					{
+						"value": "127",
+						"type": "map",
+						"selected": false,
+						"key": "414"
+					},
+					{
+						"value": "128",
+						"type": "map",
+						"selected": false,
+						"key": "415"
+					},
+					{
+						"value": "129",
+						"type": "map",
+						"selected": false,
+						"key": "416"
+					},
+					{
+						"value": "130",
+						"type": "map",
+						"selected": false,
+						"key": "417"
+					},
+					{
+						"value": "131",
+						"type": "map",
+						"selected": false,
+						"key": "418"
+					},
+					{
+						"value": "132",
+						"type": "map",
+						"selected": false,
+						"key": "419"
+					},
+					{
+						"value": "133",
+						"type": "map",
+						"selected": false,
+						"key": "420"
+					},
+					{
+						"value": "134",
+						"type": "map",
+						"selected": false,
+						"key": "421"
+					},
+					{
+						"value": "135",
+						"type": "map",
+						"selected": false,
+						"key": "422"
+					},
+					{
+						"value": "136",
+						"type": "map",
+						"selected": false,
+						"key": "423"
+					},
+					{
+						"value": "137",
+						"type": "map",
+						"selected": false,
+						"key": "424"
+					},
+					{
+						"value": "138",
+						"type": "map",
+						"selected": false,
+						"key": "425"
+					},
+					{
+						"value": "139",
+						"type": "map",
+						"selected": false,
+						"key": "427"
+					},
+					{
+						"value": "140",
+						"type": "map",
+						"selected": false,
+						"key": "428"
+					},
+					{
+						"value": "141",
+						"type": "map",
+						"selected": false,
+						"key": "429"
+					},
+					{
+						"value": "142",
+						"type": "map",
+						"selected": false,
+						"key": "430"
+					},
+					{
+						"value": "143",
+						"type": "map",
+						"selected": false,
+						"key": "431"
+					},
+					{
+						"value": "144",
+						"type": "map",
+						"selected": false,
+						"key": "432"
+					},
+					{
+						"value": "145",
+						"type": "map",
+						"selected": false,
+						"key": "433"
+					},
+					{
+						"value": "146",
+						"type": "map",
+						"selected": false,
+						"key": "434"
+					},
+					{
+						"value": "147",
+						"type": "map",
+						"selected": false,
+						"key": "435"
+					},
+					{
+						"value": "148",
+						"type": "map",
+						"selected": false,
+						"key": "436"
+					},
+					{
+						"value": "149",
+						"type": "map",
+						"selected": false,
+						"key": "437"
+					},
+					{
+						"value": "150",
+						"type": "map",
+						"selected": false,
+						"key": "438"
+					},
+					{
+						"value": "151",
+						"type": "map",
+						"selected": false,
+						"key": "439"
+					},
+					{
+						"value": "152",
+						"type": "map",
+						"selected": false,
+						"key": "440"
+					},
+					{
+						"value": "153",
+						"type": "map",
+						"selected": false,
+						"key": "441"
+					},
+					{
+						"value": "154",
+						"type": "map",
+						"selected": false,
+						"key": "442"
+					},
+					{
+						"value": "155",
+						"type": "map",
+						"selected": false,
+						"key": "443"
+					}
+				],
+				"id": "d002662c-ace1-4cbf-8b3a-f8b51b0f3706",
+				"type": "map",
+				"label": "",
+				"query": {
+					"influxql": "",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"sourceID": "dynamic",
+				"links": {
+					"self": "/chronograf/v1/dashboards/196/templates/d002662c-ace1-4cbf-8b3a-f8b51b0f3706"
+				}
+			}
+		],
+		"name": "Deprecated: M1M3 Actuator Primary Forces | Kub?",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/196",
+			"cells": "/chronograf/v1/dashboards/196/cells",
+			"templates": "/chronograf/v1/dashboards/196/templates"
+		}
+	}
+}

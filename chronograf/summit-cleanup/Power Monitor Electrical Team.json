@@ -1,0 +1,6550 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "647",
+		"cells": [
+			{
+				"i": "481e6677-5212-4f8d-8b90-208030a0c3c8",
+				"x": 0,
+				"y": 2,
+				"w": 6,
+				"h": 3,
+				"name": "Red Comercial ",
+				"queries": [
+					{
+						"query": "SELECT mean(\"mainsVoltageL1L2\") AS \"mean_mainsVoltageL1L2\", mean(\"mainsVoltageL2L3\") AS \"mean_mainsVoltageL2L3\", mean(\"mainsVoltageL3L1\") AS \"mean_mainsVoltageL3L1\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcMains150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.agcMains150",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_mainsVoltageL1L2",
+									"args": [
+										{
+											"value": "mainsVoltageL1L2",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_mainsVoltageL2L3",
+									"args": [
+										{
+											"value": "mainsVoltageL2L3",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_mainsVoltageL3L1",
+									"args": [
+										{
+											"value": "mainsVoltageL3L1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "Voltage Red Comercial",
+						"prefix": " ",
+						"suffix": " V",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5b2a2b2f-5fc1-4ff9-942b-79d798c4cbb9",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "2aba95a9-b97c-4023-9304-44556e1ce9e8",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 1
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/481e6677-5212-4f8d-8b90-208030a0c3c8"
+				}
+			},
+			{
+				"i": "303e4b64-6a39-4978-93fb-c19061d22124",
+				"x": 3,
+				"y": 47,
+				"w": 3,
+				"h": 2,
+				"name": "Alarms Caterpillar",
+				"queries": [
+					{
+						"query": "SELECT last(\"numberAlarms\") AS \"last_numberAlarms\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 ORDER BY time DESC LIMIT 1",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"numberAlarms\") AS \"last_numberAlarms\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 ORDER BY time DESC LIMIT 1",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "background",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					},
+					{
+						"id": "08b9c9fb-072a-409f-8d0d-4db9836040d5",
+						"type": "background",
+						"hex": "#4ED8A0",
+						"name": "rainforest",
+						"value": "0"
+					},
+					{
+						"id": "aa4b4175-6bc7-4352-9fab-d694266731c3",
+						"type": "background",
+						"hex": "#BF3D5E",
+						"name": "ruby",
+						"value": "1"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.agcGenset150.last_numberAlarms",
+						"displayName": "Alarms",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/303e4b64-6a39-4978-93fb-c19061d22124"
+				}
+			},
+			{
+				"i": "6e592954-8579-4b9b-ae84-5bd8278f5e42",
+				"x": 6,
+				"y": 28,
+				"w": 6,
+				"h": 2,
+				"name": "",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "# Rubin",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/6e592954-8579-4b9b-ae84-5bd8278f5e42"
+				}
+			},
+			{
+				"i": "cada03a4-a155-4fce-82ed-3d6f1b91ce3b",
+				"x": 0,
+				"y": 28,
+				"w": 6,
+				"h": 2,
+				"name": "",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "# Auxtel",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/cada03a4-a155-4fce-82ed-3d6f1b91ce3b"
+				}
+			},
+			{
+				"i": "37522871-e47b-4078-bf3f-ae4f4d5a29bd",
+				"x": 6,
+				"y": 39,
+				"w": 6,
+				"h": 2,
+				"name": "",
+				"queries": [
+					{
+						"query": "shi",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "shi",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": " ",
+						"suffix": " ",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "# Mitsubishi\n",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/37522871-e47b-4078-bf3f-ae4f4d5a29bd"
+				}
+			},
+			{
+				"i": "c23b7c7d-c94f-476e-b2c6-b89dbd76bdbf",
+				"x": 0,
+				"y": 39,
+				"w": 6,
+				"h": 2,
+				"name": "",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": " ",
+						"suffix": " ",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "# Caterpillar\n",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/c23b7c7d-c94f-476e-b2c6-b89dbd76bdbf"
+				}
+			},
+			{
+				"i": "8091df17-a6fc-4ec3-879c-ab1263432268",
+				"x": 0,
+				"y": 15,
+				"w": 6,
+				"h": 4,
+				"name": "Mono Fase DP1",
+				"queries": [
+					{
+						"query": "SELECT mean(\"measuredLineVoltageVan\") AS \"mean_measuredLineVoltageVan\", mean(\"measuredLineVoltageVbn\") AS \"mean_measuredLineVoltageVbn\", mean(\"measuredLineVoltageVcn\") AS \"mean_measuredLineVoltageVcn\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(2200ms) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_measuredLineVoltageVan",
+									"args": [
+										{
+											"value": "measuredLineVoltageVan",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_measuredLineVoltageVbn",
+									"args": [
+										{
+											"value": "measuredLineVoltageVbn",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_measuredLineVoltageVcn",
+									"args": [
+										{
+											"value": "measuredLineVoltageVcn",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "2200ms",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " A",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e60d847a-7173-4e35-8339-60f6a09e505d",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5d42bda0-a200-4235-a8bf-d1fb7bbcaf18",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "68ce21f9-555c-4e90-a840-7756b3efcf31",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/8091df17-a6fc-4ec3-879c-ab1263432268"
+				}
+			},
+			{
+				"i": "e12bfdaa-af6f-4316-b5f1-de8f20e6f3a2",
+				"x": 6,
+				"y": 52,
+				"w": 6,
+				"h": 3,
+				"name": "Apparent Power Mitsubushi",
+				"queries": [
+					{
+						"query": "SELECT mean(\"generatorApparentPower\") AS \"mean_generatorApparentPower\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 305 GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"generatorApparentPower\") AS \"mean_generatorApparentPower\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 305 GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Apparent Power",
+						"prefix": "",
+						"suffix": " kVA",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "1d9d68f9-657c-4b55-8720-78984a745b76",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7003cf56-c547-4b6f-83a7-1d257eb22450",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 1
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/e12bfdaa-af6f-4316-b5f1-de8f20e6f3a2"
+				}
+			},
+			{
+				"i": "77b8618c-ac39-4fc7-b036-fef1e4d569be",
+				"x": 0,
+				"y": 52,
+				"w": 6,
+				"h": 3,
+				"name": "Apparent Power Caterpillar",
+				"queries": [
+					{
+						"query": "SELECT mean(\"generatorApparentPower\") AS \"mean_generatorApparentPower\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"generatorApparentPower\") AS \"mean_generatorApparentPower\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "Apparent Power",
+						"prefix": "",
+						"suffix": " kVA",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "1d9d68f9-657c-4b55-8720-78984a745b76",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7003cf56-c547-4b6f-83a7-1d257eb22450",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 1
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/77b8618c-ac39-4fc7-b036-fef1e4d569be"
+				}
+			},
+			{
+				"i": "d148f719-c206-4934-b469-0c8ab1ee6cc2",
+				"x": 6,
+				"y": 49,
+				"w": 6,
+				"h": 3,
+				"name": "Three Fase Voltaje Mitsubushi",
+				"queries": [
+					{
+						"query": "SELECT mean(\"generatorVoltageL1L2\") AS \"mean_generatorVoltageL1L2\", mean(\"generatorVoltageL2L3\") AS \"mean_generatorVoltageL2L3\", mean(\"generatorVoltageL3L1\") AS \"mean_generatorVoltageL3L1\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 305 GROUP BY time(2200ms) FILL(none)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"generatorVoltageL1L2\") AS \"mean_generatorVoltageL1L2\", mean(\"generatorVoltageL2L3\") AS \"mean_generatorVoltageL2L3\", mean(\"generatorVoltageL3L1\") AS \"mean_generatorVoltageL3L1\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 305 GROUP BY time(2200ms) FILL(none)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Voltaje",
+						"prefix": "",
+						"suffix": " V",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "1d9d68f9-657c-4b55-8720-78984a745b76",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7003cf56-c547-4b6f-83a7-1d257eb22450",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 1
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/d148f719-c206-4934-b469-0c8ab1ee6cc2"
+				}
+			},
+			{
+				"i": "cc5f8c09-3f88-4959-adaa-a94de129ad74",
+				"x": 0,
+				"y": 49,
+				"w": 6,
+				"h": 3,
+				"name": "Three Fase Voltaje Caterpillar ",
+				"queries": [
+					{
+						"query": "SELECT mean(\"generatorVoltageL1L2\") AS \"mean_generatorVoltageL1L2\", mean(\"generatorVoltageL2L3\") AS \"mean_generatorVoltageL2L3\", mean(\"generatorVoltageL3L1\") AS \"mean_generatorVoltageL3L1\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 GROUP BY time(2200ms) FILL(none)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"generatorVoltageL1L2\") AS \"mean_generatorVoltageL1L2\", mean(\"generatorVoltageL2L3\") AS \"mean_generatorVoltageL2L3\", mean(\"generatorVoltageL3L1\") AS \"mean_generatorVoltageL3L1\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 GROUP BY time(2200ms) FILL(none)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Voltaje",
+						"prefix": "",
+						"suffix": " V",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "1d9d68f9-657c-4b55-8720-78984a745b76",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7003cf56-c547-4b6f-83a7-1d257eb22450",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 1
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/cc5f8c09-3f88-4959-adaa-a94de129ad74"
+				}
+			},
+			{
+				"i": "03a6d758-7d6c-4f6b-9566-4292b2b11a94",
+				"x": 3,
+				"y": 45,
+				"w": 3,
+				"h": 2,
+				"name": "Engine hours Caterpillar",
+				"queries": [
+					{
+						"query": "SELECT mean(\"engineHours\") AS \"mean_engineHours\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 GROUP BY time(2200ms) FILL(none)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"engineHours\") AS \"mean_engineHours\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 GROUP BY time(2200ms) FILL(none)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"100"
+						],
+						"label": "Fuel",
+						"prefix": "",
+						"suffix": " H",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 1
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/03a6d758-7d6c-4f6b-9566-4292b2b11a94"
+				}
+			},
+			{
+				"i": "da870f43-4310-4ed7-9362-2ffe4f18c9ad",
+				"x": 9,
+				"y": 45,
+				"w": 3,
+				"h": 2,
+				"name": "Engine hours Mitsubishi",
+				"queries": [
+					{
+						"query": "SELECT mean(\"engineHours\") AS \"mean_engineHours\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 305 GROUP BY time(2200ms) FILL(none)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"engineHours\") AS \"mean_engineHours\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 305 GROUP BY time(2200ms) FILL(none)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"100"
+						],
+						"label": "Fuel",
+						"prefix": "",
+						"suffix": " H",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 1
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/da870f43-4310-4ed7-9362-2ffe4f18c9ad"
+				}
+			},
+			{
+				"i": "b9b4cf19-0279-4a63-8664-095d19576df2",
+				"x": 3,
+				"y": 43,
+				"w": 3,
+				"h": 2,
+				"name": "Engine oil Temperature Caterpillar",
+				"queries": [
+					{
+						"query": "SELECT mean(\"engineOilTemperature\") AS \"mean_engineOilTemperature\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 GROUP BY time(2200ms) FILL(none)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"engineOilTemperature\") AS \"mean_engineOilTemperature\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 GROUP BY time(2200ms) FILL(none)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"100"
+						],
+						"label": "Fuel",
+						"prefix": "",
+						"suffix": " °C",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 1
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/b9b4cf19-0279-4a63-8664-095d19576df2"
+				}
+			},
+			{
+				"i": "a75d19b3-8cc2-4087-a536-30aa607aa882",
+				"x": 9,
+				"y": 43,
+				"w": 3,
+				"h": 2,
+				"name": "Engine oil Temperature Mitsubishi",
+				"queries": [
+					{
+						"query": "SELECT mean(\"multiInput21\") AS \"mean_multiInput21\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\"WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 305 GROUP BY time(2200ms) FILL(none)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"multiInput21\") AS \"mean_multiInput21\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\"WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 305 GROUP BY time(2200ms) FILL(none)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"100"
+						],
+						"label": "Fuel",
+						"prefix": "",
+						"suffix": " °C",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/a75d19b3-8cc2-4087-a536-30aa607aa882"
+				}
+			},
+			{
+				"i": "0b3f0f2b-4a38-4392-8900-f72d931c8f34",
+				"x": 4,
+				"y": 11,
+				"w": 2,
+				"h": 2,
+				"name": "Current L3",
+				"queries": [
+					{
+						"query": "SELECT mean(\"totalActivePower\") AS \"mean_totalActivePower\", mean(\"loadCurrentC\") AS \"mean_loadCurrentC\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_totalActivePower",
+									"args": [
+										{
+											"value": "totalActivePower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_loadCurrentC",
+									"args": [
+										{
+											"value": "loadCurrentC",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " A",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/0b3f0f2b-4a38-4392-8900-f72d931c8f34"
+				}
+			},
+			{
+				"i": "d9f40d9e-6dfd-491d-a18a-d9091138edb1",
+				"x": 2,
+				"y": 11,
+				"w": 2,
+				"h": 2,
+				"name": "Current L2 ",
+				"queries": [
+					{
+						"query": "SELECT mean(\"totalActivePower\") AS \"mean_totalActivePower\", mean(\"loadCurrentB\") AS \"mean_loadCurrentB\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_totalActivePower",
+									"args": [
+										{
+											"value": "totalActivePower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_loadCurrentB",
+									"args": [
+										{
+											"value": "loadCurrentB",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " A",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/d9f40d9e-6dfd-491d-a18a-d9091138edb1"
+				}
+			},
+			{
+				"i": "6e207522-960a-4da2-b337-e1bb9ee5ad08",
+				"x": 2,
+				"y": 7,
+				"w": 2,
+				"h": 2,
+				"name": "Voltaje L2-L3",
+				"queries": [
+					{
+						"query": "SELECT mean(\"totalActivePower\") AS \"mean_totalActivePower\", mean(\"measuredLineVoltageVbc\") AS \"mean_measuredLineVoltageVbc\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_totalActivePower",
+									"args": [
+										{
+											"value": "totalActivePower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_measuredLineVoltageVbc",
+									"args": [
+										{
+											"value": "measuredLineVoltageVbc",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " V",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/6e207522-960a-4da2-b337-e1bb9ee5ad08"
+				}
+			},
+			{
+				"i": "47e3f46e-7bfb-4c0c-b9ff-6df304b05723",
+				"x": 6,
+				"y": 19,
+				"w": 6,
+				"h": 4,
+				"name": "Active Power DP1  ",
+				"queries": [
+					{
+						"query": "SELECT mean(\"activePowerA\") AS \"mean_activePowerA\", mean(\"activePowerB\") AS \"mean_activePowerB\", mean(\"activePowerC\") AS \"mean_activePowerC\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_activePowerA",
+									"args": [
+										{
+											"value": "activePowerA",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_activePowerB",
+									"args": [
+										{
+											"value": "activePowerB",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_activePowerC",
+									"args": [
+										{
+											"value": "activePowerC",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Active Power",
+						"prefix": "",
+						"suffix": " Kva",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "267ac036-312a-4592-b11e-ebedcd1ea028",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "1d9d68f9-657c-4b55-8720-78984a745b76",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7003cf56-c547-4b6f-83a7-1d257eb22450",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/47e3f46e-7bfb-4c0c-b9ff-6df304b05723"
+				}
+			},
+			{
+				"i": "e6090739-6ffa-46d3-ab4f-579676e87e07",
+				"x": 4,
+				"y": 9,
+				"w": 2,
+				"h": 2,
+				"name": "Voltaje L3-N ",
+				"queries": [
+					{
+						"query": "SELECT mean(\"totalActivePower\") AS \"mean_totalActivePower\", mean(\"measuredLineVoltageVcn\") AS \"mean_measuredLineVoltageVcn\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_totalActivePower",
+									"args": [
+										{
+											"value": "totalActivePower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_measuredLineVoltageVcn",
+									"args": [
+										{
+											"value": "measuredLineVoltageVcn",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " V",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/e6090739-6ffa-46d3-ab4f-579676e87e07"
+				}
+			},
+			{
+				"i": "4fa6fba2-841c-44fc-ace1-4a2719f87d84",
+				"x": 2,
+				"y": 9,
+				"w": 2,
+				"h": 2,
+				"name": "Voltaje L2-N",
+				"queries": [
+					{
+						"query": "SELECT mean(\"totalActivePower\") AS \"mean_totalActivePower\", mean(\"measuredLineVoltageVbn\") AS \"mean_measuredLineVoltageVbn\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_totalActivePower",
+									"args": [
+										{
+											"value": "totalActivePower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_measuredLineVoltageVbn",
+									"args": [
+										{
+											"value": "measuredLineVoltageVbn",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " V",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/4fa6fba2-841c-44fc-ace1-4a2719f87d84"
+				}
+			},
+			{
+				"i": "77973269-a8a4-4c6b-a0a8-03f3ca24932a",
+				"x": 0,
+				"y": 11,
+				"w": 2,
+				"h": 2,
+				"name": "Current L1",
+				"queries": [
+					{
+						"query": "SELECT mean(\"totalActivePower\") AS \"mean_totalActivePower\", mean(\"loadCurrentA\") AS \"mean_loadCurrentA\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_totalActivePower",
+									"args": [
+										{
+											"value": "totalActivePower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_loadCurrentA",
+									"args": [
+										{
+											"value": "loadCurrentA",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " A",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/77973269-a8a4-4c6b-a0a8-03f3ca24932a"
+				}
+			},
+			{
+				"i": "bab1bfef-1932-482a-a61d-989533b07b01",
+				"x": 4,
+				"y": 7,
+				"w": 2,
+				"h": 2,
+				"name": "Voltaje L3-L1",
+				"queries": [
+					{
+						"query": "SELECT mean(\"totalActivePower\") AS \"mean_totalActivePower\", mean(\"measuredLineVoltageVca\") AS \"mean_measuredLineVoltageVca\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_totalActivePower",
+									"args": [
+										{
+											"value": "totalActivePower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_measuredLineVoltageVca",
+									"args": [
+										{
+											"value": "measuredLineVoltageVca",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " V",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/bab1bfef-1932-482a-a61d-989533b07b01"
+				}
+			},
+			{
+				"i": "5b30c420-a54c-4cad-8ae1-7978952a2eef",
+				"x": 0,
+				"y": 9,
+				"w": 2,
+				"h": 2,
+				"name": "Voltaje L1-N",
+				"queries": [
+					{
+						"query": "SELECT mean(\"totalActivePower\") AS \"mean_totalActivePower\", mean(\"measuredLineVoltageVan\") AS \"mean_measuredLineVoltageVan\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_totalActivePower",
+									"args": [
+										{
+											"value": "totalActivePower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_measuredLineVoltageVan",
+									"args": [
+										{
+											"value": "measuredLineVoltageVan",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " V",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/5b30c420-a54c-4cad-8ae1-7978952a2eef"
+				}
+			},
+			{
+				"i": "424d4f61-a381-45d8-975c-e299bd60f120",
+				"x": 0,
+				"y": 7,
+				"w": 2,
+				"h": 2,
+				"name": "Voltaje L1-L2",
+				"queries": [
+					{
+						"query": "SELECT mean(\"totalActivePower\") AS \"mean_totalActivePower\", mean(\"measuredLineVoltageVab\") AS \"mean_measuredLineVoltageVab\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_totalActivePower",
+									"args": [
+										{
+											"value": "totalActivePower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_measuredLineVoltageVab",
+									"args": [
+										{
+											"value": "measuredLineVoltageVab",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " V",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/424d4f61-a381-45d8-975c-e299bd60f120"
+				}
+			},
+			{
+				"i": "75c82763-2677-401b-828f-44cd00f50262",
+				"x": 0,
+				"y": 41,
+				"w": 12,
+				"h": 2,
+				"name": "Running Status Generators",
+				"queries": [
+					{
+						"query": "import \"experimental\"\nfrom(bucket: \"efd/autogen\")\n  |> range(start: -10s)\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /lsst.sal.ESS.agcGenset150/)\n  |> last()\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> filter(fn: (r) => r.salIndex == 305 or r.salIndex == 306)  |> map(fn: (r) => ({\n    _time: r._time,\n    salIndex: r.salIndex,\n    generatorModel: if r.salIndex == 306 then \"Caterpillar\" else \"Mitsubishi\",    running: if r.running == true then \"Running\" else \"Stopped\",\n    mode: if r.blockMode then \"BLOCK\" else if r.testMode then \"TEST\" else if r.manualMode then \"MANUAL\" else if r.semiAutoMode then \"SEMI-AUTO\" else if r.autoMode then \"AUTO\" else \"DESCONOCIDO\"\n  }))\n  |> sort(columns: [\"salIndex\"], desc: true)\n  |> keep(columns: [\"_time\", \"salIndex\", \"generatorModel\", \"running\", \"mode\"])",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"experimental\"\nfrom(bucket: \"efd/autogen\")\n  |> range(start: -10s)\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /lsst.sal.ESS.agcGenset150/)\n  |> last()\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> filter(fn: (r) => r.salIndex == 305 or r.salIndex == 306)  |> map(fn: (r) => ({\n    _time: r._time,\n    salIndex: r.salIndex,\n    generatorModel: if r.salIndex == 306 then \"Caterpillar\" else \"Mitsubishi\",    running: if r.running == true then \"Running\" else \"Stopped\",\n    mode: if r.blockMode then \"BLOCK\" else if r.testMode then \"TEST\" else if r.manualMode then \"MANUAL\" else if r.semiAutoMode then \"SEMI-AUTO\" else if r.autoMode then \"AUTO\" else \"DESCONOCIDO\"\n  }))\n  |> sort(columns: [\"salIndex\"], desc: true)\n  |> keep(columns: [\"_time\", \"salIndex\", \"generatorModel\", \"running\", \"mode\"])",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "salIndex",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "generatorModel",
+						"displayName": "Generator",
+						"visible": true
+					},
+					{
+						"internalName": "running",
+						"displayName": "Status",
+						"visible": true
+					},
+					{
+						"internalName": "mode",
+						"displayName": "Mode",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/75c82763-2677-401b-828f-44cd00f50262"
+				}
+			},
+			{
+				"i": "32b1800a-f5bc-40e2-b42b-3b382c0cea13",
+				"x": 9,
+				"y": 47,
+				"w": 3,
+				"h": 2,
+				"name": "Alarms Mitsubishi",
+				"queries": [
+					{
+						"query": "SELECT last(\"numberAlarms\") AS \"last_numberAlarms\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 305 ORDER BY time DESC LIMIT 1",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"numberAlarms\") AS \"last_numberAlarms\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 305 ORDER BY time DESC LIMIT 1",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "background",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					},
+					{
+						"id": "08b9c9fb-072a-409f-8d0d-4db9836040d5",
+						"type": "background",
+						"hex": "#4ED8A0",
+						"name": "rainforest",
+						"value": "0"
+					},
+					{
+						"id": "aa4b4175-6bc7-4352-9fab-d694266731c3",
+						"type": "background",
+						"hex": "#BF3D5E",
+						"name": "ruby",
+						"value": "1"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.agcGenset150.last_numberAlarms",
+						"displayName": "Alarms",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/32b1800a-f5bc-40e2-b42b-3b382c0cea13"
+				}
+			},
+			{
+				"i": "56cc0159-d939-4d9e-8a9b-6865292a5516",
+				"x": 6,
+				"y": 47,
+				"w": 3,
+				"h": 2,
+				"name": "Mitsubishi Generator Status",
+				"queries": [
+					{
+						"query": "SELECT \"running\", \"engineOilTemperature\", \"engineHours\", \"multiInput22\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 305 ORDER BY time DESC LIMIT 1",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"running\", \"engineOilTemperature\", \"engineHours\", \"multiInput22\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 305 ORDER BY time DESC LIMIT 1",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "background",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": false,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.agcGenset150.running",
+						"displayName": "Running",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.agcGenset150.multiInput22",
+						"displayName": "Fuel",
+						"visible": false
+					},
+					{
+						"internalName": "lsst.sal.ESS.agcGenset150.engineOilTemperature",
+						"displayName": "Temperature",
+						"visible": false
+					},
+					{
+						"internalName": "lsst.sal.ESS.agcGenset150.engineHours",
+						"displayName": "Engine Hours",
+						"visible": false
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/56cc0159-d939-4d9e-8a9b-6865292a5516"
+				}
+			},
+			{
+				"i": "1fa0b6e6-c881-4bcf-bfab-465c28cad8a4",
+				"x": 0,
+				"y": 47,
+				"w": 3,
+				"h": 2,
+				"name": "Caterpillar Generator Status",
+				"queries": [
+					{
+						"query": "SELECT \"running\", \"engineOilTemperature\", \"engineHours\", \"multiInput22\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 ORDER BY time DESC LIMIT 1",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"running\", \"engineOilTemperature\", \"engineHours\", \"multiInput22\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 ORDER BY time DESC LIMIT 1",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "background",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": false,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.agcGenset150.running",
+						"displayName": "Running",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.agcGenset150.multiInput22",
+						"displayName": "Fuel",
+						"visible": false
+					},
+					{
+						"internalName": "lsst.sal.ESS.agcGenset150.engineOilTemperature",
+						"displayName": "Temperature",
+						"visible": false
+					},
+					{
+						"internalName": "lsst.sal.ESS.agcGenset150.engineHours",
+						"displayName": "Engine Hours",
+						"visible": false
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/1fa0b6e6-c881-4bcf-bfab-465c28cad8a4"
+				}
+			},
+			{
+				"i": "ca6affe9-6206-4aee-86d1-7967236108dd",
+				"x": 6,
+				"y": 2,
+				"w": 6,
+				"h": 3,
+				"name": "Voltaje Barra Comun",
+				"queries": [
+					{
+						"query": "SELECT mean(\"busBVoltageL1L2\") AS \"mean_busBVoltageL1L2\", mean(\"busBVoltageL2L3\") AS \"mean_busBVoltageL2L3\", mean(\"busBVoltageL3L1\") AS \"mean_busBVoltageL3L1\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(5000ms) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.agcGenset150",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_busBVoltageL1L2",
+									"args": [
+										{
+											"value": "busBVoltageL1L2",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_busBVoltageL2L3",
+									"args": [
+										{
+											"value": "busBVoltageL2L3",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_busBVoltageL3L1",
+									"args": [
+										{
+											"value": "busBVoltageL3L1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "5s",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "Voltaje ",
+						"prefix": "",
+						"suffix": " V",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "3a4067dd-4ff3-4b4e-a506-bf417db24da2",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8860522c-e644-4a95-aef1-8f9a4be02ba9",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.agcGenset150.mean_busBVoltageL1L2",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.agcGenset150.mean_busBVoltageL2L3",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.agcGenset150.mean_busBVoltageL3L1",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/ca6affe9-6206-4aee-86d1-7967236108dd"
+				}
+			},
+			{
+				"i": "0c36df59-4a08-4a4c-918f-9448e539d0b1",
+				"x": 4,
+				"y": 13,
+				"w": 2,
+				"h": 2,
+				"name": "Reactive Power",
+				"queries": [
+					{
+						"query": "SELECT mean(\"totalReactivePower\") AS \"mean_totalReactivePower\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" ",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_totalReactivePower",
+									"args": [
+										{
+											"value": "totalReactivePower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " kVAr",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/0c36df59-4a08-4a4c-918f-9448e539d0b1"
+				}
+			},
+			{
+				"i": "68097c13-b4a4-4b8a-909d-29f03966c9e3",
+				"x": 0,
+				"y": 13,
+				"w": 2,
+				"h": 2,
+				"name": "Active Power",
+				"queries": [
+					{
+						"query": "SELECT mean(\"totalActivePower\") AS \"mean_totalActivePower\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\"",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_totalActivePower",
+									"args": [
+										{
+											"value": "totalActivePower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " kW",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/68097c13-b4a4-4b8a-909d-29f03966c9e3"
+				}
+			},
+			{
+				"i": "ad57dbfd-abea-4317-b194-205d942c2e90",
+				"x": 0,
+				"y": 23,
+				"w": 12,
+				"h": 3,
+				"name": "Frequency DP1",
+				"queries": [
+					{
+						"query": "SELECT mean(\"systemFrequency\") AS \"mean_systemFrequency\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(2200ms) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_systemFrequency",
+									"args": [
+										{
+											"value": "systemFrequency",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "2200ms",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Frequency ",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "73e70ffc-c547-4026-b78d-f6783bd99ea1",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "b1b5a3ee-64d0-4cea-9394-fc57b490c140",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/ad57dbfd-abea-4317-b194-205d942c2e90"
+				}
+			},
+			{
+				"i": "cb8323b3-8d28-400e-8204-f87c50f2b9ea",
+				"x": 0,
+				"y": 37,
+				"w": 12,
+				"h": 2,
+				"name": "",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": " ",
+						"suffix": " ",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "#               Generadores\n",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/cb8323b3-8d28-400e-8204-f87c50f2b9ea"
+				}
+			},
+			{
+				"i": "7de49f0d-a0f7-47f1-91ae-2972a60fd7bf",
+				"x": 0,
+				"y": 26,
+				"w": 12,
+				"h": 2,
+				"name": "",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "# UPS",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/7de49f0d-a0f7-47f1-91ae-2972a60fd7bf"
+				}
+			},
+			{
+				"i": "581468c3-bbe6-44a0-9fe4-5ea6a270a8e5",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 2,
+				"name": "",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "# DP1",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/581468c3-bbe6-44a0-9fe4-5ea6a270a8e5"
+				}
+			},
+			{
+				"i": "5ba14984-f00f-4a42-a446-ccc35dfc4df4",
+				"x": 0,
+				"y": 35,
+				"w": 6,
+				"h": 2,
+				"name": "Battery Voltage  Auxtel UPS",
+				"queries": [
+					{
+						"query": "SELECT mean(\"batteryVoltage\") AS \"mean_batteryVoltage\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.xups\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"sensorName\"='aux-ups01.cp.lsst.org' GROUP BY time(:interval:) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.xups",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_batteryVoltage",
+									"args": [
+										{
+											"value": "batteryVoltage",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"sensorName": [
+									"aux-ups01.cp.lsst.org"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " v ",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.xups.last_batteryVoltage",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/5ba14984-f00f-4a42-a446-ccc35dfc4df4"
+				}
+			},
+			{
+				"i": "32397a34-f6a7-450f-ae0e-dbec31027c57",
+				"x": 3,
+				"y": 33,
+				"w": 3,
+				"h": 2,
+				"name": "Tempeture AuxTel UPS ",
+				"queries": [
+					{
+						"query": "SELECT max(\"envAmbientTemp\") AS \"max_envAmbientTemp\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.xups\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"sensorName\"='aux-ups01.cp.lsst.org'",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.xups",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "max_envAmbientTemp",
+									"args": [
+										{
+											"value": "envAmbientTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"sensorName": [
+									"aux-ups01.cp.lsst.org"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " C° ",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.xups.last_batteryVoltage",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 1
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/32397a34-f6a7-450f-ae0e-dbec31027c57"
+				}
+			},
+			{
+				"i": "171a1cb8-31e7-4c8e-a49d-6d57bd573c8d",
+				"x": 0,
+				"y": 33,
+				"w": 3,
+				"h": 2,
+				"name": "Battery Current AuxTel UPS ",
+				"queries": [
+					{
+						"query": "SELECT mean(\"batteryCurrent\") AS \"mean_batteryCurrent\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.xups\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND sensorName = 'aux-ups01.cp.lsst.org' ",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.xups",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_batteryCurrent",
+									"args": [
+										{
+											"value": "batteryCurrent",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"sensorName": [
+									"aux-ups01.cp.lsst.org"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " A",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.xups.last_batteryVoltage",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/171a1cb8-31e7-4c8e-a49d-6d57bd573c8d"
+				}
+			},
+			{
+				"i": "a09b05ee-9a45-4fd4-9cea-247a505a7a7b",
+				"x": 0,
+				"y": 30,
+				"w": 6,
+				"h": 3,
+				"name": "Battery Capacity AuxTel UPS ",
+				"queries": [
+					{
+						"query": "SELECT mean(\"batteryCapacity\") AS \"mean_batteryCapacity\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.xups\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"sensorName\"='aux-ups01.cp.lsst.org' GROUP BY time(:interval:) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.xups",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_batteryCapacity",
+									"args": [
+										{
+											"value": "batteryCapacity",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"sensorName": [
+									"aux-ups01.cp.lsst.org"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "Battery Capacity",
+						"prefix": "",
+						"suffix": "%",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4ed065ab-58f5-45b9-832e-427435cb0796",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "31151c40-083b-47b4-ad39-2478c6863840",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/a09b05ee-9a45-4fd4-9cea-247a505a7a7b"
+				}
+			},
+			{
+				"i": "dd2944fa-f758-4698-9901-08635470c05f",
+				"x": 6,
+				"y": 33,
+				"w": 3,
+				"h": 2,
+				"name": "Battery Current Main UPS",
+				"queries": [
+					{
+						"query": "SELECT mean(\"batteryCurrent\") AS \"mean_batteryCurrent\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.xups\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"sensorName\"='power-ups.cp.lsst.org' GROUP BY time(2200ms) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.xups",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_batteryCurrent",
+									"args": [
+										{
+											"value": "batteryCurrent",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"sensorName": [
+									"power-ups.cp.lsst.org"
+								]
+							},
+							"groupBy": {
+								"time": "2200ms",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " A",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.xups.last_batteryVoltage",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/dd2944fa-f758-4698-9901-08635470c05f"
+				}
+			},
+			{
+				"i": "f279a7f4-9f4a-4dfa-bc8a-d8e43b8fb828",
+				"x": 9,
+				"y": 33,
+				"w": 3,
+				"h": 2,
+				"name": "Tempeture UPS ",
+				"queries": [
+					{
+						"query": "SELECT last(\"envAmbientTemp\") AS \"last_envAmbientTemp\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.xups\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"sensorName\"='power-ups.cp.lsst.org' GROUP BY time(2200ms) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.xups",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "last_envAmbientTemp",
+									"args": [
+										{
+											"value": "envAmbientTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"sensorName": [
+									"power-ups.cp.lsst.org"
+								]
+							},
+							"groupBy": {
+								"time": "2200ms",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " C° ",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.xups.last_batteryVoltage",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 1
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/f279a7f4-9f4a-4dfa-bc8a-d8e43b8fb828"
+				}
+			},
+			{
+				"i": "3c888a47-6c53-452c-a8f1-351680481acd",
+				"x": 6,
+				"y": 35,
+				"w": 6,
+				"h": 2,
+				"name": "Battery Voltage Main UPS",
+				"queries": [
+					{
+						"query": "SELECT mean(\"batteryVoltage\") AS \"mean_batteryVoltage\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.xups\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"sensorName\"='power-ups.cp.lsst.org' GROUP BY time(:interval:) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.xups",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_batteryVoltage",
+									"args": [
+										{
+											"value": "batteryVoltage",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"sensorName": [
+									"power-ups.cp.lsst.org"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " v ",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.xups.last_batteryVoltage",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/3c888a47-6c53-452c-a8f1-351680481acd"
+				}
+			},
+			{
+				"i": "fa59ba67-d102-420a-a9dd-8410e5c7d9ee",
+				"x": 0,
+				"y": 43,
+				"w": 3,
+				"h": 4,
+				"name": "Fuel Caterpillar ",
+				"queries": [
+					{
+						"query": "SELECT max(\"multiInput22\") AS \"max_multiInput22\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 GROUP BY time(2300ms) FILL(none)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT max(\"multiInput22\") AS \"max_multiInput22\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 GROUP BY time(2300ms) FILL(none)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"100"
+						],
+						"label": "Fuel",
+						"prefix": "",
+						"suffix": "%",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "1d9d68f9-657c-4b55-8720-78984a745b76",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7003cf56-c547-4b6f-83a7-1d257eb22450",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/fa59ba67-d102-420a-a9dd-8410e5c7d9ee"
+				}
+			},
+			{
+				"i": "ba10fd33-ea1d-4513-952b-302181ebe437",
+				"x": 6,
+				"y": 30,
+				"w": 6,
+				"h": 3,
+				"name": "Battery Capacity Main UPS",
+				"queries": [
+					{
+						"query": "SELECT mean(\"batteryCapacity\") AS \"mean_batteryCapacity\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.xups\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"sensorName\"='power-ups.cp.lsst.org'GROUP BY time(2200ms) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.xups",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_batteryCapacity",
+									"args": [
+										{
+											"value": "batteryCapacity",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"sensorName": [
+									"power-ups.cp.lsst.org"
+								]
+							},
+							"groupBy": {
+								"time": "2200ms",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "Battery Capacity",
+						"prefix": "",
+						"suffix": "%",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4ed065ab-58f5-45b9-832e-427435cb0796",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "31151c40-083b-47b4-ad39-2478c6863840",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/ba10fd33-ea1d-4513-952b-302181ebe437"
+				}
+			},
+			{
+				"i": "5172bf47-b35a-4594-b108-5487763c15d3",
+				"x": 6,
+				"y": 43,
+				"w": 3,
+				"h": 4,
+				"name": "Fuel Mitsubishi",
+				"queries": [
+					{
+						"query": "SELECT max(\"multiInput22\") AS \"max_multiInput22\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 305 GROUP BY time(2300ms) FILL(none)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT max(\"multiInput22\") AS \"max_multiInput22\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 305 GROUP BY time(2300ms) FILL(none)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"100"
+						],
+						"label": "Fuel",
+						"prefix": "",
+						"suffix": "%",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "c669371f-1e61-478b-b79e-fd08edae033c",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "68c8400a-9574-48bc-8c4c-8f541ea3416f",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.agcGenset150.max_multiInput22",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": false,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/5172bf47-b35a-4594-b108-5487763c15d3"
+				}
+			},
+			{
+				"i": "4a417f9b-9af6-434d-8f51-8e02dcdd9719",
+				"x": 6,
+				"y": 11,
+				"w": 6,
+				"h": 4,
+				"name": "Apparent Power",
+				"queries": [
+					{
+						"query": "SELECT mean(\"apparentPowerA\") AS \"mean_apparentPowerA\", mean(\"apparentPowerB\") AS \"mean_apparentPowerB\", mean(\"apparentPowerC\") AS \"mean_apparentPowerC\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(2200ms) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_apparentPowerA",
+									"args": [
+										{
+											"value": "apparentPowerA",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_apparentPowerB",
+									"args": [
+										{
+											"value": "apparentPowerB",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_apparentPowerC",
+									"args": [
+										{
+											"value": "apparentPowerC",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "2200ms",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Active Power",
+						"prefix": "",
+						"suffix": "kVA",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "7ab3102f-00b4-4c7d-bf96-b9169fe2f3e1",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "5b55a1e9-7c05-43ef-9189-58e77d8548d2",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "b9f8094a-71e9-4307-a353-f55b70ae825c",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/4a417f9b-9af6-434d-8f51-8e02dcdd9719"
+				}
+			},
+			{
+				"i": "8333024e-6bbb-4e1b-8a7c-4055c4d5866e",
+				"x": 6,
+				"y": 15,
+				"w": 6,
+				"h": 4,
+				"name": "Reactive Power",
+				"queries": [
+					{
+						"query": "SELECT mean(\"reactivePowerC\") AS \"mean_reactivePowerC\", mean(\"reactivePowerB\") AS \"mean_reactivePowerB\", mean(\"reactivePowerA\") AS \"mean_reactivePowerA\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(2200ms) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_reactivePowerC",
+									"args": [
+										{
+											"value": "reactivePowerC",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_reactivePowerB",
+									"args": [
+										{
+											"value": "reactivePowerB",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_reactivePowerA",
+									"args": [
+										{
+											"value": "reactivePowerA",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "2200ms",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Reactive Power",
+						"prefix": "",
+						"suffix": " kVAr",
+						"base": "raw",
+						"scale": "log"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "39fda899-fd8b-4b37-aeb4-4b4f8a8644da",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a79ad1b3-e8d7-48b1-8c55-157373cc9f76",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "19e5c6b0-76ba-4a17-aadd-03708978bdc2",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/8333024e-6bbb-4e1b-8a7c-4055c4d5866e"
+				}
+			},
+			{
+				"i": "e447d389-57a0-4cca-ae0c-3fa1e7359005",
+				"x": 6,
+				"y": 7,
+				"w": 6,
+				"h": 4,
+				"name": "Three Phase Voltage DP1",
+				"queries": [
+					{
+						"query": "SELECT mean(\"measuredLineVoltageVab\") AS \"mean_measuredLineVoltageVab\", mean(\"measuredLineVoltageVbc\") AS \"mean_measuredLineVoltageVbc\", mean(\"measuredLineVoltageVca\") AS \"mean_measuredLineVoltageVca\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(2200ms) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_measuredLineVoltageVab",
+									"args": [
+										{
+											"value": "measuredLineVoltageVab",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_measuredLineVoltageVbc",
+									"args": [
+										{
+											"value": "measuredLineVoltageVbc",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_measuredLineVoltageVca",
+									"args": [
+										{
+											"value": "measuredLineVoltageVca",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "2200ms",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Three Fase Voltage",
+						"prefix": "",
+						"suffix": "V",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "6b11dc3e-cec9-48fc-850f-68eb175a0c5c",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "626e8e49-ca8a-43c3-8c40-ee1d2ec9f28f",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "e0fb0bbb-c3fb-4c37-8c69-b829b9a753b8",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/e447d389-57a0-4cca-ae0c-3fa1e7359005"
+				}
+			},
+			{
+				"i": "7fda56e6-b0a7-4111-860e-0c985ad2cb77",
+				"x": 0,
+				"y": 5,
+				"w": 12,
+				"h": 2,
+				"name": "General View DP1",
+				"queries": [
+					{
+						"query": "SELECT \n  last(\"totalReactivePower\") AS \"last_totalReactivePower\",\n  last(\"totalActivePower\") AS \"last_totalActivePower\",\n  last(\"totalApparentPower\") AS \"last_totalApparentPower\",\n  last(\"measuredLineVoltageVab\") AS \"last_measuredLineVoltageVab\",\n  last(\"measuredLineVoltageVbc\") AS \"last_measuredLineVoltageVbc\",\n  last(\"measuredLineVoltageVca\") AS \"last_measuredLineVoltageVca\"\nFROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\"\nWHERE time > :dashboardTime: AND time < :upperDashboardTime:\nGROUP BY time(2200ms) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "last_totalReactivePower",
+									"args": [
+										{
+											"value": "totalReactivePower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "last_totalActivePower",
+									"args": [
+										{
+											"value": "totalActivePower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "last_totalApparentPower",
+									"args": [
+										{
+											"value": "totalApparentPower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "last_measuredLineVoltageVab",
+									"args": [
+										{
+											"value": "measuredLineVoltageVab",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "last_measuredLineVoltageVbc",
+									"args": [
+										{
+											"value": "measuredLineVoltageVbc",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "last_measuredLineVoltageVca",
+									"args": [
+										{
+											"value": "measuredLineVoltageVca",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "2200ms",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#4ED8A0",
+						"name": "rainforest",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.schneiderPm5xxx.last_measuredLineVoltageVab",
+						"displayName": "Voltage L1-L2",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.schneiderPm5xxx.last_measuredLineVoltageVbc",
+						"displayName": "Voltage L2-L3",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.schneiderPm5xxx.last_measuredLineVoltageVca",
+						"displayName": "Voltage L1-L3",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.schneiderPm5xxx.last_totalActivePower",
+						"displayName": "Active Power",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.schneiderPm5xxx.last_totalApparentPower",
+						"displayName": "Apparent Power",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.schneiderPm5xxx.last_totalReactivePower",
+						"displayName": "Reactive Power",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 1
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/7fda56e6-b0a7-4111-860e-0c985ad2cb77"
+				}
+			},
+			{
+				"i": "0132c336-4b4f-4bb1-a2b1-65f186992cb2",
+				"x": 2,
+				"y": 13,
+				"w": 2,
+				"h": 2,
+				"name": "Apparent Power",
+				"queries": [
+					{
+						"query": "SELECT mean(\"totalApparentPower\") AS \"mean_totalApparentPower\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\"",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_totalApparentPower",
+									"args": [
+										{
+											"value": "totalApparentPower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " kVA",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/0132c336-4b4f-4bb1-a2b1-65f186992cb2"
+				}
+			},
+			{
+				"i": "c0dcd055-d534-4d42-9c39-815f9f008396",
+				"x": 0,
+				"y": 19,
+				"w": 6,
+				"h": 4,
+				"name": "Current DP1",
+				"queries": [
+					{
+						"query": "SELECT mean(\"neutralCurrent\") AS \"mean_neutralCurrent\", mean(\"loadCurrentA\") AS \"mean_loadCurrentA\", mean(\"loadCurrentB\") AS \"mean_loadCurrentB\", mean(\"loadCurrentC\") AS \"mean_loadCurrentC\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(2200ms) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_neutralCurrent",
+									"args": [
+										{
+											"value": "neutralCurrent",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_loadCurrentA",
+									"args": [
+										{
+											"value": "loadCurrentA",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_loadCurrentB",
+									"args": [
+										{
+											"value": "loadCurrentB",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_loadCurrentC",
+									"args": [
+										{
+											"value": "loadCurrentC",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "2200ms",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " A",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e60d847a-7173-4e35-8339-60f6a09e505d",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5d42bda0-a200-4235-a8bf-d1fb7bbcaf18",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "68ce21f9-555c-4e90-a840-7756b3efcf31",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/647/cells/c0dcd055-d534-4d42-9c39-815f9f008396"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Power Monitor Electrical Team",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/647",
+			"cells": "/chronograf/v1/dashboards/647/cells",
+			"templates": "/chronograf/v1/dashboards/647/templates"
+		}
+	}
+}

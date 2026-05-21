@@ -1,0 +1,590 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "403",
+		"cells": [
+			{
+				"i": "62891af6-86d3-46ad-8b31-f6554f164aad",
+				"x": 0,
+				"y": 4,
+				"w": 4,
+				"h": 2,
+				"name": "Az",
+				"queries": [
+					{
+						"query": "import \"math\"\n\n// Define the time range and filter for Az data\ndata = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => r._measurement == \"lsst.sal.MTPtg.mountStatus\" and r._field == \"mountAz\")\n  |> last()  // Retrieve only the last data point\n\n// Function to convert Az from decimal degrees to DD:MM:SS.S format\nformatAz = (az) => {\n  sign = if az < 0.0 then \"-\" else \"+\"  // Handle the sign first\n  az_abs = math.abs(x: az)  // Take the absolute value of azimuth for further processing\n\n  degs = int(v: az_abs)  // Get the integer degree part\n  minutes_decimal = (az_abs - float(v: degs)) * 60.0  // Get the decimal part for minutes\n  minutes = int(v: minutes_decimal)  // Get the integer minute part\n  seconds = (minutes_decimal - float(v: minutes)) * 60.0  // Get the seconds\n  seconds_str = string(v: math.round(x: seconds * 10.0) / 10.0)  // Round seconds to 1 decimal place\n  \n  // Return azimuth in D:M:S format with appropriate sign\n  return sign + string(v: degs) + \"°\" + string(v: minutes) + \"'\" + seconds_str + \"\\\"\"\n}\n\n//formatAz = (az) => {\n//  degs = int(v: az)\n//  minutes_decimal = (az - float(v: degs)) * 60.0\n//  minutes = int(v: minutes_decimal)\n//  seconds = (minutes_decimal - float(v: minutes)) * 60.0\n//  seconds_str = string(v: math.round(x: seconds * 10.0) / 10.0)\n//  return string(v: degs) + \"°\" + string(v: minutes) + \"'\" + seconds_str + \"\\\"\"\n//}\n\n// Map over the data to include raw and formatted Az\ndata\n  |> map(fn: (r) => ({\n    _time: r._time,\n    raw_Az_degrees: r._value,  // Raw Az in degrees\n    formatted_Az: formatAz(az: float(v: r._value / 1.0))  // Az is already in degrees\n  }))\n  |> yield(name: \"Last_Az\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"math\"\n\n// Define the time range and filter for Az data\ndata = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => r._measurement == \"lsst.sal.MTPtg.mountStatus\" and r._field == \"mountAz\")\n  |> last()  // Retrieve only the last data point\n\n// Function to convert Az from decimal degrees to DD:MM:SS.S format\nformatAz = (az) => {\n  sign = if az < 0.0 then \"-\" else \"+\"  // Handle the sign first\n  az_abs = math.abs(x: az)  // Take the absolute value of azimuth for further processing\n\n  degs = int(v: az_abs)  // Get the integer degree part\n  minutes_decimal = (az_abs - float(v: degs)) * 60.0  // Get the decimal part for minutes\n  minutes = int(v: minutes_decimal)  // Get the integer minute part\n  seconds = (minutes_decimal - float(v: minutes)) * 60.0  // Get the seconds\n  seconds_str = string(v: math.round(x: seconds * 10.0) / 10.0)  // Round seconds to 1 decimal place\n  \n  // Return azimuth in D:M:S format with appropriate sign\n  return sign + string(v: degs) + \"°\" + string(v: minutes) + \"'\" + seconds_str + \"\\\"\"\n}\n\n//formatAz = (az) => {\n//  degs = int(v: az)\n//  minutes_decimal = (az - float(v: degs)) * 60.0\n//  minutes = int(v: minutes_decimal)\n//  seconds = (minutes_decimal - float(v: minutes)) * 60.0\n//  seconds_str = string(v: math.round(x: seconds * 10.0) / 10.0)\n//  return string(v: degs) + \"°\" + string(v: minutes) + \"'\" + seconds_str + \"\\\"\"\n//}\n\n// Map over the data to include raw and formatted Az\ndata\n  |> map(fn: (r) => ({\n    _time: r._time,\n    raw_Az_degrees: r._value,  // Raw Az in degrees\n    formatted_Az: formatAz(az: float(v: r._value / 1.0))  // Az is already in degrees\n  }))\n  |> yield(name: \"Last_Az\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "raw_Az_degrees",
+						"displayName": "Az (deg)",
+						"visible": true
+					},
+					{
+						"internalName": "formatted_Az",
+						"displayName": "Az (dd°mm'ss.s\")",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/403/cells/62891af6-86d3-46ad-8b31-f6554f164aad"
+				}
+			},
+			{
+				"i": "ae288675-4e17-4168-b564-274fd46744c3",
+				"x": 8,
+				"y": 0,
+				"w": 4,
+				"h": 2,
+				"name": "Rotation (deg)",
+				"queries": [
+					{
+						"query": "SELECT \"mountRot\" FROM \"efd\".\"autogen\".\"lsst.sal.MTPtg.mountStatus\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTPtg.mountStatus",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mountRot",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/403/cells/ae288675-4e17-4168-b564-274fd46744c3"
+				}
+			},
+			{
+				"i": "7438e764-42bd-4cbf-a6f1-75efd470d5fb",
+				"x": 0,
+				"y": 2,
+				"w": 8,
+				"h": 2,
+				"name": "Dec",
+				"queries": [
+					{
+						"query": "import \"math\"\n\n// Define the time range and filter for Dec data\ndata = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => r._measurement == \"lsst.sal.MTPtg.mountStatus\" and r._field == \"mountDec\")\n  |> last()  // Retrieve only the last data point\n\n// Function to convert Dec from decimal degrees to +DD:MM:SS.S format\nformatDec = (dec) => {\n  degrees = int(v: dec)\n  minutes_decimal = math.abs(x: (float(v: dec) - float(v: degrees)) * 60.0)\n  minutes = int(v: minutes_decimal)\n  minutes_str = if minutes < 10 then \"0\" + string(v: minutes) else string(v: minutes)  // Add leading zero if minutes < 10\n  seconds = (minutes_decimal - float(v: minutes)) * 60.0\n  seconds_str = if seconds < 10.0 then \"0\" + string(v: math.round(x: seconds * 10.0) / 10.0) else string(v: math.round(x: seconds * 10.0) / 10.0)  // Add leading zero if seconds < 10\n  sign = if dec < 0.0 then \"-\" else \"+\"\n  return sign + string(v: math.abs(x: float(v: degrees))) + \":\" + minutes_str + \":\" + seconds_str\n}\n//formatDec = (dec) => {\n//  degrees = int(v: dec)\n//  minutes_decimal = math.abs(x: (float(v: dec) - float(v: degrees)) * 60.0)\n//  minutes = int(v: minutes_decimal)\n//  seconds = (minutes_decimal - float(v: minutes)) * 60.0\n//  seconds_str = string(v: math.round(x: seconds * 10.0) / 10.0)\n//  sign = if dec < 0.0 then \"-\" else \"+\"\n//  return sign + string(v: math.abs(x: float(v: degrees))) + \":\" + string(v: minutes) + \":\" + seconds_str\n//}\n\n// Map over the data to include raw and formatted Dec\ndata\n  |> map(fn: (r) => ({\n    _time: r._time,\n    raw_Dec_degrees: r._value,  // Raw Dec in degrees\n    formatted_Dec: formatDec(dec: r._value)  // Format Dec in +DD:MM:SS.S\n  }))\n  |> yield(name: \"Last_Dec_with_conversion\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"math\"\n\n// Define the time range and filter for Dec data\ndata = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => r._measurement == \"lsst.sal.MTPtg.mountStatus\" and r._field == \"mountDec\")\n  |> last()  // Retrieve only the last data point\n\n// Function to convert Dec from decimal degrees to +DD:MM:SS.S format\nformatDec = (dec) => {\n  degrees = int(v: dec)\n  minutes_decimal = math.abs(x: (float(v: dec) - float(v: degrees)) * 60.0)\n  minutes = int(v: minutes_decimal)\n  minutes_str = if minutes < 10 then \"0\" + string(v: minutes) else string(v: minutes)  // Add leading zero if minutes < 10\n  seconds = (minutes_decimal - float(v: minutes)) * 60.0\n  seconds_str = if seconds < 10.0 then \"0\" + string(v: math.round(x: seconds * 10.0) / 10.0) else string(v: math.round(x: seconds * 10.0) / 10.0)  // Add leading zero if seconds < 10\n  sign = if dec < 0.0 then \"-\" else \"+\"\n  return sign + string(v: math.abs(x: float(v: degrees))) + \":\" + minutes_str + \":\" + seconds_str\n}\n//formatDec = (dec) => {\n//  degrees = int(v: dec)\n//  minutes_decimal = math.abs(x: (float(v: dec) - float(v: degrees)) * 60.0)\n//  minutes = int(v: minutes_decimal)\n//  seconds = (minutes_decimal - float(v: minutes)) * 60.0\n//  seconds_str = string(v: math.round(x: seconds * 10.0) / 10.0)\n//  sign = if dec < 0.0 then \"-\" else \"+\"\n//  return sign + string(v: math.abs(x: float(v: degrees))) + \":\" + string(v: minutes) + \":\" + seconds_str\n//}\n\n// Map over the data to include raw and formatted Dec\ndata\n  |> map(fn: (r) => ({\n    _time: r._time,\n    raw_Dec_degrees: r._value,  // Raw Dec in degrees\n    formatted_Dec: formatDec(dec: r._value)  // Format Dec in +DD:MM:SS.S\n  }))\n  |> yield(name: \"Last_Dec_with_conversion\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "raw_Dec_degrees",
+						"displayName": "Dec (deg)",
+						"visible": true
+					},
+					{
+						"internalName": "formatted_Dec",
+						"displayName": "Dec (dd:mm:ss.s)",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/403/cells/7438e764-42bd-4cbf-a6f1-75efd470d5fb"
+				}
+			},
+			{
+				"i": "339ba42a-0979-43fc-9a98-15a88dcf5f7b",
+				"x": 0,
+				"y": 0,
+				"w": 8,
+				"h": 2,
+				"name": "RA",
+				"queries": [
+					{
+						"query": "import \"math\"\n\n// Define the time range and filter for RA data\ndata = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => r._measurement == \"lsst.sal.MTPtg.mountStatus\" and r._field == \"mountRA\")\n  |> last()  // Retrieve only the last data point\n\n// Function to convert RA from decimal hours to HH:MM:SS.S format\nformatRA = (ra) => {\n  hours = int(v: ra)\n  minutes_decimal = (ra - float(v: hours)) * 60.0\n  minutes = int(v: minutes_decimal)\n  minutes_str = if minutes < 10 then \"0\" + string(v: minutes) else string(v: minutes)  // Add leading zero if minutes < 10\n  seconds = (minutes_decimal - float(v: minutes)) * 60.0\n  seconds_str = if seconds < 10.0 then \"0\" + string(v: math.round(x: seconds * 10.0) / 10.0) else string(v: math.round(x: seconds * 10.0) / 10.0)\n  return string(v: hours) + \":\" + minutes_str + \":\" + seconds_str\n}\n//formatRA = (ra) => {\n//  hours = int(v: ra)\n//  minutes_decimal = (ra - float(v: hours)) * 60.0\n//  minutes = int(v: minutes_decimal)\n//  seconds = (minutes_decimal - float(v: minutes)) * 60.0\n//  seconds_str = string(v: math.round(x: seconds * 10.0) / 10.0)\n//  return string(v: hours) + \":\" + string(v: minutes) + \":\" + seconds_str\n//}\n\n// Map over the data to include degrees, raw decimal hours, and formatted RA\ndata\n  |> map(fn: (r) => ({\n    _time: r._time,\n    raw_RA_degrees: r._value * 15.0,  // Convert RA in hours to degrees\n    raw_RA_hours: r._value,           // Raw RA in decimal hours\n    formatted_RA: formatRA(ra: r._value)  // Convert RA in decimal hours to HH:MM:SS.S\n  }))\n  |> yield(name: \"Last_RA_with_conversion\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"math\"\n\n// Define the time range and filter for RA data\ndata = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => r._measurement == \"lsst.sal.MTPtg.mountStatus\" and r._field == \"mountRA\")\n  |> last()  // Retrieve only the last data point\n\n// Function to convert RA from decimal hours to HH:MM:SS.S format\nformatRA = (ra) => {\n  hours = int(v: ra)\n  minutes_decimal = (ra - float(v: hours)) * 60.0\n  minutes = int(v: minutes_decimal)\n  minutes_str = if minutes < 10 then \"0\" + string(v: minutes) else string(v: minutes)  // Add leading zero if minutes < 10\n  seconds = (minutes_decimal - float(v: minutes)) * 60.0\n  seconds_str = if seconds < 10.0 then \"0\" + string(v: math.round(x: seconds * 10.0) / 10.0) else string(v: math.round(x: seconds * 10.0) / 10.0)\n  return string(v: hours) + \":\" + minutes_str + \":\" + seconds_str\n}\n//formatRA = (ra) => {\n//  hours = int(v: ra)\n//  minutes_decimal = (ra - float(v: hours)) * 60.0\n//  minutes = int(v: minutes_decimal)\n//  seconds = (minutes_decimal - float(v: minutes)) * 60.0\n//  seconds_str = string(v: math.round(x: seconds * 10.0) / 10.0)\n//  return string(v: hours) + \":\" + string(v: minutes) + \":\" + seconds_str\n//}\n\n// Map over the data to include degrees, raw decimal hours, and formatted RA\ndata\n  |> map(fn: (r) => ({\n    _time: r._time,\n    raw_RA_degrees: r._value * 15.0,  // Convert RA in hours to degrees\n    raw_RA_hours: r._value,           // Raw RA in decimal hours\n    formatted_RA: formatRA(ra: r._value)  // Convert RA in decimal hours to HH:MM:SS.S\n  }))\n  |> yield(name: \"Last_RA_with_conversion\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "raw_RA_degrees",
+						"displayName": "RA (degrees)",
+						"visible": true
+					},
+					{
+						"internalName": "raw_RA_hours",
+						"displayName": "RA (hours)",
+						"visible": true
+					},
+					{
+						"internalName": "formatted_RA",
+						"displayName": "RA (hh:mm:ss.s)",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/403/cells/339ba42a-0979-43fc-9a98-15a88dcf5f7b"
+				}
+			},
+			{
+				"i": "5ba0d7ed-b0eb-444c-89be-be5f63cb26b2",
+				"x": 4,
+				"y": 4,
+				"w": 4,
+				"h": 2,
+				"name": "El",
+				"queries": [
+					{
+						"query": "import \"math\"\n\n// Define the time range and filter for El data\ndata = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => r._measurement == \"lsst.sal.MTPtg.mountStatus\" and r._field == \"mountEl\")\n  |> last()  // Retrieve only the last data point\n\n// Function to convert El from decimal degrees to DD:MM:SS.S format\nformatEl = (el) => {\n  degs = int(v: el)\n  minutes_decimal = (el - float(v: degs)) * 60.0\n  minutes = int(v: minutes_decimal)\n  seconds = (minutes_decimal - float(v: minutes)) * 60.0\n  seconds_str = string(v: math.round(x: seconds * 10.0) / 10.0)\n  return string(v: degs) + \"°\" + string(v: minutes) + \"'\" + seconds_str + \"\\\"\"\n}\n\n// Map over the data to include raw and formatted El\ndata\n  |> map(fn: (r) => ({\n    _time: r._time,\n    raw_El_degrees: r._value,  // Raw Az in degrees\n    formatted_El: formatEl(el: float(v: r._value / 1.0))  // El is already in degrees\n  }))\n  |> yield(name: \"Last_El\")\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"math\"\n\n// Define the time range and filter for El data\ndata = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => r._measurement == \"lsst.sal.MTPtg.mountStatus\" and r._field == \"mountEl\")\n  |> last()  // Retrieve only the last data point\n\n// Function to convert El from decimal degrees to DD:MM:SS.S format\nformatEl = (el) => {\n  degs = int(v: el)\n  minutes_decimal = (el - float(v: degs)) * 60.0\n  minutes = int(v: minutes_decimal)\n  seconds = (minutes_decimal - float(v: minutes)) * 60.0\n  seconds_str = string(v: math.round(x: seconds * 10.0) / 10.0)\n  return string(v: degs) + \"°\" + string(v: minutes) + \"'\" + seconds_str + \"\\\"\"\n}\n\n// Map over the data to include raw and formatted El\ndata\n  |> map(fn: (r) => ({\n    _time: r._time,\n    raw_El_degrees: r._value,  // Raw Az in degrees\n    formatted_El: formatEl(el: float(v: r._value / 1.0))  // El is already in degrees\n  }))\n  |> yield(name: \"Last_El\")\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "raw_El_degrees",
+						"displayName": "El (deg)",
+						"visible": true
+					},
+					{
+						"internalName": "formatted_El",
+						"displayName": "El (dd°mm'ss.s\")",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/403/cells/5ba0d7ed-b0eb-444c-89be-be5f63cb26b2"
+				}
+			}
+		],
+		"templates": [],
+		"name": "TMA RA Dec Conversion (Test)",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/403",
+			"cells": "/chronograf/v1/dashboards/403/cells",
+			"templates": "/chronograf/v1/dashboards/403/templates"
+		}
+	}
+}

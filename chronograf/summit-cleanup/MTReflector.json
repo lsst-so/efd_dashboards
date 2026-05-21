@@ -1,0 +1,167 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "599",
+		"cells": [
+			{
+				"i": "637b3ac8-f07e-4468-894d-3a33edcd6d3b",
+				"x": 0,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "MTReflector cover status (open = 2, close =3)",
+				"queries": [
+					{
+						"query": "SELECT \"reflectorStatus\"\nFROM \"efd\".\"autogen\".\"lsst.sal.MTReflector.logevent_reflectorStatus\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND (\"reflectorStatus\" = 2 OR \"reflectorStatus\" = 3)ORDER BY time DESC LIMIT 1",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"reflectorStatus\"\nFROM \"efd\".\"autogen\".\"lsst.sal.MTReflector.logevent_reflectorStatus\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND (\"reflectorStatus\" = 2 OR \"reflectorStatus\" = 3)ORDER BY time DESC LIMIT 1",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "gauge",
+				"colors": [
+					{
+						"id": "0",
+						"type": "min",
+						"hex": "#545667",
+						"name": "graphite",
+						"value": "1"
+					},
+					{
+						"id": "80757d28-8417-49cd-8c6c-b92b080cb8f3",
+						"type": "threshold",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "2"
+					},
+					{
+						"id": "d4715976-f7ad-4753-8dcd-0e4067869f0a",
+						"type": "threshold",
+						"hex": "#DC4E58",
+						"name": "fire",
+						"value": "3"
+					},
+					{
+						"id": "a9745703-2fa2-4d4f-ab18-5f49d052ee57",
+						"type": "threshold",
+						"hex": "#545667",
+						"name": "graphite",
+						"value": "4"
+					},
+					{
+						"id": "2ed86e0c-80bc-4273-a177-9ed49d93c956",
+						"type": "threshold",
+						"hex": "#545667",
+						"name": "graphite",
+						"value": "5"
+					},
+					{
+						"id": "1",
+						"type": "max",
+						"hex": "#BF3D5E",
+						"name": "ruby",
+						"value": "6"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTReflector.logevent_reflectorStatus.reflectorStatus",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/599/cells/637b3ac8-f07e-4468-894d-3a33edcd6d3b"
+				}
+			}
+		],
+		"templates": [],
+		"name": "MTReflector",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/599",
+			"cells": "/chronograf/v1/dashboards/599/cells",
+			"templates": "/chronograf/v1/dashboards/599/templates"
+		}
+	}
+}

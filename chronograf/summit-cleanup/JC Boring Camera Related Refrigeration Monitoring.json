@@ -1,0 +1,680 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "490",
+		"cells": [
+			{
+				"i": "687a0a10-b1d0-4f21-9000-bb7609d44a1d",
+				"x": 0,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "Glycol Chiller 3 1st floor",
+				"queries": [
+					{
+						"query": "SELECT mean(\"activeSetpoint\") AS \"mean_activeSetpoint\", mean(\"cto1LowerPressure\") AS \"mean_cto1LowerPressure\", mean(\"cto2LowerPressure\") AS \"mean_cto2LowerPressure\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.comfortGlycolChiller03\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.comfortGlycolChiller03",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_activeSetpoint",
+									"args": [
+										{
+											"value": "activeSetpoint",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_cto1LowerPressure",
+									"args": [
+										{
+											"value": "cto1LowerPressure",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_cto2LowerPressure",
+									"args": [
+										{
+											"value": "cto2LowerPressure",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "48d6490d-8c15-491b-bae8-4a2ef81f1f7d",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "294a77ab-6de3-4903-b465-c03b9a5982ad",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "fc6d634b-cb36-425e-8618-6c72ee62ffbb",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/490/cells/687a0a10-b1d0-4f21-9000-bb7609d44a1d"
+				}
+			},
+			{
+				"i": "a9024002-f9c5-4fdb-85af-e21316a760ef",
+				"x": 4,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "OSS - 1st floor",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyFlowOss\") AS \"mean_supplyFlowOss\", mean(\"supplyPressOss\") AS \"mean_supplyPressOss\", mean(\"supplyTempOss\") AS \"mean_supplyTempOss\", mean(\"retPressOss\") AS \"mean_retPressOss\", mean(\"retTempOss\") AS \"mean_retTempOss\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolLineSensors\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.glycolLineSensors",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyFlowOss",
+									"args": [
+										{
+											"value": "supplyFlowOss",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyPressOss",
+									"args": [
+										{
+											"value": "supplyPressOss",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyTempOss",
+									"args": [
+										{
+											"value": "supplyTempOss",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_retPressOss",
+									"args": [
+										{
+											"value": "retPressOss",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_retTempOss",
+									"args": [
+										{
+											"value": "retTempOss",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "48d6490d-8c15-491b-bae8-4a2ef81f1f7d",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "294a77ab-6de3-4903-b465-c03b9a5982ad",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "fc6d634b-cb36-425e-8618-6c72ee62ffbb",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/490/cells/a9024002-f9c5-4fdb-85af-e21316a760ef"
+				}
+			},
+			{
+				"i": "938187a7-d7ac-4398-8360-c906aec72bfa",
+				"x": 8,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "SLAC-MRCR 1st floor",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyFlowSlac\") AS \"mean_supplyFlowSlac\", mean(\"supplyPressSlac\") AS \"mean_supplyPressSlac\", mean(\"supplyTempSlac\") AS \"mean_supplyTempSlac\", mean(\"retTempSlac\") AS \"mean_retTempSlac\", mean(\"retPressSlac\") AS \"mean_retPressSlac\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolLineSensors\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.glycolLineSensors",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyFlowSlac",
+									"args": [
+										{
+											"value": "supplyFlowSlac",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyPressSlac",
+									"args": [
+										{
+											"value": "supplyPressSlac",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyTempSlac",
+									"args": [
+										{
+											"value": "supplyTempSlac",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_retTempSlac",
+									"args": [
+										{
+											"value": "retTempSlac",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_retPressSlac",
+									"args": [
+										{
+											"value": "retPressSlac",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "48d6490d-8c15-491b-bae8-4a2ef81f1f7d",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "294a77ab-6de3-4903-b465-c03b9a5982ad",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "fc6d634b-cb36-425e-8618-6c72ee62ffbb",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/490/cells/938187a7-d7ac-4398-8360-c906aec72bfa"
+				}
+			},
+			{
+				"i": "4b794d98-44fc-4ba6-a3c0-4bfe26997cd2",
+				"x": 0,
+				"y": 4,
+				"w": 4,
+				"h": 4,
+				"name": "CRAC 1 - 2nd floor",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyTemperature\") AS \"mean_supplyTemperature\", mean(\"returnTemperature\") AS \"mean_returnTemperature\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.crac01\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.crac01",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyTemperature",
+									"args": [
+										{
+											"value": "supplyTemperature",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_returnTemperature",
+									"args": [
+										{
+											"value": "returnTemperature",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "48d6490d-8c15-491b-bae8-4a2ef81f1f7d",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "294a77ab-6de3-4903-b465-c03b9a5982ad",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "fc6d634b-cb36-425e-8618-6c72ee62ffbb",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/490/cells/4b794d98-44fc-4ba6-a3c0-4bfe26997cd2"
+				}
+			}
+		],
+		"templates": [],
+		"name": "JC Boring Camera Related Refrigeration Monitoring",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/490",
+			"cells": "/chronograf/v1/dashboards/490/cells",
+			"templates": "/chronograf/v1/dashboards/490/templates"
+		}
+	}
+}

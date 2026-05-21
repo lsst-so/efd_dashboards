@@ -1,0 +1,450 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "547",
+		"cells": [
+			{
+				"i": "ec7583d7-bee4-475e-ab02-5e1335141cff",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 4,
+				"name": "Focal plane heat",
+				"queries": [
+					{
+						"query": "SELECT mean(\"HtrW\") AS \"mean_HtrW\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_reb_data\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND (\"Reb\"='RebW' OR \"Reb\"='Reb2' OR \"Reb\"='Reb0') GROUP BY time(5m), \"Raft\", \"Reb\" FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_reb_data",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_HtrW",
+									"args": [
+										{
+											"value": "HtrW",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Reb": [
+									"RebW",
+									"Reb2",
+									"Reb0"
+								]
+							},
+							"groupBy": {
+								"time": "5m",
+								"tags": [
+									"Raft",
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "19024a99-b533-44f3-b65b-22824bdd929a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "88e726ee-9502-4f56-9217-39e0a2b43224",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "10634d37-e83d-4bcb-a431-ffaa64e8080f",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/547/cells/ec7583d7-bee4-475e-ab02-5e1335141cff"
+				}
+			},
+			{
+				"i": "7aad3733-d3c5-447b-9e4b-90e40fc01d85",
+				"x": 0,
+				"y": 4,
+				"w": 12,
+				"h": 4,
+				"name": "RSA total heat (stack)",
+				"queries": [
+					{
+						"query": "SELECT mean(\"HtrW\") AS \"mean_HtrW\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_reb_data\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND (\"Reb\"='RebW' OR \"Reb\"='Reb2' OR \"Reb\"='Reb0') GROUP BY time(5m), \"Agent\", \"Raft\", \"Reb\" FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_reb_data",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_HtrW",
+									"args": [
+										{
+											"value": "HtrW",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Reb": [
+									"RebW",
+									"Reb2",
+									"Reb0"
+								]
+							},
+							"groupBy": {
+								"time": "5m",
+								"tags": [
+									"Agent",
+									"Raft",
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "W",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "8feda105-f685-44ae-87c4-debd40099016",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "519aab98-f600-4079-bba3-1e66e567bbb3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "1e0b65ee-b5b1-42c1-b60a-90fcc639b0d4",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "Agent",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.focal_plane_reb_data.sum_HtrW",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/547/cells/7aad3733-d3c5-447b-9e4b-90e40fc01d85"
+				}
+			},
+			{
+				"i": "bbef9f92-07bc-4492-ab3d-9524a9954e1e",
+				"x": 0,
+				"y": 8,
+				"w": 12,
+				"h": 4,
+				"name": "CCD temperature",
+				"queries": [
+					{
+						"query": "SELECT mean(\"Temp\") AS \"mean_Temp\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_sensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(5m), \"Raft\", \"Reb\", \"Sensor\" FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_sensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_Temp",
+									"args": [
+										{
+											"value": "Temp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "5m",
+								"tags": [
+									"Raft",
+									"Reb",
+									"Sensor"
+								]
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "33375650-bf52-4dd1-a0a7-329e3b7eff47",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "33691959-3f9a-4c81-953c-ad9c16217338",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "d20c65a2-a7ae-4dc0-9c62-f3995d201cf3",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/547/cells/bbef9f92-07bc-4492-ab3d-9524a9954e1e"
+				}
+			}
+		],
+		"templates": [],
+		"name": "LSSTCam - Raft subsystem assembly heaters",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/547",
+			"cells": "/chronograf/v1/dashboards/547/cells",
+			"templates": "/chronograf/v1/dashboards/547/templates"
+		}
+	}
+}

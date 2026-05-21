@@ -1,0 +1,722 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "523",
+		"cells": [
+			{
+				"i": "6d386908-fb93-4802-b8e4-686e8d802d0a",
+				"x": 0,
+				"y": 6,
+				"w": 12,
+				"h": 1,
+				"name": "REB HV Currents",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/523/cells/6d386908-fb93-4802-b8e4-686e8d802d0a"
+				}
+			},
+			{
+				"i": "381009d1-103e-4951-9770-24c82da15e62",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 1,
+				"name": "REB HV Voltages",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "The data is being published every second or so. However, the dashboard might crash if you use a time window of more than one hour. ",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/523/cells/381009d1-103e-4951-9770-24c82da15e62"
+				}
+			},
+			{
+				"i": "a806a826-5d68-43a3-ba6a-f2502d238026",
+				"x": 6,
+				"y": 1,
+				"w": 6,
+				"h": 5,
+				"name": "Rebpower Voltage before HV Switch (Corner Rafts + R01Reb0). Typical operation at 30V.",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" AS \"mean_VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='rebpower' AND \"Hardware\"='hvbias' AND (\"Reb\"='Reb0' AND \"Raft\"='R01') OR \"Reb\" =~ /Reb[GW]/ GROUP BY \"Raft\", \"Reb\" FILL(previous)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"VbefSwch\" AS \"mean_VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='rebpower' AND \"Hardware\"='hvbias' AND (\"Reb\"='Reb0' AND \"Raft\"='R01') OR \"Reb\" =~ /Reb[GW]/ GROUP BY \"Raft\", \"Reb\" FILL(previous)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "b9fb4fec-548d-4d08-9b6d-59153fca2e5a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7b16f254-ebc9-4b9f-b720-e412e612aea4",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "353c9c87-81d6-49fb-a6ef-3f808cfd2ecd",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/523/cells/a806a826-5d68-43a3-ba6a-f2502d238026"
+				}
+			},
+			{
+				"i": "4645319c-1b4a-441f-a749-ef938a8aeb32",
+				"x": 6,
+				"y": 7,
+				"w": 6,
+				"h": 5,
+				"name": "HV Bias Currents (Corner Rafts + R01Reb0): Limit for tripping: 120 uA. Typical operation at 50uA",
+				"queries": [
+					{
+						"query": "SELECT 1000*\"IbefSwch\" AS \"mean_IbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='rebpower' AND \"Hardware\"='hvbias' AND (\"Reb\"='Reb0' AND \"Raft\"='R01') OR \"Reb\" =~ /Reb[GW]/ GROUP BY \"Raft\", \"Reb\" FILL(previous)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT 1000*\"IbefSwch\" AS \"mean_IbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='rebpower' AND \"Hardware\"='hvbias' AND (\"Reb\"='Reb0' AND \"Raft\"='R01') OR \"Reb\" =~ /Reb[GW]/ GROUP BY \"Raft\", \"Reb\" FILL(previous)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "150c6444-0c84-44a6-8f9f-cd44e3df75cc",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "cb79009e-2112-4a8e-9e15-0e810bd3b96a",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "32e727de-7df2-42de-ad80-644cc48baf79",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/523/cells/4645319c-1b4a-441f-a749-ef938a8aeb32"
+				}
+			},
+			{
+				"i": "dada12dd-5ebf-4907-8bad-b364579eee0e",
+				"x": 0,
+				"y": 7,
+				"w": 6,
+				"h": 5,
+				"name": "HV Bias Currents (Science Rafts) : Limit for tripping: 120 uA. Typical operation at 80 uA.",
+				"queries": [
+					{
+						"query": "SELECT 1000*mean(\"IbefSwch\") AS \"mean_IbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='rebpower' AND \"Hardware\"='hvbias'  GROUP BY time(:interval:), \"Raft\", \"Reb\" FILL(previous)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT 1000*mean(\"IbefSwch\") AS \"mean_IbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='rebpower' AND \"Hardware\"='hvbias'  GROUP BY time(:interval:), \"Raft\", \"Reb\" FILL(previous)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "150c6444-0c84-44a6-8f9f-cd44e3df75cc",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "cb79009e-2112-4a8e-9e15-0e810bd3b96a",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "32e727de-7df2-42de-ad80-644cc48baf79",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/523/cells/dada12dd-5ebf-4907-8bad-b364579eee0e"
+				}
+			},
+			{
+				"i": "db36270e-d3f0-4ada-b6aa-d46ba1292612",
+				"x": 0,
+				"y": 1,
+				"w": 6,
+				"h": 5,
+				"name": "Rebpower Voltage before HV Switch (Science Rafts). Typical operation at 50V (Except R21/Reb0, at V=46V)",
+				"queries": [
+					{
+						"query": "SELECT \"VbefSwch\" AS \"mean_VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='rebpower' AND \"Hardware\"='hvbias'  GROUP BY \"Raft\", \"Reb\" FILL(previous)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "VbefSwch",
+									"type": "field",
+									"alias": "mean_VbefSwch"
+								}
+							],
+							"tags": {
+								"Agent": [
+									"rebpower"
+								],
+								"Hardware": [
+									"hvbias"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Raft",
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "b9fb4fec-548d-4d08-9b6d-59153fca2e5a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7b16f254-ebc9-4b9f-b720-e412e612aea4",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "353c9c87-81d6-49fb-a6ef-3f808cfd2ecd",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/523/cells/db36270e-d3f0-4ada-b6aa-d46ba1292612"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":LSSTCam:",
+				"values": [
+					{
+						"value": "lsst.MTCamera",
+						"type": "database",
+						"selected": true
+					}
+				],
+				"id": "b61b766b-a450-4f49-8f4a-09e3febca36d",
+				"type": "databases",
+				"label": "",
+				"query": {
+					"influxql": "SHOW DATABASES",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"sourceID": "dynamic",
+				"links": {
+					"self": "/chronograf/v1/dashboards/523/templates/b61b766b-a450-4f49-8f4a-09e3febca36d"
+				}
+			}
+		],
+		"name": "LSSTCam - CCD Back Bias (HV)",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/523",
+			"cells": "/chronograf/v1/dashboards/523/cells",
+			"templates": "/chronograf/v1/dashboards/523/templates"
+		}
+	}
+}

@@ -1,0 +1,537 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "531",
+		"cells": [
+			{
+				"i": "0de42445-1264-438a-97b4-2ea536fe66e8",
+				"x": 0,
+				"y": 0,
+				"w": 6,
+				"h": 5,
+				"name": "Rebpower Board Temp 0",
+				"queries": [
+					{
+						"query": "SELECT \"temperature\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebbpower_ps\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Location\"='Board0' GROUP BY \"Ps\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebbpower_ps",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "temperature",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Location": [
+									"Board0"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Ps"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "b9fb4fec-548d-4d08-9b6d-59153fca2e5a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7b16f254-ebc9-4b9f-b720-e412e612aea4",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "353c9c87-81d6-49fb-a6ef-3f808cfd2ecd",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/531/cells/0de42445-1264-438a-97b4-2ea536fe66e8"
+				}
+			},
+			{
+				"i": "ed9a246d-22e5-43ac-829d-bf32d41cfce2",
+				"x": 6,
+				"y": 0,
+				"w": 6,
+				"h": 5,
+				"name": "24 V Clean Temperatures",
+				"queries": [
+					{
+						"query": "SELECT \"PDU_24VC_Board_T\", \"PDU_24VC_Main_T\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.quadbox_pdu_24vc\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.quadbox_pdu_24vc",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "PDU_24VC_Board_T",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "PDU_24VC_Main_T",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "b9fb4fec-548d-4d08-9b6d-59153fca2e5a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7b16f254-ebc9-4b9f-b720-e412e612aea4",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "353c9c87-81d6-49fb-a6ef-3f808cfd2ecd",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/531/cells/ed9a246d-22e5-43ac-829d-bf32d41cfce2"
+				}
+			},
+			{
+				"i": "82819798-952e-4bdb-a5de-f902f12ea9be",
+				"x": 0,
+				"y": 5,
+				"w": 6,
+				"h": 5,
+				"name": "24 V Dirty Temperatures",
+				"queries": [
+					{
+						"query": "SELECT \"PDU_24VD_Board_T\", \"PDU_24VD_Main_T\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.quadbox_pdu_24vd\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.quadbox_pdu_24vd",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "PDU_24VD_Board_T",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "PDU_24VD_Main_T",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "",
+						"scale": ""
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "b9fb4fec-548d-4d08-9b6d-59153fca2e5a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7b16f254-ebc9-4b9f-b720-e412e612aea4",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "353c9c87-81d6-49fb-a6ef-3f808cfd2ecd",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/531/cells/82819798-952e-4bdb-a5de-f902f12ea9be"
+				}
+			},
+			{
+				"i": "b0f01f70-ea86-496e-a6c9-ca11cc760bd6",
+				"x": 6,
+				"y": 5,
+				"w": 6,
+				"h": 5,
+				"name": "48 V Temperatures",
+				"queries": [
+					{
+						"query": "SELECT \"PDU_48V_Board_T\", \"PDU_48V_Main_T\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.quadbox_pdu_48v\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.quadbox_pdu_48v",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "PDU_48V_Board_T",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "PDU_48V_Main_T",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "",
+						"scale": ""
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "b9fb4fec-548d-4d08-9b6d-59153fca2e5a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7b16f254-ebc9-4b9f-b720-e412e612aea4",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "353c9c87-81d6-49fb-a6ef-3f808cfd2ecd",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/531/cells/b0f01f70-ea86-496e-a6c9-ca11cc760bd6"
+				}
+			}
+		],
+		"templates": [],
+		"name": "LSSTCam - Quadbox temperatures",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/531",
+			"cells": "/chronograf/v1/dashboards/531/cells",
+			"templates": "/chronograf/v1/dashboards/531/templates"
+		}
+	}
+}

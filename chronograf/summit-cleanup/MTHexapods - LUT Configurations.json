@@ -1,0 +1,250 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "618",
+		"cells": [
+			{
+				"i": "c1f11259-aa3e-4ed8-a9b4-5cadea959957",
+				"x": 0,
+				"y": 0,
+				"w": 10,
+				"h": 2,
+				"name": "MTHexapod:2 (M2)",
+				"queries": [
+					{
+						"query": "SELECT \"configurations\", \"url\"\nFROM \"efd\".\"autogen\".\"lsst.sal.MTHexapod.logevent_configurationApplied\"\nWHERE salIndex = 2\n  AND time < :upperDashboardTime:\nORDER BY time DESC\nLIMIT 1",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"configurations\", \"url\"\nFROM \"efd\".\"autogen\".\"lsst.sal.MTHexapod.logevent_configurationApplied\"\nWHERE salIndex = 2\n  AND time < :upperDashboardTime:\nORDER BY time DESC\nLIMIT 1",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTHexapod.logevent_configurationApplied.configurations",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTHexapod.logevent_configurationApplied.url",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/618/cells/c1f11259-aa3e-4ed8-a9b4-5cadea959957"
+				}
+			},
+			{
+				"i": "b0a618d5-6387-4ee4-b074-469cd8828507",
+				"x": 0,
+				"y": 2,
+				"w": 10,
+				"h": 2,
+				"name": "MTHexapod:1 (Camera)",
+				"queries": [
+					{
+						"query": "SELECT \"configurations\", \"url\"\nFROM \"efd\".\"autogen\".\"lsst.sal.MTHexapod.logevent_configurationApplied\"\nWHERE salIndex = 1\n  AND time < :upperDashboardTime:\nORDER BY time DESC\nLIMIT 1",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"configurations\", \"url\"\nFROM \"efd\".\"autogen\".\"lsst.sal.MTHexapod.logevent_configurationApplied\"\nWHERE salIndex = 1\n  AND time < :upperDashboardTime:\nORDER BY time DESC\nLIMIT 1",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTHexapod.logevent_configurationApplied.configurations",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTHexapod.logevent_configurationApplied.url",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/618/cells/b0a618d5-6387-4ee4-b074-469cd8828507"
+				}
+			}
+		],
+		"templates": [],
+		"name": "MTHexapods - LUT Configurations",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/618",
+			"cells": "/chronograf/v1/dashboards/618/cells",
+			"templates": "/chronograf/v1/dashboards/618/templates"
+		}
+	}
+}

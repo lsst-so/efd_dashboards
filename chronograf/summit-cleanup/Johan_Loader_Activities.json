@@ -1,0 +1,728 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "661",
+		"cells": [
+			{
+				"i": "cdb9ffe7-6a10-42cd-b294-aa3c0d71142b",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 6,
+				"name": "All",
+				"queries": [
+					{
+						"query": "SELECT \"MOVE_LOADERCARRIER_TO_HANDOFF\", \"MOVE_LOADERCARRIER_TO_STORAGE\", \"MOVE_LOADERCARRIER_TO_ENGAGED\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.fcs_counters_loader_carrier\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.fcs_counters_loader_carrier",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "MOVE_LOADERCARRIER_TO_HANDOFF",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "MOVE_LOADERCARRIER_TO_STORAGE",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "MOVE_LOADERCARRIER_TO_ENGAGED",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "FCS Counters Loaders to engaged, handoff and storage",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "bar",
+				"colors": [
+					{
+						"id": "0389d000-4113-43c6-a3a7-8f07462e108c",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "ca14adb8-a664-4b26-9dc1-403134c8f122",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "83e57085-7d96-40dc-ab09-761121356af2",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.fcs_counters_loader_carrier.MOVE_LOADERCARRIER_TO_HANDOFF",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.fcs_counters_loader_carrier.MOVE_LOADERCARRIER_TO_STORAGE",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.fcs_counters_loader_carrier.MOVE_LOADERCARRIER_TO_ENGAGED",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/661/cells/cdb9ffe7-6a10-42cd-b294-aa3c0d71142b"
+				}
+			},
+			{
+				"i": "10316fdf-2355-4674-a6c2-396837e877d7",
+				"x": 0,
+				"y": 12,
+				"w": 5,
+				"h": 5,
+				"name": "To_Handoff",
+				"queries": [
+					{
+						"query": "SELECT \"MOVE_LOADERCARRIER_TO_HANDOFF\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.fcs_counters_loader_carrier\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.fcs_counters_loader_carrier",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "MOVE_LOADERCARRIER_TO_HANDOFF",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "bar",
+				"colors": [
+					{
+						"id": "0389d000-4113-43c6-a3a7-8f07462e108c",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "ca14adb8-a664-4b26-9dc1-403134c8f122",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "83e57085-7d96-40dc-ab09-761121356af2",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.fcs_counters_loader_carrier.MOVE_LOADERCARRIER_TO_HANDOFF",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.fcs_counters_loader_carrier.MOVE_LOADERCARRIER_TO_STORAGE",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.fcs_counters_loader_carrier.MOVE_LOADERCARRIER_TO_ENGAGED",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/661/cells/10316fdf-2355-4674-a6c2-396837e877d7"
+				}
+			},
+			{
+				"i": "7c742671-1f52-4417-a307-9505b8886052",
+				"x": 0,
+				"y": 17,
+				"w": 5,
+				"h": 4,
+				"name": "To_Storage",
+				"queries": [
+					{
+						"query": "SELECT \"MOVE_LOADERCARRIER_TO_STORAGE\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.fcs_counters_loader_carrier\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.fcs_counters_loader_carrier",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "MOVE_LOADERCARRIER_TO_STORAGE",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "bar",
+				"colors": [
+					{
+						"id": "0389d000-4113-43c6-a3a7-8f07462e108c",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "ca14adb8-a664-4b26-9dc1-403134c8f122",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "83e57085-7d96-40dc-ab09-761121356af2",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.fcs_counters_loader_carrier.MOVE_LOADERCARRIER_TO_HANDOFF",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.fcs_counters_loader_carrier.MOVE_LOADERCARRIER_TO_STORAGE",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.fcs_counters_loader_carrier.MOVE_LOADERCARRIER_TO_ENGAGED",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/661/cells/7c742671-1f52-4417-a307-9505b8886052"
+				}
+			},
+			{
+				"i": "01554d04-7dc5-4553-820e-f52d99a95e7e",
+				"x": 0,
+				"y": 6,
+				"w": 5,
+				"h": 6,
+				"name": "To_Engaged",
+				"queries": [
+					{
+						"query": "SELECT \"MOVE_LOADERCARRIER_TO_ENGAGED\"  FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.fcs_counters_loader_carrier\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.fcs_counters_loader_carrier",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "MOVE_LOADERCARRIER_TO_ENGAGED",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "bar",
+				"colors": [
+					{
+						"id": "0389d000-4113-43c6-a3a7-8f07462e108c",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "ca14adb8-a664-4b26-9dc1-403134c8f122",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "83e57085-7d96-40dc-ab09-761121356af2",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.fcs_counters_loader_carrier.MOVE_LOADERCARRIER_TO_HANDOFF",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.fcs_counters_loader_carrier.MOVE_LOADERCARRIER_TO_STORAGE",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.fcs_counters_loader_carrier.MOVE_LOADERCARRIER_TO_ENGAGED",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/661/cells/01554d04-7dc5-4553-820e-f52d99a95e7e"
+				}
+			},
+			{
+				"i": "030a1d2d-9e12-41b0-8848-ee39c2fbe682",
+				"x": 5,
+				"y": 6,
+				"w": 7,
+				"h": 6,
+				"name": "FCS Loader To Storage Counter",
+				"queries": [
+					{
+						"query": "SELECT \"MOVE_LOADERCARRIER_TO_STORAGE\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.fcs_counters_loader_carrier\" WHERE \"Agent\"='fcs'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.fcs_counters_loader_carrier",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "MOVE_LOADERCARRIER_TO_STORAGE",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Agent": [
+									"fcs"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "FCS send Loader to Storage counter",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "0389d000-4113-43c6-a3a7-8f07462e108c",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "ca14adb8-a664-4b26-9dc1-403134c8f122",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "83e57085-7d96-40dc-ab09-761121356af2",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.fcs_counters_loader_carrier.MOVE_LOADERCARRIER_TO_HANDOFF",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.fcs_counters_loader_carrier.MOVE_LOADERCARRIER_TO_STORAGE",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.fcs_counters_loader_carrier.MOVE_LOADERCARRIER_TO_ENGAGED",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/661/cells/030a1d2d-9e12-41b0-8848-ee39c2fbe682"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Johan_Loader_Activities",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/661",
+			"cells": "/chronograf/v1/dashboards/661/cells",
+			"templates": "/chronograf/v1/dashboards/661/templates"
+		}
+	}
+}

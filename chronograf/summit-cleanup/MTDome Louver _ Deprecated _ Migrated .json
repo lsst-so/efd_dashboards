@@ -1,0 +1,605 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "674",
+		"cells": [
+			{
+				"i": "a4684f8e-8a0b-497d-be82-acce0b641131",
+				"x": 0,
+				"y": 0,
+				"w": 10,
+				"h": 3,
+				"name": "Row 3",
+				"queries": [
+					{
+						"query": "import \"strings\"\nimport \"array\"\n\n// Settings\n_bucket = \"efd/autogen\"\n_range  = -7d\n\n// 1) Static lookup table: index → louver name\nlouverMap = array.from(\n    rows: [\n        {idx: 0,  name: \"A1\"},\n        {idx: 1,  name: \"A2\"},\n        {idx: 2,  name: \"B1\"},\n        {idx: 3,  name: \"B2\"},\n        {idx: 4,  name: \"B3\"},\n        {idx: 5,  name: \"C1\"},\n        {idx: 6,  name: \"C2\"},\n        {idx: 7,  name: \"C3\"},\n        {idx: 8,  name: \"D1\"},\n        {idx: 9,  name: \"D2\"},\n        {idx: 10, name: \"D3\"},\n        {idx: 11, name: \"E1\"},\n        {idx: 12, name: \"E2\"},\n        {idx: 13, name: \"E3\"},\n        {idx: 14, name: \"F1\"},\n        {idx: 15, name: \"F2\"},\n        {idx: 16, name: \"F3\"},\n        {idx: 17, name: \"G1\"},\n        {idx: 18, name: \"G2\"},\n        {idx: 19, name: \"G3\"},\n        {idx: 20, name: \"H1\"},\n        {idx: 21, name: \"H2\"},\n        {idx: 22, name: \"H3\"},\n        {idx: 23, name: \"I1\"},\n        {idx: 24, name: \"I2\"},\n        {idx: 25, name: \"I3\"},\n        {idx: 26, name: \"L1\"},\n        {idx: 27, name: \"L2\"},\n        {idx: 28, name: \"L3\"},\n        {idx: 29, name: \"M1\"},\n        {idx: 30, name: \"M2\"},\n        {idx: 31, name: \"M3\"},\n        {idx: 32, name: \"N1\"},\n        {idx: 33, name: \"N2\"},\n    ],\n)\n\n// 2a) Positions – last positionActualN per louver (plus timestamp)\npositionsActual =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.louvers\" and\n            r._field =~ /^positionActual[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"positionActual\",\n                    u: \"\",\n                ),\n            ),\n            position: r._value,\n            positionTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"position\", \"positionTime\"])\n\n// 2b) Commanded positions – last positionCommandedN per louver (plus timestamp)\npositionsCommanded =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.louvers\" and\n            r._field =~ /^positionCommanded[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"positionCommanded\",\n                    u: \"\",\n                ),\n            ),\n            positionCommanded: r._value,\n            positionCommandedTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"positionCommanded\", \"positionCommandedTime\"])\n\n// 2c) Join actual + commanded positions on idx\npositions =\n    join(\n        tables: {act: positionsActual, cmd: positionsCommanded},\n        on: [\"idx\"],\n    )\n\n// 3a) States – last stateN per louver (plus timestamp)\nstates =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.logevent_louversMotion\" and\n            r._field =~ /^state[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"state\",\n                    u: \"\",\n                ),\n            ),\n            stateRaw: int(v: r._value),\n            stateTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"stateRaw\", \"stateTime\"])\n\n// 3b) inPosition – last inPositionN per louver (plus timestamp)\ninPositions =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.logevent_louversMotion\" and\n            r._field =~ /^inPosition[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"inPosition\",\n                    u: \"\",\n                ),\n            ),\n            inPosition: r._value,       // bool from EFD\n            inPositionTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"inPosition\", \"inPositionTime\"])\n\n// 3c) Join state + inPosition on idx\nmotion =\n    join(\n        tables: {st: states, ip: inPositions},\n        on: [\"idx\"],\n    )\n\n// 4) Join positions + motion on idx\nposStates =\n    join(\n        tables: {pos: positions, mo: motion},\n        on: [\"idx\"],\n    )\n\n// 5a) Real row-3 louvers (…3: B3, C3, …, M3)\nrow3Real =\n    join(tables: {ps: posStates, names: louverMap}, on: [\"idx\"])\n        |> filter(fn: (r) => r.name =~ /3$/)\n        |> map(fn: (r) => ({\n            _time: r.stateTime,\n            idx: r.idx,\n            name: r.name,\n            position: r.position,\n            positionCommanded: r.positionCommanded,\n            inPosition: r.inPosition,\n            position_time: r.positionTime,\n            positionCommanded_time: r.positionCommandedTime,\n            state_time: r.stateTime,\n            stateName:\n                if r.stateRaw == 1 then \"ERROR\"\n                else if r.stateRaw == 2 then \"CLOSED\"\n                else if r.stateRaw == 3 then \"CLOSING\"\n                else if r.stateRaw == 4 then \"CRAWLING\"\n                else if r.stateRaw == 5 then \"MOVING\"\n                else if r.stateRaw == 6 then \"OPEN\"\n                else if r.stateRaw == 7 then \"OPENING\"\n                else if r.stateRaw == 8 then \"PARKED\"\n                else if r.stateRaw == 9 then \"PARKING\"\n                else if r.stateRaw == 10 then \"STOPPED\"\n                else if r.stateRaw == 11 then \"STOPPING\"\n                else if r.stateRaw == 12 then \"STOPPING_BRAKING\"\n                else if r.stateRaw == 13 then \"STOPPED_BRAKED\"\n                else if r.stateRaw == 14 then \"BRAKE_DISENGAGED\"\n                else if r.stateRaw == 15 then \"BRAKES_DISENGAGED\"\n                else if r.stateRaw == 16 then \"BRAKE_ENGAGED\"\n                else if r.stateRaw == 17 then \"BRAKES_ENGAGED\"\n                else if r.stateRaw == 18 then \"DEFLATED\"\n                else if r.stateRaw == 19 then \"DEFLATING\"\n                else if r.stateRaw == 20 then \"DISABLING_MOTOR_POWER\"\n                else if r.stateRaw == 21 then \"DISENGAGING_BRAKE\"\n                else if r.stateRaw == 22 then \"DISENGAGING_BRAKES\"\n                else if r.stateRaw == 23 then \"ENABLING_MOTOR_POWER\"\n                else if r.stateRaw == 24 then \"ENGAGING_BRAKE\"\n                else if r.stateRaw == 25 then \"ENGAGING_BRAKES\"\n                else if r.stateRaw == 26 then \"FINAL_DOWN_CLOSE_LS_ENGAGED\"\n                else if r.stateRaw == 27 then \"FINAL_DOWN_OPEN_LS_ENGAGED\"\n                else if r.stateRaw == 28 then \"FINAL_UP_CLOSE_LS_ENGAGED\"\n                else if r.stateRaw == 29 then \"FINAL_UP_OPEN_LS_ENGAGED\"\n                else if r.stateRaw == 30 then \"GLYCOL_FLOWING\"\n                else if r.stateRaw == 31 then \"GO_DEGRADED\"\n                else if r.stateRaw == 32 then \"GO_NORMAL\"\n                else if r.stateRaw == 33 then \"GO_STATIONARY\"\n                else if r.stateRaw == 34 then \"INCLINED\"\n                else if r.stateRaw == 35 then \"INFLATED\"\n                else if r.stateRaw == 36 then \"INFLATING\"\n                else if r.stateRaw == 37 then \"LP_DISENGAGED\"\n                else if r.stateRaw == 38 then \"LP_DISENGAGING\"\n                else if r.stateRaw == 39 then \"LP_ENGAGED\"\n                else if r.stateRaw == 40 then \"LP_ENGAGING\"\n                else if r.stateRaw == 41 then \"MOTOR_COOLING_OFF\"\n                else if r.stateRaw == 42 then \"MOTOR_COOLING_ON\"\n                else if r.stateRaw == 43 then \"MOTOR_POWER_OFF\"\n                else if r.stateRaw == 44 then \"MOTOR_POWER_ON\"\n                else if r.stateRaw == 45 then \"PROXIMITY_CLOSED_LS_ENGAGED\"\n                else if r.stateRaw == 46 then \"PROXIMITY_OPEN_LS_ENGAGED\"\n                else if r.stateRaw == 47 then \"STARTING_MOTOR_COOLING\"\n                else if r.stateRaw == 48 then \"STOPPING_MOTOR_COOLING\"\n                else if r.stateRaw == 49 then \"UNDETERMINED\"\n                else if r.stateRaw == 50 then \"VERTICAL\"\n                else if r.stateRaw == 51 then \"WAITING_AMCS_STATIONARY\"\n                else if r.stateRaw == 52 then \"DISABLED\"\n                else if r.stateRaw == 53 then \"DISABLING\"\n                else if r.stateRaw == 54 then \"ENABLED\"\n                else if r.stateRaw == 55 then \"ENABLING\"\n                else \"UNKNOWN\",\n            isDummy: false,\n        }))\n\n// 5b) Dummy placeholders for A3 and N3 (no real telemetry)\n// Note: keep inPosition as bool so union has consistent schema.\ndummyRow3 =\n    array.from(\n        rows: [\n            {\n                _time: now(),\n                idx: 0,\n                name: \" \",                                // blank label\n                position: float(v: 0.0) / float(v: 0.0),   // NaN\n                positionCommanded: float(v: 0.0) / float(v: 0.0),\n                inPosition: false,\n                stateName: \" \",\n                position_time: now(),\n                positionCommanded_time: now(),\n                state_time: now(),\n                isDummy: true,\n            },\n            {\n                _time: now(),\n                idx: 34,\n                name: \" \",                                // blank label\n                position: float(v: 0.0) / float(v: 0.0),\n                positionCommanded: float(v: 0.0) / float(v: 0.0),\n                inPosition: false,\n                stateName: \" \",\n                position_time: now(),\n                positionCommanded_time: now(),\n                state_time: now(),\n                isDummy: true,\n            },\n        ],\n    )\n\n// 5c) Union real + dummy, convert inPosition to display string, and keep columns\nunion(tables: [row3Real, dummyRow3])\n    |> sort(columns: [\"idx\"])\n    |> map(fn: (r) => ({\n        _time: r._time,\n        idx: r.idx,\n        name: r.name,\n        position: r.position,\n        positionCommanded: r.positionCommanded,\n        // Display string: blank for dummy entries, \"true\"/\"false\" for real ones.\n        inPosition: if r.isDummy then \" \" else if r.inPosition then \"true\" else \"false\",\n        // Blank out stateName for dummy entries.\n        stateName: if r.isDummy then \" \" else r.stateName,\n        position_time: r.position_time,\n        positionCommanded_time: r.positionCommanded_time,\n        state_time: r.state_time,\n    }))\n    |> keep(columns: [\n        \"_time\",\n        \"idx\",\n        \"name\",\n        \"position\",\n        \"positionCommanded\",\n        \"inPosition\",\n        \"stateName\",\n        \"position_time\",\n        \"positionCommanded_time\",\n        \"state_time\",\n    ])\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\nimport \"array\"\n\n// Settings\n_bucket = \"efd/autogen\"\n_range  = -7d\n\n// 1) Static lookup table: index → louver name\nlouverMap = array.from(\n    rows: [\n        {idx: 0,  name: \"A1\"},\n        {idx: 1,  name: \"A2\"},\n        {idx: 2,  name: \"B1\"},\n        {idx: 3,  name: \"B2\"},\n        {idx: 4,  name: \"B3\"},\n        {idx: 5,  name: \"C1\"},\n        {idx: 6,  name: \"C2\"},\n        {idx: 7,  name: \"C3\"},\n        {idx: 8,  name: \"D1\"},\n        {idx: 9,  name: \"D2\"},\n        {idx: 10, name: \"D3\"},\n        {idx: 11, name: \"E1\"},\n        {idx: 12, name: \"E2\"},\n        {idx: 13, name: \"E3\"},\n        {idx: 14, name: \"F1\"},\n        {idx: 15, name: \"F2\"},\n        {idx: 16, name: \"F3\"},\n        {idx: 17, name: \"G1\"},\n        {idx: 18, name: \"G2\"},\n        {idx: 19, name: \"G3\"},\n        {idx: 20, name: \"H1\"},\n        {idx: 21, name: \"H2\"},\n        {idx: 22, name: \"H3\"},\n        {idx: 23, name: \"I1\"},\n        {idx: 24, name: \"I2\"},\n        {idx: 25, name: \"I3\"},\n        {idx: 26, name: \"L1\"},\n        {idx: 27, name: \"L2\"},\n        {idx: 28, name: \"L3\"},\n        {idx: 29, name: \"M1\"},\n        {idx: 30, name: \"M2\"},\n        {idx: 31, name: \"M3\"},\n        {idx: 32, name: \"N1\"},\n        {idx: 33, name: \"N2\"},\n    ],\n)\n\n// 2a) Positions – last positionActualN per louver (plus timestamp)\npositionsActual =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.louvers\" and\n            r._field =~ /^positionActual[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"positionActual\",\n                    u: \"\",\n                ),\n            ),\n            position: r._value,\n            positionTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"position\", \"positionTime\"])\n\n// 2b) Commanded positions – last positionCommandedN per louver (plus timestamp)\npositionsCommanded =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.louvers\" and\n            r._field =~ /^positionCommanded[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"positionCommanded\",\n                    u: \"\",\n                ),\n            ),\n            positionCommanded: r._value,\n            positionCommandedTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"positionCommanded\", \"positionCommandedTime\"])\n\n// 2c) Join actual + commanded positions on idx\npositions =\n    join(\n        tables: {act: positionsActual, cmd: positionsCommanded},\n        on: [\"idx\"],\n    )\n\n// 3a) States – last stateN per louver (plus timestamp)\nstates =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.logevent_louversMotion\" and\n            r._field =~ /^state[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"state\",\n                    u: \"\",\n                ),\n            ),\n            stateRaw: int(v: r._value),\n            stateTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"stateRaw\", \"stateTime\"])\n\n// 3b) inPosition – last inPositionN per louver (plus timestamp)\ninPositions =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.logevent_louversMotion\" and\n            r._field =~ /^inPosition[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"inPosition\",\n                    u: \"\",\n                ),\n            ),\n            inPosition: r._value,       // bool from EFD\n            inPositionTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"inPosition\", \"inPositionTime\"])\n\n// 3c) Join state + inPosition on idx\nmotion =\n    join(\n        tables: {st: states, ip: inPositions},\n        on: [\"idx\"],\n    )\n\n// 4) Join positions + motion on idx\nposStates =\n    join(\n        tables: {pos: positions, mo: motion},\n        on: [\"idx\"],\n    )\n\n// 5a) Real row-3 louvers (…3: B3, C3, …, M3)\nrow3Real =\n    join(tables: {ps: posStates, names: louverMap}, on: [\"idx\"])\n        |> filter(fn: (r) => r.name =~ /3$/)\n        |> map(fn: (r) => ({\n            _time: r.stateTime,\n            idx: r.idx,\n            name: r.name,\n            position: r.position,\n            positionCommanded: r.positionCommanded,\n            inPosition: r.inPosition,\n            position_time: r.positionTime,\n            positionCommanded_time: r.positionCommandedTime,\n            state_time: r.stateTime,\n            stateName:\n                if r.stateRaw == 1 then \"ERROR\"\n                else if r.stateRaw == 2 then \"CLOSED\"\n                else if r.stateRaw == 3 then \"CLOSING\"\n                else if r.stateRaw == 4 then \"CRAWLING\"\n                else if r.stateRaw == 5 then \"MOVING\"\n                else if r.stateRaw == 6 then \"OPEN\"\n                else if r.stateRaw == 7 then \"OPENING\"\n                else if r.stateRaw == 8 then \"PARKED\"\n                else if r.stateRaw == 9 then \"PARKING\"\n                else if r.stateRaw == 10 then \"STOPPED\"\n                else if r.stateRaw == 11 then \"STOPPING\"\n                else if r.stateRaw == 12 then \"STOPPING_BRAKING\"\n                else if r.stateRaw == 13 then \"STOPPED_BRAKED\"\n                else if r.stateRaw == 14 then \"BRAKE_DISENGAGED\"\n                else if r.stateRaw == 15 then \"BRAKES_DISENGAGED\"\n                else if r.stateRaw == 16 then \"BRAKE_ENGAGED\"\n                else if r.stateRaw == 17 then \"BRAKES_ENGAGED\"\n                else if r.stateRaw == 18 then \"DEFLATED\"\n                else if r.stateRaw == 19 then \"DEFLATING\"\n                else if r.stateRaw == 20 then \"DISABLING_MOTOR_POWER\"\n                else if r.stateRaw == 21 then \"DISENGAGING_BRAKE\"\n                else if r.stateRaw == 22 then \"DISENGAGING_BRAKES\"\n                else if r.stateRaw == 23 then \"ENABLING_MOTOR_POWER\"\n                else if r.stateRaw == 24 then \"ENGAGING_BRAKE\"\n                else if r.stateRaw == 25 then \"ENGAGING_BRAKES\"\n                else if r.stateRaw == 26 then \"FINAL_DOWN_CLOSE_LS_ENGAGED\"\n                else if r.stateRaw == 27 then \"FINAL_DOWN_OPEN_LS_ENGAGED\"\n                else if r.stateRaw == 28 then \"FINAL_UP_CLOSE_LS_ENGAGED\"\n                else if r.stateRaw == 29 then \"FINAL_UP_OPEN_LS_ENGAGED\"\n                else if r.stateRaw == 30 then \"GLYCOL_FLOWING\"\n                else if r.stateRaw == 31 then \"GO_DEGRADED\"\n                else if r.stateRaw == 32 then \"GO_NORMAL\"\n                else if r.stateRaw == 33 then \"GO_STATIONARY\"\n                else if r.stateRaw == 34 then \"INCLINED\"\n                else if r.stateRaw == 35 then \"INFLATED\"\n                else if r.stateRaw == 36 then \"INFLATING\"\n                else if r.stateRaw == 37 then \"LP_DISENGAGED\"\n                else if r.stateRaw == 38 then \"LP_DISENGAGING\"\n                else if r.stateRaw == 39 then \"LP_ENGAGED\"\n                else if r.stateRaw == 40 then \"LP_ENGAGING\"\n                else if r.stateRaw == 41 then \"MOTOR_COOLING_OFF\"\n                else if r.stateRaw == 42 then \"MOTOR_COOLING_ON\"\n                else if r.stateRaw == 43 then \"MOTOR_POWER_OFF\"\n                else if r.stateRaw == 44 then \"MOTOR_POWER_ON\"\n                else if r.stateRaw == 45 then \"PROXIMITY_CLOSED_LS_ENGAGED\"\n                else if r.stateRaw == 46 then \"PROXIMITY_OPEN_LS_ENGAGED\"\n                else if r.stateRaw == 47 then \"STARTING_MOTOR_COOLING\"\n                else if r.stateRaw == 48 then \"STOPPING_MOTOR_COOLING\"\n                else if r.stateRaw == 49 then \"UNDETERMINED\"\n                else if r.stateRaw == 50 then \"VERTICAL\"\n                else if r.stateRaw == 51 then \"WAITING_AMCS_STATIONARY\"\n                else if r.stateRaw == 52 then \"DISABLED\"\n                else if r.stateRaw == 53 then \"DISABLING\"\n                else if r.stateRaw == 54 then \"ENABLED\"\n                else if r.stateRaw == 55 then \"ENABLING\"\n                else \"UNKNOWN\",\n            isDummy: false,\n        }))\n\n// 5b) Dummy placeholders for A3 and N3 (no real telemetry)\n// Note: keep inPosition as bool so union has consistent schema.\ndummyRow3 =\n    array.from(\n        rows: [\n            {\n                _time: now(),\n                idx: 0,\n                name: \" \",                                // blank label\n                position: float(v: 0.0) / float(v: 0.0),   // NaN\n                positionCommanded: float(v: 0.0) / float(v: 0.0),\n                inPosition: false,\n                stateName: \" \",\n                position_time: now(),\n                positionCommanded_time: now(),\n                state_time: now(),\n                isDummy: true,\n            },\n            {\n                _time: now(),\n                idx: 34,\n                name: \" \",                                // blank label\n                position: float(v: 0.0) / float(v: 0.0),\n                positionCommanded: float(v: 0.0) / float(v: 0.0),\n                inPosition: false,\n                stateName: \" \",\n                position_time: now(),\n                positionCommanded_time: now(),\n                state_time: now(),\n                isDummy: true,\n            },\n        ],\n    )\n\n// 5c) Union real + dummy, convert inPosition to display string, and keep columns\nunion(tables: [row3Real, dummyRow3])\n    |> sort(columns: [\"idx\"])\n    |> map(fn: (r) => ({\n        _time: r._time,\n        idx: r.idx,\n        name: r.name,\n        position: r.position,\n        positionCommanded: r.positionCommanded,\n        // Display string: blank for dummy entries, \"true\"/\"false\" for real ones.\n        inPosition: if r.isDummy then \" \" else if r.inPosition then \"true\" else \"false\",\n        // Blank out stateName for dummy entries.\n        stateName: if r.isDummy then \" \" else r.stateName,\n        position_time: r.position_time,\n        positionCommanded_time: r.positionCommanded_time,\n        state_time: r.state_time,\n    }))\n    |> keep(columns: [\n        \"_time\",\n        \"idx\",\n        \"name\",\n        \"position\",\n        \"positionCommanded\",\n        \"inPosition\",\n        \"stateName\",\n        \"position_time\",\n        \"positionCommanded_time\",\n        \"state_time\",\n    ])\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "background",
+						"hex": "#BF3D5E",
+						"name": "ruby",
+						"value": "-1000000000000000000"
+					},
+					{
+						"id": "89377961-7bd4-4ab9-b384-9b7f145fdc65",
+						"type": "background",
+						"hex": "#4ED8A0",
+						"name": "rainforest",
+						"value": "0.1"
+					},
+					{
+						"id": "ae5f0643-466e-4b6c-a7bc-3a8700bdd7e7",
+						"type": "background",
+						"hex": "#BF3D5E",
+						"name": "ruby",
+						"value": "100"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": false,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "name",
+						"displayName": "Louver",
+						"visible": true
+					},
+					{
+						"internalName": "idx",
+						"displayName": "Index (0-based)",
+						"visible": false
+					},
+					{
+						"internalName": "position",
+						"displayName": "% Open",
+						"visible": true
+					},
+					{
+						"internalName": "position_time",
+						"displayName": "Position Last Updated",
+						"visible": false
+					},
+					{
+						"internalName": "stateName",
+						"displayName": "Motion State",
+						"visible": true
+					},
+					{
+						"internalName": "state_time",
+						"displayName": "Motion State Last Updated",
+						"visible": false
+					},
+					{
+						"internalName": "_time",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "positionCommanded",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "positionCommanded_time",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "inPosition",
+						"displayName": "In Position",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/674/cells/a4684f8e-8a0b-497d-be82-acce0b641131"
+				}
+			},
+			{
+				"i": "c7e080a8-ce0a-486c-942a-d46b3d379081",
+				"x": 0,
+				"y": 3,
+				"w": 10,
+				"h": 3,
+				"name": "Row 2",
+				"queries": [
+					{
+						"query": "import \"strings\"\nimport \"array\"\n\n// Settings\n_bucket = \"efd/autogen\"\n_range  = -7d\n\n// 1) Static lookup table: index → louver name\nlouverMap = array.from(\n    rows: [\n        {idx: 0,  name: \"A1\"},\n        {idx: 1,  name: \"A2\"},\n        {idx: 2,  name: \"B1\"},\n        {idx: 3,  name: \"B2\"},\n        {idx: 4,  name: \"B3\"},\n        {idx: 5,  name: \"C1\"},\n        {idx: 6,  name: \"C2\"},\n        {idx: 7,  name: \"C3\"},\n        {idx: 8,  name: \"D1\"},\n        {idx: 9,  name: \"D2\"},\n        {idx: 10, name: \"D3\"},\n        {idx: 11, name: \"E1\"},\n        {idx: 12, name: \"E2\"},\n        {idx: 13, name: \"E3\"},\n        {idx: 14, name: \"F1\"},\n        {idx: 15, name: \"F2\"},\n        {idx: 16, name: \"F3\"},\n        {idx: 17, name: \"G1\"},\n        {idx: 18, name: \"G2\"},\n        {idx: 19, name: \"G3\"},\n        {idx: 20, name: \"H1\"},\n        {idx: 21, name: \"H2\"},\n        {idx: 22, name: \"H3\"},\n        {idx: 23, name: \"I1\"},\n        {idx: 24, name: \"I2\"},\n        {idx: 25, name: \"I3\"},\n        {idx: 26, name: \"L1\"},\n        {idx: 27, name: \"L2\"},\n        {idx: 28, name: \"L3\"},\n        {idx: 29, name: \"M1\"},\n        {idx: 30, name: \"M2\"},\n        {idx: 31, name: \"M3\"},\n        {idx: 32, name: \"N1\"},\n        {idx: 33, name: \"N2\"},\n    ],\n)\n\n// 2a) Positions – last positionActualN per louver (plus timestamp)\npositionsActual =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.louvers\" and\n            r._field =~ /^positionActual[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"positionActual\",\n                    u: \"\",\n                ),\n            ),\n            position: r._value,\n            positionTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"position\", \"positionTime\"])\n\n// 2b) Commanded positions – last positionCommandedN per louver (plus timestamp)\npositionsCommanded =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.louvers\" and\n            r._field =~ /^positionCommanded[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"positionCommanded\",\n                    u: \"\",\n                ),\n            ),\n            positionCommanded: r._value,\n            positionCommandedTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"positionCommanded\", \"positionCommandedTime\"])\n\n// 2c) Join actual + commanded positions on idx\npositions =\n    join(\n        tables: {act: positionsActual, cmd: positionsCommanded},\n        on: [\"idx\"],\n    )\n\n// 3a) States – last stateN per louver (plus timestamp)\nstates =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.logevent_louversMotion\" and\n            r._field =~ /^state[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"state\",\n                    u: \"\",\n                ),\n            ),\n            stateRaw: int(v: r._value),\n            stateTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"stateRaw\", \"stateTime\"])\n\n// 3b) inPosition – last inPositionN per louver (plus timestamp)\ninPositions =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.logevent_louversMotion\" and\n            r._field =~ /^inPosition[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"inPosition\",\n                    u: \"\",\n                ),\n            ),\n            inPosition: r._value,\n            inPositionTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"inPosition\", \"inPositionTime\"])\n\n// 3c) Join state + inPosition on idx\nmotion =\n    join(\n        tables: {st: states, ip: inPositions},\n        on: [\"idx\"],\n    )\n\n// 4) Join positions + motion on idx\nposStates =\n    join(\n        tables: {pos: positions, mo: motion},\n        on: [\"idx\"],\n    )\n\n// 5) Join with louver map, decode state, filter for row 1 (…1), and output\njoin(tables: {ps: posStates, names: louverMap}, on: [\"idx\"])\n    |> filter(fn: (r) => r.name =~ /2$/)\n    |> map(fn: (r) => ({\n        _time: r.stateTime,\n        idx: r.idx,\n        name: r.name,\n\n        position: r.position,\n        positionCommanded: r.positionCommanded,\n        inPosition: r.inPosition,\n\n        position_time: r.positionTime,\n        positionCommanded_time: r.positionCommandedTime,\n        state_time: r.stateTime,\n\n        stateName:\n            if r.stateRaw == 1 then \"ERROR\"\n            else if r.stateRaw == 2 then \"CLOSED\"\n            else if r.stateRaw == 3 then \"CLOSING\"\n            else if r.stateRaw == 4 then \"CRAWLING\"\n            else if r.stateRaw == 5 then \"MOVING\"\n            else if r.stateRaw == 6 then \"OPEN\"\n            else if r.stateRaw == 7 then \"OPENING\"\n            else if r.stateRaw == 8 then \"PARKED\"\n            else if r.stateRaw == 9 then \"PARKING\"\n            else if r.stateRaw == 10 then \"STOPPED\"\n            else if r.stateRaw == 11 then \"STOPPING\"\n            else if r.stateRaw == 12 then \"STOPPING_BRAKING\"\n            else if r.stateRaw == 13 then \"STOPPED_BRAKED\"\n            else if r.stateRaw == 14 then \"BRAKE_DISENGAGED\"\n            else if r.stateRaw == 15 then \"BRAKES_DISENGAGED\"\n            else if r.stateRaw == 16 then \"BRAKE_ENGAGED\"\n            else if r.stateRaw == 17 then \"BRAKES_ENGAGED\"\n            else if r.stateRaw == 18 then \"DEFLATED\"\n            else if r.stateRaw == 19 then \"DEFLATING\"\n            else if r.stateRaw == 20 then \"DISABLING_MOTOR_POWER\"\n            else if r.stateRaw == 21 then \"DISENGAGING_BRAKE\"\n            else if r.stateRaw == 22 then \"DISENGAGING_BRAKES\"\n            else if r.stateRaw == 23 then \"ENABLING_MOTOR_POWER\"\n            else if r.stateRaw == 24 then \"ENGAGING_BRAKE\"\n            else if r.stateRaw == 25 then \"ENGAGING_BRAKES\"\n            else if r.stateRaw == 26 then \"FINAL_DOWN_CLOSE_LS_ENGAGED\"\n            else if r.stateRaw == 27 then \"FINAL_DOWN_OPEN_LS_ENGAGED\"\n            else if r.stateRaw == 28 then \"FINAL_UP_CLOSE_LS_ENGAGED\"\n            else if r.stateRaw == 29 then \"FINAL_UP_OPEN_LS_ENGAGED\"\n            else if r.stateRaw == 30 then \"GLYCOL_FLOWING\"\n            else if r.stateRaw == 31 then \"GO_DEGRADED\"\n            else if r.stateRaw == 32 then \"GO_NORMAL\"\n            else if r.stateRaw == 33 then \"GO_STATIONARY\"\n            else if r.stateRaw == 34 then \"INCLINED\"\n            else if r.stateRaw == 35 then \"INFLATED\"\n            else if r.stateRaw == 36 then \"INFLATING\"\n            else if r.stateRaw == 37 then \"LP_DISENGAGED\"\n            else if r.stateRaw == 38 then \"LP_DISENGAGING\"\n            else if r.stateRaw == 39 then \"LP_ENGAGED\"\n            else if r.stateRaw == 40 then \"LP_ENGAGING\"\n            else if r.stateRaw == 41 then \"MOTOR_COOLING_OFF\"\n            else if r.stateRaw == 42 then \"MOTOR_COOLING_ON\"\n            else if r.stateRaw == 43 then \"MOTOR_POWER_OFF\"\n            else if r.stateRaw == 44 then \"MOTOR_POWER_ON\"\n            else if r.stateRaw == 45 then \"PROXIMITY_CLOSED_LS_ENGAGED\"\n            else if r.stateRaw == 46 then \"PROXIMITY_OPEN_LS_ENGAGED\"\n            else if r.stateRaw == 47 then \"STARTING_MOTOR_COOLING\"\n            else if r.stateRaw == 48 then \"STOPPING_MOTOR_COOLING\"\n            else if r.stateRaw == 49 then \"UNDETERMINED\"\n            else if r.stateRaw == 50 then \"VERTICAL\"\n            else if r.stateRaw == 51 then \"WAITING_AMCS_STATIONARY\"\n            else if r.stateRaw == 52 then \"DISABLED\"\n            else if r.stateRaw == 53 then \"DISABLING\"\n            else if r.stateRaw == 54 then \"ENABLED\"\n            else if r.stateRaw == 55 then \"ENABLING\"\n            else \"UNKNOWN\",\n    }))\n    |> sort(columns: [\"idx\"])\n    |> keep(columns: [\n        \"_time\",\n        \"idx\",\n        \"name\",\n        \"position\",\n        \"positionCommanded\",\n        \"inPosition\",\n        \"stateName\",\n        \"position_time\",\n        \"positionCommanded_time\",\n        \"state_time\",\n    ])\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\nimport \"array\"\n\n// Settings\n_bucket = \"efd/autogen\"\n_range  = -7d\n\n// 1) Static lookup table: index → louver name\nlouverMap = array.from(\n    rows: [\n        {idx: 0,  name: \"A1\"},\n        {idx: 1,  name: \"A2\"},\n        {idx: 2,  name: \"B1\"},\n        {idx: 3,  name: \"B2\"},\n        {idx: 4,  name: \"B3\"},\n        {idx: 5,  name: \"C1\"},\n        {idx: 6,  name: \"C2\"},\n        {idx: 7,  name: \"C3\"},\n        {idx: 8,  name: \"D1\"},\n        {idx: 9,  name: \"D2\"},\n        {idx: 10, name: \"D3\"},\n        {idx: 11, name: \"E1\"},\n        {idx: 12, name: \"E2\"},\n        {idx: 13, name: \"E3\"},\n        {idx: 14, name: \"F1\"},\n        {idx: 15, name: \"F2\"},\n        {idx: 16, name: \"F3\"},\n        {idx: 17, name: \"G1\"},\n        {idx: 18, name: \"G2\"},\n        {idx: 19, name: \"G3\"},\n        {idx: 20, name: \"H1\"},\n        {idx: 21, name: \"H2\"},\n        {idx: 22, name: \"H3\"},\n        {idx: 23, name: \"I1\"},\n        {idx: 24, name: \"I2\"},\n        {idx: 25, name: \"I3\"},\n        {idx: 26, name: \"L1\"},\n        {idx: 27, name: \"L2\"},\n        {idx: 28, name: \"L3\"},\n        {idx: 29, name: \"M1\"},\n        {idx: 30, name: \"M2\"},\n        {idx: 31, name: \"M3\"},\n        {idx: 32, name: \"N1\"},\n        {idx: 33, name: \"N2\"},\n    ],\n)\n\n// 2a) Positions – last positionActualN per louver (plus timestamp)\npositionsActual =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.louvers\" and\n            r._field =~ /^positionActual[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"positionActual\",\n                    u: \"\",\n                ),\n            ),\n            position: r._value,\n            positionTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"position\", \"positionTime\"])\n\n// 2b) Commanded positions – last positionCommandedN per louver (plus timestamp)\npositionsCommanded =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.louvers\" and\n            r._field =~ /^positionCommanded[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"positionCommanded\",\n                    u: \"\",\n                ),\n            ),\n            positionCommanded: r._value,\n            positionCommandedTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"positionCommanded\", \"positionCommandedTime\"])\n\n// 2c) Join actual + commanded positions on idx\npositions =\n    join(\n        tables: {act: positionsActual, cmd: positionsCommanded},\n        on: [\"idx\"],\n    )\n\n// 3a) States – last stateN per louver (plus timestamp)\nstates =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.logevent_louversMotion\" and\n            r._field =~ /^state[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"state\",\n                    u: \"\",\n                ),\n            ),\n            stateRaw: int(v: r._value),\n            stateTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"stateRaw\", \"stateTime\"])\n\n// 3b) inPosition – last inPositionN per louver (plus timestamp)\ninPositions =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.logevent_louversMotion\" and\n            r._field =~ /^inPosition[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"inPosition\",\n                    u: \"\",\n                ),\n            ),\n            inPosition: r._value,\n            inPositionTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"inPosition\", \"inPositionTime\"])\n\n// 3c) Join state + inPosition on idx\nmotion =\n    join(\n        tables: {st: states, ip: inPositions},\n        on: [\"idx\"],\n    )\n\n// 4) Join positions + motion on idx\nposStates =\n    join(\n        tables: {pos: positions, mo: motion},\n        on: [\"idx\"],\n    )\n\n// 5) Join with louver map, decode state, filter for row 1 (…1), and output\njoin(tables: {ps: posStates, names: louverMap}, on: [\"idx\"])\n    |> filter(fn: (r) => r.name =~ /2$/)\n    |> map(fn: (r) => ({\n        _time: r.stateTime,\n        idx: r.idx,\n        name: r.name,\n\n        position: r.position,\n        positionCommanded: r.positionCommanded,\n        inPosition: r.inPosition,\n\n        position_time: r.positionTime,\n        positionCommanded_time: r.positionCommandedTime,\n        state_time: r.stateTime,\n\n        stateName:\n            if r.stateRaw == 1 then \"ERROR\"\n            else if r.stateRaw == 2 then \"CLOSED\"\n            else if r.stateRaw == 3 then \"CLOSING\"\n            else if r.stateRaw == 4 then \"CRAWLING\"\n            else if r.stateRaw == 5 then \"MOVING\"\n            else if r.stateRaw == 6 then \"OPEN\"\n            else if r.stateRaw == 7 then \"OPENING\"\n            else if r.stateRaw == 8 then \"PARKED\"\n            else if r.stateRaw == 9 then \"PARKING\"\n            else if r.stateRaw == 10 then \"STOPPED\"\n            else if r.stateRaw == 11 then \"STOPPING\"\n            else if r.stateRaw == 12 then \"STOPPING_BRAKING\"\n            else if r.stateRaw == 13 then \"STOPPED_BRAKED\"\n            else if r.stateRaw == 14 then \"BRAKE_DISENGAGED\"\n            else if r.stateRaw == 15 then \"BRAKES_DISENGAGED\"\n            else if r.stateRaw == 16 then \"BRAKE_ENGAGED\"\n            else if r.stateRaw == 17 then \"BRAKES_ENGAGED\"\n            else if r.stateRaw == 18 then \"DEFLATED\"\n            else if r.stateRaw == 19 then \"DEFLATING\"\n            else if r.stateRaw == 20 then \"DISABLING_MOTOR_POWER\"\n            else if r.stateRaw == 21 then \"DISENGAGING_BRAKE\"\n            else if r.stateRaw == 22 then \"DISENGAGING_BRAKES\"\n            else if r.stateRaw == 23 then \"ENABLING_MOTOR_POWER\"\n            else if r.stateRaw == 24 then \"ENGAGING_BRAKE\"\n            else if r.stateRaw == 25 then \"ENGAGING_BRAKES\"\n            else if r.stateRaw == 26 then \"FINAL_DOWN_CLOSE_LS_ENGAGED\"\n            else if r.stateRaw == 27 then \"FINAL_DOWN_OPEN_LS_ENGAGED\"\n            else if r.stateRaw == 28 then \"FINAL_UP_CLOSE_LS_ENGAGED\"\n            else if r.stateRaw == 29 then \"FINAL_UP_OPEN_LS_ENGAGED\"\n            else if r.stateRaw == 30 then \"GLYCOL_FLOWING\"\n            else if r.stateRaw == 31 then \"GO_DEGRADED\"\n            else if r.stateRaw == 32 then \"GO_NORMAL\"\n            else if r.stateRaw == 33 then \"GO_STATIONARY\"\n            else if r.stateRaw == 34 then \"INCLINED\"\n            else if r.stateRaw == 35 then \"INFLATED\"\n            else if r.stateRaw == 36 then \"INFLATING\"\n            else if r.stateRaw == 37 then \"LP_DISENGAGED\"\n            else if r.stateRaw == 38 then \"LP_DISENGAGING\"\n            else if r.stateRaw == 39 then \"LP_ENGAGED\"\n            else if r.stateRaw == 40 then \"LP_ENGAGING\"\n            else if r.stateRaw == 41 then \"MOTOR_COOLING_OFF\"\n            else if r.stateRaw == 42 then \"MOTOR_COOLING_ON\"\n            else if r.stateRaw == 43 then \"MOTOR_POWER_OFF\"\n            else if r.stateRaw == 44 then \"MOTOR_POWER_ON\"\n            else if r.stateRaw == 45 then \"PROXIMITY_CLOSED_LS_ENGAGED\"\n            else if r.stateRaw == 46 then \"PROXIMITY_OPEN_LS_ENGAGED\"\n            else if r.stateRaw == 47 then \"STARTING_MOTOR_COOLING\"\n            else if r.stateRaw == 48 then \"STOPPING_MOTOR_COOLING\"\n            else if r.stateRaw == 49 then \"UNDETERMINED\"\n            else if r.stateRaw == 50 then \"VERTICAL\"\n            else if r.stateRaw == 51 then \"WAITING_AMCS_STATIONARY\"\n            else if r.stateRaw == 52 then \"DISABLED\"\n            else if r.stateRaw == 53 then \"DISABLING\"\n            else if r.stateRaw == 54 then \"ENABLED\"\n            else if r.stateRaw == 55 then \"ENABLING\"\n            else \"UNKNOWN\",\n    }))\n    |> sort(columns: [\"idx\"])\n    |> keep(columns: [\n        \"_time\",\n        \"idx\",\n        \"name\",\n        \"position\",\n        \"positionCommanded\",\n        \"inPosition\",\n        \"stateName\",\n        \"position_time\",\n        \"positionCommanded_time\",\n        \"state_time\",\n    ])\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "background",
+						"hex": "#BF3D5E",
+						"name": "ruby",
+						"value": "-1000000000000000000"
+					},
+					{
+						"id": "89377961-7bd4-4ab9-b384-9b7f145fdc65",
+						"type": "background",
+						"hex": "#4ED8A0",
+						"name": "rainforest",
+						"value": "0.1"
+					},
+					{
+						"id": "ae5f0643-466e-4b6c-a7bc-3a8700bdd7e7",
+						"type": "background",
+						"hex": "#BF3D5E",
+						"name": "ruby",
+						"value": "100"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": false,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "name",
+						"displayName": "Louver",
+						"visible": true
+					},
+					{
+						"internalName": "idx",
+						"displayName": "Index (0-based)",
+						"visible": false
+					},
+					{
+						"internalName": "position",
+						"displayName": "% Open",
+						"visible": true
+					},
+					{
+						"internalName": "position_time",
+						"displayName": "Position Last Updated",
+						"visible": false
+					},
+					{
+						"internalName": "stateName",
+						"displayName": "Motion State",
+						"visible": true
+					},
+					{
+						"internalName": "state_time",
+						"displayName": "Motion State Last Updated",
+						"visible": false
+					},
+					{
+						"internalName": "_time",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "positionCommanded",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "positionCommanded_time",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "inPosition",
+						"displayName": "In Position",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/674/cells/c7e080a8-ce0a-486c-942a-d46b3d379081"
+				}
+			},
+			{
+				"i": "661ffd69-80fb-4cdc-91fa-237c67ac9eed",
+				"x": 0,
+				"y": 6,
+				"w": 10,
+				"h": 3,
+				"name": "Row 1",
+				"queries": [
+					{
+						"query": "import \"strings\"\nimport \"array\"\n\n// Settings\n_bucket = \"efd/autogen\"\n_range  = -7d\n\n// 1) Static lookup table: index → louver name\nlouverMap = array.from(\n    rows: [\n        {idx: 0,  name: \"A1\"},\n        {idx: 1,  name: \"A2\"},\n        {idx: 2,  name: \"B1\"},\n        {idx: 3,  name: \"B2\"},\n        {idx: 4,  name: \"B3\"},\n        {idx: 5,  name: \"C1\"},\n        {idx: 6,  name: \"C2\"},\n        {idx: 7,  name: \"C3\"},\n        {idx: 8,  name: \"D1\"},\n        {idx: 9,  name: \"D2\"},\n        {idx: 10, name: \"D3\"},\n        {idx: 11, name: \"E1\"},\n        {idx: 12, name: \"E2\"},\n        {idx: 13, name: \"E3\"},\n        {idx: 14, name: \"F1\"},\n        {idx: 15, name: \"F2\"},\n        {idx: 16, name: \"F3\"},\n        {idx: 17, name: \"G1\"},\n        {idx: 18, name: \"G2\"},\n        {idx: 19, name: \"G3\"},\n        {idx: 20, name: \"H1\"},\n        {idx: 21, name: \"H2\"},\n        {idx: 22, name: \"H3\"},\n        {idx: 23, name: \"I1\"},\n        {idx: 24, name: \"I2\"},\n        {idx: 25, name: \"I3\"},\n        {idx: 26, name: \"L1\"},\n        {idx: 27, name: \"L2\"},\n        {idx: 28, name: \"L3\"},\n        {idx: 29, name: \"M1\"},\n        {idx: 30, name: \"M2\"},\n        {idx: 31, name: \"M3\"},\n        {idx: 32, name: \"N1\"},\n        {idx: 33, name: \"N2\"},\n    ],\n)\n\n// 2a) Positions – last positionActualN per louver (plus timestamp)\npositionsActual =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.louvers\" and\n            r._field =~ /^positionActual[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"positionActual\",\n                    u: \"\",\n                ),\n            ),\n            position: r._value,\n            positionTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"position\", \"positionTime\"])\n\n// 2b) Commanded positions – last positionCommandedN per louver (plus timestamp)\npositionsCommanded =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.louvers\" and\n            r._field =~ /^positionCommanded[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"positionCommanded\",\n                    u: \"\",\n                ),\n            ),\n            positionCommanded: r._value,\n            positionCommandedTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"positionCommanded\", \"positionCommandedTime\"])\n\n// 2c) Join actual + commanded positions on idx\npositions =\n    join(\n        tables: {act: positionsActual, cmd: positionsCommanded},\n        on: [\"idx\"],\n    )\n\n// 3a) States – last stateN per louver (plus timestamp)\nstates =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.logevent_louversMotion\" and\n            r._field =~ /^state[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"state\",\n                    u: \"\",\n                ),\n            ),\n            stateRaw: int(v: r._value),\n            stateTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"stateRaw\", \"stateTime\"])\n\n// 3b) inPosition – last inPositionN per louver (plus timestamp)\ninPositions =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.logevent_louversMotion\" and\n            r._field =~ /^inPosition[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"inPosition\",\n                    u: \"\",\n                ),\n            ),\n            inPosition: r._value,\n            inPositionTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"inPosition\", \"inPositionTime\"])\n\n// 3c) Join state + inPosition on idx\nmotion =\n    join(\n        tables: {st: states, ip: inPositions},\n        on: [\"idx\"],\n    )\n\n// 4) Join positions + motion on idx\nposStates =\n    join(\n        tables: {pos: positions, mo: motion},\n        on: [\"idx\"],\n    )\n\n// 5) Join with louver map, decode state, filter for row 1 (…1), and output\njoin(tables: {ps: posStates, names: louverMap}, on: [\"idx\"])\n    |> filter(fn: (r) => r.name =~ /1$/)\n    |> map(fn: (r) => ({\n        _time: r.stateTime,\n        idx: r.idx,\n        name: r.name,\n\n        position: r.position,\n        positionCommanded: r.positionCommanded,\n        inPosition: r.inPosition,\n\n        position_time: r.positionTime,\n        positionCommanded_time: r.positionCommandedTime,\n        state_time: r.stateTime,\n\n        stateName:\n            if r.stateRaw == 1 then \"ERROR\"\n            else if r.stateRaw == 2 then \"CLOSED\"\n            else if r.stateRaw == 3 then \"CLOSING\"\n            else if r.stateRaw == 4 then \"CRAWLING\"\n            else if r.stateRaw == 5 then \"MOVING\"\n            else if r.stateRaw == 6 then \"OPEN\"\n            else if r.stateRaw == 7 then \"OPENING\"\n            else if r.stateRaw == 8 then \"PARKED\"\n            else if r.stateRaw == 9 then \"PARKING\"\n            else if r.stateRaw == 10 then \"STOPPED\"\n            else if r.stateRaw == 11 then \"STOPPING\"\n            else if r.stateRaw == 12 then \"STOPPING_BRAKING\"\n            else if r.stateRaw == 13 then \"STOPPED_BRAKED\"\n            else if r.stateRaw == 14 then \"BRAKE_DISENGAGED\"\n            else if r.stateRaw == 15 then \"BRAKES_DISENGAGED\"\n            else if r.stateRaw == 16 then \"BRAKE_ENGAGED\"\n            else if r.stateRaw == 17 then \"BRAKES_ENGAGED\"\n            else if r.stateRaw == 18 then \"DEFLATED\"\n            else if r.stateRaw == 19 then \"DEFLATING\"\n            else if r.stateRaw == 20 then \"DISABLING_MOTOR_POWER\"\n            else if r.stateRaw == 21 then \"DISENGAGING_BRAKE\"\n            else if r.stateRaw == 22 then \"DISENGAGING_BRAKES\"\n            else if r.stateRaw == 23 then \"ENABLING_MOTOR_POWER\"\n            else if r.stateRaw == 24 then \"ENGAGING_BRAKE\"\n            else if r.stateRaw == 25 then \"ENGAGING_BRAKES\"\n            else if r.stateRaw == 26 then \"FINAL_DOWN_CLOSE_LS_ENGAGED\"\n            else if r.stateRaw == 27 then \"FINAL_DOWN_OPEN_LS_ENGAGED\"\n            else if r.stateRaw == 28 then \"FINAL_UP_CLOSE_LS_ENGAGED\"\n            else if r.stateRaw == 29 then \"FINAL_UP_OPEN_LS_ENGAGED\"\n            else if r.stateRaw == 30 then \"GLYCOL_FLOWING\"\n            else if r.stateRaw == 31 then \"GO_DEGRADED\"\n            else if r.stateRaw == 32 then \"GO_NORMAL\"\n            else if r.stateRaw == 33 then \"GO_STATIONARY\"\n            else if r.stateRaw == 34 then \"INCLINED\"\n            else if r.stateRaw == 35 then \"INFLATED\"\n            else if r.stateRaw == 36 then \"INFLATING\"\n            else if r.stateRaw == 37 then \"LP_DISENGAGED\"\n            else if r.stateRaw == 38 then \"LP_DISENGAGING\"\n            else if r.stateRaw == 39 then \"LP_ENGAGED\"\n            else if r.stateRaw == 40 then \"LP_ENGAGING\"\n            else if r.stateRaw == 41 then \"MOTOR_COOLING_OFF\"\n            else if r.stateRaw == 42 then \"MOTOR_COOLING_ON\"\n            else if r.stateRaw == 43 then \"MOTOR_POWER_OFF\"\n            else if r.stateRaw == 44 then \"MOTOR_POWER_ON\"\n            else if r.stateRaw == 45 then \"PROXIMITY_CLOSED_LS_ENGAGED\"\n            else if r.stateRaw == 46 then \"PROXIMITY_OPEN_LS_ENGAGED\"\n            else if r.stateRaw == 47 then \"STARTING_MOTOR_COOLING\"\n            else if r.stateRaw == 48 then \"STOPPING_MOTOR_COOLING\"\n            else if r.stateRaw == 49 then \"UNDETERMINED\"\n            else if r.stateRaw == 50 then \"VERTICAL\"\n            else if r.stateRaw == 51 then \"WAITING_AMCS_STATIONARY\"\n            else if r.stateRaw == 52 then \"DISABLED\"\n            else if r.stateRaw == 53 then \"DISABLING\"\n            else if r.stateRaw == 54 then \"ENABLED\"\n            else if r.stateRaw == 55 then \"ENABLING\"\n            else \"UNKNOWN\",\n    }))\n    |> sort(columns: [\"idx\"])\n    |> keep(columns: [\n        \"_time\",\n        \"idx\",\n        \"name\",\n        \"position\",\n        \"positionCommanded\",\n        \"inPosition\",\n        \"stateName\",\n        \"position_time\",\n        \"positionCommanded_time\",\n        \"state_time\",\n    ])\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\nimport \"array\"\n\n// Settings\n_bucket = \"efd/autogen\"\n_range  = -7d\n\n// 1) Static lookup table: index → louver name\nlouverMap = array.from(\n    rows: [\n        {idx: 0,  name: \"A1\"},\n        {idx: 1,  name: \"A2\"},\n        {idx: 2,  name: \"B1\"},\n        {idx: 3,  name: \"B2\"},\n        {idx: 4,  name: \"B3\"},\n        {idx: 5,  name: \"C1\"},\n        {idx: 6,  name: \"C2\"},\n        {idx: 7,  name: \"C3\"},\n        {idx: 8,  name: \"D1\"},\n        {idx: 9,  name: \"D2\"},\n        {idx: 10, name: \"D3\"},\n        {idx: 11, name: \"E1\"},\n        {idx: 12, name: \"E2\"},\n        {idx: 13, name: \"E3\"},\n        {idx: 14, name: \"F1\"},\n        {idx: 15, name: \"F2\"},\n        {idx: 16, name: \"F3\"},\n        {idx: 17, name: \"G1\"},\n        {idx: 18, name: \"G2\"},\n        {idx: 19, name: \"G3\"},\n        {idx: 20, name: \"H1\"},\n        {idx: 21, name: \"H2\"},\n        {idx: 22, name: \"H3\"},\n        {idx: 23, name: \"I1\"},\n        {idx: 24, name: \"I2\"},\n        {idx: 25, name: \"I3\"},\n        {idx: 26, name: \"L1\"},\n        {idx: 27, name: \"L2\"},\n        {idx: 28, name: \"L3\"},\n        {idx: 29, name: \"M1\"},\n        {idx: 30, name: \"M2\"},\n        {idx: 31, name: \"M3\"},\n        {idx: 32, name: \"N1\"},\n        {idx: 33, name: \"N2\"},\n    ],\n)\n\n// 2a) Positions – last positionActualN per louver (plus timestamp)\npositionsActual =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.louvers\" and\n            r._field =~ /^positionActual[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"positionActual\",\n                    u: \"\",\n                ),\n            ),\n            position: r._value,\n            positionTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"position\", \"positionTime\"])\n\n// 2b) Commanded positions – last positionCommandedN per louver (plus timestamp)\npositionsCommanded =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.louvers\" and\n            r._field =~ /^positionCommanded[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"positionCommanded\",\n                    u: \"\",\n                ),\n            ),\n            positionCommanded: r._value,\n            positionCommandedTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"positionCommanded\", \"positionCommandedTime\"])\n\n// 2c) Join actual + commanded positions on idx\npositions =\n    join(\n        tables: {act: positionsActual, cmd: positionsCommanded},\n        on: [\"idx\"],\n    )\n\n// 3a) States – last stateN per louver (plus timestamp)\nstates =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.logevent_louversMotion\" and\n            r._field =~ /^state[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"state\",\n                    u: \"\",\n                ),\n            ),\n            stateRaw: int(v: r._value),\n            stateTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"stateRaw\", \"stateTime\"])\n\n// 3b) inPosition – last inPositionN per louver (plus timestamp)\ninPositions =\n    from(bucket: _bucket)\n        |> range(start: _range)\n        |> filter(fn: (r) =>\n            r._measurement == \"lsst.sal.MTDome.logevent_louversMotion\" and\n            r._field =~ /^inPosition[0-9]+$/\n        )\n        |> last()\n        |> map(fn: (r) => ({\n            idx: int(\n                v: strings.replaceAll(\n                    v: r._field,\n                    t: \"inPosition\",\n                    u: \"\",\n                ),\n            ),\n            inPosition: r._value,\n            inPositionTime: r._time,\n        }))\n        |> keep(columns: [\"idx\", \"inPosition\", \"inPositionTime\"])\n\n// 3c) Join state + inPosition on idx\nmotion =\n    join(\n        tables: {st: states, ip: inPositions},\n        on: [\"idx\"],\n    )\n\n// 4) Join positions + motion on idx\nposStates =\n    join(\n        tables: {pos: positions, mo: motion},\n        on: [\"idx\"],\n    )\n\n// 5) Join with louver map, decode state, filter for row 1 (…1), and output\njoin(tables: {ps: posStates, names: louverMap}, on: [\"idx\"])\n    |> filter(fn: (r) => r.name =~ /1$/)\n    |> map(fn: (r) => ({\n        _time: r.stateTime,\n        idx: r.idx,\n        name: r.name,\n\n        position: r.position,\n        positionCommanded: r.positionCommanded,\n        inPosition: r.inPosition,\n\n        position_time: r.positionTime,\n        positionCommanded_time: r.positionCommandedTime,\n        state_time: r.stateTime,\n\n        stateName:\n            if r.stateRaw == 1 then \"ERROR\"\n            else if r.stateRaw == 2 then \"CLOSED\"\n            else if r.stateRaw == 3 then \"CLOSING\"\n            else if r.stateRaw == 4 then \"CRAWLING\"\n            else if r.stateRaw == 5 then \"MOVING\"\n            else if r.stateRaw == 6 then \"OPEN\"\n            else if r.stateRaw == 7 then \"OPENING\"\n            else if r.stateRaw == 8 then \"PARKED\"\n            else if r.stateRaw == 9 then \"PARKING\"\n            else if r.stateRaw == 10 then \"STOPPED\"\n            else if r.stateRaw == 11 then \"STOPPING\"\n            else if r.stateRaw == 12 then \"STOPPING_BRAKING\"\n            else if r.stateRaw == 13 then \"STOPPED_BRAKED\"\n            else if r.stateRaw == 14 then \"BRAKE_DISENGAGED\"\n            else if r.stateRaw == 15 then \"BRAKES_DISENGAGED\"\n            else if r.stateRaw == 16 then \"BRAKE_ENGAGED\"\n            else if r.stateRaw == 17 then \"BRAKES_ENGAGED\"\n            else if r.stateRaw == 18 then \"DEFLATED\"\n            else if r.stateRaw == 19 then \"DEFLATING\"\n            else if r.stateRaw == 20 then \"DISABLING_MOTOR_POWER\"\n            else if r.stateRaw == 21 then \"DISENGAGING_BRAKE\"\n            else if r.stateRaw == 22 then \"DISENGAGING_BRAKES\"\n            else if r.stateRaw == 23 then \"ENABLING_MOTOR_POWER\"\n            else if r.stateRaw == 24 then \"ENGAGING_BRAKE\"\n            else if r.stateRaw == 25 then \"ENGAGING_BRAKES\"\n            else if r.stateRaw == 26 then \"FINAL_DOWN_CLOSE_LS_ENGAGED\"\n            else if r.stateRaw == 27 then \"FINAL_DOWN_OPEN_LS_ENGAGED\"\n            else if r.stateRaw == 28 then \"FINAL_UP_CLOSE_LS_ENGAGED\"\n            else if r.stateRaw == 29 then \"FINAL_UP_OPEN_LS_ENGAGED\"\n            else if r.stateRaw == 30 then \"GLYCOL_FLOWING\"\n            else if r.stateRaw == 31 then \"GO_DEGRADED\"\n            else if r.stateRaw == 32 then \"GO_NORMAL\"\n            else if r.stateRaw == 33 then \"GO_STATIONARY\"\n            else if r.stateRaw == 34 then \"INCLINED\"\n            else if r.stateRaw == 35 then \"INFLATED\"\n            else if r.stateRaw == 36 then \"INFLATING\"\n            else if r.stateRaw == 37 then \"LP_DISENGAGED\"\n            else if r.stateRaw == 38 then \"LP_DISENGAGING\"\n            else if r.stateRaw == 39 then \"LP_ENGAGED\"\n            else if r.stateRaw == 40 then \"LP_ENGAGING\"\n            else if r.stateRaw == 41 then \"MOTOR_COOLING_OFF\"\n            else if r.stateRaw == 42 then \"MOTOR_COOLING_ON\"\n            else if r.stateRaw == 43 then \"MOTOR_POWER_OFF\"\n            else if r.stateRaw == 44 then \"MOTOR_POWER_ON\"\n            else if r.stateRaw == 45 then \"PROXIMITY_CLOSED_LS_ENGAGED\"\n            else if r.stateRaw == 46 then \"PROXIMITY_OPEN_LS_ENGAGED\"\n            else if r.stateRaw == 47 then \"STARTING_MOTOR_COOLING\"\n            else if r.stateRaw == 48 then \"STOPPING_MOTOR_COOLING\"\n            else if r.stateRaw == 49 then \"UNDETERMINED\"\n            else if r.stateRaw == 50 then \"VERTICAL\"\n            else if r.stateRaw == 51 then \"WAITING_AMCS_STATIONARY\"\n            else if r.stateRaw == 52 then \"DISABLED\"\n            else if r.stateRaw == 53 then \"DISABLING\"\n            else if r.stateRaw == 54 then \"ENABLED\"\n            else if r.stateRaw == 55 then \"ENABLING\"\n            else \"UNKNOWN\",\n    }))\n    |> sort(columns: [\"idx\"])\n    |> keep(columns: [\n        \"_time\",\n        \"idx\",\n        \"name\",\n        \"position\",\n        \"positionCommanded\",\n        \"inPosition\",\n        \"stateName\",\n        \"position_time\",\n        \"positionCommanded_time\",\n        \"state_time\",\n    ])\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "background",
+						"hex": "#BF3D5E",
+						"name": "ruby",
+						"value": "-1000000000000000000"
+					},
+					{
+						"id": "89377961-7bd4-4ab9-b384-9b7f145fdc65",
+						"type": "background",
+						"hex": "#4ED8A0",
+						"name": "rainforest",
+						"value": "0.1"
+					},
+					{
+						"id": "ae5f0643-466e-4b6c-a7bc-3a8700bdd7e7",
+						"type": "background",
+						"hex": "#BF3D5E",
+						"name": "ruby",
+						"value": "100"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": false,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "name",
+						"displayName": "Louver",
+						"visible": true
+					},
+					{
+						"internalName": "idx",
+						"displayName": "Index (0-based)",
+						"visible": false
+					},
+					{
+						"internalName": "position",
+						"displayName": "% Open",
+						"visible": true
+					},
+					{
+						"internalName": "position_time",
+						"displayName": "Position Last Updated",
+						"visible": false
+					},
+					{
+						"internalName": "stateName",
+						"displayName": "Motion State",
+						"visible": true
+					},
+					{
+						"internalName": "state_time",
+						"displayName": "Motion State Last Updated",
+						"visible": false
+					},
+					{
+						"internalName": "_time",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "positionCommanded",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "positionCommanded_time",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "inPosition",
+						"displayName": "In Position",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/674/cells/661ffd69-80fb-4cdc-91fa-237c67ac9eed"
+				}
+			},
+			{
+				"i": "684a9126-7586-4d3d-9cd4-2a4689725ed7",
+				"x": 0,
+				"y": 9,
+				"w": 10,
+				"h": 4,
+				"name": "Untitled Graph",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "## **Louvers Name(index) Mapping**\n\n#### Last Updated: 2025-11-27.\n\n#### Enabled Louvers: B1, E1, E2, H1, H2 and M1\n\n#### ------------------------------------------------------------------------------------------------------------------------------\n\n\n..................B3(4)....C3(7)....D3(10)....E3(13)....F3(16)....G3(19)....H3(22)....I3(25)....L3(28)....M3(31)\n\n.....A2(1)....B2(3)....C2(6)....D2(9)......**E2(12)**....F2(15)....G2(18)....**H2(21)**....I2(24)....L2(27)....M2(30)....N2(33)\n\n.....A1(0)....**B1(2)**....C1(5)....D1(8)......**E1(11)**....F1(14)....G1(17)....**H1(20)**....I1(23)....L1(26)....**M1(29)**....N1(32)\n\n\n#### ------------------------------------------------------------------------------------------------------------------------------\n\n#### For graphical visualization of the postion, you can use this dashboard: [MTDome Louver Positining Status - FULL](https://summit-lsp.lsst.codes/chronograf/sources/1/dashboards/676?refresh=Paused&amp;lower=now%28%29%20-%201h) ",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/674/cells/684a9126-7586-4d3d-9cd4-2a4689725ed7"
+				}
+			}
+		],
+		"templates": [],
+		"name": "MTDome Louver | Deprecated | Migrated ",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/674",
+			"cells": "/chronograf/v1/dashboards/674/cells",
+			"templates": "/chronograf/v1/dashboards/674/templates"
+		}
+	}
+}

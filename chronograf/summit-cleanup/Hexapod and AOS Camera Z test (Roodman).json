@@ -1,0 +1,193 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "686",
+		"cells": [
+			{
+				"i": "c80b7a8f-174b-4c49-bfeb-f97b0737cbc2",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 5,
+				"name": "Camera Z",
+				"queries": [
+					{
+						"query": "SELECT \"aggregatedDoF5\" AS \"MTAOS Camera dZ\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAOS.logevent_degreeOfFreedom\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTAOS.logevent_degreeOfFreedom",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "aggregatedDoF5",
+									"type": "field",
+									"alias": "MTAOS Camera dZ"
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT \"z\" AS \"MTAOS CamHex Corr Z\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAOS.logevent_cameraHexapodCorrection\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTAOS.logevent_cameraHexapodCorrection",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "z",
+									"type": "field",
+									"alias": "MTAOS CamHex Corr Z"
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT \"z\" AS \"CamHexapod uncomp Z\" FROM \"efd\".\"autogen\".\"lsst.sal.MTHexapod.logevent_uncompensatedPosition\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime: ",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"z\" AS \"CamHexapod uncomp Z\" FROM \"efd\".\"autogen\".\"lsst.sal.MTHexapod.logevent_uncompensatedPosition\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime: ",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "ce8b66db-0367-4e6d-9658-b2e9cb509904",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "da1255d5-c4f3-4021-ac5a-fe71d2c7013e",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "34338a85-b2ef-422e-8cc9-8ca73cdcb7ec",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/686/cells/c80b7a8f-174b-4c49-bfeb-f97b0737cbc2"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Hexapod and AOS Camera Z test (Roodman)",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/686",
+			"cells": "/chronograf/v1/dashboards/686/cells",
+			"templates": "/chronograf/v1/dashboards/686/templates"
+		}
+	}
+}

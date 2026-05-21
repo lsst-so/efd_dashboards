@@ -1,0 +1,1842 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "545",
+		"cells": [
+			{
+				"i": "45384fb0-7cca-4621-99e3-e4f9b6892d6e",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 3,
+				"name": "ESS - Temperature",
+				"queries": [
+					{
+						"query": "SELECT \"sensorName\", \"temperatureItem0\", \"temperatureItem1\", \"temperatureItem2\", \"temperatureItem3\", \"temperatureItem4\", \"temperatureItem5\", \"temperatureItem6\", \"temperatureItem7\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.temperature",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "sensorName",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "temperatureItem0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "temperatureItem1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "temperatureItem2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "temperatureItem3",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "temperatureItem4",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "temperatureItem5",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "temperatureItem6",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "temperatureItem7",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.temperature.sensorName",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.temperature.temperatureItem0",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.temperature.temperatureItem1",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.temperature.temperatureItem2",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.temperature.temperatureItem3",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.temperature.temperatureItem4",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.temperature.temperatureItem5",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.temperature.temperatureItem6",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.temperature.temperatureItem7",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/545/cells/45384fb0-7cca-4621-99e3-e4f9b6892d6e"
+				}
+			},
+			{
+				"i": "e30bc034-7bc8-4c60-99b2-c46c5697ad26",
+				"x": 0,
+				"y": 11,
+				"w": 12,
+				"h": 4,
+				"name": "Dome Temperature",
+				"queries": [
+					{
+						"query": "SELECT \"temperatureItem0\" AS \"Dome temp\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 113 and time > :dashboardTime: AND time < :upperDashboardTime: ",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"temperatureItem0\" AS \"Dome temp\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 113 and time > :dashboardTime: AND time < :upperDashboardTime: ",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "26b84fee-c23b-4bac-8175-7e8a83ca3179",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e2a9873c-54dc-43cc-b94e-6203c6356c91",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "398c6061-735a-42a8-9120-4e525931b116",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/545/cells/e30bc034-7bc8-4c60-99b2-c46c5697ad26"
+				}
+			},
+			{
+				"i": "272945d0-21c6-451c-bef7-c9d416bd4d75",
+				"x": 6,
+				"y": 7,
+				"w": 6,
+				"h": 4,
+				"name": "M2 temps",
+				"queries": [
+					{
+						"query": "SELECT mean(\"ductTemperatureSensor0506\") AS \"TEA-THCS M2 Return 00\", mean(\"ductTemperatureSensor0507\") AS \"TEA-THCS M2 Return 01\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.topEndChiller\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.topEndChiller",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "TEA-THCS M2 Return 00",
+									"args": [
+										{
+											"value": "ductTemperatureSensor0506",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "TEA-THCS M2 Return 01",
+									"args": [
+										{
+											"value": "ductTemperatureSensor0507",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT mean(\"exhaust0\") AS \"M2 Exhaust 00\", mean(\"exhaust1\") AS \"M2 Exhaust 01\", mean(\"intake0\") AS \"M2 Intake 00\", mean(\"intake1\") AS \"mM2 Intake 01\", mean(\"ring0\") AS \"M2 Ring 0\", mean(\"ring1\") AS \"M2 Ring 1\", mean(\"ring2\") AS \"M2 Ring 2\", mean(\"ring3\") AS \"M2 Ring 3\", mean(\"ring4\") AS \"M2 Ring 4\", mean(\"ring5\") AS \"M2 Ring 5\", mean(\"ring6\") AS \"M2 Ring 6\", mean(\"ring7\") AS \"M2 Ring 7\", mean(\"ring8\") AS \"M2 Ring 8\", mean(\"ring9\") AS \"M2 Ring 9\", mean(\"ring10\") AS \"M2 Ring 10\", mean(\"ring11\") AS \"M2 Ring 11\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.temperature\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTM2.temperature",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "M2 Exhaust 00",
+									"args": [
+										{
+											"value": "exhaust0",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "M2 Exhaust 01",
+									"args": [
+										{
+											"value": "exhaust1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "M2 Intake 00",
+									"args": [
+										{
+											"value": "intake0",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mM2 Intake 01",
+									"args": [
+										{
+											"value": "intake1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "M2 Ring 0",
+									"args": [
+										{
+											"value": "ring0",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "M2 Ring 1",
+									"args": [
+										{
+											"value": "ring1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "M2 Ring 2",
+									"args": [
+										{
+											"value": "ring2",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "M2 Ring 3",
+									"args": [
+										{
+											"value": "ring3",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "M2 Ring 4",
+									"args": [
+										{
+											"value": "ring4",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "M2 Ring 5",
+									"args": [
+										{
+											"value": "ring5",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "M2 Ring 6",
+									"args": [
+										{
+											"value": "ring6",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "M2 Ring 7",
+									"args": [
+										{
+											"value": "ring7",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "M2 Ring 8",
+									"args": [
+										{
+											"value": "ring8",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "M2 Ring 9",
+									"args": [
+										{
+											"value": "ring9",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "M2 Ring 10",
+									"args": [
+										{
+											"value": "ring10",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "M2 Ring 11",
+									"args": [
+										{
+											"value": "ring11",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT \"temperatureItem1\" AS \"M2 Tangent link 1 temp\", \"temperatureItem2\" AS \"M2 Tangent link 2 temp\", \"temperatureItem3\" AS \"M2 Tangent link 3 temp\", \"temperatureItem4\" AS \"M2 Tangent link 4 temp\", \"temperatureItem5\" AS \"M2 Tangent link 5 temp\", \"temperatureItem6\" AS \"M2 Tangent link 6 temp\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 106 AND time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"temperatureItem1\" AS \"M2 Tangent link 1 temp\", \"temperatureItem2\" AS \"M2 Tangent link 2 temp\", \"temperatureItem3\" AS \"M2 Tangent link 3 temp\", \"temperatureItem4\" AS \"M2 Tangent link 4 temp\", \"temperatureItem5\" AS \"M2 Tangent link 5 temp\", \"temperatureItem6\" AS \"M2 Tangent link 6 temp\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 106 AND time > :dashboardTime: AND time < :upperDashboardTime:",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "26b84fee-c23b-4bac-8175-7e8a83ca3179",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e2a9873c-54dc-43cc-b94e-6203c6356c91",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "398c6061-735a-42a8-9120-4e525931b116",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/545/cells/272945d0-21c6-451c-bef7-c9d416bd4d75"
+				}
+			},
+			{
+				"i": "106d8211-cfb2-4516-922f-f1d891bae647",
+				"x": 0,
+				"y": 7,
+				"w": 6,
+				"h": 4,
+				"name": "AZ & EL Motors temps",
+				"queries": [
+					{
+						"query": "SELECT mean(\"actualTemperature0\") AS \"AZ Motor 01 temp\", mean(\"actualTemperature1\") AS \"AZ Motor 02 temp\", mean(\"actualTemperature2\") AS \"AZ Motor 03 temp\", mean(\"actualTemperature3\") AS \"AZ Motor 04 temp\", mean(\"actualTemperature4\") AS \"AZ Motor 05 temp\", mean(\"actualTemperature5\") AS \"AZ Motor 06 temp\", mean(\"actualTemperature6\") AS \"AZ Motor 07 temp\", mean(\"actualTemperature7\") AS \"AZ Motor 08 temp\", mean(\"actualTemperature8\") AS \"AZ Motor 09 temp\", mean(\"actualTemperature9\") AS \"AZ Motor 10 temp\", mean(\"actualTemperature10\") AS \"AZ Motor 11 temp\", mean(\"actualTemperature11\") AS \"AZ Motor 12 temp\", mean(\"actualTemperature12\") AS \"AZ Motor 13 temp\", mean(\"actualTemperature13\") AS \"AZ Motor 14 temp\", mean(\"actualTemperature14\") AS \"AZ Motor 15 temp\", mean(\"actualTemperature15\") AS \"AZ Motor 16 temp\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.azimuthDrivesThermal\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.azimuthDrivesThermal",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "AZ Motor 01 temp",
+									"args": [
+										{
+											"value": "actualTemperature0",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "AZ Motor 02 temp",
+									"args": [
+										{
+											"value": "actualTemperature1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "AZ Motor 03 temp",
+									"args": [
+										{
+											"value": "actualTemperature2",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "AZ Motor 04 temp",
+									"args": [
+										{
+											"value": "actualTemperature3",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "AZ Motor 05 temp",
+									"args": [
+										{
+											"value": "actualTemperature4",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "AZ Motor 06 temp",
+									"args": [
+										{
+											"value": "actualTemperature5",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "AZ Motor 07 temp",
+									"args": [
+										{
+											"value": "actualTemperature6",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "AZ Motor 08 temp",
+									"args": [
+										{
+											"value": "actualTemperature7",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "AZ Motor 09 temp",
+									"args": [
+										{
+											"value": "actualTemperature8",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "AZ Motor 10 temp",
+									"args": [
+										{
+											"value": "actualTemperature9",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "AZ Motor 11 temp",
+									"args": [
+										{
+											"value": "actualTemperature10",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "AZ Motor 12 temp",
+									"args": [
+										{
+											"value": "actualTemperature11",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "AZ Motor 13 temp",
+									"args": [
+										{
+											"value": "actualTemperature12",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "AZ Motor 14 temp",
+									"args": [
+										{
+											"value": "actualTemperature13",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "AZ Motor 15 temp",
+									"args": [
+										{
+											"value": "actualTemperature14",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "AZ Motor 16 temp",
+									"args": [
+										{
+											"value": "actualTemperature15",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT mean(\"actualTemperature2\") AS \"EL Motor 01 temp\", mean(\"actualTemperature4\") AS \"EL Motor 02 temp\", mean(\"actualTemperature6\") AS \"EL Motor 03 temp\", mean(\"actualTemperature8\") AS \"EL Motor 04 temp\", mean(\"actualTemperature10\") AS \"EL Motor 05 temp\", mean(\"actualTemperature12\") AS \"EL Motor 06 temp\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.elevationDrivesThermal\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.elevationDrivesThermal",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "EL Motor 01 temp",
+									"args": [
+										{
+											"value": "actualTemperature2",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "EL Motor 02 temp",
+									"args": [
+										{
+											"value": "actualTemperature4",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "EL Motor 03 temp",
+									"args": [
+										{
+											"value": "actualTemperature6",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "EL Motor 04 temp",
+									"args": [
+										{
+											"value": "actualTemperature8",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "EL Motor 05 temp",
+									"args": [
+										{
+											"value": "actualTemperature10",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "EL Motor 06 temp",
+									"args": [
+										{
+											"value": "actualTemperature12",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "26b84fee-c23b-4bac-8175-7e8a83ca3179",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e2a9873c-54dc-43cc-b94e-6203c6356c91",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "398c6061-735a-42a8-9120-4e525931b116",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/545/cells/106d8211-cfb2-4516-922f-f1d891bae647"
+				}
+			},
+			{
+				"i": "8fe7d154-af7a-45a0-8d74-74883f2f6469",
+				"x": 0,
+				"y": 3,
+				"w": 6,
+				"h": 4,
+				"name": "Cabinets temps",
+				"queries": [
+					{
+						"query": "SELECT mean(\"mainCabinetInternalTemperature1\") AS \"MCS internal Temp 1\", mean(\"mainCabinetInternalTemperature0\") AS \"MCS internal Temp 2\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.mainCabinetThermal\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.mainCabinetThermal",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "MCS internal Temp 1",
+									"args": [
+										{
+											"value": "mainCabinetInternalTemperature1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "MCS internal Temp 2",
+									"args": [
+										{
+											"value": "mainCabinetInternalTemperature0",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT mean(\"actualTemperature\") AS \"Cabinet 101 internal temperature\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.cabinet0101Thermal\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.cabinet0101Thermal",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Cabinet 101 internal temperature",
+									"args": [
+										{
+											"value": "actualTemperature",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT mean(\"actualTemperatureAzimuthDriveCabinet0001\") AS \"AZ Drive Cab 0001 temp\", mean(\"actualTemperatureAzimuthPowerDistributionCabinet0001\") AS \"AZ Power Distribution Cab 0001 temp\", mean(\"actualTemperatureAzimuthPowerDistributionTransformer0001\") AS \"AZ Power Distribution Transformer 0001 temp\", mean(\"actualTemperatureElevationPowerDistributionCabinet0001\") AS \"EL Power Distribution Cab 0001 temp\", mean(\"actualTemperatureElevationPowerDistributionCabinet0002\") AS \"EL Power Distribution Cab 0002 temp\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.auxiliaryCabinetsThermal\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.auxiliaryCabinetsThermal",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "AZ Drive Cab 0001 temp",
+									"args": [
+										{
+											"value": "actualTemperatureAzimuthDriveCabinet0001",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "AZ Power Distribution Cab 0001 temp",
+									"args": [
+										{
+											"value": "actualTemperatureAzimuthPowerDistributionCabinet0001",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "AZ Power Distribution Transformer 0001 temp",
+									"args": [
+										{
+											"value": "actualTemperatureAzimuthPowerDistributionTransformer0001",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "EL Power Distribution Cab 0001 temp",
+									"args": [
+										{
+											"value": "actualTemperatureElevationPowerDistributionCabinet0001",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "EL Power Distribution Cab 0002 temp",
+									"args": [
+										{
+											"value": "actualTemperatureElevationPowerDistributionCabinet0002",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT mean(\"internalTemperatureCapacitorBank0\") AS \"Capacitors Bank Cabinet 01 internal temp\", mean(\"internalTemperatureCapacitorBank1\") AS \"Capacitors Bank Cabinet 02 internal temp\", mean(\"internalTemperatureCapacitorBank2\") AS \"Capacitors Bank Cabinet 03 internal temp\", mean(\"internalTemperatureCapacitorBank3\") AS \"Capacitors Bank Cabinet 04 internal temp\", mean(\"internalTemperatureCapacitorBank4\") AS \"Capacitors Bank Cabinet 05 internal temp\", mean(\"internalTemperatureCapacitorBank5\") AS \"Capacitors Bank Cabinet 06 internal temp\", mean(\"internalTemperatureCapacitorBank6\") AS \"Capacitors Bank Cabinet 07 internal temp\", mean(\"internalTemperatureCapacitorBank7\") AS \"Capacitors Bank Cabinet 08 internal temp\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.capacitorBank\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.capacitorBank",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Capacitors Bank Cabinet 01 internal temp",
+									"args": [
+										{
+											"value": "internalTemperatureCapacitorBank0",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Capacitors Bank Cabinet 02 internal temp",
+									"args": [
+										{
+											"value": "internalTemperatureCapacitorBank1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Capacitors Bank Cabinet 03 internal temp",
+									"args": [
+										{
+											"value": "internalTemperatureCapacitorBank2",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Capacitors Bank Cabinet 04 internal temp",
+									"args": [
+										{
+											"value": "internalTemperatureCapacitorBank3",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Capacitors Bank Cabinet 05 internal temp",
+									"args": [
+										{
+											"value": "internalTemperatureCapacitorBank4",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Capacitors Bank Cabinet 06 internal temp",
+									"args": [
+										{
+											"value": "internalTemperatureCapacitorBank5",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Capacitors Bank Cabinet 07 internal temp",
+									"args": [
+										{
+											"value": "internalTemperatureCapacitorBank6",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Capacitors Bank Cabinet 08 internal temp",
+									"args": [
+										{
+											"value": "internalTemperatureCapacitorBank7",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT mean(\"internalTemperatureElectricalCabinet0\") AS \"TEA Cab 04 - Utilities - Internal temp\", mean(\"internalTemperatureElectricalCabinet1\") AS \"TEA Cab 03 - M2Hex - Internal temp\", mean(\"TEA Cab 02 - M2 - Internal temp\") AS \"mean_internalTemperatureElectricalCabinet2\", mean(\"internalTemperatureElectricalCabinet3\") AS \"TEA Cab 03 - Calibrations/M2Hex PXI - Internal temp\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.topEndChiller\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.topEndChiller",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "TEA Cab 04 - Utilities - Internal temp",
+									"args": [
+										{
+											"value": "internalTemperatureElectricalCabinet0",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "TEA Cab 03 - M2Hex - Internal temp",
+									"args": [
+										{
+											"value": "internalTemperatureElectricalCabinet1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_internalTemperatureElectricalCabinet2",
+									"args": [
+										{
+											"value": "TEA Cab 02 - M2 - Internal temp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "TEA Cab 03 - Calibrations/M2Hex PXI - Internal temp",
+									"args": [
+										{
+											"value": "internalTemperatureElectricalCabinet3",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "26b84fee-c23b-4bac-8175-7e8a83ca3179",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e2a9873c-54dc-43cc-b94e-6203c6356c91",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "398c6061-735a-42a8-9120-4e525931b116",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/545/cells/8fe7d154-af7a-45a0-8d74-74883f2f6469"
+				}
+			},
+			{
+				"i": "92a1bad7-12ee-4642-875a-1adf9ed32713",
+				"x": 6,
+				"y": 3,
+				"w": 6,
+				"h": 4,
+				"name": "Top End Assembly volume temps",
+				"queries": [
+					{
+						"query": "SELECT mean(\"temperatureSensor0501\") AS \"CCW internal volume temp\", mean(\"ambientTemperatureSensor0504\") AS \"Cooled air supply temp 01\", mean(\"ambientTemperatureSensor0505\") AS \"Cooled air supply temp 02\", mean(\"ambientTemperatureSensor0502\") AS \"Camera sorunding temp\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.topEndChiller\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.topEndChiller",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "CCW internal volume temp",
+									"args": [
+										{
+											"value": "temperatureSensor0501",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Cooled air supply temp 01",
+									"args": [
+										{
+											"value": "ambientTemperatureSensor0504",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Cooled air supply temp 02",
+									"args": [
+										{
+											"value": "ambientTemperatureSensor0505",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Camera sorunding temp",
+									"args": [
+										{
+											"value": "ambientTemperatureSensor0502",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT \"temperatureItem5\" as \"CamHex Strut 12 temp\", \"temperatureItem4\" as \"CamHex Strut 11 temp\", \"temperatureItem3\" as \"CamHex Strut 10 temp\", \"temperatureItem2\" as \"CamHex Strut 09 temp\", \"temperatureItem1\" as \"CamHex Strut 08 temp\", \"temperatureItem0\" as \"CamHex Strut 07 temp\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"temperatureItem5\" as \"CamHex Strut 12 temp\", \"temperatureItem4\" as \"CamHex Strut 11 temp\", \"temperatureItem3\" as \"CamHex Strut 10 temp\", \"temperatureItem2\" as \"CamHex Strut 09 temp\", \"temperatureItem1\" as \"CamHex Strut 08 temp\", \"temperatureItem0\" as \"CamHex Strut 07 temp\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime:",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT \"temperatureItem6\" as \"ROT Motor 1 temp\", \"temperatureItem7\" as \"ROT Motor 2 temp\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"temperatureItem6\" as \"ROT Motor 1 temp\", \"temperatureItem7\" as \"ROT Motor 2 temp\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime:",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT \"AverageTemp\", \"FanInletTemp\", \"MidXMinusTemp\", \"MidXPlusTemp\", \"SuppXMinusTemp\", \"SuppXPlusTemp\", \"TopXMinusTemp\", \"TopXPlusTemp\", \"W2Q1Temp\", \"W4Q3Temp\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.utiltrunk_ut\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.utiltrunk_ut",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "AverageTemp",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "FanInletTemp",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "MidXMinusTemp",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "MidXPlusTemp",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "SuppXMinusTemp",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "SuppXPlusTemp",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "TopXMinusTemp",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "TopXPlusTemp",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "W2Q1Temp",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "W4Q3Temp",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "26b84fee-c23b-4bac-8175-7e8a83ca3179",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e2a9873c-54dc-43cc-b94e-6203c6356c91",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "398c6061-735a-42a8-9120-4e525931b116",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/545/cells/92a1bad7-12ee-4642-875a-1adf9ed32713"
+				}
+			}
+		],
+		"templates": [],
+		"name": "TMA General Thermal Monitor",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/545",
+			"cells": "/chronograf/v1/dashboards/545/cells",
+			"templates": "/chronograf/v1/dashboards/545/templates"
+		}
+	}
+}

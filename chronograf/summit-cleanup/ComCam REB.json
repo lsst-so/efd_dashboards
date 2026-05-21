@@ -1,0 +1,1683 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "50",
+		"cells": [
+			{
+				"i": "b11e05a4-e06f-4822-9d96-56a081504b3b",
+				"x": 0,
+				"y": 4,
+				"w": 4,
+				"h": 4,
+				"name": "REB 0 Currents",
+				"queries": [
+					{
+						"query": "SELECT \"OD_IaftLDO0\", \"OD_IaftLDO20\", \"OD_IaftSwch0\", \"OD_IbefLDO0\", \"analog_IaftLDO0\", \"analog_IaftSwch0\", \"analog_IbefLDO0\", \"clockhi_IaftLDO0\", \"clockhi_IaftSwch0\", \"clockhi_IbefLDO0\", \"clocklo_IaftLDO0\", \"clocklo_IaftLDO20\", \"clocklo_IaftSwch0\", \"clocklo_IbefLDO0\", \"digital_IaftLDO0\", \"digital_IaftSwch0\", \"digital_IbefLDO0\", \"heater_IaftLDO0\", \"heater_IaftSwch0\", \"heater_IbefLDO0\", \"hvbias_IbefSwch0\" FROM \"efd\".\"autogen\".\"lsst.sal.CCCamera.rebpower_Reb\" WHERE time > :dashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.CCCamera.rebpower_Reb",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "OD_IaftLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "OD_IaftLDO20",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "OD_IaftSwch0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "OD_IbefLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "analog_IaftLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "analog_IaftSwch0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "analog_IbefLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clockhi_IaftLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clockhi_IaftSwch0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clockhi_IbefLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_IaftLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_IaftLDO20",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_IaftSwch0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_IbefLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "digital_IaftLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "digital_IaftSwch0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "digital_IbefLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "heater_IaftLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "heater_IaftSwch0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "heater_IbefLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "hvbias_IbefSwch0",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "(mA)",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "9c817dba-83af-4150-8f85-59528aba723f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a88a1620-8d18-48dd-ab1a-1e80d01efcb3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "90ee8341-5a1a-4ba5-864e-46d16626204c",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/cells/b11e05a4-e06f-4822-9d96-56a081504b3b"
+				}
+			},
+			{
+				"i": "a79d805e-54db-41b2-803a-c335eb05f59e",
+				"x": 8,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "REB 2 Voltages",
+				"queries": [
+					{
+						"query": "SELECT \"OD_VaftLDO2\", \"OD_VaftLDO22\", \"OD_VaftSwch2\", \"OD_VbefLDO2\", \"analog_VaftLDO2\", \"analog_VaftSwch2\", \"analog_VbefLDO2\", \"clockhi_VaftLDO2\", \"clockhi_VaftSwch2\", \"clockhi_VbefLDO2\", \"clocklo_VaftLDO2\", \"clocklo_VaftLDO22\", \"clocklo_VaftSwch2\", \"clocklo_VbefLDO2\", \"digital_VaftLDO2\", \"digital_VaftSwch2\", \"digital_VbefLDO2\", \"heater_VaftLDO2\", \"heater_VaftSwch2\", \"heater_VbefLDO2\", \"hvbias_VbefSwch2\" FROM \"efd\".\"autogen\".\"lsst.sal.CCCamera.rebpower_Reb\" WHERE time > :dashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.CCCamera.rebpower_Reb",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "OD_VaftLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "OD_VaftLDO22",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "OD_VaftSwch2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "OD_VbefLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "analog_VaftLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "analog_VaftSwch2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "analog_VbefLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clockhi_VaftLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clockhi_VaftSwch2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clockhi_VbefLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_VaftLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_VaftLDO22",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_VaftSwch2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_VbefLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "digital_VaftLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "digital_VaftSwch2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "digital_VbefLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "heater_VaftLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "heater_VaftSwch2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "heater_VbefLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "hvbias_VbefSwch2",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "(V)",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "9c817dba-83af-4150-8f85-59528aba723f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a88a1620-8d18-48dd-ab1a-1e80d01efcb3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "90ee8341-5a1a-4ba5-864e-46d16626204c",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/cells/a79d805e-54db-41b2-803a-c335eb05f59e"
+				}
+			},
+			{
+				"i": "8a5d43a2-737c-4944-8c1f-875adcf4fe5b",
+				"x": 4,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "REB 1 Voltages",
+				"queries": [
+					{
+						"query": "SELECT \"OD_VaftLDO1\", \"OD_VaftLDO21\", \"OD_VaftSwch1\", \"OD_VbefLDO1\", \"analog_VaftLDO1\", \"analog_VaftSwch1\", \"analog_VbefLDO1\", \"clockhi_VaftLDO1\", \"clockhi_VaftSwch1\", \"clockhi_VbefLDO1\", \"clocklo_VaftLDO1\", \"clocklo_VaftLDO21\", \"clocklo_VaftSwch1\", \"clocklo_VbefLDO1\", \"digital_VaftLDO1\", \"digital_VaftSwch1\", \"digital_VbefLDO1\", \"heater_VaftLDO1\", \"heater_VaftSwch1\", \"heater_VbefLDO1\", \"hvbias_VbefSwch1\" FROM \"efd\".\"autogen\".\"lsst.sal.CCCamera.rebpower_Reb\" WHERE time > :dashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.CCCamera.rebpower_Reb",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "OD_VaftLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "OD_VaftLDO21",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "OD_VaftSwch1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "OD_VbefLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "analog_VaftLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "analog_VaftSwch1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "analog_VbefLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clockhi_VaftLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clockhi_VaftSwch1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clockhi_VbefLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_VaftLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_VaftLDO21",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_VaftSwch1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_VbefLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "digital_VaftLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "digital_VaftSwch1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "digital_VbefLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "heater_VaftLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "heater_VaftSwch1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "heater_VbefLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "hvbias_VbefSwch1",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "(V)",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "9c817dba-83af-4150-8f85-59528aba723f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a88a1620-8d18-48dd-ab1a-1e80d01efcb3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "90ee8341-5a1a-4ba5-864e-46d16626204c",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/cells/8a5d43a2-737c-4944-8c1f-875adcf4fe5b"
+				}
+			},
+			{
+				"i": "584f8c8c-0c33-4e0f-92a4-899e7851b737",
+				"x": 0,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "REB 0 Voltages",
+				"queries": [
+					{
+						"query": "SELECT \"OD_VaftLDO0\", \"OD_VaftLDO20\", \"OD_VaftSwch0\", \"OD_VbefLDO0\", \"analog_VaftLDO0\", \"analog_VaftSwch0\", \"analog_VbefLDO0\", \"clockhi_VaftLDO0\", \"clockhi_VaftSwch0\", \"clockhi_VbefLDO0\", \"clocklo_VaftLDO0\", \"clocklo_VaftLDO20\", \"clocklo_VaftSwch0\", \"clocklo_VbefLDO0\", \"digital_VaftLDO0\", \"digital_VaftSwch0\", \"digital_VbefLDO0\", \"heater_VaftLDO0\", \"heater_VaftSwch0\", \"heater_VbefLDO0\", \"hvbias_VbefSwch0\" FROM \"efd\".\"autogen\".\"lsst.sal.CCCamera.rebpower_Reb\" WHERE time > :dashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.CCCamera.rebpower_Reb",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "OD_VaftLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "OD_VaftLDO20",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "OD_VaftSwch0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "OD_VbefLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "analog_VaftLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "analog_VaftSwch0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "analog_VbefLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clockhi_VaftLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clockhi_VaftSwch0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clockhi_VbefLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_VaftLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_VaftLDO20",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_VaftSwch0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_VbefLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "digital_VaftLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "digital_VaftSwch0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "digital_VbefLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "heater_VaftLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "heater_VaftSwch0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "heater_VbefLDO0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "hvbias_VbefSwch0",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "(V)",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "9c817dba-83af-4150-8f85-59528aba723f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a88a1620-8d18-48dd-ab1a-1e80d01efcb3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "90ee8341-5a1a-4ba5-864e-46d16626204c",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/cells/584f8c8c-0c33-4e0f-92a4-899e7851b737"
+				}
+			},
+			{
+				"i": "c6e37fa4-8540-4802-935d-9756467387da",
+				"x": 4,
+				"y": 4,
+				"w": 4,
+				"h": 4,
+				"name": "REB 1 Currents",
+				"queries": [
+					{
+						"query": "SELECT \"OD_IaftLDO1\", \"OD_IaftLDO21\", \"OD_IaftSwch1\", \"OD_IbefLDO1\", \"analog_IaftLDO1\", \"analog_IaftSwch1\", \"analog_IbefLDO1\", \"clockhi_IaftLDO1\", \"clockhi_IaftSwch1\", \"clockhi_IbefLDO1\", \"clocklo_IaftLDO1\", \"clocklo_IaftLDO21\", \"clocklo_IaftSwch1\", \"clocklo_IbefLDO1\", \"digital_IaftLDO1\", \"digital_IaftSwch1\", \"digital_IbefLDO1\", \"heater_IaftLDO1\", \"heater_IaftSwch1\", \"heater_IbefLDO1\", \"hvbias_IbefSwch1\" FROM \"efd\".\"autogen\".\"lsst.sal.CCCamera.rebpower_Reb\" WHERE time > :dashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.CCCamera.rebpower_Reb",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "OD_IaftLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "OD_IaftLDO21",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "OD_IaftSwch1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "OD_IbefLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "analog_IaftLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "analog_IaftSwch1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "analog_IbefLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clockhi_IaftLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clockhi_IaftSwch1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clockhi_IbefLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_IaftLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_IaftLDO21",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_IaftSwch1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_IbefLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "digital_IaftLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "digital_IaftSwch1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "digital_IbefLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "heater_IaftLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "heater_IaftSwch1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "heater_IbefLDO1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "hvbias_IbefSwch1",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "(mA)",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "9c817dba-83af-4150-8f85-59528aba723f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a88a1620-8d18-48dd-ab1a-1e80d01efcb3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "90ee8341-5a1a-4ba5-864e-46d16626204c",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/cells/c6e37fa4-8540-4802-935d-9756467387da"
+				}
+			},
+			{
+				"i": "6ed7daf4-74a1-4c80-9115-2f2f5056e7f0",
+				"x": 8,
+				"y": 4,
+				"w": 4,
+				"h": 4,
+				"name": "REB 2 Currents",
+				"queries": [
+					{
+						"query": "SELECT \"OD_IaftLDO2\", \"OD_IaftLDO22\", \"OD_IaftSwch2\", \"OD_IbefLDO2\", \"analog_IaftLDO2\", \"analog_IaftSwch2\", \"analog_IbefLDO2\", \"clockhi_IaftLDO2\", \"clockhi_IaftSwch2\", \"clockhi_IbefLDO2\", \"clocklo_IaftLDO2\", \"clocklo_IaftLDO22\", \"clocklo_IaftSwch2\", \"clocklo_IbefLDO2\", \"digital_IaftLDO2\", \"digital_IaftSwch2\", \"digital_IbefLDO2\", \"heater_IaftLDO2\", \"heater_IaftSwch2\", \"heater_IbefLDO2\", \"hvbias_IbefSwch2\" FROM \"efd\".\"autogen\".\"lsst.sal.CCCamera.rebpower_Reb\" WHERE time > :dashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.CCCamera.rebpower_Reb",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "OD_IaftLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "OD_IaftLDO22",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "OD_IaftSwch2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "OD_IbefLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "analog_IaftLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "analog_IaftSwch2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "analog_IbefLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clockhi_IaftLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clockhi_IaftSwch2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clockhi_IbefLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_IaftLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_IaftLDO22",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_IaftSwch2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "clocklo_IbefLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "digital_IaftLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "digital_IaftSwch2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "digital_IbefLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "heater_IaftLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "heater_IaftSwch2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "heater_IbefLDO2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "hvbias_IbefSwch2",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "(mA)",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "9c817dba-83af-4150-8f85-59528aba723f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a88a1620-8d18-48dd-ab1a-1e80d01efcb3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "90ee8341-5a1a-4ba5-864e-46d16626204c",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/cells/6ed7daf4-74a1-4c80-9115-2f2f5056e7f0"
+				}
+			},
+			{
+				"i": "46e19c0b-e633-449e-9aac-5a5678890e91",
+				"x": 0,
+				"y": 8,
+				"w": 4,
+				"h": 4,
+				"name": "REB Power",
+				"queries": [
+					{
+						"query": "SELECT \"power0\", \"power1\", \"power2\" FROM \"efd\".\"autogen\".\"lsst.sal.CCCamera.rebpower_Reb\" WHERE time > :dashboardTime: ",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.CCCamera.rebpower_Reb",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "power0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "power1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "power2",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "(W)",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "9c817dba-83af-4150-8f85-59528aba723f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a88a1620-8d18-48dd-ab1a-1e80d01efcb3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "90ee8341-5a1a-4ba5-864e-46d16626204c",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/cells/46e19c0b-e633-449e-9aac-5a5678890e91"
+				}
+			},
+			{
+				"i": "02c11ff6-0802-4be6-83f0-0d6d341d03e4",
+				"x": 4,
+				"y": 8,
+				"w": 4,
+				"h": 4,
+				"name": "Power Supply Board Temperatures",
+				"queries": [
+					{
+						"query": "SELECT \"boardTemp0\", \"boardTemp00\", \"boardTemp1\", \"boardTemp10\", \"boardTemp2\", \"boardTemp20\", \"boardTemp3\", \"boardTemp30\", \"boardTemp4\", \"boardTemp40\", \"boardTemp5\", \"boardTemp50\", \"boardTemp6\", \"boardTemp60\" FROM \"efd\".\"autogen\".\"lsst.sal.CCCamera.rebpower_Rebps\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.CCCamera.rebpower_Rebps",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "boardTemp0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "boardTemp00",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "boardTemp1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "boardTemp10",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "boardTemp2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "boardTemp20",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "boardTemp3",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "boardTemp30",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "boardTemp4",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "boardTemp40",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "boardTemp5",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "boardTemp50",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "boardTemp6",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "boardTemp60",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "(℃)",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "9c817dba-83af-4150-8f85-59528aba723f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a88a1620-8d18-48dd-ab1a-1e80d01efcb3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "90ee8341-5a1a-4ba5-864e-46d16626204c",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/cells/02c11ff6-0802-4be6-83f0-0d6d341d03e4"
+				}
+			}
+		],
+		"templates": [],
+		"name": "ComCam REB",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/50",
+			"cells": "/chronograf/v1/dashboards/50/cells",
+			"templates": "/chronograf/v1/dashboards/50/templates"
+		}
+	}
+}

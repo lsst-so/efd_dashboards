@@ -1,0 +1,562 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "463",
+		"cells": [
+			{
+				"i": "8e744fd5-bd26-499d-aa1e-5bbbc5b2f758",
+				"x": 0,
+				"y": 6,
+				"w": 6,
+				"h": 5,
+				"name": "Cryo Ion Pumps",
+				"queries": [
+					{
+						"query": "SELECT \"I\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.vacuum_cryo_cip\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY \"Cip\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.vacuum_cryo_cip",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "I",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Cip"
+								]
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "mA",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "d02026ea-cf20-43e2-b490-edece4d1569c",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "ca90ac0b-e808-462c-b76e-b003a53f6322",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "36230c67-4910-4720-b421-b5309b35b30d",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "**No Data in Intervall**\n\nTelemetry Mapping  \n- 165495 vacuum/Cryo/CIP1_I lsst.MTCamera.vacuum_cryo_cip I {Cip=CIP1, Agent=vacuum}\n- 165499 vacuum/Cryo/CIP2_I lsst.MTCamera.vacuum_cryo_cip I {Cip=CIP2, Agent=vacuum}\n- 165503 vacuum/Cryo/CIP3_I lsst.MTCamera.vacuum_cryo_cip I {Cip=CIP3, Agent=vacuum}\n- 165507 vacuum/Cryo/CIP4_I lsst.MTCamera.vacuum_cryo_cip I {Cip=CIP4, Agent=vacuum}\n- 165511 vacuum/Cryo/CIP5_I lsst.MTCamera.vacuum_cryo_cip I {Cip=CIP5, Agent=vacuum}\n- 165515 vacuum/Cryo/CIP6_I lsst.MTCamera.vacuum_cryo_cip I {Cip=CIP6, Agent=vacuum}\n\n\n\n\n\n\n  \n  \nFrom [MTCamera_trending.map](https://github.com/lsst-camera-ccs/org-lsst-ccs-camera-sal-xml/blob/main/sal-xml-files/src/main/resources/avro/MTCamera_trending.map)\n",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/463/cells/8e744fd5-bd26-499d-aa1e-5bbbc5b2f758"
+				}
+			},
+			{
+				"i": "87c3fc22-72c7-4f26-a277-d24a3b0a749b",
+				"x": 0,
+				"y": 0,
+				"w": 6,
+				"h": 6,
+				"name": "Cryo CryoVacuum",
+				"queries": [
+					{
+						"query": "SELECT \"CryoVac\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.vacuum_cryo\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='vacuum'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.vacuum_cryo",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "CryoVac",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Agent": [
+									"vacuum"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT mean(\"cryoVac\") AS \"mean_CryoVac\" FROM \"efd\".\"autogen\".\"lsst.sal.MTCamera.vacuum_Cryo\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(300s) FILL(previous)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTCamera.vacuum_Cryo",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_CryoVac",
+									"args": [
+										{
+											"value": "cryoVac",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "5m",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "previous",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Torr",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "81bf4e24-c159-49ee-aa44-cbd7ce6e09ee",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a88eff9a-c82a-47b6-8788-2f5296049902",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": false,
+					"digits": 9
+				},
+				"note": "**No Data in Intervall**\n\nTelemetry Mapping  \nkey = 165475  \nvacuum/Cryo/CryoVac\nlsst.MTCamera.vacuum_cryo  \nCryoVac  \n{Agent=vacuum}\n\n\nFrom [MTCamera_trending.map](https://github.com/lsst-camera-ccs/org-lsst-ccs-camera-sal-xml/blob/main/sal-xml-files/src/main/resources/avro/MTCamera_trending.map)\n",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/463/cells/87c3fc22-72c7-4f26-a277-d24a3b0a749b"
+				}
+			},
+			{
+				"i": "faa4f453-215f-492b-a2e9-975e8998ad04",
+				"x": 6,
+				"y": 0,
+				"w": 6,
+				"h": 6,
+				"name": "Hex hexVacuum",
+				"queries": [
+					{
+						"query": "SELECT \"HexVac\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.vacuum_hx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='vacuum'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.vacuum_hx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "HexVac",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Agent": [
+									"vacuum"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Torr",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "97ac39b1-2838-426c-9934-5f5a40cb7a6a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "81bf4e24-c159-49ee-aa44-cbd7ce6e09ee",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a88eff9a-c82a-47b6-8788-2f5296049902",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "**No Data in Intervall**\n\nTelemetry Mapping  \nkey = 165518  \nvacuum/HX/HexVac\nlsst.MTCamera.vacuum_hx  \nHexVac  \n{Agent=vacuum}  \n\nFrom [MTCamera_trending.map](https://github.com/lsst-camera-ccs/org-lsst-ccs-camera-sal-xml/blob/main/sal-xml-files/src/main/resources/avro/MTCamera_trending.map)\n",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/463/cells/faa4f453-215f-492b-a2e9-975e8998ad04"
+				}
+			},
+			{
+				"i": "e017fd46-b9db-46f6-a86c-33f1cad60003",
+				"x": 6,
+				"y": 6,
+				"w": 6,
+				"h": 5,
+				"name": "Hex Ion Pumps",
+				"queries": [
+					{
+						"query": "SELECT \"I\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.vacuum_hx_hip\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY \"Hip\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.vacuum_hx_hip",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "I",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Hip"
+								]
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "mA",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "d02026ea-cf20-43e2-b490-edece4d1569c",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "ca90ac0b-e808-462c-b76e-b003a53f6322",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "36230c67-4910-4720-b421-b5309b35b30d",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "**No Data in Intervall**\n\nTelemetry Mapping  \n- 165538 vacuum/HX/HIP1_I lsst.MTCamera.vacuum_hx_hip I {Hip=HIP1, Agent=vacuum}\n- 165542 vacuum/HX/HIP2_I lsst.MTCamera.vacuum_hx_hip I {Hip=HIP2, Agent=vacuum}\n\nFrom [MTCamera_trending.map](https://github.com/lsst-camera-ccs/org-lsst-ccs-camera-sal-xml/blob/main/sal-xml-files/src/main/resources/avro/MTCamera_trending.map)\n",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/463/cells/e017fd46-b9db-46f6-a86c-33f1cad60003"
+				}
+			}
+		],
+		"templates": [],
+		"name": "LSSTCam - Cryostat vacuum",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/463",
+			"cells": "/chronograf/v1/dashboards/463/cells",
+			"templates": "/chronograf/v1/dashboards/463/templates"
+		}
+	}
+}

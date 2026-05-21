@@ -1,0 +1,166 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "627",
+		"cells": [
+			{
+				"i": "3edd248e-d760-4c72-8cd8-2b1375d84c70",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 9,
+				"name": "MTAirCompressor",
+				"queries": [
+					{
+						"query": "SELECT \"linePressure\" as \"Line 1\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAirCompressor.analogData\" WHERE salIndex=1 and time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"linePressure\" as \"Line 1\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAirCompressor.analogData\" WHERE salIndex=1 and time > :dashboardTime: AND time < :upperDashboardTime:",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT \"linePressure\" as \"Line 2\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAirCompressor.analogData\" WHERE salIndex=2 and time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"linePressure\" as \"Line 2\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAirCompressor.analogData\" WHERE salIndex=2 and time > :dashboardTime: AND time < :upperDashboardTime:",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "46b3095c-84dc-45fb-acb9-ae9b30ed877e",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4a545bce-6354-45fc-b77a-d3f1e2f5d5e0",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "19486fe8-3a4e-4f35-b985-328c404b1672",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.MTCamera.fcs_canbus_hyttc580_temperature.mean_averageClamps",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/627/cells/3edd248e-d760-4c72-8cd8-2b1375d84c70"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Deprecated: MTAirCompressor Raw | Unknown | eng?",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/627",
+			"cells": "/chronograf/v1/dashboards/627/cells",
+			"templates": "/chronograf/v1/dashboards/627/templates"
+		}
+	}
+}

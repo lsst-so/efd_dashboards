@@ -1,0 +1,466 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "76",
+		"cells": [
+			{
+				"i": "edc7dd53-b16a-4d65-bfa7-768b2885a861",
+				"x": 0,
+				"y": 2,
+				"w": 3,
+				"h": 3,
+				"name": "AuxTel Devices",
+				"queries": [
+					{
+						"query": "import \"strings\" \n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.AT.*.logevent_heartbeat/ and (r._field == \"heartbeat\"))\n  |> last()\n  |> group()\n  |> count()\n  \n ",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\" \n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.AT.*.logevent_heartbeat/ and (r._field == \"heartbeat\"))\n  |> last()\n  |> group()\n  |> count()\n  \n ",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					},
+					{
+						"id": "e8c94595-c7ab-4923-aae8-806ef3565739",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "1"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "subsystem",
+						"displayName": "Subsystem",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/76/cells/edc7dd53-b16a-4d65-bfa7-768b2885a861"
+				}
+			},
+			{
+				"i": "24b5a6b1-b5af-4e25-901a-e0691ce85ec9",
+				"x": 0,
+				"y": 5,
+				"w": 7,
+				"h": 3,
+				"name": "Heartbeat counts",
+				"queries": [
+					{
+						"query": "import \"strings\"\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.AT.*.logevent_heartbeat/ and r._field == \"heartbeat\")\n  |> aggregateWindow(every: autoInterval, fn: count)\n  |> map(fn: (r) => ({\n    r with\n    csc: strings.split(v: r._measurement, t: \".\")[2],\n    })\n  )\n  |> group(columns: [\"csc\"])\n  |> keep(columns: [\"_time\", \"csc\", \"_value\"])\n \n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.AT.*.logevent_heartbeat/ and r._field == \"heartbeat\")\n  |> aggregateWindow(every: autoInterval, fn: count)\n  |> map(fn: (r) => ({\n    r with\n    csc: strings.split(v: r._measurement, t: \".\")[2],\n    })\n  )\n  |> group(columns: [\"csc\"])\n  |> keep(columns: [\"_time\", \"csc\", \"_value\"])\n \n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Heartbeat counts",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "a2795cfd-a66a-42e0-a67b-4afc9f88992a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "d2e20622-f62b-479a-afef-2bca227c1b9b",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e399926d-e045-480e-b690-a406568fab0f",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/76/cells/24b5a6b1-b5af-4e25-901a-e0691ce85ec9"
+				}
+			},
+			{
+				"i": "4e26aee5-9d38-428a-ad78-0924da556de8",
+				"x": 0,
+				"y": 0,
+				"w": 7,
+				"h": 2,
+				"name": "Usage",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "AuxTel status\n=============\n\nUse heartbeat counts to monitor AuxTel status.\n\nSuggested dashboard time ``Past 24h``",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/76/cells/4e26aee5-9d38-428a-ad78-0924da556de8"
+				}
+			},
+			{
+				"i": "50535b72-d455-4d6a-8df7-ccf62e81a44a",
+				"x": 3,
+				"y": 2,
+				"w": 7,
+				"h": 3,
+				"name": "AuxTel status and downtime",
+				"queries": [
+					{
+						"query": "import \"strings\" \n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.AT.*.logevent_heartbeat/ and (r._field == \"heartbeat\"))\n  |> aggregateWindow(every: 1m, fn: count)\n  |> stateCount(fn: (r) => r._value == 0, \n  \tcolumn: \"downtime\"\n   )\n  |> last()\n  |> map(fn: (r) => ({\n    r with\n    csc: strings.split(v: r._measurement, t: \".\")[2],\n    status: if r._value > 1 then \"Up\" else \"Down\",\n    downtime: r.downtime + 1\n  }))\n  |> keep(columns:[\"csc\", \"status\", \"downtime\"])\n\n \n ",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\" \n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.AT.*.logevent_heartbeat/ and (r._field == \"heartbeat\"))\n  |> aggregateWindow(every: 1m, fn: count)\n  |> stateCount(fn: (r) => r._value == 0, \n  \tcolumn: \"downtime\"\n   )\n  |> last()\n  |> map(fn: (r) => ({\n    r with\n    csc: strings.split(v: r._measurement, t: \".\")[2],\n    status: if r._value > 1 then \"Up\" else \"Down\",\n    downtime: r.downtime + 1\n  }))\n  |> keep(columns:[\"csc\", \"status\", \"downtime\"])\n\n \n ",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					},
+					{
+						"id": "e8c94595-c7ab-4923-aae8-806ef3565739",
+						"type": "text",
+						"hex": "#BF3D5E",
+						"name": "ruby",
+						"value": "1"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "subsystem",
+						"displayName": "Subsystem",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "csc",
+						"displayName": "AuxTel Device",
+						"visible": true
+					},
+					{
+						"internalName": "status",
+						"displayName": "Status",
+						"visible": true
+					},
+					{
+						"internalName": "downtime",
+						"displayName": "Downtime (min)",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/76/cells/50535b72-d455-4d6a-8df7-ccf62e81a44a"
+				}
+			}
+		],
+		"templates": [],
+		"name": "AT CSC status",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/76",
+			"cells": "/chronograf/v1/dashboards/76/cells",
+			"templates": "/chronograf/v1/dashboards/76/templates"
+		}
+	}
+}

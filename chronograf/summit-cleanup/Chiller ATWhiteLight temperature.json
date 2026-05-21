@@ -1,0 +1,179 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "338",
+		"cells": [
+			{
+				"i": "2b47a93e-5604-4103-bc6f-6a75b8cf00d8",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 8,
+				"name": "Untitled Graph",
+				"queries": [
+					{
+						"query": "SELECT mean(\"ambientTemperature\") AS \"mean_ambientTemperature\", mean(\"supplyTemperature\") AS \"mean_supplyTemperature\", mean(\"setTemperature\") AS \"mean_setTemperature\" FROM \"efd\".\"autogen\".\"lsst.sal.ATWhiteLight.chillerTemperatures\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ATWhiteLight.chillerTemperatures",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_ambientTemperature",
+									"args": [
+										{
+											"value": "ambientTemperature",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyTemperature",
+									"args": [
+										{
+											"value": "supplyTemperature",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_setTemperature",
+									"args": [
+										{
+											"value": "setTemperature",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "19f5d72d-79eb-4caf-83ae-81736048f99b",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "243a4c23-6fd3-42e7-a0a8-c91c0c213c8a",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a42c2291-feb6-4559-b6fa-4bfd9d5994c9",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/338/cells/2b47a93e-5604-4103-bc6f-6a75b8cf00d8"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Chiller ATWhiteLight temperature",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/338",
+			"cells": "/chronograf/v1/dashboards/338/cells",
+			"templates": "/chronograf/v1/dashboards/338/templates"
+		}
+	}
+}

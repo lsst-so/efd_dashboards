@@ -1,0 +1,283 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "58",
+		"cells": [
+			{
+				"i": "47e9476d-a9c4-4c25-a9f7-528e789b5cba",
+				"x": 0,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "DAQ Store Capacity",
+				"queries": [
+					{
+						"query": "SELECT \"capacity\", \"freeSpace\" FROM \"efd\".\"autogen\".\"lsst.sal.ATCamera.daq_monitor_Store\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ATCamera.daq_monitor_Store",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "capacity",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "freeSpace",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Storage Capacity",
+						"prefix": "",
+						"suffix": " GB",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "4cbdce1f-c673-48ee-9c54-91b516a4b4bf",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "70ba460a-ef70-41b6-b6af-940e66df9adf",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "552003b6-db3a-439c-8542-f24fd68a2d82",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/58/cells/47e9476d-a9c4-4c25-a9f7-528e789b5cba"
+				}
+			},
+			{
+				"i": "922b8982-bae7-444d-8b8a-dbe37dd26a67",
+				"x": 4,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "DAQ Store Free Fraction",
+				"queries": [
+					{
+						"query": "SELECT \"freeFraction\" FROM \"efd\".\"autogen\".\"lsst.sal.ATCamera.daq_monitor_Store\" ORDER BY time DESC LIMIT 1",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"freeFraction\" FROM \"efd\".\"autogen\".\"lsst.sal.ATCamera.daq_monitor_Store\" ORDER BY time DESC LIMIT 1",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "",
+						"scale": ""
+					}
+				},
+				"type": "gauge",
+				"colors": [
+					{
+						"id": "0",
+						"type": "min",
+						"hex": "#BF3D5E",
+						"name": "ruby",
+						"value": "0"
+					},
+					{
+						"id": "6eaa3504-8096-463b-8004-0d426efaa0c8",
+						"type": "threshold",
+						"hex": "#FFB94A",
+						"name": "pineapple",
+						"value": "0.1"
+					},
+					{
+						"id": "140c4c5d-0524-46e6-a1cf-d0135e6b45b4",
+						"type": "threshold",
+						"hex": "#F48D38",
+						"name": "tiger",
+						"value": "0.25"
+					},
+					{
+						"id": "542e1e06-7af0-4b0d-93fd-b179ecbb0d89",
+						"type": "threshold",
+						"hex": "#4ED8A0",
+						"name": "rainforest",
+						"value": "0.5"
+					},
+					{
+						"id": "1",
+						"type": "max",
+						"hex": "#9394FF",
+						"name": "comet",
+						"value": "1"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/58/cells/922b8982-bae7-444d-8b8a-dbe37dd26a67"
+				}
+			}
+		],
+		"templates": [],
+		"name": "AuxTel DAQ",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/58",
+			"cells": "/chronograf/v1/dashboards/58/cells",
+			"templates": "/chronograf/v1/dashboards/58/templates"
+		}
+	}
+}

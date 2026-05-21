@@ -1,0 +1,1077 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "373",
+		"cells": [
+			{
+				"i": "f804abb0-9687-4c18-8707-28b8c7a03033",
+				"x": 0,
+				"y": 6,
+				"w": 6,
+				"h": 2,
+				"name": "Sal Index 108 - Photodiode PrimaryMirror MaskChanger ElectronicsCabinet",
+				"queries": [
+					{
+						"query": "SELECT mean(\"temperatureItem0\") AS \"mean_temperatureItem0\", mean(\"temperatureItem1\") AS \"mean_temperatureItem1\", mean(\"temperatureItem2\") AS \"mean_temperatureItem2\", mean(\"temperatureItem3\") AS \"mean_temperatureItem3\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 108 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"temperatureItem0\") AS \"mean_temperatureItem0\", mean(\"temperatureItem1\") AS \"mean_temperatureItem1\", mean(\"temperatureItem2\") AS \"mean_temperatureItem2\", mean(\"temperatureItem3\") AS \"mean_temperatureItem3\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 108 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Temperature [ºC]",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "30f7f7aa-090d-4467-9655-f7291e283853",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5ab3c4da-e410-419d-b890-f1ca33ed82fd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8acc3692-2ce0-4ad2-8c05-e8a3e51362e1",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/373/cells/f804abb0-9687-4c18-8707-28b8c7a03033"
+				}
+			},
+			{
+				"i": "aa699a2f-af4d-42b8-88b2-d57d3306974d",
+				"x": 0,
+				"y": 8,
+				"w": 6,
+				"h": 2,
+				"name": "Sal Index 201 - AT Azimuth Axis",
+				"queries": [
+					{
+						"query": "SELECT mean(\"temperatureItem0\") AS \"mean_temperatureItem0\", mean(\"temperatureItem1\") AS \"mean_temperatureItem1\", mean(\"temperatureItem2\") AS \"mean_temperatureItem2\", mean(\"temperatureItem3\") AS \"mean_temperatureItem3\", mean(\"temperatureItem4\") AS \"mean_temperatureItem4\", mean(\"temperatureItem5\") AS \"mean_temperatureItem5\", mean(\"temperatureItem6\") AS \"mean_temperatureItem6\", mean(\"temperatureItem7\") AS \"mean_temperatureItem7\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 201 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"temperatureItem0\") AS \"mean_temperatureItem0\", mean(\"temperatureItem1\") AS \"mean_temperatureItem1\", mean(\"temperatureItem2\") AS \"mean_temperatureItem2\", mean(\"temperatureItem3\") AS \"mean_temperatureItem3\", mean(\"temperatureItem4\") AS \"mean_temperatureItem4\", mean(\"temperatureItem5\") AS \"mean_temperatureItem5\", mean(\"temperatureItem6\") AS \"mean_temperatureItem6\", mean(\"temperatureItem7\") AS \"mean_temperatureItem7\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 201 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Temperature [ºC]",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "30f7f7aa-090d-4467-9655-f7291e283853",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5ab3c4da-e410-419d-b890-f1ca33ed82fd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8acc3692-2ce0-4ad2-8c05-e8a3e51362e1",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/373/cells/aa699a2f-af4d-42b8-88b2-d57d3306974d"
+				}
+			},
+			{
+				"i": "d3eef766-c0a1-4c87-80ec-4b6c60218c91",
+				"x": 6,
+				"y": 4,
+				"w": 6,
+				"h": 2,
+				"name": "Sal Index 107 - Laser Enclosure",
+				"queries": [
+					{
+						"query": "SELECT mean(\"temperatureItem0\") AS \"mean_temperatureItem0\", mean(\"temperatureItem1\") AS \"mean_temperatureItem1\", mean(\"temperatureItem2\") AS \"mean_temperatureItem2\", mean(\"temperatureItem3\") AS \"mean_temperatureItem3\", mean(\"temperatureItem4\") AS \"mean_temperatureItem4\", mean(\"temperatureItem5\") AS \"mean_temperatureItem5\", mean(\"temperatureItem6\") AS \"mean_temperatureItem6\", mean(\"temperatureItem7\") AS \"mean_temperatureItem7\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 107 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"temperatureItem0\") AS \"mean_temperatureItem0\", mean(\"temperatureItem1\") AS \"mean_temperatureItem1\", mean(\"temperatureItem2\") AS \"mean_temperatureItem2\", mean(\"temperatureItem3\") AS \"mean_temperatureItem3\", mean(\"temperatureItem4\") AS \"mean_temperatureItem4\", mean(\"temperatureItem5\") AS \"mean_temperatureItem5\", mean(\"temperatureItem6\") AS \"mean_temperatureItem6\", mean(\"temperatureItem7\") AS \"mean_temperatureItem7\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 107 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "30f7f7aa-090d-4467-9655-f7291e283853",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5ab3c4da-e410-419d-b890-f1ca33ed82fd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8acc3692-2ce0-4ad2-8c05-e8a3e51362e1",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/373/cells/d3eef766-c0a1-4c87-80ec-4b6c60218c91"
+				}
+			},
+			{
+				"i": "526e9f69-745c-4997-aef6-99600eb92ab7",
+				"x": 6,
+				"y": 2,
+				"w": 6,
+				"h": 2,
+				"name": "Sal Index 111 - Camera inlet plane; RPi with sticker 3",
+				"queries": [
+					{
+						"query": "SELECT mean(\"temperatureItem0\") AS \"Camera Inlet Plane\", mean(\"temperatureItem1\") AS \"RPi with sticker 3\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 111 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"temperatureItem0\") AS \"Camera Inlet Plane\", mean(\"temperatureItem1\") AS \"RPi with sticker 3\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 111 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Temperature [ºC]",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "30f7f7aa-090d-4467-9655-f7291e283853",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5ab3c4da-e410-419d-b890-f1ca33ed82fd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8acc3692-2ce0-4ad2-8c05-e8a3e51362e1",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/373/cells/526e9f69-745c-4997-aef6-99600eb92ab7"
+				}
+			},
+			{
+				"i": "b02c15f9-88d1-48f8-9b51-2e0859ce87f5",
+				"x": 0,
+				"y": 2,
+				"w": 6,
+				"h": 2,
+				"name": "Sal Index 106 - M2 Tangent Links",
+				"queries": [
+					{
+						"query": "SELECT mean(\"temperatureItem1\") AS \"Tangent link A1\", mean(\"temperatureItem2\") AS \"Tangent link A2\", mean(\"temperatureItem3\") AS \"Tangent link A3\", mean(\"temperatureItem4\") AS \"Tangent link A4\", mean(\"temperatureItem5\") AS \"Tangent link A5\", mean(\"temperatureItem6\") AS \"Tangent link A6\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 106 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"temperatureItem1\") AS \"Tangent link A1\", mean(\"temperatureItem2\") AS \"Tangent link A2\", mean(\"temperatureItem3\") AS \"Tangent link A3\", mean(\"temperatureItem4\") AS \"Tangent link A4\", mean(\"temperatureItem5\") AS \"Tangent link A5\", mean(\"temperatureItem6\") AS \"Tangent link A6\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 106 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Temperature [ºC]",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "30f7f7aa-090d-4467-9655-f7291e283853",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5ab3c4da-e410-419d-b890-f1ca33ed82fd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8acc3692-2ce0-4ad2-8c05-e8a3e51362e1",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/373/cells/b02c15f9-88d1-48f8-9b51-2e0859ce87f5"
+				}
+			},
+			{
+				"i": "a07ddebb-6a87-4f55-8343-26870a3dbc04",
+				"x": 6,
+				"y": 6,
+				"w": 6,
+				"h": 2,
+				"name": "Sal Index 201 - M1 Sensors",
+				"queries": [
+					{
+						"query": "SELECT mean(\"temperatureItem0\") AS \"mean_temperatureItem0\", mean(\"temperatureItem1\") AS \"mean_temperatureItem1\", mean(\"temperatureItem2\") AS \"mean_temperatureItem2\", mean(\"temperatureItem3\") AS \"mean_temperatureItem3\", mean(\"temperatureItem4\") AS \"mean_temperatureItem4\", mean(\"temperatureItem5\") AS \"mean_temperatureItem5\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 201 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"temperatureItem0\") AS \"mean_temperatureItem0\", mean(\"temperatureItem1\") AS \"mean_temperatureItem1\", mean(\"temperatureItem2\") AS \"mean_temperatureItem2\", mean(\"temperatureItem3\") AS \"mean_temperatureItem3\", mean(\"temperatureItem4\") AS \"mean_temperatureItem4\", mean(\"temperatureItem5\") AS \"mean_temperatureItem5\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 201 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Temperature [ºC]",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "30f7f7aa-090d-4467-9655-f7291e283853",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5ab3c4da-e410-419d-b890-f1ca33ed82fd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8acc3692-2ce0-4ad2-8c05-e8a3e51362e1",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/373/cells/a07ddebb-6a87-4f55-8343-26870a3dbc04"
+				}
+			},
+			{
+				"i": "89ceb34c-c0fa-424d-8a16-699ac70e0199",
+				"x": 0,
+				"y": 4,
+				"w": 6,
+				"h": 2,
+				"name": "Sal Index 113 - M1M3; RPi with sticker 4",
+				"queries": [
+					{
+						"query": "SELECT mean(\"temperatureItem0\") AS \"M1M3\", mean(\"temperatureItem1\") AS \"RPi with sticker 4\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 113 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"temperatureItem0\") AS \"M1M3\", mean(\"temperatureItem1\") AS \"RPi with sticker 4\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 113 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Temperature [ºC]",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "30f7f7aa-090d-4467-9655-f7291e283853",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5ab3c4da-e410-419d-b890-f1ca33ed82fd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8acc3692-2ce0-4ad2-8c05-e8a3e51362e1",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/373/cells/89ceb34c-c0fa-424d-8a16-699ac70e0199"
+				}
+			},
+			{
+				"i": "3d1eb123-311e-4f69-aa05-3355652a5e42",
+				"x": 6,
+				"y": 0,
+				"w": 6,
+				"h": 2,
+				"name": "Sal Index 1 - Rotator",
+				"queries": [
+					{
+						"query": "SELECT mean(\"temperatureItem6\") AS \"Rotator Motor 1\", mean(\"temperatureItem7\") AS \"Rotator Motor 2\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"temperatureItem6\") AS \"Rotator Motor 1\", mean(\"temperatureItem7\") AS \"Rotator Motor 2\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Temperature [ºC]",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "20e9e6fa-698f-4811-9fe0-3458bb8cffb3",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "6d2f5cef-8876-4723-863f-7c4aba4b7077",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "fc4613a6-ae60-4212-a611-b778c4c44a7d",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/373/cells/3d1eb123-311e-4f69-aa05-3355652a5e42"
+				}
+			},
+			{
+				"i": "a5415f3b-fd3c-4d06-9e3c-128d7957d3d5",
+				"x": 0,
+				"y": 0,
+				"w": 6,
+				"h": 2,
+				"name": "Sal Index 1 - Camera Hexapod",
+				"queries": [
+					{
+						"query": "SELECT mean(\"temperatureItem0\") AS \"CamHex Strut 7\", mean(\"temperatureItem1\") AS \"CamHex Strut 8\", mean(\"temperatureItem2\") AS \"CamHex Strut 9\", mean(\"temperatureItem3\") AS \"CamHex Strut 10\", mean(\"temperatureItem4\") AS \"CamHex Strut 11\", mean(\"temperatureItem5\") AS \"CamHex Strut 12\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null) ",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"temperatureItem0\") AS \"CamHex Strut 7\", mean(\"temperatureItem1\") AS \"CamHex Strut 8\", mean(\"temperatureItem2\") AS \"CamHex Strut 9\", mean(\"temperatureItem3\") AS \"CamHex Strut 10\", mean(\"temperatureItem4\") AS \"CamHex Strut 11\", mean(\"temperatureItem5\") AS \"CamHex Strut 12\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null) ",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Temperature [ºC]",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "20e9e6fa-698f-4811-9fe0-3458bb8cffb3",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "6d2f5cef-8876-4723-863f-7c4aba4b7077",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "fc4613a6-ae60-4212-a611-b778c4c44a7d",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/373/cells/a5415f3b-fd3c-4d06-9e3c-128d7957d3d5"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Temperatures",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/373",
+			"cells": "/chronograf/v1/dashboards/373/cells",
+			"templates": "/chronograf/v1/dashboards/373/templates"
+		}
+	}
+}

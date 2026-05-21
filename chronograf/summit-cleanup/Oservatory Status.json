@@ -1,0 +1,152 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "738",
+		"cells": [
+			{
+				"i": "4ddea439-c63a-4b0d-9747-b684c15f6f1e",
+				"x": 0,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "Simonyi Telescope",
+				"queries": [
+					{
+						"query": "SELECT \"statusLabels\", \"status\", \"note\", \"private_identity\", \"salIndex\" FROM \"efd\".\"autogen\".\"lsst.sal.Scheduler.logevent_observatoryStatus\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 1.00",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"statusLabels\", \"status\", \"note\", \"private_identity\", \"salIndex\" FROM \"efd\".\"autogen\".\"lsst.sal.Scheduler.logevent_observatoryStatus\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 1.00",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "",
+						"scale": ""
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.Scheduler.logevent_observatoryStatus.statusLabels",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.Scheduler.logevent_observatoryStatus.status",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.Scheduler.logevent_observatoryStatus.note",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.Scheduler.logevent_observatoryStatus.private_identity",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.Scheduler.logevent_observatoryStatus.salIndex",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/738/cells/4ddea439-c63a-4b0d-9747-b684c15f6f1e"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Oservatory Status",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/738",
+			"cells": "/chronograf/v1/dashboards/738/cells",
+			"templates": "/chronograf/v1/dashboards/738/templates"
+		}
+	}
+}

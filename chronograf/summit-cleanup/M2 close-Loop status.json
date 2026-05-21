@@ -1,0 +1,235 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "322",
+		"cells": [
+			{
+				"i": "e09c5e7f-87f3-4052-9ea6-c8b225b5176a",
+				"x": 5,
+				"y": 0,
+				"w": 6,
+				"h": 10,
+				"name": "M2 Closed_Loop_Status / 1 Idle./ 2 Telemetry_only / 3 Open-loop / 4 Closed-loop (clone 1)",
+				"queries": [
+					{
+						"query": "SELECT \"mode\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.logevent_closedLoopControlMode\" ORDER BY time DESC LIMIT 5",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"mode\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.logevent_closedLoopControlMode\" ORDER BY time DESC LIMIT 5",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTM2.logevent_closedLoopControlMode.mode",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/322/cells/e09c5e7f-87f3-4052-9ea6-c8b225b5176a"
+				}
+			},
+			{
+				"i": "e8abb9cf-e392-40e2-bc8a-06321bdad76e",
+				"x": 0,
+				"y": 0,
+				"w": 5,
+				"h": 4,
+				"name": "M2 Closed_Loop_Status / 1 Idle./ 2 Telemetry_only / 3 Open-loop / 4 Closed-loop",
+				"queries": [
+					{
+						"query": "SELECT \"mode\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.logevent_closedLoopControlMode\" ORDER BY time DESC LIMIT 1",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"mode\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.logevent_closedLoopControlMode\" ORDER BY time DESC LIMIT 1",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/322/cells/e8abb9cf-e392-40e2-bc8a-06321bdad76e"
+				}
+			}
+		],
+		"templates": [],
+		"name": "M2 close-Loop status",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/322",
+			"cells": "/chronograf/v1/dashboards/322/cells",
+			"templates": "/chronograf/v1/dashboards/322/templates"
+		}
+	}
+}

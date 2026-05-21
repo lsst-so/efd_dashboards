@@ -1,0 +1,958 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "229",
+		"cells": [
+			{
+				"i": "861e6f08-b64d-4a63-a619-f08bf374707b",
+				"x": 0,
+				"y": 9,
+				"w": 12,
+				"h": 5,
+				"name": "Balance moments",
+				"queries": [
+					{
+						"query": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTM1M3.appliedBalanceForces\")\n  |> filter(fn: (r) => r[\"_field\"] =~ /^m[xyz]$/)\n\n\nif v.Function == \"Raw\" then\n  data\nelse\n  if v.Downsample == \"Default\" then\n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)      \n    else \n      data\n  else     \n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else \n      data",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTM1M3.appliedBalanceForces\")\n  |> filter(fn: (r) => r[\"_field\"] =~ /^m[xyz]$/)\n\n\nif v.Function == \"Raw\" then\n  data\nelse\n  if v.Downsample == \"Default\" then\n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)      \n    else \n      data\n  else     \n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else \n      data",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stepplot",
+				"colors": [
+					{
+						"id": "6bd07a67-0d88-4484-9003-fa080add7392",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "c75f8eb4-1373-4185-a836-368ded34ba0f",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "f7bcf5e2-6de5-41fd-82a2-6424f74b76a7",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/229/cells/861e6f08-b64d-4a63-a619-f08bf374707b"
+				}
+			},
+			{
+				"i": "8334937f-53d5-4b92-958a-c6987a3c38ca",
+				"x": 0,
+				"y": 24,
+				"w": 12,
+				"h": 5,
+				"name": "TMA Azimuth",
+				"queries": [
+					{
+						"query": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.azimuth\")\n  |> filter(fn: (r) => r[\"_field\"] == \"actualPosition\")\n\nif v.Function == \"Raw\" then\n  data\nelse\n  if v.Downsample == \"Default\" then\n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)      \n    else \n      data\n  else     \n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else \n      data",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.azimuth\")\n  |> filter(fn: (r) => r[\"_field\"] == \"actualPosition\")\n\nif v.Function == \"Raw\" then\n  data\nelse\n  if v.Downsample == \"Default\" then\n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)      \n    else \n      data\n  else     \n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else \n      data",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stepplot",
+				"colors": [
+					{
+						"id": "1d5796d2-2b9e-4913-a2c6-116a39906cfd",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "16b466b1-6b66-40f8-b1ae-1f8404a80fe3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "fcbf540a-c053-4e2f-94ac-e5028da4fd7f",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/229/cells/8334937f-53d5-4b92-958a-c6987a3c38ca"
+				}
+			},
+			{
+				"i": "a04be1c7-49d7-4110-a741-8bd150fb4d37",
+				"x": 0,
+				"y": 29,
+				"w": 12,
+				"h": 5,
+				"name": "TMA Azimuth Torque",
+				"queries": [
+					{
+						"query": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.azimuth\")\n  |> filter(fn: (r) => r[\"_field\"] == \"actualTorque\")\n\nif v.Function == \"Raw\" then\n  data\nelse\n  if v.Downsample == \"Default\" then\n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)      \n    else \n      data\n  else     \n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else \n      data",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.azimuth\")\n  |> filter(fn: (r) => r[\"_field\"] == \"actualTorque\")\n\nif v.Function == \"Raw\" then\n  data\nelse\n  if v.Downsample == \"Default\" then\n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)      \n    else \n      data\n  else     \n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else \n      data",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stepplot",
+				"colors": [
+					{
+						"id": "1d5796d2-2b9e-4913-a2c6-116a39906cfd",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "16b466b1-6b66-40f8-b1ae-1f8404a80fe3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "fcbf540a-c053-4e2f-94ac-e5028da4fd7f",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/229/cells/a04be1c7-49d7-4110-a741-8bd150fb4d37"
+				}
+			},
+			{
+				"i": "438903b0-1aaf-43c1-aa9f-a01c4a08f3f2",
+				"x": 0,
+				"y": 4,
+				"w": 12,
+				"h": 5,
+				"name": "Balance forces",
+				"queries": [
+					{
+						"query": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTM1M3.appliedBalanceForces\")\n  |> filter(fn: (r) => r[\"_field\"] =~ /^f[xyz]$/)\n\n\nif v.Function == \"Raw\" then\n  data\nelse\n  if v.Downsample == \"Default\" then\n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)      \n    else \n      data\n  else     \n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else \n      data",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTM1M3.appliedBalanceForces\")\n  |> filter(fn: (r) => r[\"_field\"] =~ /^f[xyz]$/)\n\n\nif v.Function == \"Raw\" then\n  data\nelse\n  if v.Downsample == \"Default\" then\n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)      \n    else \n      data\n  else     \n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else \n      data",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stepplot",
+				"colors": [
+					{
+						"id": "6bd07a67-0d88-4484-9003-fa080add7392",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "c75f8eb4-1373-4185-a836-368ded34ba0f",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "f7bcf5e2-6de5-41fd-82a2-6424f74b76a7",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/229/cells/438903b0-1aaf-43c1-aa9f-a01c4a08f3f2"
+				}
+			},
+			{
+				"i": "ff4be968-ca4b-48b0-b92c-27b1990fb86d",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 4,
+				"name": "Hardpoints Forces",
+				"queries": [
+					{
+						"query": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTM1M3.hardpointActuatorData\")\n  |> filter(fn: (r) => r[\"_field\"] =~ /measuredForce./)\n\n\nif v.Function == \"Raw\" then\n  data\nelse\n  if v.Downsample == \"Default\" then\n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)      \n    else if v.Function == \"skew\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: skew, createEmpty: false)            \n    else \n      data\n  else     \n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else if v.Function == \"skew\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: skew, createEmpty: false)     \n    else \n      data",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTM1M3.hardpointActuatorData\")\n  |> filter(fn: (r) => r[\"_field\"] =~ /measuredForce./)\n\n\nif v.Function == \"Raw\" then\n  data\nelse\n  if v.Downsample == \"Default\" then\n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)      \n    else if v.Function == \"skew\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: skew, createEmpty: false)            \n    else \n      data\n  else     \n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else if v.Function == \"skew\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: skew, createEmpty: false)     \n    else \n      data",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stepplot",
+				"colors": [
+					{
+						"id": "50c00776-0885-44a0-a8b2-41bdf795f865",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "982d1eb5-2619-46d0-9031-9c9a3abcb7d2",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "3f7485e5-076a-4fad-94c3-9823d66a4926",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/229/cells/ff4be968-ca4b-48b0-b92c-27b1990fb86d"
+				}
+			},
+			{
+				"i": "16c6f755-0653-4065-afe2-a4e1bda5d74c",
+				"x": 0,
+				"y": 14,
+				"w": 12,
+				"h": 5,
+				"name": "TMA Elevation",
+				"queries": [
+					{
+						"query": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.elevation\")\n  |> filter(fn: (r) => r[\"_field\"] == \"actualPosition\")\n\nif v.Function == \"Raw\" then\n  data\nelse\n  if v.Downsample == \"Default\" then\n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)      \n    else \n      data\n  else     \n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else \n      data",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.elevation\")\n  |> filter(fn: (r) => r[\"_field\"] == \"actualPosition\")\n\nif v.Function == \"Raw\" then\n  data\nelse\n  if v.Downsample == \"Default\" then\n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)      \n    else \n      data\n  else     \n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else \n      data",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stepplot",
+				"colors": [
+					{
+						"id": "1d5796d2-2b9e-4913-a2c6-116a39906cfd",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "16b466b1-6b66-40f8-b1ae-1f8404a80fe3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "fcbf540a-c053-4e2f-94ac-e5028da4fd7f",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/229/cells/16c6f755-0653-4065-afe2-a4e1bda5d74c"
+				}
+			},
+			{
+				"i": "289b695b-f37e-4d1c-b819-c358d5e9944c",
+				"x": 0,
+				"y": 19,
+				"w": 12,
+				"h": 5,
+				"name": "TMA Elevation Torque",
+				"queries": [
+					{
+						"query": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.elevation\")\n  |> filter(fn: (r) => r[\"_field\"] == \"actualTorque\")\n\nif v.Function == \"Raw\" then\n  data\nelse\n  if v.Downsample == \"Default\" then\n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)      \n    else \n      data\n  else     \n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else \n      data",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.elevation\")\n  |> filter(fn: (r) => r[\"_field\"] == \"actualTorque\")\n\nif v.Function == \"Raw\" then\n  data\nelse\n  if v.Downsample == \"Default\" then\n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)      \n    else \n      data\n  else     \n    if v.Function == \"min\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: min, createEmpty: false)\n    else if v.Function == \"max\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: max, createEmpty: false)\n    else if v.Function == \"mean\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: mean, createEmpty: false)\n    else if v.Function == \"spread\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else if v.Function == \"stddev\" then \n      data |> aggregateWindow(every: duration(v: v.Downsample), fn: spread, createEmpty: false)\n    else \n      data",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stepplot",
+				"colors": [
+					{
+						"id": "1d5796d2-2b9e-4913-a2c6-116a39906cfd",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "16b466b1-6b66-40f8-b1ae-1f8404a80fe3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "fcbf540a-c053-4e2f-94ac-e5028da4fd7f",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/229/cells/289b695b-f37e-4d1c-b819-c358d5e9944c"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":Downsample:",
+				"values": [
+					{
+						"value": "Default",
+						"type": "map",
+						"selected": true,
+						"key": "Default"
+					},
+					{
+						"value": "1s",
+						"type": "map",
+						"selected": false,
+						"key": "1Hz"
+					},
+					{
+						"value": "200ms",
+						"type": "map",
+						"selected": false,
+						"key": "5Hz"
+					},
+					{
+						"value": "100ms",
+						"type": "map",
+						"selected": false,
+						"key": "10Hz"
+					},
+					{
+						"value": "40ms",
+						"type": "map",
+						"selected": false,
+						"key": "25Hz"
+					},
+					{
+						"value": "20ms",
+						"type": "map",
+						"selected": false,
+						"key": "50Hz"
+					}
+				],
+				"id": "8680c4af-add8-4b7d-9775-945eea636d6f",
+				"type": "map",
+				"label": "",
+				"query": {
+					"influxql": "",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"sourceID": "dynamic",
+				"links": {
+					"self": "/chronograf/v1/dashboards/229/templates/8680c4af-add8-4b7d-9775-945eea636d6f"
+				}
+			},
+			{
+				"tempVar": ":Function:",
+				"values": [
+					{
+						"value": "Raw",
+						"type": "map",
+						"selected": false,
+						"key": "raw"
+					},
+					{
+						"value": "stddev",
+						"type": "map",
+						"selected": false,
+						"key": "stddev()"
+					},
+					{
+						"value": "min",
+						"type": "map",
+						"selected": false,
+						"key": "min()"
+					},
+					{
+						"value": "max",
+						"type": "map",
+						"selected": false,
+						"key": "max()"
+					},
+					{
+						"value": "spread",
+						"type": "map",
+						"selected": false,
+						"key": "spread()"
+					},
+					{
+						"value": "mean",
+						"type": "map",
+						"selected": true,
+						"key": "mean()"
+					},
+					{
+						"value": "skew",
+						"type": "map",
+						"selected": false,
+						"key": "skew()"
+					}
+				],
+				"id": "39222675-0769-4079-a894-de1cda2dc789",
+				"type": "map",
+				"label": "",
+				"query": {
+					"influxql": "",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"sourceID": "dynamic",
+				"links": {
+					"self": "/chronograf/v1/dashboards/229/templates/39222675-0769-4079-a894-de1cda2dc789"
+				}
+			}
+		],
+		"name": "Deprecated: M1M3 Hardpoints - Balance forces | Kub",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/229",
+			"cells": "/chronograf/v1/dashboards/229/cells",
+			"templates": "/chronograf/v1/dashboards/229/templates"
+		}
+	}
+}

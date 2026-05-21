@@ -1,0 +1,1951 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "37",
+		"cells": [
+			{
+				"i": "a07ebb57-2b26-487f-9d0c-4c04717cc24d",
+				"x": 0,
+				"y": 14,
+				"w": 12,
+				"h": 5,
+				"name": "ID20 (LUT + hardpointCorrection - measured)",
+				"queries": [
+					{
+						"query": "SELECT (\"lutGravity20\" + \"lutTemperature20\" + \"hardpointCorrection20\" - \"measured20\") FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.axialForce\" WHERE time >= ':test_start:' AND time <= ':test_end:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT (\"lutGravity20\" + \"lutTemperature20\" + \"hardpointCorrection20\" - \"measured20\") FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.axialForce\" WHERE time >= ':test_start:' AND time <= ':test_end:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT (\"lutGravity21\" + \"lutTemperature21\" + \"hardpointCorrection21\" - \"measured21\") FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.axialForce\" WHERE time >= ':test_start:' AND time <= ':test_end:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT (\"lutGravity21\" + \"lutTemperature21\" + \"hardpointCorrection21\" - \"measured21\") FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.axialForce\" WHERE time >= ':test_start:' AND time <= ':test_end:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT (\"lutGravity2\" + \"lutTemperature2\" + \"hardpointCorrection2\" - \"measured2\") FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.axialForce\" WHERE time >= ':test_start:' AND time <= ':test_end:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT (\"lutGravity2\" + \"lutTemperature2\" + \"hardpointCorrection2\" - \"measured2\") FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.axialForce\" WHERE time >= ':test_start:' AND time <= ':test_end:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "54f005f2-4f07-45da-8a37-a24b338ae949",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8a5a591a-a5f3-44a2-9439-7e155336bb1f",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5c5d6b48-6781-42a4-a231-584db99b86cf",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/37/cells/a07ebb57-2b26-487f-9d0c-4c04717cc24d"
+				}
+			},
+			{
+				"i": "f6c9f00d-0e31-46df-b943-65524a25a2e6",
+				"x": 6,
+				"y": 10,
+				"w": 6,
+				"h": 2,
+				"name": "Tangent Actuator 6 (ID 300deg) ",
+				"queries": [
+					{
+						"query": "SELECT mean(\"tangentLink240DegForceMeasured\") AS \"mean_tangentLink240DegForceMeasured\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.tangentForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"tangentLink240DegForceMeasured\") AS \"mean_tangentLink240DegForceMeasured\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.tangentForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e5fc3ae6-f0fa-4ac7-872b-91ba1c3cc95d",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "3ef2b882-8c74-4497-b6e9-5ae90e12f708",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "a50f1a9b-b39b-4077-b58d-4be56647645c",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/37/cells/f6c9f00d-0e31-46df-b943-65524a25a2e6"
+				}
+			},
+			{
+				"i": "397aaf5b-5e7b-4d66-a769-56d246f87671",
+				"x": 6,
+				"y": 4,
+				"w": 6,
+				"h": 2,
+				"name": "Axial actuator D10 (64)",
+				"queries": [
+					{
+						"query": "SELECT mean(\"axialForceMeasured64\") AS \"mean_axialForceMeasured64\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.axialForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"axialForceMeasured64\") AS \"mean_axialForceMeasured64\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.axialForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "34fa7d7a-b5e0-468a-ba11-a7760ace4219",
+						"type": "scale",
+						"hex": "#FDC44F",
+						"name": "Cthulhu",
+						"value": "0"
+					},
+					{
+						"id": "e48f290b-da67-4d19-b5cd-3ef88e08ff74",
+						"type": "scale",
+						"hex": "#007C76",
+						"name": "Cthulhu",
+						"value": "0"
+					},
+					{
+						"id": "026e5439-603f-452d-bdf4-a3e10596640a",
+						"type": "scale",
+						"hex": "#8983FF",
+						"name": "Cthulhu",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.Rotator.command_track.mean",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss.SSS",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/37/cells/397aaf5b-5e7b-4d66-a769-56d246f87671"
+				}
+			},
+			{
+				"i": "4d4a5e60-4b48-4828-aa02-3147419b1c5c",
+				"x": 0,
+				"y": 4,
+				"w": 6,
+				"h": 2,
+				"name": "Axial actuator D1 (55)",
+				"queries": [
+					{
+						"query": "SELECT mean(\"axialForceMeasured55\") AS \"mean_axialForceMeasured55\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.axialForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"axialForceMeasured55\") AS \"mean_axialForceMeasured55\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.axialForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "34fa7d7a-b5e0-468a-ba11-a7760ace4219",
+						"type": "scale",
+						"hex": "#FDC44F",
+						"name": "Cthulhu",
+						"value": "0"
+					},
+					{
+						"id": "e48f290b-da67-4d19-b5cd-3ef88e08ff74",
+						"type": "scale",
+						"hex": "#007C76",
+						"name": "Cthulhu",
+						"value": "0"
+					},
+					{
+						"id": "026e5439-603f-452d-bdf4-a3e10596640a",
+						"type": "scale",
+						"hex": "#8983FF",
+						"name": "Cthulhu",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.Rotator.command_track.mean",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss.SSS",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/37/cells/4d4a5e60-4b48-4828-aa02-3147419b1c5c"
+				}
+			},
+			{
+				"i": "532c5911-a71f-40ff-85a8-f481a9b53e11",
+				"x": 6,
+				"y": 12,
+				"w": 6,
+				"h": 2,
+				"name": "Tangent Actuators",
+				"queries": [
+					{
+						"query": "SELECT mean(\"tangentLink0DegForceMeasured\") AS \"mean_tangentLink0DegForceMeasured\", mean(\"tangentLink120DegForceMeasured\") AS \"mean_tangentLink120DegForceMeasured\", mean(\"tangentLink180DegForceMeasured\") AS \"mean_tangentLink180DegForceMeasured\", mean(\"tangentLink240DegForceMeasured\") AS \"mean_tangentLink240DegForceMeasured\", mean(\"tangentLink300DegForceMeasured\") AS \"mean_tangentLink300DegForceMeasured\", mean(\"tangentLink60DegForceMeasured\") AS \"mean_tangentLink60DegForceMeasured\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.tangentForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"tangentLink0DegForceMeasured\") AS \"mean_tangentLink0DegForceMeasured\", mean(\"tangentLink120DegForceMeasured\") AS \"mean_tangentLink120DegForceMeasured\", mean(\"tangentLink180DegForceMeasured\") AS \"mean_tangentLink180DegForceMeasured\", mean(\"tangentLink240DegForceMeasured\") AS \"mean_tangentLink240DegForceMeasured\", mean(\"tangentLink300DegForceMeasured\") AS \"mean_tangentLink300DegForceMeasured\", mean(\"tangentLink60DegForceMeasured\") AS \"mean_tangentLink60DegForceMeasured\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.tangentForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e5fc3ae6-f0fa-4ac7-872b-91ba1c3cc95d",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "3ef2b882-8c74-4497-b6e9-5ae90e12f708",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "a50f1a9b-b39b-4077-b58d-4be56647645c",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/37/cells/532c5911-a71f-40ff-85a8-f481a9b53e11"
+				}
+			},
+			{
+				"i": "e6157956-c73c-4995-8430-ab5b7d58d933",
+				"x": 0,
+				"y": 8,
+				"w": 6,
+				"h": 2,
+				"name": "Tangent Actuator 3 (ID 120deg) ",
+				"queries": [
+					{
+						"query": "SELECT mean(\"tangentLink120DegForceMeasured\") AS \"mean_tangentLink120DegForceMeasured\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.tangentForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"tangentLink120DegForceMeasured\") AS \"mean_tangentLink120DegForceMeasured\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.tangentForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e5fc3ae6-f0fa-4ac7-872b-91ba1c3cc95d",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "3ef2b882-8c74-4497-b6e9-5ae90e12f708",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "a50f1a9b-b39b-4077-b58d-4be56647645c",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/37/cells/e6157956-c73c-4995-8430-ab5b7d58d933"
+				}
+			},
+			{
+				"i": "4e0ede6a-eb33-4564-9919-8f62e017fc30",
+				"x": 6,
+				"y": 8,
+				"w": 6,
+				"h": 2,
+				"name": "Tangent Actuator 4 (ID 180deg) ",
+				"queries": [
+					{
+						"query": "SELECT mean(\"tangentLink180DegForceMeasured\") AS \"mean_tangentLink180DegForceMeasured\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.tangentForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"tangentLink180DegForceMeasured\") AS \"mean_tangentLink180DegForceMeasured\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.tangentForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e5fc3ae6-f0fa-4ac7-872b-91ba1c3cc95d",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "3ef2b882-8c74-4497-b6e9-5ae90e12f708",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "a50f1a9b-b39b-4077-b58d-4be56647645c",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/37/cells/4e0ede6a-eb33-4564-9919-8f62e017fc30"
+				}
+			},
+			{
+				"i": "76cf1b38-4777-4f03-90e3-9c7a02458c5d",
+				"x": 0,
+				"y": 10,
+				"w": 6,
+				"h": 2,
+				"name": "Tangent Actuator 5 (ID 240deg) ",
+				"queries": [
+					{
+						"query": "SELECT mean(\"tangentLink240DegForceMeasured\") AS \"mean_tangentLink240DegForceMeasured\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.tangentForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"tangentLink240DegForceMeasured\") AS \"mean_tangentLink240DegForceMeasured\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.tangentForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e5fc3ae6-f0fa-4ac7-872b-91ba1c3cc95d",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "3ef2b882-8c74-4497-b6e9-5ae90e12f708",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "a50f1a9b-b39b-4077-b58d-4be56647645c",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/37/cells/76cf1b38-4777-4f03-90e3-9c7a02458c5d"
+				}
+			},
+			{
+				"i": "0edf492f-1826-4a33-b617-3c279482e905",
+				"x": 6,
+				"y": 6,
+				"w": 6,
+				"h": 2,
+				"name": "Tangent Actuator 2 (ID 60deg)",
+				"queries": [
+					{
+						"query": "SELECT mean(\"tangentLink60DegForceMeasured\") AS \"mean_tangentLink60DegForceMeasured\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.tangentForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"tangentLink60DegForceMeasured\") AS \"mean_tangentLink60DegForceMeasured\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.tangentForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e5fc3ae6-f0fa-4ac7-872b-91ba1c3cc95d",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "3ef2b882-8c74-4497-b6e9-5ae90e12f708",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "a50f1a9b-b39b-4077-b58d-4be56647645c",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/37/cells/0edf492f-1826-4a33-b617-3c279482e905"
+				}
+			},
+			{
+				"i": "1e7ef8a7-1be5-4e35-a194-4a1aaa103da0",
+				"x": 0,
+				"y": 2,
+				"w": 6,
+				"h": 2,
+				"name": "Axial actuator C6 (ID 36)",
+				"queries": [
+					{
+						"query": "SELECT mean(\"axialForceMeasured36\") AS \"mean_axialForceMeasured36\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.axialForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"axialForceMeasured36\") AS \"mean_axialForceMeasured36\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.axialForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"220",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "5b1eb68a-ee61-488a-98b5-ecfc73b9e02a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "b8c11393-2ffe-4f7f-a1dd-643defedd63e",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "caa4b591-5865-445a-bccd-9ca6acc4be6a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.Rotator.command_track.mean",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss.SSS",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/37/cells/1e7ef8a7-1be5-4e35-a194-4a1aaa103da0"
+				}
+			},
+			{
+				"i": "ffa60a00-ae33-41bb-9bd7-e8943c61c450",
+				"x": 6,
+				"y": 0,
+				"w": 6,
+				"h": 2,
+				"name": "Actuator B15 (ID 14) ",
+				"queries": [
+					{
+						"query": "SELECT mean(\"axialForceMeasured14\") AS \"mean_axialForceMeasured14\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.axialForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"axialForceMeasured14\") AS \"mean_axialForceMeasured14\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.axialForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							"190"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "cf70b133-b0f1-4122-b80d-4cda5268c4b5",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "90cf3a46-8a54-4dc1-8638-607f970382ff",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "093725c4-e2e6-4baf-b88f-3a8c3ce57d4e",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/37/cells/ffa60a00-ae33-41bb-9bd7-e8943c61c450"
+				}
+			},
+			{
+				"i": "823f8e87-0d40-42ed-9a5e-e0a8612191ff",
+				"x": 6,
+				"y": 2,
+				"w": 6,
+				"h": 2,
+				"name": "Axial actuator C18 (48)",
+				"queries": [
+					{
+						"query": "SELECT mean(\"axialForceMeasured48\") AS \"mean_axialForceMeasured48\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.axialForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"axialForceMeasured48\") AS \"mean_axialForceMeasured48\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.axialForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"220",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "5b1eb68a-ee61-488a-98b5-ecfc73b9e02a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "b8c11393-2ffe-4f7f-a1dd-643defedd63e",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "caa4b591-5865-445a-bccd-9ca6acc4be6a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.Rotator.command_track.mean",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss.SSS",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/37/cells/823f8e87-0d40-42ed-9a5e-e0a8612191ff"
+				}
+			},
+			{
+				"i": "d41e5651-e20e-43c8-a2c8-1e7ce9e46f5b",
+				"x": 0,
+				"y": 6,
+				"w": 6,
+				"h": 2,
+				"name": "Tangent Actuator 1 (ID 0deg)",
+				"queries": [
+					{
+						"query": "SELECT mean(\"tangentLink0DegForceMeasured\") AS \"mean_tangentLink0DegForceMeasured\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.tangentForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"tangentLink0DegForceMeasured\") AS \"mean_tangentLink0DegForceMeasured\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.tangentForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e5fc3ae6-f0fa-4ac7-872b-91ba1c3cc95d",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "3ef2b882-8c74-4497-b6e9-5ae90e12f708",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "a50f1a9b-b39b-4077-b58d-4be56647645c",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/37/cells/d41e5651-e20e-43c8-a2c8-1e7ce9e46f5b"
+				}
+			},
+			{
+				"i": "3fa77a6b-8cda-455f-b7d3-b376ef1a0e8d",
+				"x": 0,
+				"y": 0,
+				"w": 6,
+				"h": 2,
+				"name": "Actuator B2 (ID 1)",
+				"queries": [
+					{
+						"query": "SELECT mean(\"axialForceMeasured1\") AS \"mean_axialForceMeasured1\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.axialForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"axialForceMeasured1\") AS \"mean_axialForceMeasured1\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.axialForcesMeasured\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"189",
+							"191"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "cf70b133-b0f1-4122-b80d-4cda5268c4b5",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "90cf3a46-8a54-4dc1-8638-607f970382ff",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "093725c4-e2e6-4baf-b88f-3a8c3ce57d4e",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/37/cells/3fa77a6b-8cda-455f-b7d3-b376ef1a0e8d"
+				}
+			},
+			{
+				"i": "3969fb69-f23d-4635-9de9-3fa39fe843ed",
+				"x": 0,
+				"y": 12,
+				"w": 6,
+				"h": 2,
+				"name": "Tangent force steps",
+				"queries": [
+					{
+						"query": "SELECT mean(\"tangentLink0DegAbsolutePositionSteps\") AS \"mean_tangentLink0DegAbsolutePositionSteps\", mean(\"tangentLink120DegAbsolutePositionSteps\") AS \"mean_tangentLink120DegAbsolutePositionSteps\", mean(\"tangentLink180DegAbsolutePositionSteps\") AS \"mean_tangentLink180DegAbsolutePositionSteps\", mean(\"tangentLink240DegAbsolutePositionSteps\") AS \"mean_tangentLink240DegAbsolutePositionSteps\", mean(\"tangentLink300DegAbsolutePositionSteps\") AS \"mean_tangentLink300DegAbsolutePositionSteps\", mean(\"tangentLink60DegAbsolutePositionSteps\") AS \"mean_tangentLink60DegAbsolutePositionSteps\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.tangentActuatorAbsolutePositionSteps\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"tangentLink0DegAbsolutePositionSteps\") AS \"mean_tangentLink0DegAbsolutePositionSteps\", mean(\"tangentLink120DegAbsolutePositionSteps\") AS \"mean_tangentLink120DegAbsolutePositionSteps\", mean(\"tangentLink180DegAbsolutePositionSteps\") AS \"mean_tangentLink180DegAbsolutePositionSteps\", mean(\"tangentLink240DegAbsolutePositionSteps\") AS \"mean_tangentLink240DegAbsolutePositionSteps\", mean(\"tangentLink300DegAbsolutePositionSteps\") AS \"mean_tangentLink300DegAbsolutePositionSteps\", mean(\"tangentLink60DegAbsolutePositionSteps\") AS \"mean_tangentLink60DegAbsolutePositionSteps\" FROM \"efd\".\"autogen\".\"lsst.sal.MTM2.tangentActuatorAbsolutePositionSteps\" WHERE time >= ':test_start:' AND time <= ':test_end:' GROUP BY time(1s)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "779621c1-e99b-4db3-8128-70a2207e3a25",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "192f6270-5c1d-4515-8aae-437c6b3ae07b",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4f7c850d-b34d-4915-96f1-f0bcb3413da0",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": false,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/37/cells/3969fb69-f23d-4635-9de9-3fa39fe843ed"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":test_start:",
+				"values": [
+					{
+						"value": "2020-03-04 14:49:00",
+						"type": "csv",
+						"selected": true
+					},
+					{
+						"value": "2020-03-04 14:58:00",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "2020-03-04 15:03:00",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "2020-03-04 15:09:00",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "2020-03-04 15:20:00",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "2020-03-04 15:30:00",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "2020-03-04 17:08:00",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "2023-05-17 12:30:00",
+						"type": "csv",
+						"selected": false
+					}
+				],
+				"id": "eae16869-a5a0-4190-a5de-32558964b725",
+				"type": "csv",
+				"label": "",
+				"query": {
+					"influxql": "",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"sourceID": "dynamic",
+				"links": {
+					"self": "/chronograf/v1/dashboards/37/templates/eae16869-a5a0-4190-a5de-32558964b725"
+				}
+			},
+			{
+				"tempVar": ":test_end:",
+				"values": [
+					{
+						"value": "2020-03-04 14:58:00",
+						"type": "csv",
+						"selected": true
+					},
+					{
+						"value": "2020-03-04 15:03:00",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "2020-03-04 15:09:00",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "2020-03-04 15:16:00",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "2020-03-04 15:30:00",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "2020-03-04 17:21:00",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "2023-05-17 17:21:00",
+						"type": "csv",
+						"selected": false
+					}
+				],
+				"id": "8934789e-d8f1-4d73-ab4d-b75ecf05e68b",
+				"type": "csv",
+				"label": "",
+				"query": {
+					"influxql": "",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"sourceID": "dynamic",
+				"links": {
+					"self": "/chronograf/v1/dashboards/37/templates/8934789e-d8f1-4d73-ab4d-b75ecf05e68b"
+				}
+			}
+		],
+		"name": "M2 Testing",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/37",
+			"cells": "/chronograf/v1/dashboards/37/cells",
+			"templates": "/chronograf/v1/dashboards/37/templates"
+		}
+	}
+}

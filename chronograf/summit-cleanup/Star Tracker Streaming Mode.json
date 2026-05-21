@@ -1,0 +1,291 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "287",
+		"cells": [
+			{
+				"i": "e2a88f0f-41ef-4342-8d78-9057a1dce4e1",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 2,
+				"name": "Info",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "Streaming mode sequences from GenericCamera.\n\nSelect an appropriate time window (e.g. `Past 24h`)\n\nSelect a given index (`:salIndex:`)\n\nNote: Exposure time demarks streaming start, Average Frame Rate demarks streaming end.",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/287/cells/e2a88f0f-41ef-4342-8d78-9057a1dce4e1"
+				}
+			},
+			{
+				"i": "733e9671-9554-4081-a50b-abe195bb3d56",
+				"x": 0,
+				"y": 2,
+				"w": 12,
+				"h": 5,
+				"name": "Streaming Mode sequence",
+				"queries": [
+					{
+						"query": "SELECT \"expTime\" FROM \"efd\".\"autogen\".\"lsst.sal.GenericCamera.logevent_streamingModeStarted\" WHERE salIndex = :salIndex: AND time > :dashboardTime: AND time < :upperDashboardTime: ",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"expTime\" FROM \"efd\".\"autogen\".\"lsst.sal.GenericCamera.logevent_streamingModeStarted\" WHERE salIndex = :salIndex: AND time > :dashboardTime: AND time < :upperDashboardTime: ",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT \"avgFrameRate\", \"numFrames\" FROM \"efd\".\"autogen\".\"lsst.sal.GenericCamera.logevent_streamingModeStopped\" WHERE salIndex = :salIndex: AND time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"avgFrameRate\", \"numFrames\" FROM \"efd\".\"autogen\".\"lsst.sal.GenericCamera.logevent_streamingModeStopped\" WHERE salIndex = :salIndex: AND time > :dashboardTime: AND time < :upperDashboardTime:",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.GenericCamera.logevent_streamingModeStarted.expTime",
+						"displayName": "Exposure Time",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.GenericCamera.logevent_streamingModeStopped.avgFrameRate",
+						"displayName": "Average Frame Rate",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.GenericCamera.logevent_streamingModeStopped.numFrames",
+						"displayName": "Number of Frames",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/287/cells/733e9671-9554-4081-a50b-abe195bb3d56"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":salIndex:",
+				"values": [
+					{
+						"value": "101",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "102",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "103",
+						"type": "csv",
+						"selected": true
+					}
+				],
+				"id": "3b4f3f64-fa3e-45a8-b28c-ea7641dc5b9c",
+				"type": "csv",
+				"label": "",
+				"query": {
+					"influxql": "",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"sourceID": "dynamic",
+				"links": {
+					"self": "/chronograf/v1/dashboards/287/templates/3b4f3f64-fa3e-45a8-b28c-ea7641dc5b9c"
+				}
+			}
+		],
+		"name": "Star Tracker Streaming Mode",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/287",
+			"cells": "/chronograf/v1/dashboards/287/cells",
+			"templates": "/chronograf/v1/dashboards/287/templates"
+		}
+	}
+}

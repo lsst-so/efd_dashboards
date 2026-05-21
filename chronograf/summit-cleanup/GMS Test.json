@@ -1,0 +1,2842 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "633",
+		"cells": [
+			{
+				"i": "83fd05fc-504c-42bb-8b04-a62bb6629e05",
+				"x": 0,
+				"y": 51,
+				"w": 12,
+				"h": 6,
+				"name": "Presion 1 nivel",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyPressChiller01\") AS \"mean_supplyPressChiller01\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolLineSensors\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.glycolLineSensors",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyPressChiller01",
+									"args": [
+										{
+											"value": "supplyPressChiller01",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "585cce0f-02d9-4c31-b1d9-ab6496f50e58",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "46cc0723-9561-4f3b-a109-97070927c8e7",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "438fb18b-df7d-412a-8d1d-7b36c78205ba",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/83fd05fc-504c-42bb-8b04-a62bb6629e05"
+				}
+			},
+			{
+				"i": "2924e1ea-eaa4-4823-9a58-7e32c554b54d",
+				"x": 0,
+				"y": 45,
+				"w": 12,
+				"h": 6,
+				"name": "Presion Lower",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyPressAhuLower1\") AS \"mean_supplyPressAhuLower1\", mean(\"supplyPressAhuLower3\") AS \"mean_supplyPressAhuLower3\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolLineSensors\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.glycolLineSensors",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyPressAhuLower1",
+									"args": [
+										{
+											"value": "supplyPressAhuLower1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyPressAhuLower3",
+									"args": [
+										{
+											"value": "supplyPressAhuLower3",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "585cce0f-02d9-4c31-b1d9-ab6496f50e58",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "46cc0723-9561-4f3b-a109-97070927c8e7",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "438fb18b-df7d-412a-8d1d-7b36c78205ba",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/2924e1ea-eaa4-4823-9a58-7e32c554b54d"
+				}
+			},
+			{
+				"i": "846608d9-8465-4317-afae-b712c6a7ae45",
+				"x": 7,
+				"y": 16,
+				"w": 2,
+				"h": 3,
+				"name": "Fuel DG1",
+				"queries": [
+					{
+						"query": "SELECT max(\"multiInput22\") AS \"max_multiInput22\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 GROUP BY time(1s) FILL(none)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT max(\"multiInput22\") AS \"max_multiInput22\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 GROUP BY time(1s) FILL(none)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "%",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "gauge",
+				"colors": [
+					{
+						"id": "0",
+						"type": "min",
+						"hex": "#BF3D5E",
+						"name": "ruby",
+						"value": "0"
+					},
+					{
+						"id": "1",
+						"type": "max",
+						"hex": "#4ED8A0",
+						"name": "rainforest",
+						"value": "100"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/846608d9-8465-4317-afae-b712c6a7ae45"
+				}
+			},
+			{
+				"i": "a107fcdb-0d9b-47a8-8e6c-1f2dccd1ba70",
+				"x": 5,
+				"y": 16,
+				"w": 2,
+				"h": 3,
+				"name": "Fuel DG2",
+				"queries": [
+					{
+						"query": "SELECT max(\"multiInput22\") AS \"max_multiInput22\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 305 GROUP BY time(1s) FILL(none)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT max(\"multiInput22\") AS \"max_multiInput22\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 305 GROUP BY time(1s) FILL(none)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "%",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "gauge",
+				"colors": [
+					{
+						"id": "0",
+						"type": "min",
+						"hex": "#BF3D5E",
+						"name": "ruby",
+						"value": "0"
+					},
+					{
+						"id": "1",
+						"type": "max",
+						"hex": "#4ED8A0",
+						"name": "rainforest",
+						"value": "100"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/a107fcdb-0d9b-47a8-8e6c-1f2dccd1ba70"
+				}
+			},
+			{
+				"i": "7d72232c-2537-42bf-8e11-32fdb1c768ca",
+				"x": 0,
+				"y": 16,
+				"w": 5,
+				"h": 3,
+				"name": "Status Generatos",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  // Definir rango de tiempo desde variables de panel\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  \n  // Filtrar la medición específica y campos requeridos\n  |> filter(fn: (r) =>\n      r._measurement == \"lsst.sal.ESS.agcGenset150\" and\n      (r._field == \"running\" or \n       r._field == \"multiInput22\" or \n       r._field == \"engineOilTemperature\" or\n       r._field == \"engineHours\")  // Añadido campo para horas del motor\n  )\n  \n  // Transformar de formato largo a ancho para facilitar cálculos\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  \n  // Calcular campos derivados y formatear la salida\n  |> map(fn: (r) => ({\n      _time: r._time,\n      status: if string(v: r.running) == \"1\" or string(v: r.running) == \"true\" then \"Running\" else \"Stopped\",\n      mean_multiInput22: r.multiInput22,\n      mean_engineOilTemperature: r.engineOilTemperature,\n      mean_engineHours: r.engineHours,  // Variable incorporada\n      _measurement: r._measurement\n    }))",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  // Definir rango de tiempo desde variables de panel\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  \n  // Filtrar la medición específica y campos requeridos\n  |> filter(fn: (r) =>\n      r._measurement == \"lsst.sal.ESS.agcGenset150\" and\n      (r._field == \"running\" or \n       r._field == \"multiInput22\" or \n       r._field == \"engineOilTemperature\" or\n       r._field == \"engineHours\")  // Añadido campo para horas del motor\n  )\n  \n  // Transformar de formato largo a ancho para facilitar cálculos\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  \n  // Calcular campos derivados y formatear la salida\n  |> map(fn: (r) => ({\n      _time: r._time,\n      status: if string(v: r.running) == \"1\" or string(v: r.running) == \"true\" then \"Running\" else \"Stopped\",\n      mean_multiInput22: r.multiInput22,\n      mean_engineOilTemperature: r.engineOilTemperature,\n      mean_engineHours: r.engineHours,  // Variable incorporada\n      _measurement: r._measurement\n    }))",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_measurement",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "_time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "status",
+						"displayName": "Status",
+						"visible": true
+					},
+					{
+						"internalName": "mean_engineHours",
+						"displayName": "Hours",
+						"visible": true
+					},
+					{
+						"internalName": "mean_engineOilTemperature",
+						"displayName": "Oil Temperature",
+						"visible": true
+					},
+					{
+						"internalName": "mean_multiInput22",
+						"displayName": "Fuel",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 1
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/7d72232c-2537-42bf-8e11-32fdb1c768ca"
+				}
+			},
+			{
+				"i": "6ecffc8c-bf5d-4ec3-bf50-ecd0f4fa97dc",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 4,
+				"name": "Percent Load Current Speed DG1 ",
+				"queries": [
+					{
+						"query": "SELECT mean(\"percentLoadCurrentSpeed\") AS \"mean_percentLoadCurrentSpeed\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 GROUP BY time(800ms) FILL(none)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"percentLoadCurrentSpeed\") AS \"mean_percentLoadCurrentSpeed\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 GROUP BY time(800ms) FILL(none)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "fef0e5b5-0ec6-48b5-aac6-0136b8cbeed3",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "be7aa951-0b85-4555-8308-4a3ed1bb61e4",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "b8f9012b-89c3-44a5-96e0-db3bcfc29c96",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/6ecffc8c-bf5d-4ec3-bf50-ecd0f4fa97dc"
+				}
+			},
+			{
+				"i": "eedefca0-2f7a-4ca3-b1d3-c3146aac5e55",
+				"x": 0,
+				"y": 12,
+				"w": 12,
+				"h": 4,
+				"name": "Engine Percent Torque DG1",
+				"queries": [
+					{
+						"query": "SELECT mean(\"actualEnginePercentTorque\") AS \"mean_actualEnginePercentTorque\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 GROUP BY time(500ms) FILL(none)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"actualEnginePercentTorque\") AS \"mean_actualEnginePercentTorque\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 GROUP BY time(500ms) FILL(none)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "fef0e5b5-0ec6-48b5-aac6-0136b8cbeed3",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "be7aa951-0b85-4555-8308-4a3ed1bb61e4",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "b8f9012b-89c3-44a5-96e0-db3bcfc29c96",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/eedefca0-2f7a-4ca3-b1d3-c3146aac5e55"
+				}
+			},
+			{
+				"i": "1d9dace6-bd86-4505-957a-5007c3759626",
+				"x": 0,
+				"y": 36,
+				"w": 12,
+				"h": 3,
+				"name": "Chillern Gycol 2 Compresors Status ",
+				"queries": [
+					{
+						"query": "// Ventana de agregación (puede ser v.windowPeriod o fijo: 10s, 1m, etc.)\nwin = v.windowPeriod\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.HVAC.coldGlycolChiller02\" and\n    (r._field == \"compressor01Working\" or\n     r._field == \"compressor02Working\" or\n     r._field == \"compressor03Working\" or\n     r._field == \"compressor04Working\")\n  )\n  // convertir boolean a 0/1\n  |> map(fn: (r) => ({ r with _value: if r._value then 1.0 else 0.0 }))\n  // calcular promedio por ventana\n  |> aggregateWindow(every: win, fn: mean, createEmpty: false)\n  // pasar a porcentaje\n  |> map(fn: (r) => ({ r with _value: r._value * 100.0 }))\n  // reordenar tabla: una fila por tiempo, columnas por compresor\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> rename(columns: {\n      compressor01Working: \"mean_compressor01Working_pct\",\n      compressor02Working: \"mean_compressor02Working_pct\",\n      compressor03Working: \"mean_compressor03Working_pct\",\n      compressor04Working: \"mean_compressor04Working_pct\"\n  })",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "// Ventana de agregación (puede ser v.windowPeriod o fijo: 10s, 1m, etc.)\nwin = v.windowPeriod\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.HVAC.coldGlycolChiller02\" and\n    (r._field == \"compressor01Working\" or\n     r._field == \"compressor02Working\" or\n     r._field == \"compressor03Working\" or\n     r._field == \"compressor04Working\")\n  )\n  // convertir boolean a 0/1\n  |> map(fn: (r) => ({ r with _value: if r._value then 1.0 else 0.0 }))\n  // calcular promedio por ventana\n  |> aggregateWindow(every: win, fn: mean, createEmpty: false)\n  // pasar a porcentaje\n  |> map(fn: (r) => ({ r with _value: r._value * 100.0 }))\n  // reordenar tabla: una fila por tiempo, columnas por compresor\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> rename(columns: {\n      compressor01Working: \"mean_compressor01Working_pct\",\n      compressor02Working: \"mean_compressor02Working_pct\",\n      compressor03Working: \"mean_compressor03Working_pct\",\n      compressor04Working: \"mean_compressor04Working_pct\"\n  })",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "712f2efc-fd75-49ca-8185-26924d376f1b",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "3b2eef94-5e3d-4d8e-a017-04c10a6fe7b4",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "2a39df39-7287-4383-85a3-6fffd34ea04e",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.HVAC.chiller01P01.mean_operationalMode",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/1d9dace6-bd86-4505-957a-5007c3759626"
+				}
+			},
+			{
+				"i": "c442302b-a1b7-47fe-9045-83f515c7e565",
+				"x": 0,
+				"y": 30,
+				"w": 12,
+				"h": 3,
+				"name": "Chillern Gycol 3 Compresors Status",
+				"queries": [
+					{
+						"query": "// Ventana de agregación (puede ser v.windowPeriod o fijo: 10s, 1m, etc.)\nwin = v.windowPeriod\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.HVAC.comfortGlycolChiller03\" and\n    (r._field == \"compressor01Working\" or\n     r._field == \"compressor02Working\" or\n     r._field == \"compressor03Working\" or\n     r._field == \"compressor04Working\")\n  )\n  // convertir boolean a 0/1\n  |> map(fn: (r) => ({ r with _value: if r._value then 1.0 else 0.0 }))\n  // calcular promedio por ventana\n  |> aggregateWindow(every: win, fn: mean, createEmpty: false)\n  // pasar a porcentaje\n  |> map(fn: (r) => ({ r with _value: r._value * 100.0 }))\n  // reordenar tabla: una fila por tiempo, columnas por compresor\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> rename(columns: {\n      compressor01Working: \"mean_compressor01Working_pct\",\n      compressor02Working: \"mean_compressor02Working_pct\",\n      compressor03Working: \"mean_compressor03Working_pct\",\n      compressor04Working: \"mean_compressor04Working_pct\"\n  })",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "// Ventana de agregación (puede ser v.windowPeriod o fijo: 10s, 1m, etc.)\nwin = v.windowPeriod\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.HVAC.comfortGlycolChiller03\" and\n    (r._field == \"compressor01Working\" or\n     r._field == \"compressor02Working\" or\n     r._field == \"compressor03Working\" or\n     r._field == \"compressor04Working\")\n  )\n  // convertir boolean a 0/1\n  |> map(fn: (r) => ({ r with _value: if r._value then 1.0 else 0.0 }))\n  // calcular promedio por ventana\n  |> aggregateWindow(every: win, fn: mean, createEmpty: false)\n  // pasar a porcentaje\n  |> map(fn: (r) => ({ r with _value: r._value * 100.0 }))\n  // reordenar tabla: una fila por tiempo, columnas por compresor\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> rename(columns: {\n      compressor01Working: \"mean_compressor01Working_pct\",\n      compressor02Working: \"mean_compressor02Working_pct\",\n      compressor03Working: \"mean_compressor03Working_pct\",\n      compressor04Working: \"mean_compressor04Working_pct\"\n  })",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " %",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "2aa69427-34ed-4463-ae97-888bcf15f011",
+						"type": "scale",
+						"hex": "#74D495",
+						"name": "Atlantis",
+						"value": "0"
+					},
+					{
+						"id": "d1ce14a2-da11-42b5-b1cd-0c9ef340e90f",
+						"type": "scale",
+						"hex": "#3F3FBA",
+						"name": "Atlantis",
+						"value": "0"
+					},
+					{
+						"id": "920e9d01-9b70-44e6-83e1-30d475ba5079",
+						"type": "scale",
+						"hex": "#FF4D9E",
+						"name": "Atlantis",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.HVAC.chiller01P01.mean_operationalMode",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/c442302b-a1b7-47fe-9045-83f515c7e565"
+				}
+			},
+			{
+				"i": "43e8c09f-f4e5-4d79-acb6-70f53d298457",
+				"x": 0,
+				"y": 39,
+				"w": 12,
+				"h": 3,
+				"name": "Chiller Gycol 4 Compresors Status",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.HVAC.coatingGlycolChiller04\" and\n    (r._field == \"compressor01Working\" or\n     r._field == \"compressor02Working\" or\n     r._field == \"compressor04Working\")\n  )\n  |> map(fn: (r) => ({ r with _value: if r._value then 1.0 else 0.0 }))\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value * 100.0 }))\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> rename(columns: {\n      compressor01Working: \"mean_compressor01Working_pct\",\n      compressor02Working: \"mean_compressor02Working_pct\",\n      compressor04Working: \"mean_compressor04Working_pct\"\n  })",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.HVAC.coatingGlycolChiller04\" and\n    (r._field == \"compressor01Working\" or\n     r._field == \"compressor02Working\" or\n     r._field == \"compressor04Working\")\n  )\n  |> map(fn: (r) => ({ r with _value: if r._value then 1.0 else 0.0 }))\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value * 100.0 }))\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> rename(columns: {\n      compressor01Working: \"mean_compressor01Working_pct\",\n      compressor02Working: \"mean_compressor02Working_pct\",\n      compressor04Working: \"mean_compressor04Working_pct\"\n  })",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "712f2efc-fd75-49ca-8185-26924d376f1b",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "3b2eef94-5e3d-4d8e-a017-04c10a6fe7b4",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "2a39df39-7287-4383-85a3-6fffd34ea04e",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.HVAC.chiller01P01.mean_operationalMode",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/43e8c09f-f4e5-4d79-acb6-70f53d298457"
+				}
+			},
+			{
+				"i": "194ef145-21b2-49f7-962c-ac71e28dfe7a",
+				"x": 0,
+				"y": 4,
+				"w": 12,
+				"h": 4,
+				"name": "RPM DG1",
+				"queries": [
+					{
+						"query": "SELECT mean(\"rpm\") AS \"mean_rpm\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306  GROUP BY time(1s) FILL(none)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"rpm\") AS \"mean_rpm\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306  GROUP BY time(1s) FILL(none)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "77408546-264c-4549-87a7-cf2a90bd471d",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a499482f-4277-4d50-a29e-64269434fbe5",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "6eb623d8-8ff8-4a5e-b79d-16520653efe8",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/194ef145-21b2-49f7-962c-ac71e28dfe7a"
+				}
+			},
+			{
+				"i": "01671b0c-4aa2-4be6-bf9a-8413c1d22461",
+				"x": 0,
+				"y": 33,
+				"w": 12,
+				"h": 3,
+				"name": "Chillern Gycol 1 Compresors Status",
+				"queries": [
+					{
+						"query": "// Ventana de agregación (puede ser v.windowPeriod o fijo: 10s, 1m, etc.)\nwin = v.windowPeriod\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.HVAC.coldGlycolChiller01\" and\n    (r._field == \"compressor01Working\" or\n     r._field == \"compressor02Working\" or\n     r._field == \"compressor03Working\" or\n     r._field == \"compressor04Working\")\n  )\n  // convertir boolean a 0/1\n  |> map(fn: (r) => ({ r with _value: if r._value then 1.0 else 0.0 }))\n  // calcular promedio por ventana\n  |> aggregateWindow(every: win, fn: mean, createEmpty: false)\n  // pasar a porcentaje\n  |> map(fn: (r) => ({ r with _value: r._value * 100.0 }))\n  // reordenar tabla: una fila por tiempo, columnas por compresor\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> rename(columns: {\n      compressor01Working: \"mean_compressor01Working_pct\",\n      compressor02Working: \"mean_compressor02Working_pct\",\n      compressor03Working: \"mean_compressor03Working_pct\",\n      compressor04Working: \"mean_compressor04Working_pct\"\n  })",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "// Ventana de agregación (puede ser v.windowPeriod o fijo: 10s, 1m, etc.)\nwin = v.windowPeriod\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.HVAC.coldGlycolChiller01\" and\n    (r._field == \"compressor01Working\" or\n     r._field == \"compressor02Working\" or\n     r._field == \"compressor03Working\" or\n     r._field == \"compressor04Working\")\n  )\n  // convertir boolean a 0/1\n  |> map(fn: (r) => ({ r with _value: if r._value then 1.0 else 0.0 }))\n  // calcular promedio por ventana\n  |> aggregateWindow(every: win, fn: mean, createEmpty: false)\n  // pasar a porcentaje\n  |> map(fn: (r) => ({ r with _value: r._value * 100.0 }))\n  // reordenar tabla: una fila por tiempo, columnas por compresor\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> rename(columns: {\n      compressor01Working: \"mean_compressor01Working_pct\",\n      compressor02Working: \"mean_compressor02Working_pct\",\n      compressor03Working: \"mean_compressor03Working_pct\",\n      compressor04Working: \"mean_compressor04Working_pct\"\n  })",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "712f2efc-fd75-49ca-8185-26924d376f1b",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "3b2eef94-5e3d-4d8e-a017-04c10a6fe7b4",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "2a39df39-7287-4383-85a3-6fffd34ea04e",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.HVAC.chiller01P01.mean_operationalMode",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/01671b0c-4aa2-4be6-bf9a-8413c1d22461"
+				}
+			},
+			{
+				"i": "16ffd5ff-0c69-4cbb-a77e-5d1c2e3a25e9",
+				"x": 6,
+				"y": 24,
+				"w": 6,
+				"h": 3,
+				"name": "Active Power DP1 ",
+				"queries": [
+					{
+						"query": "SELECT mean(\"totalActivePower\") AS \"mean_totalActivePower\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(500ms) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_totalActivePower",
+									"args": [
+										{
+											"value": "totalActivePower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "500ms",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Active Power",
+						"prefix": "",
+						"suffix": " KW",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "3ea8dba7-fca8-49e8-8956-a900a19278bc",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "b62e2ec7-91ba-4fdf-abdb-770b064b31b1",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "865a9999-d44e-44f5-a45c-391a7cdd1ea3",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/16ffd5ff-0c69-4cbb-a77e-5d1c2e3a25e9"
+				}
+			},
+			{
+				"i": "05cef518-4731-4691-a6ec-f26e5c9577eb",
+				"x": 0,
+				"y": 24,
+				"w": 6,
+				"h": 3,
+				"name": "Reactive Power DP1 ",
+				"queries": [
+					{
+						"query": "SELECT last(\"totalReactivePower\") AS \"last_totalReactivePower\", mean(\"reactivePowerC\") AS \"mean_reactivePowerC\", mean(\"reactivePowerB\") AS \"mean_reactivePowerB\", mean(\"reactivePowerA\") AS \"mean_reactivePowerA\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(500ms) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "last_totalReactivePower",
+									"args": [
+										{
+											"value": "totalReactivePower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_reactivePowerC",
+									"args": [
+										{
+											"value": "reactivePowerC",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_reactivePowerB",
+									"args": [
+										{
+											"value": "reactivePowerB",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_reactivePowerA",
+									"args": [
+										{
+											"value": "reactivePowerA",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "500ms",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Reactive Power",
+						"prefix": "",
+						"suffix": " Kvar",
+						"base": "raw",
+						"scale": "log"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "3ea8dba7-fca8-49e8-8956-a900a19278bc",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "b62e2ec7-91ba-4fdf-abdb-770b064b31b1",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "865a9999-d44e-44f5-a45c-391a7cdd1ea3",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/05cef518-4731-4691-a6ec-f26e5c9577eb"
+				}
+			},
+			{
+				"i": "5f01b942-8c81-487e-a38a-1416c18a7425",
+				"x": 0,
+				"y": 27,
+				"w": 12,
+				"h": 3,
+				"name": "Apparent Power DP1",
+				"queries": [
+					{
+						"query": "SELECT mean(\"loadCurrentA\") AS \"mean_loadCurrentA\", mean(\"loadCurrentB\") AS \"mean_loadCurrentB\", mean(\"loadCurrentC\") AS \"mean_loadCurrentC\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(500ms) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_loadCurrentA",
+									"args": [
+										{
+											"value": "loadCurrentA",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_loadCurrentB",
+									"args": [
+										{
+											"value": "loadCurrentB",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_loadCurrentC",
+									"args": [
+										{
+											"value": "loadCurrentC",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "500ms",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " kva",
+						"base": "raw",
+						"scale": "log"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "3ea8dba7-fca8-49e8-8956-a900a19278bc",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "b62e2ec7-91ba-4fdf-abdb-770b064b31b1",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "865a9999-d44e-44f5-a45c-391a7cdd1ea3",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/5f01b942-8c81-487e-a38a-1416c18a7425"
+				}
+			},
+			{
+				"i": "5eaa177e-3849-46c0-9fb7-e0be1cf46a09",
+				"x": 6,
+				"y": 21,
+				"w": 6,
+				"h": 3,
+				"name": "Current DP1",
+				"queries": [
+					{
+						"query": "SELECT mean(\"loadCurrentA\") AS \"mean_loadCurrentA\", mean(\"loadCurrentB\") AS \"mean_loadCurrentB\", mean(\"loadCurrentC\") AS \"mean_loadCurrentC\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(500ms) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_loadCurrentA",
+									"args": [
+										{
+											"value": "loadCurrentA",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_loadCurrentB",
+									"args": [
+										{
+											"value": "loadCurrentB",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_loadCurrentC",
+									"args": [
+										{
+											"value": "loadCurrentC",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "500ms",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " A",
+						"base": "raw",
+						"scale": "log"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "8dee3685-ceb4-443c-bee8-3c3e7ce8e18d",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "4e0a9cff-86f2-493d-aefb-93f6027f5b3b",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "58f758d4-35c6-4fa9-9a7c-fd2237283551",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/5eaa177e-3849-46c0-9fb7-e0be1cf46a09"
+				}
+			},
+			{
+				"i": "39d1daa1-2b07-412b-bca4-c7593a2c8972",
+				"x": 0,
+				"y": 21,
+				"w": 6,
+				"h": 3,
+				"name": "Three Phase Voltage DP1",
+				"queries": [
+					{
+						"query": "SELECT mean(\"measuredLineVoltageVab\") AS \"mean_measuredLineVoltageVab\", mean(\"measuredLineVoltageVbc\") AS \"mean_measuredLineVoltageVbc\", mean(\"measuredLineVoltageVca\") AS \"mean_measuredLineVoltageVca\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(500ms) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_measuredLineVoltageVab",
+									"args": [
+										{
+											"value": "measuredLineVoltageVab",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_measuredLineVoltageVbc",
+									"args": [
+										{
+											"value": "measuredLineVoltageVbc",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_measuredLineVoltageVca",
+									"args": [
+										{
+											"value": "measuredLineVoltageVca",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "500ms",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Three Fase Voltage",
+						"prefix": "",
+						"suffix": "V",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "6b11dc3e-cec9-48fc-850f-68eb175a0c5c",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "626e8e49-ca8a-43c3-8c40-ee1d2ec9f28f",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "e0fb0bbb-c3fb-4c37-8c69-b829b9a753b8",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/39d1daa1-2b07-412b-bca4-c7593a2c8972"
+				}
+			},
+			{
+				"i": "22ca16cf-e6d2-455b-b4c7-a48fbe61ad4f",
+				"x": 0,
+				"y": 8,
+				"w": 12,
+				"h": 4,
+				"name": "Frequency DG1",
+				"queries": [
+					{
+						"query": "SELECT mean(\"generatorFrequencyL1\") AS \"mean_generatorFrequencyL1\", mean(\"generatorFrequencyL2\") AS \"mean_generatorFrequencyL2\", mean(\"generatorFrequencyL3\") AS \"mean_generatorFrequencyL3\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 GROUP BY time(500ms) FILL(none)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"generatorFrequencyL1\") AS \"mean_generatorFrequencyL1\", mean(\"generatorFrequencyL2\") AS \"mean_generatorFrequencyL2\", mean(\"generatorFrequencyL3\") AS \"mean_generatorFrequencyL3\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 306 GROUP BY time(500ms) FILL(none)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "HZ",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "f9d9b190-69cc-46e8-bbac-78b9956793ae",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "9c16806f-0b18-408c-85bc-6099d9ad4fa5",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "c7101a27-6bbf-4eba-bf15-f3698f0d3f7e",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/22ca16cf-e6d2-455b-b4c7-a48fbe61ad4f"
+				}
+			},
+			{
+				"i": "01097202-245a-4137-aa51-b025a3ce67b7",
+				"x": 0,
+				"y": 19,
+				"w": 12,
+				"h": 2,
+				"name": "General View",
+				"queries": [
+					{
+						"query": "SELECT \n  last(\"totalReactivePower\") AS \"last_totalReactivePower\",\n  last(\"totalActivePower\") AS \"last_totalActivePower\",\n  last(\"totalApparentPower\") AS \"last_totalApparentPower\",\n  last(\"measuredLineVoltageVab\") AS \"last_measuredLineVoltageVab\",\n  last(\"measuredLineVoltageVbc\") AS \"last_measuredLineVoltageVbc\",\n  last(\"measuredLineVoltageVca\") AS \"last_measuredLineVoltageVca\"\nFROM \"efd\".\"autogen\".\"lsst.sal.ESS.schneiderPm5xxx\"\nWHERE time > :dashboardTime: AND time < :upperDashboardTime:\nGROUP BY time(500ms) FILL(none)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.schneiderPm5xxx",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "last_totalReactivePower",
+									"args": [
+										{
+											"value": "totalReactivePower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "last_totalActivePower",
+									"args": [
+										{
+											"value": "totalActivePower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "last_totalApparentPower",
+									"args": [
+										{
+											"value": "totalApparentPower",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "last_measuredLineVoltageVab",
+									"args": [
+										{
+											"value": "measuredLineVoltageVab",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "last_measuredLineVoltageVbc",
+									"args": [
+										{
+											"value": "measuredLineVoltageVbc",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "last_measuredLineVoltageVca",
+									"args": [
+										{
+											"value": "measuredLineVoltageVca",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "500ms",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#4ED8A0",
+						"name": "rainforest",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.schneiderPm5xxx.last_measuredLineVoltageVab",
+						"displayName": "Voltage L1-L2",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.schneiderPm5xxx.last_measuredLineVoltageVbc",
+						"displayName": "Voltage L2-L3",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.schneiderPm5xxx.last_measuredLineVoltageVca",
+						"displayName": "Voltage L1-L3",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.schneiderPm5xxx.last_totalActivePower",
+						"displayName": "Active Power",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.schneiderPm5xxx.last_totalApparentPower",
+						"displayName": "Apparent Power",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.schneiderPm5xxx.last_totalReactivePower",
+						"displayName": "Reactive Power",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 1
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/01097202-245a-4137-aa51-b025a3ce67b7"
+				}
+			},
+			{
+				"i": "45385c3c-dd2d-42f0-8b72-42aec95572b9",
+				"x": 0,
+				"y": 42,
+				"w": 12,
+				"h": 3,
+				"name": "UMAS  Status",
+				"queries": [
+					{
+						"query": "// Ventana (ajústala o deja v.windowPeriod)\nwin = v.windowPeriod\n\n// AHUs a incluir\nahus = [\n  \"lsst.sal.HVAC.airHandlingUnit01Dome\",\n  \"lsst.sal.HVAC.airHandlingUnit02Dome\",\n  \"lsst.sal.HVAC.airHandlingUnit03Dome\",\n  \"lsst.sal.HVAC.airHandlingUnit04Dome\",\n]\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._field == \"workingState\" and contains(value: r._measurement, set: ahus)\n  )\n  // boolean -> 0/1\n  |> map(fn: (r) => ({ r with _value: if r._value then 1.0 else 0.0 }))\n  // promedio por ventana (proporción ON)\n  |> aggregateWindow(every: win, fn: mean, createEmpty: false)\n  // a porcentaje\n  |> map(fn: (r) => ({ r with _value: r._value * 100.0 }))\n  // tabla con columnas por AHU\n  |> keep(columns: [\"_time\",\"_measurement\",\"_value\"])\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_measurement\"], valueColumn: \"_value\")\n  |> rename(columns: {\n      \"lsst.sal.HVAC.airHandlingUnit01Dome\": \"AHU01_workingState_on_pct\",\n      \"lsst.sal.HVAC.airHandlingUnit02Dome\": \"AHU02_workingState_on_pct\",\n      \"lsst.sal.HVAC.airHandlingUnit03Dome\": \"AHU03_workingState_on_pct\",\n      \"lsst.sal.HVAC.airHandlingUnit04Dome\": \"AHU04_workingState_on_pct\",\n  })",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "// Ventana (ajústala o deja v.windowPeriod)\nwin = v.windowPeriod\n\n// AHUs a incluir\nahus = [\n  \"lsst.sal.HVAC.airHandlingUnit01Dome\",\n  \"lsst.sal.HVAC.airHandlingUnit02Dome\",\n  \"lsst.sal.HVAC.airHandlingUnit03Dome\",\n  \"lsst.sal.HVAC.airHandlingUnit04Dome\",\n]\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._field == \"workingState\" and contains(value: r._measurement, set: ahus)\n  )\n  // boolean -> 0/1\n  |> map(fn: (r) => ({ r with _value: if r._value then 1.0 else 0.0 }))\n  // promedio por ventana (proporción ON)\n  |> aggregateWindow(every: win, fn: mean, createEmpty: false)\n  // a porcentaje\n  |> map(fn: (r) => ({ r with _value: r._value * 100.0 }))\n  // tabla con columnas por AHU\n  |> keep(columns: [\"_time\",\"_measurement\",\"_value\"])\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_measurement\"], valueColumn: \"_value\")\n  |> rename(columns: {\n      \"lsst.sal.HVAC.airHandlingUnit01Dome\": \"AHU01_workingState_on_pct\",\n      \"lsst.sal.HVAC.airHandlingUnit02Dome\": \"AHU02_workingState_on_pct\",\n      \"lsst.sal.HVAC.airHandlingUnit03Dome\": \"AHU03_workingState_on_pct\",\n      \"lsst.sal.HVAC.airHandlingUnit04Dome\": \"AHU04_workingState_on_pct\",\n  })",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "d0675218-48f2-48ba-8bb0-fa57c00932b9",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "83c8feb7-2b76-4965-af23-88862588114c",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "b484725d-24ed-4d7d-807a-5609b37212f5",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "workingState_on_pct",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/45385c3c-dd2d-42f0-8b72-42aec95572b9"
+				}
+			},
+			{
+				"i": "8834bed6-ea5c-4017-a0e6-0860c2896803",
+				"x": 0,
+				"y": 57,
+				"w": 12,
+				"h": 3,
+				"name": "Untitled Graph",
+				"queries": [
+					{
+						"query": "SELECT mean(\"salIndex\") AS \"mean_salIndex\", mean(\"mainFailure\") AS \"mean_mainFailure\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.agcGenset150\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.ESS.agcGenset150",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_salIndex",
+									"args": [
+										{
+											"value": "salIndex",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_mainFailure",
+									"args": [
+										{
+											"value": "mainFailure",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "117be7dc-a12a-4bb3-b123-60413270de32",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "96a2a703-2036-4c54-bed8-2dcf1d9278fd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "194ced33-4725-444c-bf41-20c1e297695c",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.agcGenset150.mean_salIndex",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/633/cells/8834bed6-ea5c-4017-a0e6-0860c2896803"
+				}
+			}
+		],
+		"templates": [],
+		"name": "GMS Test",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/633",
+			"cells": "/chronograf/v1/dashboards/633/cells",
+			"templates": "/chronograf/v1/dashboards/633/templates"
+		}
+	}
+}

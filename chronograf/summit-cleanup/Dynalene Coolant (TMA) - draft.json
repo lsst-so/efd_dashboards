@@ -1,0 +1,430 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "478",
+		"cells": [
+			{
+				"i": "f9f2e314-7d3a-4ebb-be4c-9c76a1767c41",
+				"x": 0,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "Temperatures",
+				"queries": [
+					{
+						"query": "SELECT mean(\"dynaleneTemperatureAzimuth0001\") AS \"mean_dynaleneTemperatureAzimuth0001\", mean(\"dynaleneTemperatureAzimuth0002\") AS \"mean_dynaleneTemperatureAzimuth0002\", mean(\"dynaleneTemperaturePier0102\") AS \"mean_dynaleneTemperaturePier0102\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.dynaleneCooling\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.dynaleneCooling",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_dynaleneTemperatureAzimuth0001",
+									"args": [
+										{
+											"value": "dynaleneTemperatureAzimuth0001",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_dynaleneTemperatureAzimuth0002",
+									"args": [
+										{
+											"value": "dynaleneTemperatureAzimuth0002",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_dynaleneTemperaturePier0102",
+									"args": [
+										{
+											"value": "dynaleneTemperaturePier0102",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "b8d59982-9d27-44a9-a5ed-95dbcf2bb12f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5e225ad9-79c4-4d8b-a78c-ebcb21c02027",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e9396283-d4d5-4b32-bce2-8d4d2d4a54aa",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/478/cells/f9f2e314-7d3a-4ebb-be4c-9c76a1767c41"
+				}
+			},
+			{
+				"i": "d0d7aa41-4693-412d-87da-13f9f3f7291f",
+				"x": 4,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "Pressures",
+				"queries": [
+					{
+						"query": "SELECT mean(\"dynalenePressureAzimuth0001\") AS \"mean_dynalenePressureAzimuth0001\", mean(\"dynalenePressureAzimuth0002\") AS \"mean_dynalenePressureAzimuth0002\", mean(\"dynalenePressureElevation0001\") AS \"mean_dynalenePressureElevation0001\", mean(\"dynalenePressureElevation0002\") AS \"mean_dynalenePressureElevation0002\", mean(\"dynalenePressureElevation0003\") AS \"mean_dynalenePressureElevation0003\", mean(\"dynalenePressureElevation0004\") AS \"mean_dynalenePressureElevation0004\", mean(\"dynalenePressureElevation0005\") AS \"mean_dynalenePressureElevation0005\", mean(\"dynalenePressureElevation0006\") AS \"mean_dynalenePressureElevation0006\", mean(\"dynalenePressureElevation0007\") AS \"mean_dynalenePressureElevation0007\", mean(\"dynalenePressurePier0101\") AS \"mean_dynalenePressurePier0101\", mean(\"dynalenePressurePier0102\") AS \"mean_dynalenePressurePier0102\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.dynaleneCooling\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.dynaleneCooling",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_dynalenePressureAzimuth0001",
+									"args": [
+										{
+											"value": "dynalenePressureAzimuth0001",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_dynalenePressureAzimuth0002",
+									"args": [
+										{
+											"value": "dynalenePressureAzimuth0002",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_dynalenePressureElevation0001",
+									"args": [
+										{
+											"value": "dynalenePressureElevation0001",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_dynalenePressureElevation0002",
+									"args": [
+										{
+											"value": "dynalenePressureElevation0002",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_dynalenePressureElevation0003",
+									"args": [
+										{
+											"value": "dynalenePressureElevation0003",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_dynalenePressureElevation0004",
+									"args": [
+										{
+											"value": "dynalenePressureElevation0004",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_dynalenePressureElevation0005",
+									"args": [
+										{
+											"value": "dynalenePressureElevation0005",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_dynalenePressureElevation0006",
+									"args": [
+										{
+											"value": "dynalenePressureElevation0006",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_dynalenePressureElevation0007",
+									"args": [
+										{
+											"value": "dynalenePressureElevation0007",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_dynalenePressurePier0101",
+									"args": [
+										{
+											"value": "dynalenePressurePier0101",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_dynalenePressurePier0102",
+									"args": [
+										{
+											"value": "dynalenePressurePier0102",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "b8d59982-9d27-44a9-a5ed-95dbcf2bb12f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5e225ad9-79c4-4d8b-a78c-ebcb21c02027",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e9396283-d4d5-4b32-bce2-8d4d2d4a54aa",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/478/cells/d0d7aa41-4693-412d-87da-13f9f3f7291f"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Dynalene Coolant (TMA) - draft",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/478",
+			"cells": "/chronograf/v1/dashboards/478/cells",
+			"templates": "/chronograf/v1/dashboards/478/templates"
+		}
+	}
+}

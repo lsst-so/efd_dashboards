@@ -1,0 +1,662 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "349",
+		"cells": [
+			{
+				"i": "4db39d65-c1cd-473a-94c1-68d47831ff42",
+				"x": 0,
+				"y": 3,
+				"w": 12,
+				"h": 3,
+				"name": "Temperature Inside the Dome (Level 8)",
+				"queries": [
+					{
+						"query": "SELECT mean(\"temperatureItem0\") AS \"mean_temperatureItem0\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 112 GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"temperatureItem0\") AS \"mean_temperatureItem0\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 112 GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a067fcde-392d-4131-9ffb-29256782b0a8",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "f0f447ba-d2de-4d08-9034-a9a4c229a4d1",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/349/cells/4db39d65-c1cd-473a-94c1-68d47831ff42"
+				}
+			},
+			{
+				"i": "ad368a0f-c617-4d80-8b01-7ff9d900c857",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 3,
+				"name": "Weather Tower Temperature",
+				"queries": [
+					{
+						"query": "SELECT mean(\"temperatureItem0\") AS \"Weather Tower Temperature\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 301 GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"temperatureItem0\") AS \"Weather Tower Temperature\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 301 GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT mean(\"temperatureItem0\") AS \"Dome Temperature\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 103 GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"temperatureItem0\") AS \"Dome Temperature\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 103 GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Temperature [ºC]",
+						"prefix": "",
+						"suffix": "",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "bc3d23c5-3cd7-4a73-8caf-9b0d63c92e15",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "d9da58bf-60f3-4410-859d-9826d41a391c",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4113f848-1e5a-4534-84eb-7753db58d6d8",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {
+					"type": "static",
+					"orientation": "bottom"
+				},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ESS.temperature.temperatureItem0",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/349/cells/ad368a0f-c617-4d80-8b01-7ff9d900c857"
+				}
+			},
+			{
+				"i": "9ad38205-082f-4504-8db6-33240c098d79",
+				"x": 0,
+				"y": 6,
+				"w": 12,
+				"h": 3,
+				"name": "Weather Tower Temperature - Dome Temperature",
+				"queries": [
+					{
+						"query": "SELECT \n  mean(\"Exterior\") - mean(\"Dome\") AS \"Temperature Difference\"\nFROM (\n  SELECT mean(\"temperatureItem0\") AS \"Exterior\" \n  FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" \n  WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 301 \n  GROUP BY time(:interval:) FILL(previous)\n), (\n  SELECT mean(\"temperatureItem0\") AS \"Dome\" \n  FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" \n  WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 112 \n  GROUP BY time(:interval:) FILL(previous)\n)\nWHERE time > :dashboardTime: AND time < :upperDashboardTime: \nGROUP BY time(:interval:)\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \n  mean(\"Exterior\") - mean(\"Dome\") AS \"Temperature Difference\"\nFROM (\n  SELECT mean(\"temperatureItem0\") AS \"Exterior\" \n  FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" \n  WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 301 \n  GROUP BY time(:interval:) FILL(previous)\n), (\n  SELECT mean(\"temperatureItem0\") AS \"Dome\" \n  FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" \n  WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 112 \n  GROUP BY time(:interval:) FILL(previous)\n)\nWHERE time > :dashboardTime: AND time < :upperDashboardTime: \nGROUP BY time(:interval:)\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "1d9ad9df-add8-40af-8cb2-de79c9abe54a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "3d7c6637-e6f5-43e1-bfe2-d027f7d32302",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "59411214-c459-460b-87a2-cade5b43a299",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/349/cells/9ad38205-082f-4504-8db6-33240c098d79"
+				}
+			},
+			{
+				"i": "80b17cec-1a00-4bdd-a83f-46d2afa2259f",
+				"x": 0,
+				"y": 9,
+				"w": 12,
+				"h": 4,
+				"name": "Differential MTDome Temperature (<1C/hr)",
+				"queries": [
+					{
+						"query": "SELECT difference(last(\"temperatureItem0\")) FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 113 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(1h)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT difference(last(\"temperatureItem0\")) FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex = 113 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(1h)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e148056d-4c08-4307-905c-7e2b495d9675",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "64dc898f-8f24-4b38-8c81-c59b859b21f4",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "c6124e4c-cb2e-4ec4-9556-e649a4920401",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTDome.apertureShutter.positionActual0",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTDome.apertureShutter.positionActual1",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/349/cells/80b17cec-1a00-4bdd-a83f-46d2afa2259f"
+				}
+			},
+			{
+				"i": "b4414964-0f04-4f31-bfe4-a71b6f8329ec",
+				"x": 0,
+				"y": 13,
+				"w": 12,
+				"h": 3,
+				"name": "Differential M1M3 Air Cell Temperature (<0.75C/hr)",
+				"queries": [
+					{
+						"query": "SELECT difference(last(\"absoluteTemperature0\")), difference(last(\"absoluteTemperature1\")), difference(last(\"absoluteTemperature2\")), difference(last(\"absoluteTemperature3\")) , difference(last(\"absoluteTemperature4\")) , difference(last(\"absoluteTemperature5\")) , difference(last(\"absoluteTemperature6\")) , difference(last(\"absoluteTemperature7\")) , difference(last(\"absoluteTemperature8\")) , difference(last(\"absoluteTemperature9\")) , difference(last(\"absoluteTemperature10\")) , difference(last(\"absoluteTemperature11\")) , difference(last(\"absoluteTemperature12\")) , difference(last(\"absoluteTemperature13\")) , difference(last(\"absoluteTemperature14\")) , difference(last(\"absoluteTemperature15\")) , difference(last(\"absoluteTemperature16\")) , difference(last(\"absoluteTemperature17\")) , difference(last(\"absoluteTemperature18\")) , difference(last(\"absoluteTemperature19\")) , difference(last(\"absoluteTemperature20\")) , difference(last(\"absoluteTemperature21\")) , difference(last(\"absoluteTemperature22\")) , difference(last(\"absoluteTemperature23\")) , difference(last(\"absoluteTemperature24\")) , difference(last(\"absoluteTemperature25\")) , difference(last(\"absoluteTemperature26\")) , difference(last(\"absoluteTemperature27\")) , difference(last(\"absoluteTemperature28\")) , difference(last(\"absoluteTemperature29\")) , difference(last(\"absoluteTemperature30\")) , difference(last(\"absoluteTemperature31\")) , difference(last(\"absoluteTemperature32\")) , difference(last(\"absoluteTemperature33\")) , difference(last(\"absoluteTemperature34\")) , difference(last(\"absoluteTemperature35\")) , difference(last(\"absoluteTemperature36\")) , difference(last(\"absoluteTemperature37\")) , difference(last(\"absoluteTemperature38\")) , difference(last(\"absoluteTemperature39\")) , difference(last(\"absoluteTemperature40\")) , difference(last(\"absoluteTemperature41\")) , difference(last(\"absoluteTemperature42\")) , difference(last(\"absoluteTemperature43\")) , difference(last(\"absoluteTemperature44\")) , difference(last(\"absoluteTemperature45\")) , difference(last(\"absoluteTemperature46\")) , difference(last(\"absoluteTemperature47\")) , difference(last(\"absoluteTemperature48\")) , difference(last(\"absoluteTemperature49\")) , difference(last(\"absoluteTemperature50\")) , difference(last(\"absoluteTemperature51\")) , difference(last(\"absoluteTemperature52\")) , difference(last(\"absoluteTemperature53\")) , difference(last(\"absoluteTemperature54\")) , difference(last(\"absoluteTemperature55\")) , difference(last(\"absoluteTemperature56\")) , difference(last(\"absoluteTemperature57\")) , difference(last(\"absoluteTemperature58\")) , difference(last(\"absoluteTemperature59\")) , difference(last(\"absoluteTemperature60\")) , difference(last(\"absoluteTemperature61\")) , difference(last(\"absoluteTemperature62\")) , difference(last(\"absoluteTemperature63\")) , difference(last(\"absoluteTemperature64\")) , difference(last(\"absoluteTemperature65\")) , difference(last(\"absoluteTemperature66\")) , difference(last(\"absoluteTemperature67\")) , difference(last(\"absoluteTemperature68\")) , difference(last(\"absoluteTemperature69\")) , difference(last(\"absoluteTemperature70\")) , difference(last(\"absoluteTemperature71\")) , difference(last(\"absoluteTemperature72\")) , difference(last(\"absoluteTemperature73\")) , difference(last(\"absoluteTemperature74\")) , difference(last(\"absoluteTemperature75\")) , difference(last(\"absoluteTemperature76\")) , difference(last(\"absoluteTemperature77\")) , difference(last(\"absoluteTemperature78\")) , difference(last(\"absoluteTemperature79\")) , difference(last(\"absoluteTemperature80\")) , difference(last(\"absoluteTemperature81\")) , difference(last(\"absoluteTemperature82\")) , difference(last(\"absoluteTemperature83\")) , difference(last(\"absoluteTemperature84\")) , difference(last(\"absoluteTemperature85\")) , difference(last(\"absoluteTemperature86\")) , difference(last(\"absoluteTemperature87\")) , difference(last(\"absoluteTemperature88\")) , difference(last(\"absoluteTemperature89\")) , difference(last(\"absoluteTemperature90\")) , difference(last(\"absoluteTemperature91\")), difference(last(\"absoluteTemperature92\")) , difference(last(\"absoluteTemperature93\")) , difference(last(\"absoluteTemperature94\")) , difference(last(\"absoluteTemperature95\"))    FROM \"efd\".\"autogen\".\"lsst.sal.MTM1M3TS.thermalData\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(1h)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT difference(last(\"absoluteTemperature0\")), difference(last(\"absoluteTemperature1\")), difference(last(\"absoluteTemperature2\")), difference(last(\"absoluteTemperature3\")) , difference(last(\"absoluteTemperature4\")) , difference(last(\"absoluteTemperature5\")) , difference(last(\"absoluteTemperature6\")) , difference(last(\"absoluteTemperature7\")) , difference(last(\"absoluteTemperature8\")) , difference(last(\"absoluteTemperature9\")) , difference(last(\"absoluteTemperature10\")) , difference(last(\"absoluteTemperature11\")) , difference(last(\"absoluteTemperature12\")) , difference(last(\"absoluteTemperature13\")) , difference(last(\"absoluteTemperature14\")) , difference(last(\"absoluteTemperature15\")) , difference(last(\"absoluteTemperature16\")) , difference(last(\"absoluteTemperature17\")) , difference(last(\"absoluteTemperature18\")) , difference(last(\"absoluteTemperature19\")) , difference(last(\"absoluteTemperature20\")) , difference(last(\"absoluteTemperature21\")) , difference(last(\"absoluteTemperature22\")) , difference(last(\"absoluteTemperature23\")) , difference(last(\"absoluteTemperature24\")) , difference(last(\"absoluteTemperature25\")) , difference(last(\"absoluteTemperature26\")) , difference(last(\"absoluteTemperature27\")) , difference(last(\"absoluteTemperature28\")) , difference(last(\"absoluteTemperature29\")) , difference(last(\"absoluteTemperature30\")) , difference(last(\"absoluteTemperature31\")) , difference(last(\"absoluteTemperature32\")) , difference(last(\"absoluteTemperature33\")) , difference(last(\"absoluteTemperature34\")) , difference(last(\"absoluteTemperature35\")) , difference(last(\"absoluteTemperature36\")) , difference(last(\"absoluteTemperature37\")) , difference(last(\"absoluteTemperature38\")) , difference(last(\"absoluteTemperature39\")) , difference(last(\"absoluteTemperature40\")) , difference(last(\"absoluteTemperature41\")) , difference(last(\"absoluteTemperature42\")) , difference(last(\"absoluteTemperature43\")) , difference(last(\"absoluteTemperature44\")) , difference(last(\"absoluteTemperature45\")) , difference(last(\"absoluteTemperature46\")) , difference(last(\"absoluteTemperature47\")) , difference(last(\"absoluteTemperature48\")) , difference(last(\"absoluteTemperature49\")) , difference(last(\"absoluteTemperature50\")) , difference(last(\"absoluteTemperature51\")) , difference(last(\"absoluteTemperature52\")) , difference(last(\"absoluteTemperature53\")) , difference(last(\"absoluteTemperature54\")) , difference(last(\"absoluteTemperature55\")) , difference(last(\"absoluteTemperature56\")) , difference(last(\"absoluteTemperature57\")) , difference(last(\"absoluteTemperature58\")) , difference(last(\"absoluteTemperature59\")) , difference(last(\"absoluteTemperature60\")) , difference(last(\"absoluteTemperature61\")) , difference(last(\"absoluteTemperature62\")) , difference(last(\"absoluteTemperature63\")) , difference(last(\"absoluteTemperature64\")) , difference(last(\"absoluteTemperature65\")) , difference(last(\"absoluteTemperature66\")) , difference(last(\"absoluteTemperature67\")) , difference(last(\"absoluteTemperature68\")) , difference(last(\"absoluteTemperature69\")) , difference(last(\"absoluteTemperature70\")) , difference(last(\"absoluteTemperature71\")) , difference(last(\"absoluteTemperature72\")) , difference(last(\"absoluteTemperature73\")) , difference(last(\"absoluteTemperature74\")) , difference(last(\"absoluteTemperature75\")) , difference(last(\"absoluteTemperature76\")) , difference(last(\"absoluteTemperature77\")) , difference(last(\"absoluteTemperature78\")) , difference(last(\"absoluteTemperature79\")) , difference(last(\"absoluteTemperature80\")) , difference(last(\"absoluteTemperature81\")) , difference(last(\"absoluteTemperature82\")) , difference(last(\"absoluteTemperature83\")) , difference(last(\"absoluteTemperature84\")) , difference(last(\"absoluteTemperature85\")) , difference(last(\"absoluteTemperature86\")) , difference(last(\"absoluteTemperature87\")) , difference(last(\"absoluteTemperature88\")) , difference(last(\"absoluteTemperature89\")) , difference(last(\"absoluteTemperature90\")) , difference(last(\"absoluteTemperature91\")), difference(last(\"absoluteTemperature92\")) , difference(last(\"absoluteTemperature93\")) , difference(last(\"absoluteTemperature94\")) , difference(last(\"absoluteTemperature95\"))    FROM \"efd\".\"autogen\".\"lsst.sal.MTM1M3TS.thermalData\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(1h)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "7ec52fd0-df2d-4b2a-bb2b-d222a11818fb",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "66f5d14a-bf4b-4fb0-8426-67ef2d67ee5c",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "482c239e-d09e-4a02-b776-b7a499e648c9",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.HVAC.chiller02P01.setpointActivo",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.HVAC.chiller02P01.temperaturaAguaImpulsionEvaporador",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.HVAC.chiller02P01.temperaturaAguaRetornoEvaporador",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/349/cells/b4414964-0f04-4f31-bfe4-a71b6f8329ec"
+				}
+			}
+		],
+		"templates": [],
+		"name": "MTM1M3 - Temperature Monitor",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/349",
+			"cells": "/chronograf/v1/dashboards/349/cells",
+			"templates": "/chronograf/v1/dashboards/349/templates"
+		}
+	}
+}

@@ -1,0 +1,1481 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "646",
+		"cells": [
+			{
+				"i": "2850800f-f9c3-4a9b-99b7-be0b0ae55e83",
+				"x": 8,
+				"y": 0,
+				"w": 2,
+				"h": 3,
+				"name": "Strehl R",
+				"queries": [
+					{
+						"query": "SELECT mean(\"strehlR\") AS \"mean_strehlR\" FROM \"efd\".\"autogen\".\"lsst.sal.DIMM.logevent_dimmMeasurement\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"strehlR\") AS \"mean_strehlR\" FROM \"efd\".\"autogen\".\"lsst.sal.DIMM.logevent_dimmMeasurement\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(previous)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#FDC44F",
+						"name": "Cthulhu",
+						"value": "0"
+					},
+					{
+						"id": "bcc76ffd-f465-4e71-b876-149fc1590d0e",
+						"type": "scale",
+						"hex": "#007C76",
+						"name": "Cthulhu",
+						"value": "0"
+					},
+					{
+						"id": "70b4ec57-ea29-4b0b-a62a-04cf8fd7b605",
+						"type": "scale",
+						"hex": "#8983FF",
+						"name": "Cthulhu",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/646/cells/2850800f-f9c3-4a9b-99b7-be0b0ae55e83"
+				}
+			},
+			{
+				"i": "86a37690-2f51-4707-b2c4-a89bdaf3c572",
+				"x": 4,
+				"y": 0,
+				"w": 2,
+				"h": 3,
+				"name": "Flux R",
+				"queries": [
+					{
+						"query": "SELECT mean(\"fluxR\") AS \"mean_fluxR\" FROM \"efd\".\"autogen\".\"lsst.sal.DIMM.logevent_dimmMeasurement\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"fluxR\") AS \"mean_fluxR\" FROM \"efd\".\"autogen\".\"lsst.sal.DIMM.logevent_dimmMeasurement\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(previous)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "e7449c69-ecfa-494f-bab5-6766f24e98df",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "615df6be-1faf-4e33-8774-ad9ad2cf3ae3",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/646/cells/86a37690-2f51-4707-b2c4-a89bdaf3c572"
+				}
+			},
+			{
+				"i": "d1ab916c-676d-418f-b2bb-cc7911573bb0",
+				"x": 0,
+				"y": 3,
+				"w": 12,
+				"h": 5,
+				"name": "DIMM log Message",
+				"queries": [
+					{
+						"query": "SELECT \"name\", \"message\", \"functionName\", \"filePath\" FROM \"efd\".\"autogen\".\"lsst.sal.DIMM.logevent_logMessage\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.DIMM.logevent_logMessage",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "name",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "message",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "functionName",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "filePath",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.DIMM.logevent_logMessage.name",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.DIMM.logevent_logMessage.message",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.DIMM.logevent_logMessage.functionName",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.DIMM.logevent_logMessage.filePath",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/646/cells/d1ab916c-676d-418f-b2bb-cc7911573bb0"
+				}
+			},
+			{
+				"i": "609be1ec-b0c0-4b2d-a186-3f72182ac088",
+				"x": 6,
+				"y": 0,
+				"w": 2,
+				"h": 3,
+				"name": "Strehl L",
+				"queries": [
+					{
+						"query": "SELECT mean(\"strehlL\") AS \"mean_strehlL\" FROM \"efd\".\"autogen\".\"lsst.sal.DIMM.logevent_dimmMeasurement\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"strehlL\") AS \"mean_strehlL\" FROM \"efd\".\"autogen\".\"lsst.sal.DIMM.logevent_dimmMeasurement\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(previous)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "85cd495c-6a54-4b60-8f08-e08ea67afd09",
+						"type": "scale",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
+						"value": "0"
+					},
+					{
+						"id": "8dfdad2b-45a9-4300-9309-1a2ea73c2e31",
+						"type": "scale",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/646/cells/609be1ec-b0c0-4b2d-a186-3f72182ac088"
+				}
+			},
+			{
+				"i": "e87e61d2-56e3-4f4e-9326-60ffb9a061cd",
+				"x": 10,
+				"y": 0,
+				"w": 2,
+				"h": 3,
+				"name": "secZ",
+				"queries": [
+					{
+						"query": "SELECT \"secz\" FROM \"efd\".\"autogen\".\"lsst.sal.DIMM.logevent_dimmMeasurement\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"secz\" FROM \"efd\".\"autogen\".\"lsst.sal.DIMM.logevent_dimmMeasurement\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime:",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#F6F6F8",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "85d1d3a3-6710-44d0-b9f0-fe4401ea67ad",
+						"type": "scale",
+						"hex": "#A4A8B6",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "16c12607-cbcf-494d-84cf-6695afc433e6",
+						"type": "scale",
+						"hex": "#545667",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/646/cells/e87e61d2-56e3-4f4e-9326-60ffb9a061cd"
+				}
+			},
+			{
+				"i": "35c9bc5a-4b0b-4de9-afdd-f548d13c52cc",
+				"x": 2,
+				"y": 0,
+				"w": 2,
+				"h": 3,
+				"name": "Flux L",
+				"queries": [
+					{
+						"query": "SELECT mean(\"fluxL\") AS \"mean_fluxL\" FROM \"efd\".\"autogen\".\"lsst.sal.DIMM.logevent_dimmMeasurement\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"fluxL\") AS \"mean_fluxL\" FROM \"efd\".\"autogen\".\"lsst.sal.DIMM.logevent_dimmMeasurement\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(previous)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#8F8AF4",
+						"name": "Do Androids Dream of Electric Sheep?",
+						"value": "0"
+					},
+					{
+						"id": "d1946c49-82ec-4831-9ec2-a4641d5e856b",
+						"type": "scale",
+						"hex": "#A51414",
+						"name": "Do Androids Dream of Electric Sheep?",
+						"value": "0"
+					},
+					{
+						"id": "20e55b9c-d8c9-4579-ba93-fcf049014c76",
+						"type": "scale",
+						"hex": "#F4CF31",
+						"name": "Do Androids Dream of Electric Sheep?",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/646/cells/35c9bc5a-4b0b-4de9-afdd-f548d13c52cc"
+				}
+			},
+			{
+				"i": "bef4a199-8080-477c-bf59-d6366d69a43f",
+				"x": 0,
+				"y": 0,
+				"w": 2,
+				"h": 3,
+				"name": "FWHM",
+				"queries": [
+					{
+						"query": "SELECT mean(\"fwhm\") AS \"mean_fwhm\" FROM \"efd\".\"autogen\".\"lsst.sal.DIMM.logevent_dimmMeasurement\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"fwhm\") AS \"mean_fwhm\" FROM \"efd\".\"autogen\".\"lsst.sal.DIMM.logevent_dimmMeasurement\" WHERE salIndex = 1 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(previous)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "1290d4d9-6d46-46d1-b445-dd97b2e5006d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "1c81843d-0baa-4ae0-8d5f-38149f8b8afa",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/646/cells/bef4a199-8080-477c-bf59-d6366d69a43f"
+				}
+			},
+			{
+				"i": "25a51911-a5a9-4a07-b944-295a305ed6e6",
+				"x": 3,
+				"y": 8,
+				"w": 9,
+				"h": 3,
+				"name": "DIMM Status",
+				"queries": [
+					{
+						"query": "SELECT \"focus\", \"motionState\", \"powerState\", \"status\" FROM \"efd\".\"autogen\".\"lsst.sal.DIMM.status\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.DIMM.status",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "focus",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "motionState",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "powerState",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "status",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.DIMM.status.focus",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.DIMM.status.motionState",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.DIMM.status.powerState",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.DIMM.status.status",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/646/cells/25a51911-a5a9-4a07-b944-295a305ed6e6"
+				}
+			},
+			{
+				"i": "b8fb347f-683d-475d-89df-c41caa3ef6ce",
+				"x": 0,
+				"y": 8,
+				"w": 3,
+				"h": 3,
+				"name": "Ameba Mode",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.DIMM.ameba\" and\n    r._field == \"mode\"\n  )\n  |> group()\n  |> limit(n: 5)\n  |> map(fn: (r) => ({\n      _time: r._time,\n      mode: int(v: r._value),\n      modeName:\n        if int(v: r._value) == 0 then \"Off\"\n        else if int(v: r._value) == 1 then \"Auto\"\n        else if int(v: r._value) == 2 then \"Manual\"\n        else \"Unknown\"\n    }))\n  |> keep(columns: [\"_time\",\"mode\",\"modeName\"])",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.DIMM.ameba\" and\n    r._field == \"mode\"\n  )\n  |> group()\n  |> limit(n: 5)\n  |> map(fn: (r) => ({\n      _time: r._time,\n      mode: int(v: r._value),\n      modeName:\n        if int(v: r._value) == 0 then \"Off\"\n        else if int(v: r._value) == 1 then \"Auto\"\n        else if int(v: r._value) == 2 then \"Manual\"\n        else \"Unknown\"\n    }))\n  |> keep(columns: [\"_time\",\"mode\",\"modeName\"])",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "mode",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "modeName",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/646/cells/b8fb347f-683d-475d-89df-c41caa3ef6ce"
+				}
+			},
+			{
+				"i": "c0dbe6e2-30a0-4994-8e26-fdc35bc7fe1c",
+				"x": 9,
+				"y": 11,
+				"w": 3,
+				"h": 3,
+				"name": "DIMM Condition Sun altitude",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.DIMM.ameba\" and\n    r._field == \"sunAltitude\"\n  )\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 5)\n\n  |> keep(columns: [\"_time\",\"_value\"])",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.DIMM.ameba\" and\n    r._field == \"sunAltitude\"\n  )\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 5)\n\n  |> keep(columns: [\"_time\",\"_value\"])",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "time",
+						"visible": true
+					},
+					{
+						"internalName": "_value",
+						"displayName": "Sun Altitude",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "Current status of the ambient conditions as a bit-mask. Monitoring will start if all condition bits are set. The following bits are possible: Bit 0 (value 1) - Humidity is OK; Bit 1 (value 2) - Wind is OK; Bit 2 (value 4) - Sky is clear.\n\n",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/646/cells/c0dbe6e2-30a0-4994-8e26-fdc35bc7fe1c"
+				}
+			},
+			{
+				"i": "5a54ba1c-3ca4-47ae-9b62-2bc39c41aa22",
+				"x": 3,
+				"y": 11,
+				"w": 6,
+				"h": 3,
+				"name": "DIMM Condition",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.DIMM.ameba\" and\n    r._field == \"condition\"\n  )\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 5)\n  |> map(fn: (r) => {\n      n = int(v: r._value)                // bitmask 0..7\n      hum  = if n % 2 == 1 then true else false                    // bit 0 (1)\n      wind = if int(v: n / 2) % 2 == 1 then true else false        // bit 1 (2)\n      sky  = if int(v: n / 4) % 2 == 1 then true else false        // bit 2 (4)\n      all  = hum and wind and sky\n\n      label =\n        (if hum then \"Humidity OK\" else \"\") +\n        (if wind then (if hum then \", Wind OK\" else \"Wind OK\") else \"\") +\n        (if sky then (if hum or wind then \", Sky clear\" else \"Sky clear\") else \"\")\n\n      return {\n        _time: r._time,\n        condition: n,\n        humidity_ok: hum,\n        wind_ok: wind,\n        sky_clear: sky,\n        all_ok: all,\n        conditionName: label\n      }\n    })\n  |> keep(columns: [\"_time\",\"condition\",\"humidity_ok\",\"wind_ok\",\"sky_clear\",\"all_ok\",\"conditionName\"])",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.DIMM.ameba\" and\n    r._field == \"condition\"\n  )\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 5)\n  |> map(fn: (r) => {\n      n = int(v: r._value)                // bitmask 0..7\n      hum  = if n % 2 == 1 then true else false                    // bit 0 (1)\n      wind = if int(v: n / 2) % 2 == 1 then true else false        // bit 1 (2)\n      sky  = if int(v: n / 4) % 2 == 1 then true else false        // bit 2 (4)\n      all  = hum and wind and sky\n\n      label =\n        (if hum then \"Humidity OK\" else \"\") +\n        (if wind then (if hum then \", Wind OK\" else \"Wind OK\") else \"\") +\n        (if sky then (if hum or wind then \", Sky clear\" else \"Sky clear\") else \"\")\n\n      return {\n        _time: r._time,\n        condition: n,\n        humidity_ok: hum,\n        wind_ok: wind,\n        sky_clear: sky,\n        all_ok: all,\n        conditionName: label\n      }\n    })\n  |> keep(columns: [\"_time\",\"condition\",\"humidity_ok\",\"wind_ok\",\"sky_clear\",\"all_ok\",\"conditionName\"])",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "all_ok",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "condition",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "conditionName",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "humidity_ok",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "sky_clear",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "wind_ok",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "Current status of the ambient conditions as a bit-mask. Monitoring will start if all condition bits are set. The following bits are possible: Bit 0 (value 1) - Humidity is OK; Bit 1 (value 2) - Wind is OK; Bit 2 (value 4) - Sky is clear.\n\n",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/646/cells/5a54ba1c-3ca4-47ae-9b62-2bc39c41aa22"
+				}
+			},
+			{
+				"i": "8654fd13-4fc6-4aa5-b496-d46ecf91bf79",
+				"x": 0,
+				"y": 11,
+				"w": 3,
+				"h": 3,
+				"name": "Dimm State",
+				"queries": [
+					{
+						"query": "from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.DIMM.ameba\" and\n    r._field == \"state\"\n  )\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 5)\n  |> map(fn: (r) => ({\n      _time: r._time,\n      state: int(v: r._value),\n      stateName:\n        if int(v: r._value) == 0 then \"Inactive\"\n        else if int(v: r._value) == 1 then \"Waiting\"\n        else if int(v: r._value) == 2 then \"Slewing\"\n        else if int(v: r._value) == 3 then \"Tracking\"\n        else if int(v: r._value) == 4 then \"Focusing\"\n        else \"Monitoring\"\n    }))\n  |> keep(columns: [\"_time\",\"state\",\"stateName\"])",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) =>\n    r._measurement == \"lsst.sal.DIMM.ameba\" and\n    r._field == \"state\"\n  )\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 5)\n  |> map(fn: (r) => ({\n      _time: r._time,\n      state: int(v: r._value),\n      stateName:\n        if int(v: r._value) == 0 then \"Inactive\"\n        else if int(v: r._value) == 1 then \"Waiting\"\n        else if int(v: r._value) == 2 then \"Slewing\"\n        else if int(v: r._value) == 3 then \"Tracking\"\n        else if int(v: r._value) == 4 then \"Focusing\"\n        else \"Monitoring\"\n    }))\n  |> keep(columns: [\"_time\",\"state\",\"stateName\"])",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "state",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "stateName",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "Current status of the ambient conditions as a bit-mask. Monitoring will start if all condition bits are set. The following bits are possible: Bit 0 (value 1) - Humidity is OK; Bit 1 (value 2) - Wind is OK; Bit 2 (value 4) - Sky is clear.\n\n",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/646/cells/8654fd13-4fc6-4aa5-b496-d46ecf91bf79"
+				}
+			}
+		],
+		"templates": [],
+		"name": "DIMM.1 Monitor",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/646",
+			"cells": "/chronograf/v1/dashboards/646/cells",
+			"templates": "/chronograf/v1/dashboards/646/templates"
+		}
+	}
+}

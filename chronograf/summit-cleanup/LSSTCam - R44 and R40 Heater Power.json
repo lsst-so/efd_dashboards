@@ -1,0 +1,843 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "554",
+		"cells": [
+			{
+				"i": "bae1d078-013b-478f-b3b0-7f054d95439a",
+				"x": 0,
+				"y": 3,
+				"w": 12,
+				"h": 3,
+				"name": "R40 and R44 RTD measurement",
+				"queries": [
+					{
+						"query": "SELECT median(\"temperature\") AS \"median_temperature\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_reb_temp\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND (\"Raft\"='R44' OR \"Raft\"='R40') AND \"Location\"='RTD' AND \"Reb\"='RebW' GROUP BY time(:interval:), \"Raft\", \"Reb\" FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_reb_temp",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "median",
+									"type": "func",
+									"alias": "median_temperature",
+									"args": [
+										{
+											"value": "temperature",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Location": [
+									"RTD"
+								],
+								"Raft": [
+									"R44",
+									"R40"
+								],
+								"Reb": [
+									"RebW"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"Raft",
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e609e2e9-d59a-46fb-9d4d-5ecd7276dc27",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8f581e7b-5a46-48ec-ab29-a8433e9a0620",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "ef82807a-c7ad-4cbc-91bd-70d2d71bef64",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/554/cells/bae1d078-013b-478f-b3b0-7f054d95439a"
+				}
+			},
+			{
+				"i": "2b093697-c511-4c3d-973b-5bd7baaf2c3e",
+				"x": 0,
+				"y": 6,
+				"w": 12,
+				"h": 3,
+				"name": "Other RSA trim heat",
+				"queries": [
+					{
+						"query": "SELECT \"HtrW\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_reb_data\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND (\"Raft\"='R43' OR \"Raft\"='R42' OR \"Raft\"='R41' OR \"Raft\"='R34' OR \"Raft\"='R33' OR \"Raft\"='R32' OR \"Raft\"='R31' OR \"Raft\"='R30' OR \"Raft\"='R23' OR \"Raft\"='R24' OR \"Raft\"='R22' OR \"Raft\"='R21' OR \"Raft\"='R20' OR \"Raft\"='R14' OR \"Raft\"='R13' OR \"Raft\"='R12' OR \"Raft\"='R11' OR \"Raft\"='R10' OR \"Raft\"='R04' OR \"Raft\"='R02' OR \"Raft\"='R03' OR \"Raft\"='R01' OR \"Raft\"='R00') AND (\"Reb\"='Reb2' OR \"Reb\"='Reb0' OR \"Reb\"='Reb1' OR \"Reb\"='RebW' OR \"Reb\"='RebG') GROUP BY \"Raft\", \"Reb\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_reb_data",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "HtrW",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R43",
+									"R42",
+									"R41",
+									"R34",
+									"R33",
+									"R32",
+									"R31",
+									"R30",
+									"R23",
+									"R24",
+									"R22",
+									"R21",
+									"R20",
+									"R14",
+									"R13",
+									"R12",
+									"R11",
+									"R10",
+									"R04",
+									"R02",
+									"R03",
+									"R01",
+									"R00"
+								],
+								"Reb": [
+									"Reb2",
+									"Reb0",
+									"Reb1",
+									"RebW",
+									"RebG"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Raft",
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e609e2e9-d59a-46fb-9d4d-5ecd7276dc27",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8f581e7b-5a46-48ec-ab29-a8433e9a0620",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "ef82807a-c7ad-4cbc-91bd-70d2d71bef64",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/554/cells/2b093697-c511-4c3d-973b-5bd7baaf2c3e"
+				}
+			},
+			{
+				"i": "f3ecbd75-195e-48a8-af1c-f0d64027223f",
+				"x": 0,
+				"y": 15,
+				"w": 12,
+				"h": 3,
+				"name": "Mount elevation",
+				"queries": [
+					{
+						"query": "SELECT \"actualPosition\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.elevation\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.elevation",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "actualPosition",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " deg",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8f581e7b-5a46-48ec-ab29-a8433e9a0620",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "ef82807a-c7ad-4cbc-91bd-70d2d71bef64",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/554/cells/f3ecbd75-195e-48a8-af1c-f0d64027223f"
+				}
+			},
+			{
+				"i": "e08a9c95-11a4-4072-a64b-1458d8be2c8e",
+				"x": 0,
+				"y": 12,
+				"w": 12,
+				"h": 3,
+				"name": "Cryo Plate Trim heat",
+				"queries": [
+					{
+						"query": "SELECT \"CryoTotal_P\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.thermal_trim_bulk\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.thermal_trim_bulk",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "CryoTotal_P",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "W",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8f581e7b-5a46-48ec-ab29-a8433e9a0620",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "ef82807a-c7ad-4cbc-91bd-70d2d71bef64",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/554/cells/e08a9c95-11a4-4072-a64b-1458d8be2c8e"
+				}
+			},
+			{
+				"i": "ff777cf5-b941-4a00-a93a-51de3a7361ef",
+				"x": 0,
+				"y": 9,
+				"w": 12,
+				"h": 3,
+				"name": "Average Cryo plate temperature",
+				"queries": [
+					{
+						"query": "SELECT \"temperature\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.thermal_cryo\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Source\"='Average'",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.thermal_cryo",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "temperature",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Source": [
+									"Average"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " deg C",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8f581e7b-5a46-48ec-ab29-a8433e9a0620",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "ef82807a-c7ad-4cbc-91bd-70d2d71bef64",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/554/cells/ff777cf5-b941-4a00-a93a-51de3a7361ef"
+				}
+			},
+			{
+				"i": "4cbebcfc-39fa-4f0b-975c-766696434584",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 3,
+				"name": "R40 and R44 heater Power",
+				"queries": [
+					{
+						"query": "SELECT max(\"HtrW\") AS \"max_HtrW\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.focal_plane_reb_data\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND (\"Raft\"='R40' OR \"Raft\"='R44') AND \"Reb\"='RebW' GROUP BY time(:interval:), \"Raft\", \"Reb\" FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.focal_plane_reb_data",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "max_HtrW",
+									"args": [
+										{
+											"value": "HtrW",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Raft": [
+									"R40",
+									"R44"
+								],
+								"Reb": [
+									"RebW"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"Raft",
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "W",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8f581e7b-5a46-48ec-ab29-a8433e9a0620",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "ef82807a-c7ad-4cbc-91bd-70d2d71bef64",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/554/cells/4cbebcfc-39fa-4f0b-975c-766696434584"
+				}
+			}
+		],
+		"templates": [],
+		"name": "LSSTCam - R44 and R40 Heater Power",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/554",
+			"cells": "/chronograf/v1/dashboards/554/cells",
+			"templates": "/chronograf/v1/dashboards/554/templates"
+		}
+	}
+}

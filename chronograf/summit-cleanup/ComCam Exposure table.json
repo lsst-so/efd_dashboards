@@ -1,0 +1,273 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "53",
+		"cells": [
+			{
+				"i": "a4e6a84b-017e-4f39-ac45-fd07503e5ca4",
+				"x": 0,
+				"y": 0,
+				"w": 11,
+				"h": 2,
+				"name": "Info",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "Last images taken with CCCamera.\n\nSelect an appropriate time window (e.g. `Past 24h`)\n\n",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/53/cells/a4e6a84b-017e-4f39-ac45-fd07503e5ca4"
+				}
+			},
+			{
+				"i": "012f9281-f5ec-4315-ad32-dc46c3c7429a",
+				"x": 0,
+				"y": 2,
+				"w": 12,
+				"h": 5,
+				"name": "Exposure sequence",
+				"queries": [
+					{
+						"query": "SELECT \"expTime\", \"numImages\", \"shutter\", \"keyValueMap\", \"obsNote\" FROM \"efd\".\"autogen\".\"lsst.sal.CCCamera.command_takeImages\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.CCCamera.command_takeImages",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "expTime",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "numImages",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "shutter",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "keyValueMap",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "obsNote",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.CCCamera.command_takeImages.expTime",
+						"displayName": "ExpTime",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.CCCamera.command_takeImages.keyValueMap",
+						"displayName": "Key Value Map",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.CCCamera.command_takeImages.numImages",
+						"displayName": "Num Images",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.CCCamera.command_takeImages.shutter",
+						"displayName": "Shutter",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.CCCamera.command_takeImages.obsNote",
+						"displayName": "Obs Note",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/53/cells/012f9281-f5ec-4315-ad32-dc46c3c7429a"
+				}
+			}
+		],
+		"templates": [],
+		"name": "ComCam Exposure table",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/53",
+			"cells": "/chronograf/v1/dashboards/53/cells",
+			"templates": "/chronograf/v1/dashboards/53/templates"
+		}
+	}
+}

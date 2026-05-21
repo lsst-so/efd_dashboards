@@ -1,0 +1,142 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "142",
+		"cells": [
+			{
+				"i": "abf79008-6305-492e-829b-472bf3462712",
+				"x": 0,
+				"y": 0,
+				"w": 6,
+				"h": 2,
+				"name": "",
+				"queries": [
+					{
+						"query": "SELECT \"targetName\", \"raString\", \"decString\" FROM \"efd\".\"autogen\".\"lsst.sal.MTPtg.logevent_currentTarget\" ORDER BY time DESC LIMIT 1",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"targetName\", \"raString\", \"decString\" FROM \"efd\".\"autogen\".\"lsst.sal.MTPtg.logevent_currentTarget\" ORDER BY time DESC LIMIT 1",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTPtg.logevent_currentTarget.targetName",
+						"displayName": "Target",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTPtg.logevent_currentTarget.decString",
+						"displayName": "Dec",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTPtg.logevent_currentTarget.raString",
+						"displayName": "RA",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/142/cells/abf79008-6305-492e-829b-472bf3462712"
+				}
+			}
+		],
+		"templates": [],
+		"name": "MT Current Target",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/142",
+			"cells": "/chronograf/v1/dashboards/142/cells",
+			"templates": "/chronograf/v1/dashboards/142/templates"
+		}
+	}
+}

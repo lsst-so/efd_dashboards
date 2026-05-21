@@ -1,0 +1,1395 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "582",
+		"cells": [
+			{
+				"i": "99133da0-b015-4be3-ba0c-98ea632a774e",
+				"x": 4,
+				"y": 8,
+				"w": 4,
+				"h": 4,
+				"name": "R0[1-3] HVBias",
+				"queries": [
+					{
+						"query": "SELECT mean(\"VbefSwch\") AS \"mean_VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='rebpower' AND \"Hardware\"='hvbias' AND (\"Raft\"='R01' OR \"Raft\"='R02' OR \"Raft\"='R03') AND (\"Reb\"='Reb0' OR \"Reb\"='Reb1' OR \"Reb\"='Reb2' OR \"Reb\"='RebG' OR \"Reb\"='RebW') GROUP BY time(:interval:), \"Reb\", \"Raft\" FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_VbefSwch",
+									"args": [
+										{
+											"value": "VbefSwch",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Agent": [
+									"rebpower"
+								],
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R01",
+									"R02",
+									"R03"
+								],
+								"Reb": [
+									"Reb0",
+									"Reb1",
+									"Reb2",
+									"RebG",
+									"RebW"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"Reb",
+									"Raft"
+								]
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "f639b68b-4c8e-4d51-ba9a-a2a528b7e6f8",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4190ef62-d6d8-4026-a77d-0d759a57e5ab",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e5dd98b0-63c5-41ce-8058-908205b02b8f",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/582/cells/99133da0-b015-4be3-ba0c-98ea632a774e"
+				}
+			},
+			{
+				"i": "dd7aa035-0901-4712-be9e-93cd2eb861a7",
+				"x": 8,
+				"y": 8,
+				"w": 4,
+				"h": 4,
+				"name": "R04 HVBias",
+				"queries": [
+					{
+						"query": "SELECT mean(\"VbefSwch\") AS \"mean_VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='rebpower' AND \"Hardware\"='hvbias' AND \"Raft\"='R04' AND (\"Reb\"='Reb0' OR \"Reb\"='Reb1' OR \"Reb\"='Reb2' OR \"Reb\"='RebG' OR \"Reb\"='RebW') GROUP BY time(:interval:), \"Reb\" FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_VbefSwch",
+									"args": [
+										{
+											"value": "VbefSwch",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Agent": [
+									"rebpower"
+								],
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R04"
+								],
+								"Reb": [
+									"Reb0",
+									"Reb1",
+									"Reb2",
+									"RebG",
+									"RebW"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "f639b68b-4c8e-4d51-ba9a-a2a528b7e6f8",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4190ef62-d6d8-4026-a77d-0d759a57e5ab",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e5dd98b0-63c5-41ce-8058-908205b02b8f",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/582/cells/dd7aa035-0901-4712-be9e-93cd2eb861a7"
+				}
+			},
+			{
+				"i": "350288d0-65f9-4b9b-9d60-04904abf2e4a",
+				"x": 0,
+				"y": 8,
+				"w": 4,
+				"h": 4,
+				"name": "R00 HVBias",
+				"queries": [
+					{
+						"query": "SELECT mean(\"VbefSwch\") AS \"mean_VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='rebpower' AND \"Hardware\"='hvbias' AND \"Raft\"='R00' AND (\"Reb\"='Reb0' OR \"Reb\"='Reb1' OR \"Reb\"='Reb2' OR \"Reb\"='RebG' OR \"Reb\"='RebW') GROUP BY time(:interval:), \"Reb\" FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_VbefSwch",
+									"args": [
+										{
+											"value": "VbefSwch",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Agent": [
+									"rebpower"
+								],
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R00"
+								],
+								"Reb": [
+									"Reb0",
+									"Reb1",
+									"Reb2",
+									"RebG",
+									"RebW"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "f639b68b-4c8e-4d51-ba9a-a2a528b7e6f8",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4190ef62-d6d8-4026-a77d-0d759a57e5ab",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e5dd98b0-63c5-41ce-8058-908205b02b8f",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/582/cells/350288d0-65f9-4b9b-9d60-04904abf2e4a"
+				}
+			},
+			{
+				"i": "b79f991f-3767-4783-9655-e04938b65820",
+				"x": 0,
+				"y": 4,
+				"w": 4,
+				"h": 4,
+				"name": "R[1-3]0 HVBias",
+				"queries": [
+					{
+						"query": "SELECT mean(\"VbefSwch\") AS \"mean_VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='rebpower' AND \"Hardware\"='hvbias' AND (\"Raft\"='R10' OR \"Raft\"='R20' OR \"Raft\"='R30') AND (\"Reb\"='Reb0' OR \"Reb\"='Reb1' OR \"Reb\"='Reb2' OR \"Reb\"='RebG' OR \"Reb\"='RebW') GROUP BY time(:interval:), \"Reb\", \"Raft\" FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_VbefSwch",
+									"args": [
+										{
+											"value": "VbefSwch",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Agent": [
+									"rebpower"
+								],
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R10",
+									"R20",
+									"R30"
+								],
+								"Reb": [
+									"Reb0",
+									"Reb1",
+									"Reb2",
+									"RebG",
+									"RebW"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"Reb",
+									"Raft"
+								]
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "f639b68b-4c8e-4d51-ba9a-a2a528b7e6f8",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4190ef62-d6d8-4026-a77d-0d759a57e5ab",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e5dd98b0-63c5-41ce-8058-908205b02b8f",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/582/cells/b79f991f-3767-4783-9655-e04938b65820"
+				}
+			},
+			{
+				"i": "4ffb084b-0ff7-4e94-b227-940dfed9d502",
+				"x": 4,
+				"y": 4,
+				"w": 4,
+				"h": 4,
+				"name": "R[1-3][1-3] HVBias",
+				"queries": [
+					{
+						"query": "SELECT mean(\"VbefSwch\") AS \"mean_VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='rebpower' AND \"Hardware\"='hvbias' AND (\"Raft\"='R11' OR \"Raft\"='R12' OR \"Raft\"='R13' OR \"Raft\"='R21' OR \"Raft\"='R22' OR \"Raft\"='R23' OR \"Raft\"='R31' OR \"Raft\"='R32' OR \"Raft\"='R33') AND (\"Reb\"='Reb0' OR \"Reb\"='Reb1' OR \"Reb\"='Reb2' OR \"Reb\"='RebG' OR \"Reb\"='RebW') GROUP BY time(:interval:), \"Reb\", \"Raft\" FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_VbefSwch",
+									"args": [
+										{
+											"value": "VbefSwch",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Agent": [
+									"rebpower"
+								],
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R11",
+									"R12",
+									"R13",
+									"R21",
+									"R22",
+									"R23",
+									"R31",
+									"R32",
+									"R33"
+								],
+								"Reb": [
+									"Reb0",
+									"Reb1",
+									"Reb2",
+									"RebG",
+									"RebW"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"Reb",
+									"Raft"
+								]
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "f639b68b-4c8e-4d51-ba9a-a2a528b7e6f8",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4190ef62-d6d8-4026-a77d-0d759a57e5ab",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e5dd98b0-63c5-41ce-8058-908205b02b8f",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/582/cells/4ffb084b-0ff7-4e94-b227-940dfed9d502"
+				}
+			},
+			{
+				"i": "4f1dddb8-fbd3-49c6-b8b9-7c585731e599",
+				"x": 8,
+				"y": 4,
+				"w": 4,
+				"h": 4,
+				"name": "R[1-3]4 HVBias",
+				"queries": [
+					{
+						"query": "SELECT mean(\"VbefSwch\") AS \"mean_VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='rebpower' AND \"Hardware\"='hvbias' AND (\"Raft\"='R14' OR \"Raft\"='R24' OR \"Raft\"='R34') AND (\"Reb\"='Reb0' OR \"Reb\"='Reb1' OR \"Reb\"='Reb2' OR \"Reb\"='RebG' OR \"Reb\"='RebW') GROUP BY time(:interval:), \"Reb\", \"Raft\" FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_VbefSwch",
+									"args": [
+										{
+											"value": "VbefSwch",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Agent": [
+									"rebpower"
+								],
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R14",
+									"R24",
+									"R34"
+								],
+								"Reb": [
+									"Reb0",
+									"Reb1",
+									"Reb2",
+									"RebG",
+									"RebW"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"Reb",
+									"Raft"
+								]
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "f639b68b-4c8e-4d51-ba9a-a2a528b7e6f8",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4190ef62-d6d8-4026-a77d-0d759a57e5ab",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e5dd98b0-63c5-41ce-8058-908205b02b8f",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/582/cells/4f1dddb8-fbd3-49c6-b8b9-7c585731e599"
+				}
+			},
+			{
+				"i": "60b2c35b-742e-4fe8-aec8-ca24503d3336",
+				"x": 8,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "R44 HVBias",
+				"queries": [
+					{
+						"query": "SELECT mean(\"VbefSwch\") AS \"mean_VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='rebpower' AND \"Hardware\"='hvbias' AND \"Raft\"='R44' AND (\"Reb\"='Reb0' OR \"Reb\"='Reb1' OR \"Reb\"='Reb2' OR \"Reb\"='RebG' OR \"Reb\"='RebW') GROUP BY time(:interval:), \"Reb\" FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_VbefSwch",
+									"args": [
+										{
+											"value": "VbefSwch",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Agent": [
+									"rebpower"
+								],
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R44"
+								],
+								"Reb": [
+									"Reb0",
+									"Reb1",
+									"Reb2",
+									"RebG",
+									"RebW"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "f639b68b-4c8e-4d51-ba9a-a2a528b7e6f8",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4190ef62-d6d8-4026-a77d-0d759a57e5ab",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e5dd98b0-63c5-41ce-8058-908205b02b8f",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/582/cells/60b2c35b-742e-4fe8-aec8-ca24503d3336"
+				}
+			},
+			{
+				"i": "a6e55d74-9be3-45be-90d1-5dbc973901ac",
+				"x": 4,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "R4[1-3] HVBias",
+				"queries": [
+					{
+						"query": "SELECT mean(\"VbefSwch\") AS \"mean_VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='rebpower' AND \"Hardware\"='hvbias' AND (\"Raft\"='R41' OR \"Raft\"='R42' OR \"Raft\"='R43') AND (\"Reb\"='Reb0' OR \"Reb\"='Reb1' OR \"Reb\"='Reb2' OR \"Reb\"='RebG' OR \"Reb\"='RebW') GROUP BY time(:interval:), \"Reb\", \"Raft\" FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_VbefSwch",
+									"args": [
+										{
+											"value": "VbefSwch",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Agent": [
+									"rebpower"
+								],
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R41",
+									"R42",
+									"R43"
+								],
+								"Reb": [
+									"Reb0",
+									"Reb1",
+									"Reb2",
+									"RebG",
+									"RebW"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"Reb",
+									"Raft"
+								]
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "f639b68b-4c8e-4d51-ba9a-a2a528b7e6f8",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4190ef62-d6d8-4026-a77d-0d759a57e5ab",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e5dd98b0-63c5-41ce-8058-908205b02b8f",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/582/cells/a6e55d74-9be3-45be-90d1-5dbc973901ac"
+				}
+			},
+			{
+				"i": "bf56b764-2c63-4540-b7d9-290071263e4d",
+				"x": 0,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "R40 HVBias",
+				"queries": [
+					{
+						"query": "SELECT mean(\"VbefSwch\") AS \"mean_VbefSwch\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.rebpower\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='rebpower' AND \"Hardware\"='hvbias' AND (\"Reb\"='Reb0' OR \"Reb\"='Reb1' OR \"Reb\"='Reb2' OR \"Reb\"='RebG' OR \"Reb\"='RebW') AND \"Raft\"='R40' GROUP BY time(:interval:), \"Reb\" FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.rebpower",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_VbefSwch",
+									"args": [
+										{
+											"value": "VbefSwch",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"Agent": [
+									"rebpower"
+								],
+								"Hardware": [
+									"hvbias"
+								],
+								"Raft": [
+									"R40"
+								],
+								"Reb": [
+									"Reb0",
+									"Reb1",
+									"Reb2",
+									"RebG",
+									"RebW"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"Reb"
+								]
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "f639b68b-4c8e-4d51-ba9a-a2a528b7e6f8",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4190ef62-d6d8-4026-a77d-0d759a57e5ab",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e5dd98b0-63c5-41ce-8058-908205b02b8f",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/582/cells/bf56b764-2c63-4540-b7d9-290071263e4d"
+				}
+			}
+		],
+		"templates": [],
+		"name": "LSSTCam Sensor HVBias Stripchart",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/582",
+			"cells": "/chronograf/v1/dashboards/582/cells",
+			"templates": "/chronograf/v1/dashboards/582/templates"
+		}
+	}
+}

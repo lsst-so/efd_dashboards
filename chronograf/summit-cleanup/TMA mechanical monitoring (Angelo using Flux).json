@@ -1,0 +1,794 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "208",
+		"cells": [
+			{
+				"i": "1b3332d9-f0f6-4448-af0f-5d155b67fcec",
+				"x": 0,
+				"y": 21,
+				"w": 11,
+				"h": 3,
+				"name": "TMA Ambient Temp",
+				"queries": [
+					{
+						"query": "SELECT mean(\"temperature0\") AS \"mean_temperature0\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex=103 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"temperature0\") AS \"mean_temperature0\" FROM \"efd\".\"autogen\".\"lsst.sal.ESS.temperature\" WHERE salIndex=103 AND time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "6d7a0f96-c2b4-4c75-9c06-b59f433733ee",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "bdd8cc49-304d-47a7-9191-83209bffd70b",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "95c9bdb7-6575-4f40-b49a-356510055429",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/208/cells/1b3332d9-f0f6-4448-af0f-5d155b67fcec"
+				}
+			},
+			{
+				"i": "292ebb61-26cf-4ed7-aaff-8018df8b8618",
+				"x": 0,
+				"y": 0,
+				"w": 11,
+				"h": 3,
+				"name": "TMA Actual Elevation using (:aggregateFunction:)",
+				"queries": [
+					{
+						"query": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.elevation\")\n  |> filter(fn: (r) => r[\"_field\"] == \"actualPosition\")\n  \n \nif v.aggregateFunction == \"min\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\nelse if v.aggregateFunction == \"max\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\nelse if v.aggregateFunction == \"mean\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\nelse if v.aggregateFunction == \"spread\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\nelse \n  data",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.elevation\")\n  |> filter(fn: (r) => r[\"_field\"] == \"actualPosition\")\n  \n \nif v.aggregateFunction == \"min\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\nelse if v.aggregateFunction == \"max\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\nelse if v.aggregateFunction == \"mean\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\nelse if v.aggregateFunction == \"spread\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\nelse \n  data",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "375fce65-15c3-4e78-bc28-752d995fef49",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "936864bf-298f-4d6c-8db6-5625b08be4e6",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "0497f335-85d4-4834-bd12-627d6490d9e9",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/208/cells/292ebb61-26cf-4ed7-aaff-8018df8b8618"
+				}
+			},
+			{
+				"i": "7ab24015-229a-4e47-bde2-0ab17d70f892",
+				"x": 0,
+				"y": 12,
+				"w": 11,
+				"h": 6,
+				"name": "TMA Elevation Drive Currents (:aggregateFunction:)",
+				"queries": [
+					{
+						"query": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.elevationDrives\")\n  |> filter(fn: (r) => r[\"_field\"] =~ /current*/)  \n\nif v.aggregateFunction == \"min\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\nelse if v.aggregateFunction == \"max\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\nelse if v.aggregateFunction == \"mean\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\nelse if v.aggregateFunction == \"spread\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\nelse \n  data\n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.elevationDrives\")\n  |> filter(fn: (r) => r[\"_field\"] =~ /current*/)  \n\nif v.aggregateFunction == \"min\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\nelse if v.aggregateFunction == \"max\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\nelse if v.aggregateFunction == \"mean\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\nelse if v.aggregateFunction == \"spread\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\nelse \n  data\n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "6d7a0f96-c2b4-4c75-9c06-b59f433733ee",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "bdd8cc49-304d-47a7-9191-83209bffd70b",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "95c9bdb7-6575-4f40-b49a-356510055429",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/208/cells/7ab24015-229a-4e47-bde2-0ab17d70f892"
+				}
+			},
+			{
+				"i": "0d2c9a7e-170a-477c-972d-9bf61c34228d",
+				"x": 0,
+				"y": 18,
+				"w": 11,
+				"h": 3,
+				"name": "M1M3 inclinometer angle (:aggregateFunction:)",
+				"queries": [
+					{
+						"query": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTM1M3.inclinometerData\")\n  |> filter(fn: (r) => r[\"_field\"] == \"inclinometerAngle\")\n  \nif v.aggregateFunction == \"min\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\nelse if v.aggregateFunction == \"max\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\nelse if v.aggregateFunction == \"mean\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\nelse if v.aggregateFunction == \"spread\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\nelse \n  data",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTM1M3.inclinometerData\")\n  |> filter(fn: (r) => r[\"_field\"] == \"inclinometerAngle\")\n  \nif v.aggregateFunction == \"min\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\nelse if v.aggregateFunction == \"max\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\nelse if v.aggregateFunction == \"mean\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\nelse if v.aggregateFunction == \"spread\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\nelse \n  data",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "6d7a0f96-c2b4-4c75-9c06-b59f433733ee",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "bdd8cc49-304d-47a7-9191-83209bffd70b",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "95c9bdb7-6575-4f40-b49a-356510055429",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/208/cells/0d2c9a7e-170a-477c-972d-9bf61c34228d"
+				}
+			},
+			{
+				"i": "7f542d5b-aebb-43d5-86c5-73ec8c5e0d70",
+				"x": 0,
+				"y": 6,
+				"w": 11,
+				"h": 6,
+				"name": "TMA Elevation Actual Torque using (:aggregateFunction:)",
+				"queries": [
+					{
+						"query": "\ndata = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.elevation\")\n  |> filter(fn: (r) => r[\"_field\"] == \"actualTorque\")\n  \n \nif v.aggregateFunction == \"min\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\nelse if v.aggregateFunction == \"max\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\nelse if v.aggregateFunction == \"mean\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\nelse if v.aggregateFunction == \"spread\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\nelse \n  data",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "\ndata = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.elevation\")\n  |> filter(fn: (r) => r[\"_field\"] == \"actualTorque\")\n  \n \nif v.aggregateFunction == \"min\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\nelse if v.aggregateFunction == \"max\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\nelse if v.aggregateFunction == \"mean\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\nelse if v.aggregateFunction == \"spread\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\nelse \n  data",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "6d7a0f96-c2b4-4c75-9c06-b59f433733ee",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "bdd8cc49-304d-47a7-9191-83209bffd70b",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "95c9bdb7-6575-4f40-b49a-356510055429",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/208/cells/7f542d5b-aebb-43d5-86c5-73ec8c5e0d70"
+				}
+			},
+			{
+				"i": "c8c6d4db-59a9-44e4-a269-7bad4a5bd369",
+				"x": 0,
+				"y": 3,
+				"w": 11,
+				"h": 3,
+				"name": "TMA Actual Azimuth using (:aggregateFunction:)",
+				"queries": [
+					{
+						"query": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.azimuth\")\n  |> filter(fn: (r) => r[\"_field\"] == \"actualPosition\")\n  \n \nif v.aggregateFunction == \"min\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\nelse if v.aggregateFunction == \"max\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\nelse if v.aggregateFunction == \"mean\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\nelse if v.aggregateFunction == \"spread\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\nelse \n  data",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "data = from(bucket: \"efd/autogen\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"lsst.sal.MTMount.azimuth\")\n  |> filter(fn: (r) => r[\"_field\"] == \"actualPosition\")\n  \n \nif v.aggregateFunction == \"min\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: min, createEmpty: false)\nelse if v.aggregateFunction == \"max\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)\nelse if v.aggregateFunction == \"mean\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\nelse if v.aggregateFunction == \"spread\" then \n  data |> aggregateWindow(every: v.windowPeriod, fn: spread, createEmpty: false)\nelse \n  data",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e839c5ec-ec91-45dc-92fa-d115740d6eaf",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "f01ddf34-0315-4411-87e8-308791d3ad64",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "6749d519-d2b2-41b5-9be2-7c8239e322fc",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/208/cells/c8c6d4db-59a9-44e4-a269-7bad4a5bd369"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":aggregateFunction:",
+				"values": [
+					{
+						"value": "min",
+						"type": "csv",
+						"selected": true
+					},
+					{
+						"value": "max",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "mean",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "spread",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "Raw values",
+						"type": "csv",
+						"selected": false
+					}
+				],
+				"id": "472cbf11-d38d-4544-a5ce-d3ff0d65474c",
+				"type": "csv",
+				"label": "",
+				"query": {
+					"influxql": "",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"sourceID": "dynamic",
+				"links": {
+					"self": "/chronograf/v1/dashboards/208/templates/472cbf11-d38d-4544-a5ce-d3ff0d65474c"
+				}
+			},
+			{
+				"tempVar": ":Downsample:",
+				"values": [
+					{
+						"value": "v.windowPeriod",
+						"type": "map",
+						"selected": true,
+						"key": "Default"
+					}
+				],
+				"id": "f2aed891-9aec-415a-ab91-e78ce3a278a5",
+				"type": "map",
+				"label": "",
+				"query": {
+					"influxql": "",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"sourceID": "dynamic",
+				"links": {
+					"self": "/chronograf/v1/dashboards/208/templates/f2aed891-9aec-415a-ab91-e78ce3a278a5"
+				}
+			}
+		],
+		"name": "TMA mechanical monitoring (Angelo using Flux)",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/208",
+			"cells": "/chronograf/v1/dashboards/208/cells",
+			"templates": "/chronograf/v1/dashboards/208/templates"
+		}
+	}
+}

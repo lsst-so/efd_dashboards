@@ -1,0 +1,684 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "736",
+		"cells": [
+			{
+				"i": "aaf98697-fa37-4c93-ac79-d3911c7109e5",
+				"x": 0,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "Dynalene Flow to LSSTCam",
+				"queries": [
+					{
+						"query": "SELECT mean(\"CoolFlowRate\") AS \"mean_CoolFlowRate\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.utiltrunk_ut\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.utiltrunk_ut",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_CoolFlowRate",
+									"args": [
+										{
+											"value": "CoolFlowRate",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "992d6395-c06e-4e64-9762-c97581ed2704",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "b4550c53-d8c3-41f2-99cc-2836156d947a",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "ee8c93cf-a7eb-4e11-bd6f-f80d5570f7cc",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/736/cells/aaf98697-fa37-4c93-ac79-d3911c7109e5"
+				}
+			},
+			{
+				"i": "6bc15d21-c255-4b0c-8004-2b0710a2d126",
+				"x": 4,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "Dynalene Temperature at LSSTCam",
+				"queries": [
+					{
+						"query": "SELECT mean(\"CoolPipeRetnTemp\") AS \"Dynalene Return\", mean(\"CoolPipeSplyTemp\") AS \"Dynalene Supply\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.utiltrunk_ut\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.utiltrunk_ut",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Dynalene Return",
+									"args": [
+										{
+											"value": "CoolPipeRetnTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Dynalene Supply",
+									"args": [
+										{
+											"value": "CoolPipeSplyTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "992d6395-c06e-4e64-9762-c97581ed2704",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "b4550c53-d8c3-41f2-99cc-2836156d947a",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "ee8c93cf-a7eb-4e11-bd6f-f80d5570f7cc",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {
+					"type": "static",
+					"orientation": "bottom"
+				},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/736/cells/6bc15d21-c255-4b0c-8004-2b0710a2d126"
+				}
+			},
+			{
+				"i": "7fffc76f-bfa2-4b01-b4c7-a36e98a7066f",
+				"x": 8,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "LSSTCam UT Body Tempertures, must not exceed 35C",
+				"queries": [
+					{
+						"query": "SELECT mean(\"BackFlngXMinusTemp\") AS \"mean_BackFlngXMinusTemp\", mean(\"BackFlngYMinusTemp\") AS \"mean_BackFlngYMinusTemp\", mean(\"CamBodyXPlusTemp\") AS \"mean_CamBodyXPlusTemp\", mean(\"CamBodyYMinusTemp\") AS \"mean_CamBodyYMinusTemp\", mean(\"CamBodyYPlusTemp\") AS \"mean_CamBodyYPlusTemp\", mean(\"CamHousXMinusTemp\") AS \"mean_CamHousXMinusTemp\", mean(\"CamHousXPlusTemp\") AS \"mean_CamHousXPlusTemp\", mean(\"CamHousYMinusTemp\") AS \"mean_CamHousYMinusTemp\", mean(\"CamHousYPlusTemp\") AS \"mean_CamHousYPlusTemp\", mean(\"ChgrYMinusRtnAirTemp\") AS \"mean_ChgrYMinusRtnAirTemp\", mean(\"DomeYMinusTemp\") AS \"mean_DomeYMinusTemp\", mean(\"L1XMinusTemp\") AS \"mean_L1XMinusTemp\", mean(\"L1YMinusTemp\") AS \"mean_L1YMinusTemp\", mean(\"L2XMinusTemp\") AS \"mean_L2XMinusTemp\", mean(\"L2XPlusTemp\") AS \"mean_L2XPlusTemp\", mean(\"L2YPlusTemp\") AS \"mean_L2YPlusTemp\", mean(\"ShrdRngXMinusTemp\") AS \"mean_ShrdRngXMinusTemp\", mean(\"ShrdRngXPlusTemp\") AS \"mean_ShrdRngXPlusTemp\", mean(\"ShrdRngYPlusTemp\") AS \"mean_ShrdRngYPlusTemp\", mean(\"ShtrEboxRtnAirTemp\") AS \"mean_ShtrEboxRtnAirTemp\", mean(\"ShtrMtrRtnAirTemp\") AS \"mean_ShtrMtrRtnAirTemp\", mean(\"VPPlenumInTemp\") AS \"mean_VPPlenumInTemp\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.utiltrunk_body\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.utiltrunk_body",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_BackFlngXMinusTemp",
+									"args": [
+										{
+											"value": "BackFlngXMinusTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_BackFlngYMinusTemp",
+									"args": [
+										{
+											"value": "BackFlngYMinusTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_CamBodyXPlusTemp",
+									"args": [
+										{
+											"value": "CamBodyXPlusTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_CamBodyYMinusTemp",
+									"args": [
+										{
+											"value": "CamBodyYMinusTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_CamBodyYPlusTemp",
+									"args": [
+										{
+											"value": "CamBodyYPlusTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_CamHousXMinusTemp",
+									"args": [
+										{
+											"value": "CamHousXMinusTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_CamHousXPlusTemp",
+									"args": [
+										{
+											"value": "CamHousXPlusTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_CamHousYMinusTemp",
+									"args": [
+										{
+											"value": "CamHousYMinusTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_CamHousYPlusTemp",
+									"args": [
+										{
+											"value": "CamHousYPlusTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_ChgrYMinusRtnAirTemp",
+									"args": [
+										{
+											"value": "ChgrYMinusRtnAirTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_DomeYMinusTemp",
+									"args": [
+										{
+											"value": "DomeYMinusTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_L1XMinusTemp",
+									"args": [
+										{
+											"value": "L1XMinusTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_L1YMinusTemp",
+									"args": [
+										{
+											"value": "L1YMinusTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_L2XMinusTemp",
+									"args": [
+										{
+											"value": "L2XMinusTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_L2XPlusTemp",
+									"args": [
+										{
+											"value": "L2XPlusTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_L2YPlusTemp",
+									"args": [
+										{
+											"value": "L2YPlusTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_ShrdRngXMinusTemp",
+									"args": [
+										{
+											"value": "ShrdRngXMinusTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_ShrdRngXPlusTemp",
+									"args": [
+										{
+											"value": "ShrdRngXPlusTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_ShrdRngYPlusTemp",
+									"args": [
+										{
+											"value": "ShrdRngYPlusTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_ShtrEboxRtnAirTemp",
+									"args": [
+										{
+											"value": "ShtrEboxRtnAirTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_ShtrMtrRtnAirTemp",
+									"args": [
+										{
+											"value": "ShtrMtrRtnAirTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_VPPlenumInTemp",
+									"args": [
+										{
+											"value": "VPPlenumInTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "992d6395-c06e-4e64-9762-c97581ed2704",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "b4550c53-d8c3-41f2-99cc-2836156d947a",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "ee8c93cf-a7eb-4e11-bd6f-f80d5570f7cc",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/736/cells/7fffc76f-bfa2-4b01-b4c7-a36e98a7066f"
+				}
+			}
+		],
+		"templates": [],
+		"name": "EMERGENCY - Dynalene",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/736",
+			"cells": "/chronograf/v1/dashboards/736/cells",
+			"templates": "/chronograf/v1/dashboards/736/templates"
+		}
+	}
+}

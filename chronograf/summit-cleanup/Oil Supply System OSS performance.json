@@ -1,0 +1,1226 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "205",
+		"cells": [
+			{
+				"i": "df4afeab-e77f-4ee6-8aa8-d7929fc3b2cc",
+				"x": 0,
+				"y": 0,
+				"w": 2,
+				"h": 3,
+				"name": "Oil Level container",
+				"queries": [
+					{
+						"query": "SELECT mean(\"oilLevelFacilities5001\") AS \"mean_oilLevelFacilities5001\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.oilSupplySystem\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.oilSupplySystem",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_oilLevelFacilities5001",
+									"args": [
+										{
+											"value": "oilLevelFacilities5001",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "gauge",
+				"colors": [
+					{
+						"id": "0",
+						"type": "min",
+						"hex": "#BF3D5E",
+						"name": "ruby",
+						"value": "400"
+					},
+					{
+						"id": "ac4da08f-18f8-464a-b443-af6ad478a059",
+						"type": "threshold",
+						"hex": "#32B08C",
+						"name": "viridian",
+						"value": "500"
+					},
+					{
+						"id": "1",
+						"type": "max",
+						"hex": "#9394FF",
+						"name": "comet",
+						"value": "1000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/205/cells/df4afeab-e77f-4ee6-8aa8-d7929fc3b2cc"
+				}
+			},
+			{
+				"i": "d8a68c56-ce92-4b03-a5e8-b41b97941793",
+				"x": 0,
+				"y": 3,
+				"w": 12,
+				"h": 3,
+				"name": "OIL LEVEL (L1) Liters estimation",
+				"queries": [
+					{
+						"query": "SELECT mean(\"oilLevelFacilities5001\")*1.15*2.38 AS \"mean_oilLevelFacilities5001\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.oilSupplySystem\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"oilLevelFacilities5001\")*1.15*2.38 AS \"mean_oilLevelFacilities5001\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.oilSupplySystem\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"1400",
+							"2700"
+						],
+						"label": "Mean Oil Level Facilities (mm)",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "37caa33b-81ce-41b7-87c1-3c8f6e2ecdd5",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "15f7647b-bcfa-421a-9c78-a7bb75796892",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "bb9f5ec8-56a9-41cf-8d8a-81b093f18e59",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {
+					"type": "static",
+					"orientation": "bottom"
+				},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "The window used to calculate the rolling mean changes with the refresh rate defined at the top of this page. ",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/205/cells/d8a68c56-ce92-4b03-a5e8-b41b97941793"
+				}
+			},
+			{
+				"i": "063a735f-8f39-4e5c-b677-a310a0165714",
+				"x": 0,
+				"y": 6,
+				"w": 12,
+				"h": 3,
+				"name": "OIL LEVEL (L1)",
+				"queries": [
+					{
+						"query": "SELECT mean(\"oilLevelFacilities5001\") AS \"mean_oilLevelFacilities5001\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.oilSupplySystem\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.oilSupplySystem",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_oilLevelFacilities5001",
+									"args": [
+										{
+											"value": "oilLevelFacilities5001",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"1100"
+						],
+						"label": "Mean Oil Level Facilities (mm)",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "37caa33b-81ce-41b7-87c1-3c8f6e2ecdd5",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "15f7647b-bcfa-421a-9c78-a7bb75796892",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "bb9f5ec8-56a9-41cf-8d8a-81b093f18e59",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {
+					"type": "static",
+					"orientation": "bottom"
+				},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "The window used to calculate the rolling mean changes with the refresh rate defined at the top of this page. ",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/205/cells/063a735f-8f39-4e5c-b677-a310a0165714"
+				}
+			},
+			{
+				"i": "9d18a579-9feb-430e-871d-cd4d85eeaedf",
+				"x": 0,
+				"y": 12,
+				"w": 12,
+				"h": 3,
+				"name": "Oil Pressure",
+				"queries": [
+					{
+						"query": "SELECT \"oilPressureFacilities5001\", \"oilPressureFacilities5002\", \"oilPressureFacilities5003\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.oilSupplySystem\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.oilSupplySystem",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "oilPressureFacilities5001",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "oilPressureFacilities5002",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "oilPressureFacilities5003",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "37caa33b-81ce-41b7-87c1-3c8f6e2ecdd5",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "15f7647b-bcfa-421a-9c78-a7bb75796892",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "bb9f5ec8-56a9-41cf-8d8a-81b093f18e59",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/205/cells/9d18a579-9feb-430e-871d-cd4d85eeaedf"
+				}
+			},
+			{
+				"i": "3315d205-760c-4443-b175-6d01e9e3cd88",
+				"x": 0,
+				"y": 15,
+				"w": 12,
+				"h": 2,
+				"name": "Oil Chiller Temperature 5012 and 5013",
+				"queries": [
+					{
+						"query": "SELECT \"oilChillerTemperature5012\", \"oilChillerTemperature5013\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.oilSupplySystem\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.oilSupplySystem",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "oilChillerTemperature5012",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "oilChillerTemperature5013",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "37caa33b-81ce-41b7-87c1-3c8f6e2ecdd5",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "15f7647b-bcfa-421a-9c78-a7bb75796892",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "bb9f5ec8-56a9-41cf-8d8a-81b093f18e59",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/205/cells/3315d205-760c-4443-b175-6d01e9e3cd88"
+				}
+			},
+			{
+				"i": "3421e4e2-8c8b-40d6-b0d4-452a2893fa14",
+				"x": 0,
+				"y": 9,
+				"w": 12,
+				"h": 3,
+				"name": "Circulation and High-Pressure Pumps Power Status",
+				"queries": [
+					{
+						"query": "SELECT mean(\"circulationPumpPowerState\") AS \"mean_circulationPumpPowerState\", mean(\"mainPumpPowerState\") AS \"mean_mainPumpPowerState\", mean(\"coolingPowerState\") AS \"mean_coolingPowerState\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.logevent_oilSupplySystemState\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.logevent_oilSupplySystemState",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_circulationPumpPowerState",
+									"args": [
+										{
+											"value": "circulationPumpPowerState",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_mainPumpPowerState",
+									"args": [
+										{
+											"value": "mainPumpPowerState",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_coolingPowerState",
+									"args": [
+										{
+											"value": "coolingPowerState",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "37caa33b-81ce-41b7-87c1-3c8f6e2ecdd5",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "15f7647b-bcfa-421a-9c78-a7bb75796892",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "bb9f5ec8-56a9-41cf-8d8a-81b093f18e59",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/205/cells/3421e4e2-8c8b-40d6-b0d4-452a2893fa14"
+				}
+			},
+			{
+				"i": "7cafad6f-4fee-4947-84ee-79ff5a649839",
+				"x": 0,
+				"y": 17,
+				"w": 12,
+				"h": 3,
+				"name": "Oil Temperature 5001,5002,5011,5121",
+				"queries": [
+					{
+						"query": "SELECT \"oilTemperatureFacilities5001\", \"oilTemperatureFacilities5002\", \"oilTemperatureFacilities5011\", \"oilTemperatureFacilities5121\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.oilSupplySystem\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.oilSupplySystem",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "oilTemperatureFacilities5001",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "oilTemperatureFacilities5002",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "oilTemperatureFacilities5011",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "oilTemperatureFacilities5121",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "37caa33b-81ce-41b7-87c1-3c8f6e2ecdd5",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "15f7647b-bcfa-421a-9c78-a7bb75796892",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "bb9f5ec8-56a9-41cf-8d8a-81b093f18e59",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/205/cells/7cafad6f-4fee-4947-84ee-79ff5a649839"
+				}
+			},
+			{
+				"i": "0fb7b506-214c-4a14-b19e-580bfebb0d98",
+				"x": 0,
+				"y": 20,
+				"w": 12,
+				"h": 2,
+				"name": "Oil Bearing Temperatures",
+				"queries": [
+					{
+						"query": "SELECT mean(\"oilTemperatureAzimuth5001\") AS \"mean_oilTemperatureAzimuth5001\", mean(\"oilTemperatureAzimuth5011\") AS \"mean_oilTemperatureAzimuth5011\", mean(\"oilTemperatureAzimuth5021\") AS \"mean_oilTemperatureAzimuth5021\", mean(\"oilTemperatureAzimuth5031\") AS \"mean_oilTemperatureAzimuth5031\", mean(\"oilTemperatureAzimuth5041\") AS \"mean_oilTemperatureAzimuth5041\", mean(\"oilTemperatureAzimuth5051\") AS \"mean_oilTemperatureAzimuth5051\", mean(\"oilTemperatureElevation5001\") AS \"mean_oilTemperatureElevation5001\", mean(\"oilTemperatureElevation5011\") AS \"mean_oilTemperatureElevation5011\", mean(\"oilTemperatureElevation5021\") AS \"mean_oilTemperatureElevation5021\", mean(\"oilTemperatureElevation5031\") AS \"mean_oilTemperatureElevation5031\", mean(\"oilTemperatureElevation5101\") AS \"mean_oilTemperatureElevation5101\", mean(\"oilTemperatureElevation5111\") AS \"mean_oilTemperatureElevation5111\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.oilSupplySystem\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.oilSupplySystem",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_oilTemperatureAzimuth5001",
+									"args": [
+										{
+											"value": "oilTemperatureAzimuth5001",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_oilTemperatureAzimuth5011",
+									"args": [
+										{
+											"value": "oilTemperatureAzimuth5011",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_oilTemperatureAzimuth5021",
+									"args": [
+										{
+											"value": "oilTemperatureAzimuth5021",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_oilTemperatureAzimuth5031",
+									"args": [
+										{
+											"value": "oilTemperatureAzimuth5031",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_oilTemperatureAzimuth5041",
+									"args": [
+										{
+											"value": "oilTemperatureAzimuth5041",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_oilTemperatureAzimuth5051",
+									"args": [
+										{
+											"value": "oilTemperatureAzimuth5051",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_oilTemperatureElevation5001",
+									"args": [
+										{
+											"value": "oilTemperatureElevation5001",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_oilTemperatureElevation5011",
+									"args": [
+										{
+											"value": "oilTemperatureElevation5011",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_oilTemperatureElevation5021",
+									"args": [
+										{
+											"value": "oilTemperatureElevation5021",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_oilTemperatureElevation5031",
+									"args": [
+										{
+											"value": "oilTemperatureElevation5031",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_oilTemperatureElevation5101",
+									"args": [
+										{
+											"value": "oilTemperatureElevation5101",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_oilTemperatureElevation5111",
+									"args": [
+										{
+											"value": "oilTemperatureElevation5111",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "37caa33b-81ce-41b7-87c1-3c8f6e2ecdd5",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "15f7647b-bcfa-421a-9c78-a7bb75796892",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "bb9f5ec8-56a9-41cf-8d8a-81b093f18e59",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/205/cells/0fb7b506-214c-4a14-b19e-580bfebb0d98"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Oil Supply System OSS performance",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/205",
+			"cells": "/chronograf/v1/dashboards/205/cells",
+			"templates": "/chronograf/v1/dashboards/205/templates"
+		}
+	}
+}

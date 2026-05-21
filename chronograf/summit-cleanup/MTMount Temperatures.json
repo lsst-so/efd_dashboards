@@ -1,0 +1,1376 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "167",
+		"cells": [
+			{
+				"i": "6c61a6e8-3085-415a-8484-eed54a1f6cbe",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 3,
+				"name": "Ambient Temperature",
+				"queries": [
+					{
+						"query": "SELECT \"ambientTemperature\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.oilSupplySystem\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.oilSupplySystem",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ambientTemperature",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTMount.topEndChiller.mean_ambientTemperature",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/167/cells/6c61a6e8-3085-415a-8484-eed54a1f6cbe"
+				}
+			},
+			{
+				"i": "8c92369e-4c19-4708-987f-498d134d133f",
+				"x": 0,
+				"y": 15,
+				"w": 12,
+				"h": 3,
+				"name": "MTMount_auxiliaryCabinetsThermal",
+				"queries": [
+					{
+						"query": "SELECT \"actualTemperatureAzimuthDriveCabinet0001\", \"actualTemperatureAzimuthPowerDistributionCabinet0001\", \"actualTemperatureAzimuthPowerDistributionTransformer0001\", \"actualTemperatureElevationPowerDistributionCabinet0001\", \"actualTemperatureElevationPowerDistributionCabinet0002\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.auxiliaryCabinetsThermal\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.auxiliaryCabinetsThermal",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "actualTemperatureAzimuthDriveCabinet0001",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperatureAzimuthPowerDistributionCabinet0001",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperatureAzimuthPowerDistributionTransformer0001",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperatureElevationPowerDistributionCabinet0001",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperatureElevationPowerDistributionCabinet0002",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT \"ambientTemperature\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.oilSupplySystem\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.oilSupplySystem",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ambientTemperature",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "f34ddc19-28c7-485e-89d4-40f0b23c744a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e47b2ecb-57e1-4a7f-985f-70da1317da89",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "acb3a2c3-b929-4b33-a796-a988e3fa3eb7",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/167/cells/8c92369e-4c19-4708-987f-498d134d133f"
+				}
+			},
+			{
+				"i": "f4040b3e-7ae0-46ac-8092-523ada7015eb",
+				"x": 0,
+				"y": 6,
+				"w": 12,
+				"h": 3,
+				"name": "MTMount_elevationDrivesThermal",
+				"queries": [
+					{
+						"query": "SELECT \"actualTemperature12\", \"actualTemperature2\", \"actualTemperature4\", \"actualTemperature6\", \"actualTemperature8\", \"setpointTemperature1\", \"actualTemperature10\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.elevationDrivesThermal\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.elevationDrivesThermal",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "actualTemperature12",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperature2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperature4",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperature6",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperature8",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "setpointTemperature1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperature10",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT \"ambientTemperature\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.oilSupplySystem\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.oilSupplySystem",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ambientTemperature",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "32c3e705-7584-45a2-a1ac-28c27a0c0677",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "b705ef52-dcb6-49d8-b630-2c77e3931ab3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "3292cf77-59fe-4aaa-b8ff-6f6d74588051",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/167/cells/f4040b3e-7ae0-46ac-8092-523ada7015eb"
+				}
+			},
+			{
+				"i": "627cd5d3-6cb8-4e4b-9a8d-695cf68d10a6",
+				"x": 0,
+				"y": 12,
+				"w": 12,
+				"h": 3,
+				"name": "MTMount_mountControlMainCabinet",
+				"queries": [
+					{
+						"query": "SELECT \"mainCabinetExternalTemperature\", \"mainCabinetInternalTemperature0\", \"mainCabinetInternalTemperature1\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.mainCabinetThermal\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.mainCabinetThermal",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mainCabinetExternalTemperature",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "mainCabinetInternalTemperature0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "mainCabinetInternalTemperature1",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT \"ambientTemperature\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.oilSupplySystem\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.oilSupplySystem",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ambientTemperature",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "32c3e705-7584-45a2-a1ac-28c27a0c0677",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "b705ef52-dcb6-49d8-b630-2c77e3931ab3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "3292cf77-59fe-4aaa-b8ff-6f6d74588051",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/167/cells/627cd5d3-6cb8-4e4b-9a8d-695cf68d10a6"
+				}
+			},
+			{
+				"i": "93c1e778-0e19-40ff-a659-9f7940cd6090",
+				"x": 0,
+				"y": 9,
+				"w": 12,
+				"h": 3,
+				"name": "MTMount_azimuthDrivesThermal",
+				"queries": [
+					{
+						"query": "SELECT \"actualTemperature0\", \"actualTemperature1\", \"actualTemperature10\", \"actualTemperature11\", \"actualTemperature12\", \"actualTemperature13\", \"actualTemperature14\", \"actualTemperature15\", \"actualTemperature2\", \"actualTemperature3\", \"actualTemperature4\", \"actualTemperature5\", \"actualTemperature6\", \"actualTemperature8\", \"actualTemperature9\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.azimuthDrivesThermal\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.azimuthDrivesThermal",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "actualTemperature0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperature1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperature10",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperature11",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperature12",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperature13",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperature14",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperature15",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperature2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperature3",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperature4",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperature5",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperature6",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperature8",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "actualTemperature9",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT \"ambientTemperature\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.oilSupplySystem\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.oilSupplySystem",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ambientTemperature",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "32c3e705-7584-45a2-a1ac-28c27a0c0677",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "b705ef52-dcb6-49d8-b630-2c77e3931ab3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "3292cf77-59fe-4aaa-b8ff-6f6d74588051",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTMount.azimuthDrivesThermal.mean_actualTemperature0",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTMount.azimuthDrivesThermal.mean_actualTemperature1",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTMount.azimuthDrivesThermal.mean_actualTemperature10",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTMount.azimuthDrivesThermal.mean_actualTemperature11",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTMount.azimuthDrivesThermal.mean_actualTemperature12",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTMount.azimuthDrivesThermal.mean_actualTemperature13",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTMount.azimuthDrivesThermal.mean_actualTemperature14",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTMount.azimuthDrivesThermal.mean_actualTemperature15",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTMount.azimuthDrivesThermal.mean_actualTemperature2",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTMount.azimuthDrivesThermal.mean_actualTemperature3",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTMount.azimuthDrivesThermal.mean_actualTemperature4",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTMount.azimuthDrivesThermal.mean_actualTemperature5",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTMount.azimuthDrivesThermal.mean_actualTemperature6",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTMount.azimuthDrivesThermal.mean_actualTemperature8",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTMount.azimuthDrivesThermal.mean_actualTemperature9",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/167/cells/93c1e778-0e19-40ff-a659-9f7940cd6090"
+				}
+			},
+			{
+				"i": "d4f19592-035e-4987-b9ba-e78b1755bb5e",
+				"x": 0,
+				"y": 3,
+				"w": 12,
+				"h": 3,
+				"name": "MTMount_cabinet0101",
+				"queries": [
+					{
+						"query": "SELECT \"actualTemperature\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.cabinet0101Thermal\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.cabinet0101Thermal",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "actualTemperature",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT \"ambientTemperature\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.oilSupplySystem\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.oilSupplySystem",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "ambientTemperature",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "32c3e705-7584-45a2-a1ac-28c27a0c0677",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "b705ef52-dcb6-49d8-b630-2c77e3931ab3",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "3292cf77-59fe-4aaa-b8ff-6f6d74588051",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/167/cells/d4f19592-035e-4987-b9ba-e78b1755bb5e"
+				}
+			},
+			{
+				"i": "dc081767-e12e-4e22-849a-b42cc405dab7",
+				"x": 0,
+				"y": 18,
+				"w": 12,
+				"h": 3,
+				"name": "MTMount_mainCabinetThermal",
+				"queries": [
+					{
+						"query": "SELECT \"mainCabinetInternalTemperature0\", \"mainCabinetExternalTemperature\", \"mainCabinetInternalTemperature1\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.mainCabinetThermal\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.mainCabinetThermal",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mainCabinetInternalTemperature0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "mainCabinetExternalTemperature",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "mainCabinetInternalTemperature1",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "914342b5-ac3f-48d1-a4cd-b8dbcd50a671",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "3c3a0325-b588-44f7-ba29-93e156e6df27",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e09c99c6-a5ed-4f7e-ba24-3ad14cbfb6d8",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/167/cells/dc081767-e12e-4e22-849a-b42cc405dab7"
+				}
+			},
+			{
+				"i": "2cba88c8-0f4b-4e09-8a35-583cffaaf4d0",
+				"x": 0,
+				"y": 21,
+				"w": 12,
+				"h": 3,
+				"name": "PXI Temperature",
+				"queries": [
+					{
+						"query": "SELECT mean(\"axesPxiTemperature\") AS \"mean_axesPxiTemperature\", mean(\"auxPxiTemperature\") AS \"mean_auxPxiTemperature\", mean(\"tmaPxiTemperature\") AS \"mean_tmaPxiTemperature\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.mainCabinetThermal\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.mainCabinetThermal",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_axesPxiTemperature",
+									"args": [
+										{
+											"value": "axesPxiTemperature",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_auxPxiTemperature",
+									"args": [
+										{
+											"value": "auxPxiTemperature",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_tmaPxiTemperature",
+									"args": [
+										{
+											"value": "tmaPxiTemperature",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "914342b5-ac3f-48d1-a4cd-b8dbcd50a671",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "3c3a0325-b588-44f7-ba29-93e156e6df27",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e09c99c6-a5ed-4f7e-ba24-3ad14cbfb6d8",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/167/cells/2cba88c8-0f4b-4e09-8a35-583cffaaf4d0"
+				}
+			}
+		],
+		"templates": [],
+		"name": "MTMount Temperatures",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/167",
+			"cells": "/chronograf/v1/dashboards/167/cells",
+			"templates": "/chronograf/v1/dashboards/167/templates"
+		}
+	}
+}

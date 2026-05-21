@@ -1,0 +1,779 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "135",
+		"cells": [
+			{
+				"i": "dd006428-ded4-47eb-94fe-a84e6a29982f",
+				"x": 7,
+				"y": 2,
+				"w": 2,
+				"h": 1,
+				"name": "STANDBY",
+				"queries": [
+					{
+						"query": "// STABDBY = 5 \n\nimport \"strings\" \n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.DIMM.*.logevent_summaryState/ and (r._field == \"summaryState\"))\n  |> last()\n  |> map(fn: (r) => ({\n    r with\n    state_count:\n      if r._value == 5 then 1 else 0\n    })\n  )\n  |> group()\n  |> sum(column: \"state_count\")\n \n\n  \n ",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "// STABDBY = 5 \n\nimport \"strings\" \n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.DIMM.*.logevent_summaryState/ and (r._field == \"summaryState\"))\n  |> last()\n  |> map(fn: (r) => ({\n    r with\n    state_count:\n      if r._value == 5 then 1 else 0\n    })\n  )\n  |> group()\n  |> sum(column: \"state_count\")\n \n\n  \n ",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "subsystem",
+						"displayName": "Subsystem",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "state_count",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": false,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/135/cells/dd006428-ded4-47eb-94fe-a84e6a29982f"
+				}
+			},
+			{
+				"i": "1e7dc433-8697-47d3-8fa0-bfe24e25191b",
+				"x": 0,
+				"y": 5,
+				"w": 9,
+				"h": 4,
+				"name": "DIMM Transitions",
+				"queries": [
+					{
+						"query": "\n\n// CSC state\n// STANDBY = 5\n// OFFLINE = 4\n// FAULT = 3\n// ENABLED = 2\n// DISABLED = 1\n\nimport \"strings\"\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.DIMM.*.logevent_summaryState/ and (r._field == \"summaryState\"))\n  |> map(fn: (r) => ({\n    r with\n    csc: strings.split(v: r._measurement, t: \".\")[2],\n    state: r._value,\n    state_name:\n      if r._value == 5 then \"5 (STANDBY)\"\n      else if r._value == 4 then \"4 (OFFLINE)\"\n      else if r._value == 3 then \"3 (FAULT)\"\n      else if r._value == 2 then \"2 (ENABLED)\"\n      else if r._value == 1 then \"1 (DISABLED)\"\n      else \"UNKNOWN\",\n  }))\n  |> group(columns: [\"csc\"])\n  |> keep(columns: [\"_time\", \"csc\", \"state\", \"state_name\"])\n \n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "\n\n// CSC state\n// STANDBY = 5\n// OFFLINE = 4\n// FAULT = 3\n// ENABLED = 2\n// DISABLED = 1\n\nimport \"strings\"\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.DIMM.*.logevent_summaryState/ and (r._field == \"summaryState\"))\n  |> map(fn: (r) => ({\n    r with\n    csc: strings.split(v: r._measurement, t: \".\")[2],\n    state: r._value,\n    state_name:\n      if r._value == 5 then \"5 (STANDBY)\"\n      else if r._value == 4 then \"4 (OFFLINE)\"\n      else if r._value == 3 then \"3 (FAULT)\"\n      else if r._value == 2 then \"2 (ENABLED)\"\n      else if r._value == 1 then \"1 (DISABLED)\"\n      else \"UNKNOWN\",\n  }))\n  |> group(columns: [\"csc\"])\n  |> keep(columns: [\"_time\", \"csc\", \"state\", \"state_name\"])\n \n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "State",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stepplot",
+				"colors": [
+					{
+						"id": "34258b20-ce60-4728-b43e-9c5e4cfb753a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e6f5fb76-23ec-4abc-8a50-3f83776e9adb",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "c2df3f7a-94fd-4e23-a585-8f3937d67b8f",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {
+					"type": "static",
+					"orientation": "bottom"
+				},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "_time",
+						"displayName": "Last changed",
+						"visible": true
+					},
+					{
+						"internalName": "_value",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "_measurement",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "No state transitions for the selected time period.\n---",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/135/cells/1e7dc433-8697-47d3-8fa0-bfe24e25191b"
+				}
+			},
+			{
+				"i": "0bf9090b-39bd-434d-b0a3-950d2da3321b",
+				"x": 5,
+				"y": 2,
+				"w": 2,
+				"h": 1,
+				"name": "ENABLED",
+				"queries": [
+					{
+						"query": "// ENABLED = 2 \n\nimport \"strings\" \n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.DIMM.*.logevent_summaryState/ and (r._field == \"summaryState\"))\n  |> last()\n  |> map(fn: (r) => ({\n    r with\n    state_count:\n      if r._value == 2 then 1 else 0\n    })\n  )\n  |> group()\n  |> sum(column: \"state_count\")\n \n\n  \n ",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "// ENABLED = 2 \n\nimport \"strings\" \n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.DIMM.*.logevent_summaryState/ and (r._field == \"summaryState\"))\n  |> last()\n  |> map(fn: (r) => ({\n    r with\n    state_count:\n      if r._value == 2 then 1 else 0\n    })\n  )\n  |> group()\n  |> sum(column: \"state_count\")\n \n\n  \n ",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " ",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#7CE490",
+						"name": "honeydew",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "subsystem",
+						"displayName": "Subsystem",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/135/cells/0bf9090b-39bd-434d-b0a3-950d2da3321b"
+				}
+			},
+			{
+				"i": "4e7ef50f-d83d-4a4a-a4e0-bf7c359f741b",
+				"x": 3,
+				"y": 2,
+				"w": 2,
+				"h": 1,
+				"name": "FAULT",
+				"queries": [
+					{
+						"query": "// FAULT = 3 \n\nimport \"strings\" \n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.DIMM.*.logevent_summaryState/ and (r._field == \"summaryState\"))\n  |> last()\n  |> map(fn: (r) => ({\n    r with\n    state_count:\n      if r._value == 3 then 1 else 0\n    })\n  )\n  |> group()\n  |> sum(column: \"state_count\")\n \n\n  \n ",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "// FAULT = 3 \n\nimport \"strings\" \n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.DIMM.*.logevent_summaryState/ and (r._field == \"summaryState\"))\n  |> last()\n  |> map(fn: (r) => ({\n    r with\n    state_count:\n      if r._value == 3 then 1 else 0\n    })\n  )\n  |> group()\n  |> sum(column: \"state_count\")\n \n\n  \n ",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " ",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#BF3D5E",
+						"name": "ruby",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "subsystem",
+						"displayName": "Subsystem",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/135/cells/4e7ef50f-d83d-4a4a-a4e0-bf7c359f741b"
+				}
+			},
+			{
+				"i": "fa5862b0-0443-4c0d-b97f-1c532da5894f",
+				"x": 0,
+				"y": 2,
+				"w": 3,
+				"h": 1,
+				"name": "Devices",
+				"queries": [
+					{
+						"query": "import \"strings\" \n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.DIMM.*.logevent_summaryState/ and (r._field == \"summaryState\"))\n  |> last()\n  |> group()\n  |> count()\n  \n ",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\" \n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.DIMM.*.logevent_summaryState/ and (r._field == \"summaryState\"))\n  |> last()\n  |> group()\n  |> count()\n  \n ",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " ",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "subsystem",
+						"displayName": "Subsystem",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/135/cells/fa5862b0-0443-4c0d-b97f-1c532da5894f"
+				}
+			},
+			{
+				"i": "ebf9a9ac-5c5f-4e5f-b5c4-4718ff4a8395",
+				"x": 0,
+				"y": 3,
+				"w": 9,
+				"h": 2,
+				"name": "DIMM Current State",
+				"queries": [
+					{
+						"query": "// CSC states\n// STANDBY = 5\n// OFFLINE = 4\n// FAULT = 3\n// ENABLED = 2\n// DISABLED = 1\n\nimport \"strings\"\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.DIMM.*.logevent_summaryState/ and (r._field == \"summaryState\"))\n  |> last()\n  |> map(fn: (r) => ({\n    r with\n    csc: strings.split(v: r._measurement, t: \".\")[2],\n    state:\n      if r._value == 5 then \"5 (STANDBY)\"\n      else if r._value == 4 then \"4 (OFFLINE)\"\n      else if r._value == 3 then \"3 (FAULT)\"\n      else if r._value == 2 then \"2 (ENABLED)\"\n      else if r._value == 1 then \"1 (DISABLED)\"\n      else \"UNKNOWN\",\n    duration: strings.splitAfter(v: string(v: duration(v: uint(v: r._stop) - uint(v: r._time))), t: \"m\")[0]\n   })\n  )\n\n  |> keep(columns: [\"csc\", \"state\", \"_time\", \"duration\"])\n \n",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "// CSC states\n// STANDBY = 5\n// OFFLINE = 4\n// FAULT = 3\n// ENABLED = 2\n// DISABLED = 1\n\nimport \"strings\"\n\nfrom(bucket: \"efd/autogen\")\n  |> range(start: -inf)\n  |> filter(fn: (r) => r._measurement =~ /lsst.sal.DIMM.*.logevent_summaryState/ and (r._field == \"summaryState\"))\n  |> last()\n  |> map(fn: (r) => ({\n    r with\n    csc: strings.split(v: r._measurement, t: \".\")[2],\n    state:\n      if r._value == 5 then \"5 (STANDBY)\"\n      else if r._value == 4 then \"4 (OFFLINE)\"\n      else if r._value == 3 then \"3 (FAULT)\"\n      else if r._value == 2 then \"2 (ENABLED)\"\n      else if r._value == 1 then \"1 (DISABLED)\"\n      else \"UNKNOWN\",\n    duration: strings.splitAfter(v: string(v: duration(v: uint(v: r._stop) - uint(v: r._time))), t: \"m\")[0]\n   })\n  )\n\n  |> keep(columns: [\"csc\", \"state\", \"_time\", \"duration\"])\n \n",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "AT heartbeat counts",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "csc",
+						"displayName": "CSC",
+						"visible": true
+					},
+					{
+						"internalName": "state",
+						"displayName": "Summary State",
+						"visible": true
+					},
+					{
+						"internalName": "_time",
+						"displayName": "Last Changed",
+						"visible": true
+					},
+					{
+						"internalName": "duration",
+						"displayName": "Duration",
+						"visible": true
+					}
+				],
+				"timeFormat": "YYYY/MM/DD HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/135/cells/ebf9a9ac-5c5f-4e5f-b5c4-4718ff4a8395"
+				}
+			},
+			{
+				"i": "72b5d186-7c1e-4f7b-ba4d-bc4ad704d400",
+				"x": 0,
+				"y": 0,
+				"w": 9,
+				"h": 2,
+				"name": "Usage",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "DIMM State Transitions\n========================\n\nUse summary state information to monitor DIMM state transitions.\n\n1 (DISABLED), 2 (ENABLED), 3 (FAULT), 4 (OFFLINE), 5 (STANDBY)\n",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/135/cells/72b5d186-7c1e-4f7b-ba4d-bc4ad704d400"
+				}
+			}
+		],
+		"templates": [],
+		"name": "DIMM State Transitions ",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/135",
+			"cells": "/chronograf/v1/dashboards/135/cells",
+			"templates": "/chronograf/v1/dashboards/135/templates"
+		}
+	}
+}

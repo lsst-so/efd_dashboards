@@ -1,0 +1,408 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "526",
+		"cells": [
+			{
+				"i": "5cc41dd9-5b5e-4150-8484-0c9cf61df947",
+				"x": 0,
+				"y": 10,
+				"w": 12,
+				"h": 5,
+				"name": "Active cryo oil levels",
+				"queries": [
+					{
+						"query": "SELECT \"OilLevel\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.refrig_cryo\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='refrig2' AND \"Cryo\"!='cryo3' GROUP BY \"Cryo\"",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"OilLevel\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.refrig_cryo\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='refrig2' AND \"Cryo\"!='cryo3' GROUP BY \"Cryo\"",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"-8",
+							"3"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "61d46a28-3f87-45c0-a0a3-7c4456fc99e6",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "01554f4f-d9ad-492b-9dfe-3684ad6ca0a8",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "60323786-06a9-414e-b382-a0165c3e0986",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {
+					"type": "static",
+					"orientation": "bottom"
+				},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/526/cells/5cc41dd9-5b5e-4150-8484-0c9cf61df947"
+				}
+			},
+			{
+				"i": "e7727489-6862-40ff-8951-5266c1cd2144",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 5,
+				"name": "Active Cryo Discharge Pressures",
+				"queries": [
+					{
+						"query": "SELECT \"DischrgPrs\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.refrig_cryo\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='refrig2'  GROUP BY \"Cryo\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.refrig_cryo",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "DischrgPrs",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Agent": [
+									"refrig2"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Cryo"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "b9fb4fec-548d-4d08-9b6d-59153fca2e5a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7b16f254-ebc9-4b9f-b720-e412e612aea4",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "353c9c87-81d6-49fb-a6ef-3f808cfd2ecd",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {
+					"type": "static",
+					"orientation": "bottom"
+				},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/526/cells/e7727489-6862-40ff-8951-5266c1cd2144"
+				}
+			},
+			{
+				"i": "a8c0ee9e-0993-4988-9629-b82ed38239db",
+				"x": 0,
+				"y": 5,
+				"w": 12,
+				"h": 5,
+				"name": "Active Cryo Suction Pressures",
+				"queries": [
+					{
+						"query": "SELECT \"SuctionPrs\" FROM \"lsst.MTCamera\".\"autogen\".\"lsst.MTCamera.refrig_cryo\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"Agent\"='refrig2' GROUP BY \"Cryo\"",
+						"queryConfig": {
+							"database": "lsst.MTCamera",
+							"measurement": "lsst.MTCamera.refrig_cryo",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "SuctionPrs",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"Agent": [
+									"refrig2"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": [
+									"Cryo"
+								]
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "b9fb4fec-548d-4d08-9b6d-59153fca2e5a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7b16f254-ebc9-4b9f-b720-e412e612aea4",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "353c9c87-81d6-49fb-a6ef-3f808cfd2ecd",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {
+					"type": "static",
+					"orientation": "bottom"
+				},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/526/cells/a8c0ee9e-0993-4988-9629-b82ed38239db"
+				}
+			}
+		],
+		"templates": [],
+		"name": "LSSTCam - Refrigeration Pressures and oil levels",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/526",
+			"cells": "/chronograf/v1/dashboards/526/cells",
+			"templates": "/chronograf/v1/dashboards/526/templates"
+		}
+	}
+}

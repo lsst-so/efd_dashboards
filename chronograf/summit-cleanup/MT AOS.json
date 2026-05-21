@@ -1,0 +1,1271 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "103",
+		"cells": [
+			{
+				"i": "68e3d0e7-1d0b-48fb-9c2a-f14f00a46285",
+				"x": 5,
+				"y": 10,
+				"w": 7,
+				"h": 5,
+				"name": "MTAOS Summary State",
+				"queries": [
+					{
+						"query": "SELECT \"summaryState\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAOS.logevent_summaryState\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTAOS.logevent_summaryState",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "summaryState",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTAOS.logevent_summaryState.summaryState",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/103/cells/68e3d0e7-1d0b-48fb-9c2a-f14f00a46285"
+				}
+			},
+			{
+				"i": "80a96665-0bed-4017-a3d7-d338c95eaadb",
+				"x": 0,
+				"y": 10,
+				"w": 4,
+				"h": 3,
+				"name": "MTAOS command_addAberration.config",
+				"queries": [
+					{
+						"query": "SELECT \"config\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAOS.command_addAberration\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTAOS.command_addAberration",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "config",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTAOS.command_addAberration.config",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/103/cells/80a96665-0bed-4017-a3d7-d338c95eaadb"
+				}
+			},
+			{
+				"i": "c9b1c0bc-19f2-469c-8526-f02ff3fd4b07",
+				"x": 9,
+				"y": 7,
+				"w": 3,
+				"h": 3,
+				"name": "command addAberration wfX",
+				"queries": [
+					{
+						"query": "SELECT \"wf1\", \"wf2\", \"wf3\", \"wf4\", \"wf5\", \"wf6\", \"wf7\", \"wf8\", \"wf9\", \"wf18\", \"wf17\", \"wf16\", \"wf15\", \"wf14\", \"wf13\", \"wf12\", \"wf11\", \"wf10\", \"wf0\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAOS.command_addAberration\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTAOS.command_addAberration",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "wf1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "wf2",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "wf3",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "wf4",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "wf5",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "wf6",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "wf7",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "wf8",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "wf9",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "wf18",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "wf17",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "wf16",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "wf15",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "wf14",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "wf13",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "wf12",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "wf11",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "wf10",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "wf0",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "a7ea6645-53ad-4ada-8885-5ce871406732",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "35c717bc-6ab2-428a-940d-1e36456032ba",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "b7089d1e-870f-4d8c-997a-c6e229d5e680",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/103/cells/c9b1c0bc-19f2-469c-8526-f02ff3fd4b07"
+				}
+			},
+			{
+				"i": "45bcc016-6b77-4da2-b9e5-036f73967822",
+				"x": 4,
+				"y": 0,
+				"w": 8,
+				"h": 4,
+				"name": "MTAOS M1M3 forces",
+				"queries": [
+					{
+						"query": "SELECT mean(\"zForces1\") AS \"mean_zForces1\", mean(\"zForces10\") AS \"mean_zForces10\", mean(\"zForces100\") AS \"mean_zForces100\", mean(\"zForces150\") AS \"mean_zForces150\", mean(\"zForces30\") AS \"mean_zForces30\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAOS.logevent_m1m3Correction\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTAOS.logevent_m1m3Correction",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_zForces1",
+									"args": [
+										{
+											"value": "zForces1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_zForces10",
+									"args": [
+										{
+											"value": "zForces10",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_zForces100",
+									"args": [
+										{
+											"value": "zForces100",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_zForces150",
+									"args": [
+										{
+											"value": "zForces150",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_zForces30",
+									"args": [
+										{
+											"value": "zForces30",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "a3237636-6e8b-4907-8c11-2734c011075a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "47c7539c-be50-451d-aabc-859bfbbc45dd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "6e4d7010-d842-4204-b72e-1ebb05862232",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {
+					"type": "static",
+					"orientation": "bottom"
+				},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/103/cells/45bcc016-6b77-4da2-b9e5-036f73967822"
+				}
+			},
+			{
+				"i": "ab8ca438-b749-4041-bcc1-434d7b809ee8",
+				"x": 0,
+				"y": 7,
+				"w": 3,
+				"h": 3,
+				"name": "MTAOS heartbeat",
+				"queries": [
+					{
+						"query": "SELECT heartbeat FROM \"efd\".\"autogen\".\"lsst.sal.MTAOS.logevent_heartbeat\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: ",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTAOS.logevent_heartbeat",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "heartbeat",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": false
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTAOS.logevent_heartbeat.heartbeat",
+						"displayName": "MTAOS Hearbeats",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/103/cells/ab8ca438-b749-4041-bcc1-434d7b809ee8"
+				}
+			},
+			{
+				"i": "86e961c8-4a3b-4b5f-8317-a741576c7e05",
+				"x": 3,
+				"y": 7,
+				"w": 3,
+				"h": 3,
+				"name": "AOS",
+				"queries": [
+					{
+						"query": "SELECT appliedSettingsMatchStartIsTrue FROM \"efd\".\"autogen\".\"lsst.sal.MTAOS.logevent_appliedSettingsMatchStart\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: ",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTAOS.logevent_appliedSettingsMatchStart",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "appliedSettingsMatchStartIsTrue",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTAOS.logevent_appliedSettingsMatchStart.appliedSettingsMatchStartIsTrue",
+						"displayName": "Applied Setting Match Start?",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/103/cells/86e961c8-4a3b-4b5f-8317-a741576c7e05"
+				}
+			},
+			{
+				"i": "59a70b4f-17c6-40a3-ad16-bb8fded800f6",
+				"x": 0,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "CameraHexapodCorrections",
+				"queries": [
+					{
+						"query": "SELECT \"u\", \"v\", \"w\", \"x\", \"y\", \"z\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAOS.logevent_cameraHexapodCorrection\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTAOS.logevent_cameraHexapodCorrection",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "u",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "v",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "w",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "x",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "y",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "z",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "1c58b277-36e8-43e9-ac1d-b5cad846cce1",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e2cb90c1-3135-4ffa-bad3-9fb52fe78f7b",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "f0530f8c-f5f1-48a1-87cb-1f9f6255323c",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/103/cells/59a70b4f-17c6-40a3-ad16-bb8fded800f6"
+				}
+			},
+			{
+				"i": "f956a506-a7fe-4fe6-8256-f1b96ba23cdc",
+				"x": 0,
+				"y": 4,
+				"w": 12,
+				"h": 3,
+				"name": "Zernike Polynomials",
+				"queries": [
+					{
+						"query": "SELECT \"annularZernikeCoeff1\" AS \"Z01\",\"annularZernikeCoeff1\" AS \"Z02\",\"annularZernikeCoeff3\" AS \"Z03\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAOS.logevent_wavefrontError\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTAOS.logevent_wavefrontError",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "annularZernikeCoeff1",
+									"type": "field",
+									"alias": "Z01"
+								},
+								{
+									"value": "annularZernikeCoeff1",
+									"type": "field",
+									"alias": "Z02"
+								},
+								{
+									"value": "annularZernikeCoeff3",
+									"type": "field",
+									"alias": "Z03"
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"40",
+							"60"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTAOS.logevent_wavefrontError.Z01",
+						"displayName": "Z01",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTAOS.logevent_wavefrontError.Z02",
+						"displayName": "Z02",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTAOS.logevent_wavefrontError.Z03",
+						"displayName": "Z03",
+						"visible": true
+					}
+				],
+				"timeFormat": "YYYY-MM-DD HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 5
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/103/cells/f956a506-a7fe-4fe6-8256-f1b96ba23cdc"
+				}
+			},
+			{
+				"i": "6d83d99d-ba9e-4cc3-83e2-0e1b069f30ea",
+				"x": 6,
+				"y": 15,
+				"w": 3,
+				"h": 3,
+				"name": "WEP Visit",
+				"queries": [
+					{
+						"query": "SELECT \"visitId\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAOS.command_runWEP\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTAOS.command_runWEP",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "visitId",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"40",
+							"60"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "Time",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTAOS.command_runWEP.visitId",
+						"displayName": "Visit ID",
+						"visible": true
+					}
+				],
+				"timeFormat": "YYYY-MM-DD HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 5
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/103/cells/6d83d99d-ba9e-4cc3-83e2-0e1b069f30ea"
+				}
+			}
+		],
+		"templates": [],
+		"name": "MT AOS",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/103",
+			"cells": "/chronograf/v1/dashboards/103/cells",
+			"templates": "/chronograf/v1/dashboards/103/templates"
+		}
+	}
+}

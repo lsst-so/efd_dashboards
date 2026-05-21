@@ -1,0 +1,127 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "365",
+		"cells": [
+			{
+				"i": "618078c9-38d8-4bcc-9581-01a441bb3cfa",
+				"x": 0,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "Scheduler Validation Failures",
+				"queries": [
+					{
+						"query": "SELECT \"message\" FROM \"efd\".\"autogen\".\"lsst.sal.Scheduler.logevent_logMessage\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: and message =~ /failed validation/",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"message\" FROM \"efd\".\"autogen\".\"lsst.sal.Scheduler.logevent_logMessage\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: and message =~ /failed validation/",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/365/cells/618078c9-38d8-4bcc-9581-01a441bb3cfa"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Scheduler Validation (David)",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/365",
+			"cells": "/chronograf/v1/dashboards/365/cells",
+			"templates": "/chronograf/v1/dashboards/365/templates"
+		}
+	}
+}

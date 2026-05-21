@@ -1,0 +1,4414 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "591",
+		"cells": [
+			{
+				"i": "0fa65b13-9e95-46e5-8930-4ec9842567ce",
+				"x": 3,
+				"y": 24,
+				"w": 3,
+				"h": 3,
+				"name": "FLOW VERIFICATION",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyFlowChiller03\") AS \"mean_supplyFlowChiller03\", mean(\"supplyFlowComfort\")+mean(\"supplyFlowCleanRoom\")+mean(\"comfortSupplyFlowFloor02\")+mean(\"supplyFlowWhiteRoom\")+130 AS \"TOTAL\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"supplyFlowChiller03\") AS \"mean_supplyFlowChiller03\", mean(\"supplyFlowComfort\")+mean(\"supplyFlowCleanRoom\")+mean(\"comfortSupplyFlowFloor02\")+mean(\"supplyFlowWhiteRoom\")+130 AS \"TOTAL\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " LPM",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "4e296af9-26ca-4b3c-a183-c4664599ec27",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "d9bce54c-7e7d-4308-9ab0-8619078401e4",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "a5897a74-2f6a-4c30-aac3-f716d83029ed",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/0fa65b13-9e95-46e5-8930-4ec9842567ce"
+				}
+			},
+			{
+				"i": "bbcc8f41-e620-4f2b-a79a-51617b019cf3",
+				"x": 6,
+				"y": 18,
+				"w": 3,
+				"h": 3,
+				"name": "GP GLYCOL PIER - TEMPERATURE",
+				"queries": [
+					{
+						"query": "SELECT mean(\"glycolTemperaturePier0001\") AS \"mean_glycolTemperaturePier0001\", mean(\"glycolTemperaturePier0002\") AS \"mean_glycolTemperaturePier0002\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.generalPurposeGlycolWater\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.generalPurposeGlycolWater",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_glycolTemperaturePier0001",
+									"args": [
+										{
+											"value": "glycolTemperaturePier0001",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_glycolTemperaturePier0002",
+									"args": [
+										{
+											"value": "glycolTemperaturePier0002",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "GP GLYCOL PIER - TEMPERATURE",
+						"prefix": "",
+						"suffix": "°C",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "161c7aea-53c4-40c2-aebf-fc4651a28b5d",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "3e65003c-7138-44aa-899c-6aa1590dcad3",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "e38c2898-8778-4970-9a88-2516429d14ec",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/bbcc8f41-e620-4f2b-a79a-51617b019cf3"
+				}
+			},
+			{
+				"i": "103701ef-be0c-4c2f-bf4d-ca1276234042",
+				"x": 3,
+				"y": 18,
+				"w": 3,
+				"h": 3,
+				"name": "GP GLYCOL PIER - PRESSURE",
+				"queries": [
+					{
+						"query": "SELECT mean(\"glycolPressurePier0001\") AS \"mean_glycolPressurePier0001\", mean(\"glycolPressurePier0002\") AS \"mean_glycolPressurePier0002\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.generalPurposeGlycolWater\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.generalPurposeGlycolWater",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_glycolPressurePier0001",
+									"args": [
+										{
+											"value": "glycolPressurePier0001",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_glycolPressurePier0002",
+									"args": [
+										{
+											"value": "glycolPressurePier0002",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "GP GLYCOL PIER - PRESSURE",
+						"prefix": "",
+						"suffix": " bar",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "161c7aea-53c4-40c2-aebf-fc4651a28b5d",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "3e65003c-7138-44aa-899c-6aa1590dcad3",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "e38c2898-8778-4970-9a88-2516429d14ec",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/103701ef-be0c-4c2f-bf4d-ca1276234042"
+				}
+			},
+			{
+				"i": "cd98149f-b0a2-47bd-99e4-06e8d05c1a2a",
+				"x": 9,
+				"y": 18,
+				"w": 3,
+				"h": 3,
+				"name": "GP GLYCOL AZ - PRESSURE",
+				"queries": [
+					{
+						"query": "SELECT mean(\"glycolPressureAzimuth0001\") AS \"mean_glycolPressureAzimuth0001\", mean(\"glycolPressureAzimuth0002\") AS \"mean_glycolPressureAzimuth0002\" FROM \"efd\".\"autogen\".\"lsst.sal.MTMount.generalPurposeGlycolWater\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTMount.generalPurposeGlycolWater",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_glycolPressureAzimuth0001",
+									"args": [
+										{
+											"value": "glycolPressureAzimuth0001",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_glycolPressureAzimuth0002",
+									"args": [
+										{
+											"value": "glycolPressureAzimuth0002",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "GP GLYCOL AZ - PRESSURE",
+						"prefix": "",
+						"suffix": " bar",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "161c7aea-53c4-40c2-aebf-fc4651a28b5d",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "3e65003c-7138-44aa-899c-6aa1590dcad3",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "e38c2898-8778-4970-9a88-2516429d14ec",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/cd98149f-b0a2-47bd-99e4-06e8d05c1a2a"
+				}
+			},
+			{
+				"i": "2eebbf8e-4b7d-40ba-a1f8-f66f0af9d44a",
+				"x": 0,
+				"y": 6,
+				"w": 3,
+				"h": 3,
+				"name": "LEVEL 2 OFFICE - FLOW",
+				"queries": [
+					{
+						"query": "SELECT mean(\"comfortSupplyFlowFloor02\") AS \"FLOW LEVEL 02 OFFICE FCUS\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.glycolSensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "FLOW LEVEL 02 OFFICE FCUS",
+									"args": [
+										{
+											"value": "comfortSupplyFlowFloor02",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"250"
+						],
+						"label": "LEVEL 02 OFFICE - FLOW",
+						"prefix": "",
+						"suffix": " LPM",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "258ad5d6-fce5-47b1-a0f4-131fa2ffdd3a",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "a98a4781-d584-48ce-a0fb-84058f6f6e22",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/2eebbf8e-4b7d-40ba-a1f8-f66f0af9d44a"
+				}
+			},
+			{
+				"i": "fd34431b-0e78-4057-8fe5-698303d6fb4b",
+				"x": 6,
+				"y": 12,
+				"w": 3,
+				"h": 3,
+				"name": "White Room - Temperature",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyTempWhiteRoom\") AS \"mean_supplyTempWhiteRoom\", mean(\"returnTempWhiteRoom\") AS \"mean_returnTempWhiteRoom\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.glycolSensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyTempWhiteRoom",
+									"args": [
+										{
+											"value": "supplyTempWhiteRoom",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_returnTempWhiteRoom",
+									"args": [
+										{
+											"value": "returnTempWhiteRoom",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"20"
+						],
+						"label": "White Room - Temperature",
+						"prefix": "",
+						"suffix": "ºC",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "a77f04a9-0ca8-476a-8da4-d4e9dd5d804d",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "258ad5d6-fce5-47b1-a0f4-131fa2ffdd3a",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "a98a4781-d584-48ce-a0fb-84058f6f6e22",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/fd34431b-0e78-4057-8fe5-698303d6fb4b"
+				}
+			},
+			{
+				"i": "af51b64b-9012-4eb9-aca4-a20c6acaff22",
+				"x": 9,
+				"y": 15,
+				"w": 3,
+				"h": 3,
+				"name": "Net Heat Exchange Dynalene CH 02",
+				"queries": [
+					{
+						"query": "SELECT mean(\"dynCH1supCGLYflow\")*0.067*(mean(\"dynCH01retCGLYtemp\") - mean(\"dynCH01supCGLYtemp\")) AS \"NET HEAT EXCHANGE OSS\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"dynCH1supCGLYflow\")*0.067*(mean(\"dynCH01retCGLYtemp\") - mean(\"dynCH01supCGLYtemp\")) AS \"NET HEAT EXCHANGE OSS\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"80"
+						],
+						"label": "DYNALENE CH 01 NET HEAT EXCHANGE",
+						"prefix": "",
+						"suffix": " kW",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e4acc128-d5e8-4091-97e9-c843fe40f722",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a18933ff-c1ec-476f-a0f1-ab31fcc21103",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/af51b64b-9012-4eb9-aca4-a20c6acaff22"
+				}
+			},
+			{
+				"i": "eb7994bd-8c7a-49fd-a88e-ae8d004de377",
+				"x": 6,
+				"y": 15,
+				"w": 3,
+				"h": 3,
+				"name": "Dynalene CH 02 Temperature",
+				"queries": [
+					{
+						"query": "SELECT mean(\"dynCH02supGPGLYtemp\") + 3.22 AS \"mean_dynCH02supGPGLYtemp\", mean(\"dynCH02retGPGLYtemp\") + 3.76 AS \"mean_dynCH02retGPGLYtemp\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.dynaleneP05\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"dynCH02supGPGLYtemp\") + 3.22 AS \"mean_dynCH02supGPGLYtemp\", mean(\"dynCH02retGPGLYtemp\") + 3.76 AS \"mean_dynCH02retGPGLYtemp\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.dynaleneP05\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "OSS - TEMPERATURE",
+						"prefix": "",
+						"suffix": "ºC",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "299ef1c4-77a6-43cb-abce-84093c00ab77",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "14510978-a66e-4d0e-879c-b91fa86e616d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "fda11a8c-5067-4abd-931a-02fc940ff74b",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/eb7994bd-8c7a-49fd-a88e-ae8d004de377"
+				}
+			},
+			{
+				"i": "471b4fdd-c08e-42b5-aa86-b50e80a93a65",
+				"x": 3,
+				"y": 15,
+				"w": 3,
+				"h": 3,
+				"name": "Dynalene CH 02 Pressure",
+				"queries": [
+					{
+						"query": "SELECT (mean(\"dynCH01retCGLYpres\")+1.83) AS \"mean_dynCH01retCGLYpres\", (mean(\"dynCH01supCGLYpres\")+3.56) AS \"mean_dynCH01supCGLYpres\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.dynaleneP05\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT (mean(\"dynCH01retCGLYpres\")+1.83) AS \"mean_dynCH01retCGLYpres\", (mean(\"dynCH01supCGLYpres\")+3.56) AS \"mean_dynCH01supCGLYpres\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.dynaleneP05\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "DYN CH 02 PRESSURE",
+						"prefix": "",
+						"suffix": " bar",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "b9910ebf-16d1-485c-bf1e-19e1b085d9a6",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "c7bac96f-431a-4497-9a9f-a81fb03399fc",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/471b4fdd-c08e-42b5-aa86-b50e80a93a65"
+				}
+			},
+			{
+				"i": "4e67835d-6b2c-45ed-a187-41d2b2dc469e",
+				"x": 0,
+				"y": 15,
+				"w": 3,
+				"h": 3,
+				"name": "Dynalene CH 02 Flow",
+				"queries": [
+					{
+						"query": "SELECT (mean(\"dynCH2supGPGLYflow\")) AS \"mean_dynCH2supGPGLYflow\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.dynaleneP05\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT (mean(\"dynCH2supGPGLYflow\")) AS \"mean_dynCH2supGPGLYflow\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.dynaleneP05\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"150"
+						],
+						"label": "DYN CH 02 FLOW",
+						"prefix": "",
+						"suffix": " LPM",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "b9910ebf-16d1-485c-bf1e-19e1b085d9a6",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "c7bac96f-431a-4497-9a9f-a81fb03399fc",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/4e67835d-6b2c-45ed-a187-41d2b2dc469e"
+				}
+			},
+			{
+				"i": "196c65d6-3071-4e63-b213-bc047b9c41bf",
+				"x": 9,
+				"y": 12,
+				"w": 3,
+				"h": 3,
+				"name": "Net Heat Exchange WhiteRoom_absdelT",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyFlowWhiteRoom\") * 0.0641 * (mean(\"returnTempWhiteRoom\") - mean(\"supplyTempWhiteRoom\")) AS \"NET HEAT EXCHANGE WhiteRoom\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"supplyFlowWhiteRoom\") * 0.0641 * (mean(\"returnTempWhiteRoom\") - mean(\"supplyTempWhiteRoom\")) AS \"NET HEAT EXCHANGE WhiteRoom\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"50"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " kW",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "d9bce54c-7e7d-4308-9ab0-8619078401e4",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "a5897a74-2f6a-4c30-aac3-f716d83029ed",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/196c65d6-3071-4e63-b213-bc047b9c41bf"
+				}
+			},
+			{
+				"i": "709bfccf-45b7-4bf3-a638-2598c0885f8b",
+				"x": 9,
+				"y": 9,
+				"w": 3,
+				"h": 3,
+				"name": "Net Heat Exchange CleanRoom_absdelT",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyFlowCleanRoom\")*0.0641*(mean(\"returnTempCleanRoom\")-mean(\"supplyTempCleanRoom\")) AS \"NET HEAT EXCHANGE CleanRoom\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"supplyFlowCleanRoom\")*0.0641*(mean(\"returnTempCleanRoom\")-mean(\"supplyTempCleanRoom\")) AS \"NET HEAT EXCHANGE CleanRoom\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"50"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " kW",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "d9bce54c-7e7d-4308-9ab0-8619078401e4",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "a5897a74-2f6a-4c30-aac3-f716d83029ed",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/709bfccf-45b7-4bf3-a638-2598c0885f8b"
+				}
+			},
+			{
+				"i": "947d46b7-7cc6-4649-becd-667b82381691",
+				"x": 9,
+				"y": 21,
+				"w": 3,
+				"h": 3,
+				"name": "CRAC (CHILLER 04) - HEAT EXCHANGE",
+				"queries": [
+					{
+						"query": "SELECT (mean(\"supplyFlowFloor2\")*0.0641*(mean(\"returnTempFloor2\")-mean(\"supplyTempFloor2\"))) AS \"mean_supplyFlowFloor2\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT (mean(\"supplyFlowFloor2\")*0.0641*(mean(\"returnTempFloor2\")-mean(\"supplyTempFloor2\"))) AS \"mean_supplyFlowFloor2\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT ((mean(\"supplyFlowFloor2\")*0.067*(mean(\"returnTempFloor2\") - mean(\"supplyTempFloor2\")))) AS \"NET HEAT EXCHANGE LEVEL2\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)Chiller ",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT ((mean(\"supplyFlowFloor2\")*0.067*(mean(\"returnTempFloor2\") - mean(\"supplyTempFloor2\")))) AS \"NET HEAT EXCHANGE LEVEL2\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)Chiller ",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"50"
+						],
+						"label": "CRAC (CHILLER 04) - HEAT EXCHANGE",
+						"prefix": "",
+						"suffix": " kW",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "258ad5d6-fce5-47b1-a0f4-131fa2ffdd3a",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "a98a4781-d584-48ce-a0fb-84058f6f6e22",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/947d46b7-7cc6-4649-becd-667b82381691"
+				}
+			},
+			{
+				"i": "7b156284-09a7-491d-862b-eaa033b46fa2",
+				"x": 9,
+				"y": 3,
+				"w": 3,
+				"h": 3,
+				"name": "Net Heat Exchange MRCR",
+				"queries": [
+					{
+						"query": "SELECT ((mean(\"supplyFlowSlac\")*0.01557*(mean(\"retTempSlac\") - mean(\"supplyTempSlac\")))) AS \"NET HEAT EXCHANGE SLAC\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT ((mean(\"supplyFlowSlac\")*0.01557*(mean(\"retTempSlac\") - mean(\"supplyTempSlac\")))) AS \"NET HEAT EXCHANGE SLAC\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"20"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " kW",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e4acc128-d5e8-4091-97e9-c843fe40f722",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a18933ff-c1ec-476f-a0f1-ab31fcc21103",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/7b156284-09a7-491d-862b-eaa033b46fa2"
+				}
+			},
+			{
+				"i": "3b9b2e26-2868-4b2b-88cb-1f60ddb77452",
+				"x": 0,
+				"y": 12,
+				"w": 3,
+				"h": 3,
+				"name": "WhiteRoom_Flow",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyFlowWhiteRoom\") AS \"mean_supplyFlowWhiteRoom\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.glycolSensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyFlowWhiteRoom",
+									"args": [
+										{
+											"value": "supplyFlowWhiteRoom",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"150"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " L/min",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "d755e0ca-4374-4c96-8144-f1804e29bdcc",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "7ed3387e-1835-49dd-b682-5465bab440a3",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/3b9b2e26-2868-4b2b-88cb-1f60ddb77452"
+				}
+			},
+			{
+				"i": "c8ba1ecc-419b-4dbc-bcf5-25fe4e0bd3f9",
+				"x": 3,
+				"y": 12,
+				"w": 3,
+				"h": 3,
+				"name": "WhiteRoom_Pressure_absReturn",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyPressWhiteRoom\")/100000 AS \"mean_supplyPressWhiteRoom\", mean(\"returnPressWhiteRoom\")/100000 AS \"mean_returnPressWhiteRoom\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"supplyPressWhiteRoom\")/100000 AS \"mean_supplyPressWhiteRoom\", mean(\"returnPressWhiteRoom\")/100000 AS \"mean_returnPressWhiteRoom\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"12"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " bar",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "baa46806-71ee-43c3-b921-d3dcc53c26a4",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "1e0cb7fa-4806-4edf-b252-7048aac05335",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "6bbe138a-ca9d-428b-92da-7be2b675c578",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/c8ba1ecc-419b-4dbc-bcf5-25fe4e0bd3f9"
+				}
+			},
+			{
+				"i": "703c57fb-6916-4706-8a5f-4087f124c199",
+				"x": 6,
+				"y": 9,
+				"w": 3,
+				"h": 3,
+				"name": "CleanRoom_Temperature",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyTempCleanRoom\") AS \"mean_supplyTempCleanRoom\", mean(\"returnTempCleanRoom\") AS \"mean_returnTempCleanRoom\", (mean(\"returnTempCleanRoom\")-mean(\"supplyTempCleanRoom\")) AS \"CLEAN ROOM delT\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"supplyTempCleanRoom\") AS \"mean_supplyTempCleanRoom\", mean(\"returnTempCleanRoom\") AS \"mean_returnTempCleanRoom\", (mean(\"returnTempCleanRoom\")-mean(\"supplyTempCleanRoom\")) AS \"CLEAN ROOM delT\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "ºC",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "299ef1c4-77a6-43cb-abce-84093c00ab77",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "14510978-a66e-4d0e-879c-b91fa86e616d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "fda11a8c-5067-4abd-931a-02fc940ff74b",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/703c57fb-6916-4706-8a5f-4087f124c199"
+				}
+			},
+			{
+				"i": "ef6834dd-812e-4288-a6df-b07684bb0519",
+				"x": 3,
+				"y": 9,
+				"w": 3,
+				"h": 3,
+				"name": "CleanRoom_Pressure_absReturn",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyPressCleanRoom\")/100000 AS \"mean_supplyPressCleanRoom\", mean(\"returnPressCleanRoom\")/100000 AS \"mean_returnPressCleanRoom\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"supplyPressCleanRoom\")/100000 AS \"mean_supplyPressCleanRoom\", mean(\"returnPressCleanRoom\")/100000 AS \"mean_returnPressCleanRoom\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"12"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " bar",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "baa46806-71ee-43c3-b921-d3dcc53c26a4",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "1e0cb7fa-4806-4edf-b252-7048aac05335",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "6bbe138a-ca9d-428b-92da-7be2b675c578",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/ef6834dd-812e-4288-a6df-b07684bb0519"
+				}
+			},
+			{
+				"i": "e59a4cf7-00ff-4590-85c1-6081425e6680",
+				"x": 0,
+				"y": 9,
+				"w": 3,
+				"h": 3,
+				"name": "CleanRoom_Flow",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyFlowCleanRoom\") AS \"mean_supplyFlowCleanRoom\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.glycolSensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyFlowCleanRoom",
+									"args": [
+										{
+											"value": "supplyFlowCleanRoom",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"150"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " L/min",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "d755e0ca-4374-4c96-8144-f1804e29bdcc",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "7ed3387e-1835-49dd-b682-5465bab440a3",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/e59a4cf7-00ff-4590-85c1-6081425e6680"
+				}
+			},
+			{
+				"i": "3fd30266-41f5-4d04-ad00-18be304fd00f",
+				"x": 0,
+				"y": 21,
+				"w": 3,
+				"h": 3,
+				"name": "CRAC (CHILLER 04) - FLOW",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyFlowFloor2\") AS \"mean_supplyFlowFloor2\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.glycolSensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyFlowFloor2",
+									"args": [
+										{
+											"value": "supplyFlowFloor2",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " L/min",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "258ad5d6-fce5-47b1-a0f4-131fa2ffdd3a",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "a98a4781-d584-48ce-a0fb-84058f6f6e22",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/3fd30266-41f5-4d04-ad00-18be304fd00f"
+				}
+			},
+			{
+				"i": "1d0e567e-7746-4c46-9d88-efa9f3939399",
+				"x": 3,
+				"y": 21,
+				"w": 3,
+				"h": 3,
+				"name": "CRAC (CHILLER 04) - PRESSURE",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyPressFloor2\")/100000 AS \"mean_supplyPressFloor2\", mean(\"returnPressFloor2\") AS \"mean_returnPressFloor2\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"supplyPressFloor2\")/100000 AS \"mean_supplyPressFloor2\", mean(\"returnPressFloor2\") AS \"mean_returnPressFloor2\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"10"
+						],
+						"label": "CRAC (CHILLER 04) - PRESSURE",
+						"prefix": "",
+						"suffix": " bar",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "a77f04a9-0ca8-476a-8da4-d4e9dd5d804d",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "258ad5d6-fce5-47b1-a0f4-131fa2ffdd3a",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "a98a4781-d584-48ce-a0fb-84058f6f6e22",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/1d0e567e-7746-4c46-9d88-efa9f3939399"
+				}
+			},
+			{
+				"i": "0b3d10a9-8e11-4b7f-8db2-6e4fd5313705",
+				"x": 6,
+				"y": 21,
+				"w": 3,
+				"h": 3,
+				"name": "CRAC (CHILLER 04) - TEMPERATURE",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyTempFloor2\") AS \"mean_supplyTempFloor2\", mean(\"returnTempFloor2\") AS \"mean_returnTempFloor2\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.glycolSensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyTempFloor2",
+									"args": [
+										{
+											"value": "supplyTempFloor2",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_returnTempFloor2",
+									"args": [
+										{
+											"value": "returnTempFloor2",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"10"
+						],
+						"label": "CRAC (CHILLER 04) - TEMPERATURE",
+						"prefix": "",
+						"suffix": "ºC",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "a77f04a9-0ca8-476a-8da4-d4e9dd5d804d",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "258ad5d6-fce5-47b1-a0f4-131fa2ffdd3a",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "a98a4781-d584-48ce-a0fb-84058f6f6e22",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/0b3d10a9-8e11-4b7f-8db2-6e4fd5313705"
+				}
+			},
+			{
+				"i": "5c1a9b8e-bd2a-48ce-aa46-56a910c9ca44",
+				"x": 6,
+				"y": 3,
+				"w": 3,
+				"h": 3,
+				"name": "MRCR_Temperature",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyTempSlac\") AS \"mean_supplyTempSlac\", mean(\"retTempSlac\") AS \"mean_retTempSlac\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.glycolSensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyTempSlac",
+									"args": [
+										{
+											"value": "supplyTempSlac",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_retTempSlac",
+									"args": [
+										{
+											"value": "retTempSlac",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "ºC",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "299ef1c4-77a6-43cb-abce-84093c00ab77",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "14510978-a66e-4d0e-879c-b91fa86e616d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "fda11a8c-5067-4abd-931a-02fc940ff74b",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/5c1a9b8e-bd2a-48ce-aa46-56a910c9ca44"
+				}
+			},
+			{
+				"i": "20639a67-befb-4231-a63f-b47fb406c95f",
+				"x": 3,
+				"y": 3,
+				"w": 3,
+				"h": 3,
+				"name": "MRCR_Pressure",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyPressSlac\")/100000 AS \"mean_supplyPressSlac\", mean(\"retPressSlac\")/100000 AS \"mean_retPressSlac\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"supplyPressSlac\")/100000 AS \"mean_supplyPressSlac\", mean(\"retPressSlac\")/100000 AS \"mean_retPressSlac\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"12"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " bar",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "baa46806-71ee-43c3-b921-d3dcc53c26a4",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "1e0cb7fa-4806-4edf-b252-7048aac05335",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "6bbe138a-ca9d-428b-92da-7be2b675c578",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/20639a67-befb-4231-a63f-b47fb406c95f"
+				}
+			},
+			{
+				"i": "51ec4c26-145c-4a2c-83a8-77fd9b4095c1",
+				"x": 0,
+				"y": 3,
+				"w": 3,
+				"h": 3,
+				"name": "MRCR_Flow",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyFlowSlac\") AS \"mean_supplyFlowSlac\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.glycolSensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyFlowSlac",
+									"args": [
+										{
+											"value": "supplyFlowSlac",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"100"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " L/min",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "956ec83c-0dd5-44d6-9b34-c5d97e17aad9",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "f713a101-0f83-4394-a2d7-5def82c291fd",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/51ec4c26-145c-4a2c-83a8-77fd9b4095c1"
+				}
+			},
+			{
+				"i": "090522cc-800f-42d8-ae58-dd22792700c3",
+				"x": 9,
+				"y": 0,
+				"w": 3,
+				"h": 3,
+				"name": "Net Heat Exchange Chiller03",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyFlowChiller03\")*0.0641*(mean(\"retTempChiller03\")-mean(\"supplyTempChiller03\")) AS \"mean_supplyFlowChiller03\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"supplyFlowChiller03\")*0.0641*(mean(\"retTempChiller03\")-mean(\"supplyTempChiller03\")) AS \"mean_supplyFlowChiller03\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							"203"
+						],
+						"label": "CHILLER 03 - HEAT EXCHANGE",
+						"prefix": "",
+						"suffix": " kW",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "956ec83c-0dd5-44d6-9b34-c5d97e17aad9",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "f713a101-0f83-4394-a2d7-5def82c291fd",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/090522cc-800f-42d8-ae58-dd22792700c3"
+				}
+			},
+			{
+				"i": "0800675f-dac0-482b-bab7-5052e9728938",
+				"x": 6,
+				"y": 0,
+				"w": 3,
+				"h": 3,
+				"name": "Temperature_Chiller03",
+				"queries": [
+					{
+						"query": "SELECT mean(\"retTempChiller03\") AS \"mean_retTempChiller03\", mean(\"supplyTempChiller03\") AS \"mean_supplyTempChiller03\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.glycolSensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_retTempChiller03",
+									"args": [
+										{
+											"value": "retTempChiller03",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyTempChiller03",
+									"args": [
+										{
+											"value": "supplyTempChiller03",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT mean(\"activeSetpoint\") AS \"SET POINT - ACTIVE\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.chiller03P01\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.chiller03P01",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "SET POINT - ACTIVE",
+									"args": [
+										{
+											"value": "activeSetpoint",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"-2",
+							"15"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "cadbe0c5-9bd9-4568-9bab-b0bc44a7a46d",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "956ec83c-0dd5-44d6-9b34-c5d97e17aad9",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "f713a101-0f83-4394-a2d7-5def82c291fd",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/0800675f-dac0-482b-bab7-5052e9728938"
+				}
+			},
+			{
+				"i": "6bb5050c-a22e-4bf6-a739-6f3c03184ac6",
+				"x": 0,
+				"y": 0,
+				"w": 3,
+				"h": 3,
+				"name": "Flow_Chiller 03",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyFlowChiller03\") AS \"mean_supplyFlowChiller03\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.glycolSensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_supplyFlowChiller03",
+									"args": [
+										{
+											"value": "supplyFlowChiller03",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "CHILLER 03 FLOW RATE [LPM]",
+						"prefix": "",
+						"suffix": " LPM",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "956ec83c-0dd5-44d6-9b34-c5d97e17aad9",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "f713a101-0f83-4394-a2d7-5def82c291fd",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/6bb5050c-a22e-4bf6-a739-6f3c03184ac6"
+				}
+			},
+			{
+				"i": "c10e55ed-8d41-4ade-8fb0-fbd115deefc0",
+				"x": 3,
+				"y": 0,
+				"w": 3,
+				"h": 3,
+				"name": "Pressure_Chiller03",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyPressChiller03\")/100000 AS \"mean_supplyPressChiller03\", mean(\"retPressChiller03\")/100000 AS \"mean_retPressChiller03\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(\"supplyPressChiller03\")/100000 AS \"mean_supplyPressChiller03\", mean(\"retPressChiller03\")/100000 AS \"mean_retPressChiller03\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"10"
+						],
+						"label": "CHILLER 03 - PRESSURE",
+						"prefix": "",
+						"suffix": " bar",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "cadbe0c5-9bd9-4568-9bab-b0bc44a7a46d",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "956ec83c-0dd5-44d6-9b34-c5d97e17aad9",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "f713a101-0f83-4394-a2d7-5def82c291fd",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/c10e55ed-8d41-4ade-8fb0-fbd115deefc0"
+				}
+			},
+			{
+				"i": "31b148c6-1ec1-4bb9-9c47-00c743c0624a",
+				"x": 3,
+				"y": 6,
+				"w": 3,
+				"h": 3,
+				"name": "LEVEL 02 OFFICE - PRESSURE",
+				"queries": [
+					{
+						"query": "SELECT mean(\"comfortSupplyPressFloor02\") AS \"LEVEL 02 OFFICE - SUPPLY PRESSURE\", mean(\"comfortRetPressFloor02\") AS \"LEVEL 02 OFFICE - RETURN PRESSURE\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.glycolSensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "LEVEL 02 OFFICE - SUPPLY PRESSURE",
+									"args": [
+										{
+											"value": "comfortSupplyPressFloor02",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "LEVEL 02 OFFICE - RETURN PRESSURE",
+									"args": [
+										{
+											"value": "comfortRetPressFloor02",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"7"
+						],
+						"label": "LEVEL 02 OFFICE - PRESSURE",
+						"prefix": "",
+						"suffix": " bar",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "f40465d0-2c71-4c0e-bdcc-be8aca5ce69f",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "d755e0ca-4374-4c96-8144-f1804e29bdcc",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "7ed3387e-1835-49dd-b682-5465bab440a3",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/31b148c6-1ec1-4bb9-9c47-00c743c0624a"
+				}
+			},
+			{
+				"i": "6292bfce-fa9e-4b57-818f-4d4a6cb52f59",
+				"x": 6,
+				"y": 6,
+				"w": 3,
+				"h": 3,
+				"name": "LEVEL 02 OFFICE - TEMPERATURE",
+				"queries": [
+					{
+						"query": "SELECT mean(\"comfortSupplyTempFloor02\") AS \"LEVEL 02 OFFICE - SUPPLY TEMPERATURE\", mean(\"comfortRetTempFloor02\") AS \"LEVEL 02 OFFICE - RETURN TEMPERATURE\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.glycolSensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "LEVEL 02 OFFICE - SUPPLY TEMPERATURE",
+									"args": [
+										{
+											"value": "comfortSupplyTempFloor02",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "LEVEL 02 OFFICE - RETURN TEMPERATURE",
+									"args": [
+										{
+											"value": "comfortRetTempFloor02",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							"5"
+						],
+						"label": "LEVEL 02 OFFICE - TEMPERATURE",
+						"prefix": "",
+						"suffix": "ºC",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "a77f04a9-0ca8-476a-8da4-d4e9dd5d804d",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "258ad5d6-fce5-47b1-a0f4-131fa2ffdd3a",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "a98a4781-d584-48ce-a0fb-84058f6f6e22",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/6292bfce-fa9e-4b57-818f-4d4a6cb52f59"
+				}
+			},
+			{
+				"i": "a55a029e-098d-453d-a78b-1d71e5a6ac2c",
+				"x": 9,
+				"y": 6,
+				"w": 3,
+				"h": 3,
+				"name": "LEVEL 02 OFFICE - HEAT EXCHANGE",
+				"queries": [
+					{
+						"query": "SELECT (mean(\"comfortSupplyFlowFloor02\")*0.0641*(mean(\"comfortRetTempFloor02\")- mean(\"comfortSupplyTempFloor02\"))) AS \"LEVEL 02 OFFICE - HEAT EXCHANGE\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT (mean(\"comfortSupplyFlowFloor02\")*0.0641*(mean(\"comfortRetTempFloor02\")- mean(\"comfortSupplyTempFloor02\"))) AS \"LEVEL 02 OFFICE - HEAT EXCHANGE\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							"50"
+						],
+						"label": "LEVEL 02 OFFICE - HEAT EXCHANGE",
+						"prefix": "",
+						"suffix": "  kW",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "258ad5d6-fce5-47b1-a0f4-131fa2ffdd3a",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "a98a4781-d584-48ce-a0fb-84058f6f6e22",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/a55a029e-098d-453d-a78b-1d71e5a6ac2c"
+				}
+			},
+			{
+				"i": "0a96637b-fd52-4b82-9dc9-cecfee0c1c65",
+				"x": 0,
+				"y": 18,
+				"w": 3,
+				"h": 3,
+				"name": "GP GLYCOL TO TMA - FLOW",
+				"queries": [
+					{
+						"query": "SELECT mean(\"supplyFlowComfort\") AS \"GP GLYCOL TO TMA - FLOW\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.glycolSensor\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.glycolSensor",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "GP GLYCOL TO TMA - FLOW",
+									"args": [
+										{
+											"value": "supplyFlowComfort",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							"50"
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " LPM",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "b9910ebf-16d1-485c-bf1e-19e1b085d9a6",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "c7bac96f-431a-4497-9a9f-a81fb03399fc",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/0a96637b-fd52-4b82-9dc9-cecfee0c1c65"
+				}
+			},
+			{
+				"i": "e4f2f956-885b-4c3a-991b-d55aff0b222b",
+				"x": 0,
+				"y": 24,
+				"w": 3,
+				"h": 3,
+				"name": "CHILLER 04 - TEMPERATURE",
+				"queries": [
+					{
+						"query": "SELECT mean(\"waterEvaporatorSupplyTemp\") AS \"mean_waterEvaporatorSupplyTemp\", mean(\"waterEvaporatorReturnTemp\") AS \"mean_waterEvaporatorReturnTemp\" FROM \"efd\".\"autogen\".\"lsst.sal.HVAC.chiller04P01\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.HVAC.chiller04P01",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_waterEvaporatorSupplyTemp",
+									"args": [
+										{
+											"value": "waterEvaporatorSupplyTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_waterEvaporatorReturnTemp",
+									"args": [
+										{
+											"value": "waterEvaporatorReturnTemp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "CHILLER 04 - TEMPERATURE",
+						"prefix": "",
+						"suffix": "ºC",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "f77e7b05-1518-41b7-b060-abfddf7db379",
+						"type": "scale",
+						"hex": "#FD7A5D",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "e5cc8a81-5a5c-43d6-8dde-6e4bf45ce75e",
+						"type": "scale",
+						"hex": "#5F1CF2",
+						"name": "Delorean",
+						"value": "0"
+					},
+					{
+						"id": "27700486-77cd-420d-a7be-cf8a8fb90c31",
+						"type": "scale",
+						"hex": "#4CE09A",
+						"name": "Delorean",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/591/cells/e4f2f956-885b-4c3a-991b-d55aff0b222b"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Glycol Sensors - General Purpose Malhar [ARCHIVED]",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/591",
+			"cells": "/chronograf/v1/dashboards/591/cells",
+			"templates": "/chronograf/v1/dashboards/591/templates"
+		}
+	}
+}

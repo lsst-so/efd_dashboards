@@ -1,0 +1,308 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "177",
+		"cells": [
+			{
+				"i": "a3e0da8f-a096-4d26-8b30-5c7aca9d19f6",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 4,
+				"name": "Service timer",
+				"queries": [
+					{
+						"query": "SELECT \"lowestServiceCounter\" as \"lowestServiceCounter 1\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAirCompressor.logevent_timerInfo\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 1 FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"lowestServiceCounter\" as \"lowestServiceCounter 1\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAirCompressor.logevent_timerInfo\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 1 FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT \"lowestServiceCounter\" as \"lowestServiceCounter 2\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAirCompressor.logevent_timerInfo\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 2 FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"lowestServiceCounter\" as \"lowestServiceCounter 2\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAirCompressor.logevent_timerInfo\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 2 FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "bc79a5f6-f623-4dd7-8198-69a37970959f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "12290bb3-d81e-46b2-be40-e82e99de34cc",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "166bbba5-1346-4ee9-a849-17a0efe54471",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTAirCompressor.analogData.linePressure",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/177/cells/a3e0da8f-a096-4d26-8b30-5c7aca9d19f6"
+				}
+			},
+			{
+				"i": "21abad24-a76b-4079-a111-dc8bb96ca42e",
+				"x": 0,
+				"y": 4,
+				"w": 12,
+				"h": 4,
+				"name": "Loaded hours",
+				"queries": [
+					{
+						"query": "SELECT \"loadedHours\" AS \"loadedHours 1\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAirCompressor.logevent_timerInfo\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 1 FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"loadedHours\" AS \"loadedHours 1\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAirCompressor.logevent_timerInfo\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 1 FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT \"loadedHours\" AS \"loadedHours 2\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAirCompressor.logevent_timerInfo\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 2 FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"loadedHours\" AS \"loadedHours 2\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAirCompressor.logevent_timerInfo\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND salIndex = 2 FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "bc79a5f6-f623-4dd7-8198-69a37970959f",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "12290bb3-d81e-46b2-be40-e82e99de34cc",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "166bbba5-1346-4ee9-a849-17a0efe54471",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTAirCompressor.analogData.linePressure",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/177/cells/21abad24-a76b-4079-a111-dc8bb96ca42e"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Deprecated: Air Compressors Timers",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/177",
+			"cells": "/chronograf/v1/dashboards/177/cells",
+			"templates": "/chronograf/v1/dashboards/177/templates"
+		}
+	}
+}

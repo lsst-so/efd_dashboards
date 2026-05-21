@@ -1,0 +1,356 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "29",
+		"cells": [
+			{
+				"i": "427d1a7d-4ad2-4458-bd26-658525c74ed3",
+				"x": 0,
+				"y": 0,
+				"w": 11,
+				"h": 4,
+				"name": "Settings",
+				"queries": [
+					{
+						"query": "SELECT \"recommendedSettingsLabels\", \"recommendedSettingsVersion\" FROM \"efd\".\"autogen\".\"lsst.sal.:CSCList:.logevent_settingVersions\" ORDER BY time DESC LIMIT 10",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT \"recommendedSettingsLabels\", \"recommendedSettingsVersion\" FROM \"efd\".\"autogen\".\"lsst.sal.:CSCList:.logevent_settingVersions\" ORDER BY time DESC LIMIT 10",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ATAOS.logevent_settingVersions.recommendedSettingsLabels",
+						"displayName": "Labels",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.ATAOS.logevent_settingVersions.recommendedSettingsVersion",
+						"displayName": "Version",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/29/cells/427d1a7d-4ad2-4458-bd26-658525c74ed3"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":CSCList:",
+				"values": [
+					{
+						"value": "ATAOS",
+						"type": "csv",
+						"selected": true
+					},
+					{
+						"value": "ATArchiver",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "ATCamera",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "ATDome",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "ATDomeTrajectory",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "ATHeaderService",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "ATHexapod",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "ATMCS",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "ATPneumatics",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "ATPtg",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "ATSpectrograph",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "AdamSensors",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "CCArchiver",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "CCCamera",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "CCHeaderService",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "DIMM",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "DSM",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "Dome",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "ESS",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "Environment",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "GenericCamera",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "Hexapod",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "MTAOS",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "MTDome",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "MTDomeTrajectory",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "MTHexapod",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "MTM1M3",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "MTM2",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "MTMount",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "MTPtg",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "MTRotator",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "MTVMS",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "NewMTMount",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "Rotator",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "Scheduler",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "Script",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "ScriptQueue",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "Test",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "Watcher",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "WeatherStation",
+						"type": "csv",
+						"selected": false
+					}
+				],
+				"id": "7d4d7854-86c8-4811-8d99-23bb99f06901",
+				"type": "csv",
+				"label": "",
+				"query": {
+					"influxql": "",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"sourceID": "dynamic",
+				"links": {
+					"self": "/chronograf/v1/dashboards/29/templates/7d4d7854-86c8-4811-8d99-23bb99f06901"
+				}
+			}
+		],
+		"name": "Recommended Setting Versions (deprecated)",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/29",
+			"cells": "/chronograf/v1/dashboards/29/cells",
+			"templates": "/chronograf/v1/dashboards/29/templates"
+		}
+	}
+}

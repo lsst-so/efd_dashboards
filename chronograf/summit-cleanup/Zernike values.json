@@ -1,0 +1,346 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "384",
+		"cells": [
+			{
+				"i": "cf74a89f-d434-4249-8cdf-6b463d8c5c99",
+				"x": 0,
+				"y": 0,
+				"w": 6,
+				"h": 5,
+				"name": "Zernike values",
+				"queries": [
+					{
+						"query": "SELECT last(\"nollZernikeValues0\") as z4, last(\"nollZernikeValues1\") as z5, last(\"nollZernikeValues2\") as z6, last(\"nollZernikeValues3\") as z7, last(\"nollZernikeValues3\") as z8, last(\"nollZernikeValues3\") as z9, last(\"nollZernikeValues3\") as z10, last(\"nollZernikeValues3\") as z11, time FROM \"efd\".\"autogen\".\"lsst.sal.MTAOS.logevent_wavefrontError\" WHERE time > 0 ",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"nollZernikeValues0\") as z4, last(\"nollZernikeValues1\") as z5, last(\"nollZernikeValues2\") as z6, last(\"nollZernikeValues3\") as z7, last(\"nollZernikeValues3\") as z8, last(\"nollZernikeValues3\") as z9, last(\"nollZernikeValues3\") as z10, last(\"nollZernikeValues3\") as z11, time FROM \"efd\".\"autogen\".\"lsst.sal.MTAOS.logevent_wavefrontError\" WHERE time > 0 ",
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": false,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTAOS.logevent_wavefrontError.z10",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTAOS.logevent_wavefrontError.z11",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTAOS.logevent_wavefrontError.z5",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTAOS.logevent_wavefrontError.z6",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTAOS.logevent_wavefrontError.z7",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTAOS.logevent_wavefrontError.z8",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTAOS.logevent_wavefrontError.z9",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "lsst.sal.MTAOS.logevent_wavefrontError.z4",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/384/cells/cf74a89f-d434-4249-8cdf-6b463d8c5c99"
+				}
+			},
+			{
+				"i": "9618ae4b-8fec-4ec4-a882-d53b8c700e5f",
+				"x": 6,
+				"y": 0,
+				"w": 6,
+				"h": 5,
+				"name": "Zernike time series",
+				"queries": [
+					{
+						"query": "SELECT last(\"nollZernikeValues0\") AS \"z4\", last(\"nollZernikeValues1\") AS \"z5\", last(\"nollZernikeValues2\") AS \"z6\" FROM \"efd\".\"autogen\".\"lsst.sal.MTAOS.logevent_wavefrontError\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTAOS.logevent_wavefrontError",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "z4",
+									"args": [
+										{
+											"value": "nollZernikeValues0",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "z5",
+									"args": [
+										{
+											"value": "nollZernikeValues1",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "z6",
+									"args": [
+										{
+											"value": "nollZernikeValues2",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "",
+						"scale": ""
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "b1f824b7-df7b-45b7-8d61-fa429e1ed92a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "124628c7-14c8-4e15-a87e-272346435ab1",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "e9d573fc-6620-48ad-ac98-36dfe1fdcf64",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/384/cells/9618ae4b-8fec-4ec4-a882-d53b8c700e5f"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":table:",
+				"values": [
+					{
+						"value": "_internal",
+						"type": "database",
+						"selected": true
+					}
+				],
+				"id": "f337d9d6-e1fa-464a-b756-3dbc05c19c06",
+				"type": "databases",
+				"label": "",
+				"query": {
+					"influxql": "SHOW DATABASES",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"sourceID": "dynamic",
+				"links": {
+					"self": "/chronograf/v1/dashboards/384/templates/f337d9d6-e1fa-464a-b756-3dbc05c19c06"
+				}
+			}
+		],
+		"name": "Zernike values",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/384",
+			"cells": "/chronograf/v1/dashboards/384/cells",
+			"templates": "/chronograf/v1/dashboards/384/templates"
+		}
+	}
+}

@@ -1,0 +1,290 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "374",
+		"cells": [
+			{
+				"i": "bd4ae6a7-2a0d-4eee-8569-f38d8bd24992",
+				"x": 0,
+				"y": 0,
+				"w": 11,
+				"h": 5,
+				"name": "Currents 3, 4, 5 - Static",
+				"queries": [
+					{
+						"query": "SELECT \"motorCurrent3\", \"motorCurrent4\", \"motorCurrent5\" FROM \"efd\".\"autogen\".\"lsst.sal.MTHexapod.electrical\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTHexapod.electrical",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "motorCurrent3",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "motorCurrent4",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "motorCurrent5",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "1c8568c3-10a2-4cc2-852c-4b95fc2853f7",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "6563693b-a046-4e33-b2c2-a04c1b3e9751",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "66d3800b-2070-4069-8712-cabc285f37c9",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/374/cells/bd4ae6a7-2a0d-4eee-8569-f38d8bd24992"
+				}
+			},
+			{
+				"i": "05a9fbbd-6bd9-4d82-92cb-e49303d0c1af",
+				"x": 0,
+				"y": 5,
+				"w": 11,
+				"h": 5,
+				"name": "Moving",
+				"queries": [
+					{
+						"query": "SELECT \"motorCurrent0\", \"motorCurrent1\", \"motorCurrent2\" FROM \"efd\".\"autogen\".\"lsst.sal.MTHexapod.electrical\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "efd",
+							"measurement": "lsst.sal.MTHexapod.electrical",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "motorCurrent0",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "motorCurrent1",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "motorCurrent2",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "",
+						"scale": ""
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "3209b4cc-619a-4f91-aa45-0f62b7d478b5",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "7bdb5ad4-204e-468c-9b5f-74382768618d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "b0a39812-90e3-42b4-accc-640d69f5690d",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/374/cells/05a9fbbd-6bd9-4d82-92cb-e49303d0c1af"
+				}
+			}
+		],
+		"templates": [],
+		"name": "JS-M2hexapod-test",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/374",
+			"cells": "/chronograf/v1/dashboards/374/cells",
+			"templates": "/chronograf/v1/dashboards/374/templates"
+		}
+	}
+}

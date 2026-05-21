@@ -1,0 +1,1167 @@
+{
+	"meta": {
+		"chronografVersion": "1.10.9",
+		"sources": {
+			"1": {
+				"name": "Summit EFD",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "452",
+		"cells": [
+			{
+				"i": "ef27c43d-4726-4bd3-923b-ea94a1281868",
+				"x": 8,
+				"y": 0,
+				"w": 4,
+				"h": 3,
+				"name": "Sensor 8",
+				"queries": [
+					{
+						"query": "import \"strings\"\nimport \"date\"\nimport \"experimental\"\nsensorEvents = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      r._field == \"sensorId\" and \n      r._value == 8\n  )\n  |> keep(columns: [\"_time\"])\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)  // Limit to the last instance\n\ncoeffs = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      (r._field == \"annularZernikeCoeff0\" or\n       r._field == \"annularZernikeCoeff1\" or\n       r._field == \"annularZernikeCoeff2\" or\n\t   r._field == \"annularZernikeCoeff3\" or\n\t   r._field == \"annularZernikeCoeff4\" or\n\t   r._field == \"annularZernikeCoeff5\" or\n       r._field == \"annularZernikeCoeff6\" or\n       r._field == \"annularZernikeCoeff7\" or\n       r._field == \"annularZernikeCoeff8\" or\n\t   r._field == \"annularZernikeCoeff9\" or\n\t   r._field == \"annularZernikeCoeff10\" or\n\t   r._field == \"annularZernikeCoeff11\" or\n       r._field == \"annularZernikeCoeff12\" or\n       r._field == \"annularZernikeCoeff13\" or\n       r._field == \"annularZernikeCoeff14\" or\n\t   r._field == \"annularZernikeCoeff15\" or\n\t   r._field == \"annularZernikeCoeff16\" or\n\t   r._field == \"annularZernikeCoeff17\" or\n       r._field == \"annularZernikeCoeff18\" or\n       r._field == \"annularZernikeCoeff19\")\n  )\n  |> keep(columns: [\"_time\", \"_value\", \"_field\"])\n  \njoin(\n    tables: {sensorEvents: sensorEvents, coeffs: coeffs},\n    on: [\"_time\"]\n)\n  |> map(fn: (r) => {\n      // Parse the index from the field name and convert to int\n      index = int(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\")) + 4\n      time_delay = duration(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\") + \"s\")\n      \n      // Generate synthetic time by adding seconds based on index\n      // synthetic_time = date.add(d: r._time, to: duration(v: index)) // 1s interval\n      //time_string = date.add(d: time(v: 2019-07-17T12:05:21.012934584Z), to: 1s)\n      zernike_name = \"zernike_\" + string(v: r.index)\n\n      multiplierArray = [0.75453564, 0.2711315 , 0.2711315 , 0.82237164, 0.82237164,\n                         0.39572461, 0.39572461, 1.68719298, 0.93956571, 0.93956571,\n                         0.51643078, 0.51643078, 1.76255706, 1.76255706, 1.09112012,\n                         1.09112012, 0.63498144, 0.63498144, 2.82321385, 1.87588235,\n                         1.87588235, 1.26437424, 1.26437424, 0.75241174, 0.75241174]\n\n      // Multiply Zernike coefficient by the corresponding value in the array\n      value = r._value * multiplierArray[index - 4]\n      adjusted_coeff = if value < 0.0 then -value else value\n\n      return {\n          zernike_coeff: adjusted_coeff,\n          _time: experimental.addDuration(d: time_delay, to: 2019-07-17T04:00:04.0Z)\n      }\n  })\n  |> sort(columns: [\"index\"]) \n  |> yield(name: \"zernikeCoefficientsOverTime\")",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\nimport \"date\"\nimport \"experimental\"\nsensorEvents = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      r._field == \"sensorId\" and \n      r._value == 8\n  )\n  |> keep(columns: [\"_time\"])\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)  // Limit to the last instance\n\ncoeffs = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      (r._field == \"annularZernikeCoeff0\" or\n       r._field == \"annularZernikeCoeff1\" or\n       r._field == \"annularZernikeCoeff2\" or\n\t   r._field == \"annularZernikeCoeff3\" or\n\t   r._field == \"annularZernikeCoeff4\" or\n\t   r._field == \"annularZernikeCoeff5\" or\n       r._field == \"annularZernikeCoeff6\" or\n       r._field == \"annularZernikeCoeff7\" or\n       r._field == \"annularZernikeCoeff8\" or\n\t   r._field == \"annularZernikeCoeff9\" or\n\t   r._field == \"annularZernikeCoeff10\" or\n\t   r._field == \"annularZernikeCoeff11\" or\n       r._field == \"annularZernikeCoeff12\" or\n       r._field == \"annularZernikeCoeff13\" or\n       r._field == \"annularZernikeCoeff14\" or\n\t   r._field == \"annularZernikeCoeff15\" or\n\t   r._field == \"annularZernikeCoeff16\" or\n\t   r._field == \"annularZernikeCoeff17\" or\n       r._field == \"annularZernikeCoeff18\" or\n       r._field == \"annularZernikeCoeff19\")\n  )\n  |> keep(columns: [\"_time\", \"_value\", \"_field\"])\n  \njoin(\n    tables: {sensorEvents: sensorEvents, coeffs: coeffs},\n    on: [\"_time\"]\n)\n  |> map(fn: (r) => {\n      // Parse the index from the field name and convert to int\n      index = int(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\")) + 4\n      time_delay = duration(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\") + \"s\")\n      \n      // Generate synthetic time by adding seconds based on index\n      // synthetic_time = date.add(d: r._time, to: duration(v: index)) // 1s interval\n      //time_string = date.add(d: time(v: 2019-07-17T12:05:21.012934584Z), to: 1s)\n      zernike_name = \"zernike_\" + string(v: r.index)\n\n      multiplierArray = [0.75453564, 0.2711315 , 0.2711315 , 0.82237164, 0.82237164,\n                         0.39572461, 0.39572461, 1.68719298, 0.93956571, 0.93956571,\n                         0.51643078, 0.51643078, 1.76255706, 1.76255706, 1.09112012,\n                         1.09112012, 0.63498144, 0.63498144, 2.82321385, 1.87588235,\n                         1.87588235, 1.26437424, 1.26437424, 0.75241174, 0.75241174]\n\n      // Multiply Zernike coefficient by the corresponding value in the array\n      value = r._value * multiplierArray[index - 4]\n      adjusted_coeff = if value < 0.0 then -value else value\n\n      return {\n          zernike_coeff: adjusted_coeff,\n          _time: experimental.addDuration(d: time_delay, to: 2019-07-17T04:00:04.0Z)\n      }\n  })\n  |> sort(columns: [\"index\"]) \n  |> yield(name: \"zernikeCoefficientsOverTime\")",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Zk (arcsec)",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "bb25ead3-f4ca-4f87-a6eb-c56d89a55ea4",
+						"type": "scale",
+						"hex": "#F6F6F8",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "4bd9e35f-8a36-49f1-8138-f8c29c85fb31",
+						"type": "scale",
+						"hex": "#A4A8B6",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "0e6520c9-97af-44aa-998e-8a9c6b160cf9",
+						"type": "scale",
+						"hex": "#545667",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "index",
+						"displayName": "Noll Index",
+						"visible": true
+					},
+					{
+						"internalName": "_time",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "coefficient",
+						"displayName": "Zk (um)",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/452/cells/ef27c43d-4726-4bd3-923b-ea94a1281868"
+				}
+			},
+			{
+				"i": "0f8c2059-4493-4ac2-98f9-af0564cbb19e",
+				"x": 4,
+				"y": 0,
+				"w": 4,
+				"h": 3,
+				"name": "Sensor 7",
+				"queries": [
+					{
+						"query": "import \"strings\"\nimport \"date\"\nimport \"experimental\"\nsensorEvents = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      r._field == \"sensorId\" and \n      r._value == 7\n  )\n  |> keep(columns: [\"_time\"])\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)  // Limit to the last instance\n\ncoeffs = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      (r._field == \"annularZernikeCoeff0\" or\n       r._field == \"annularZernikeCoeff1\" or\n       r._field == \"annularZernikeCoeff2\" or\n\t   r._field == \"annularZernikeCoeff3\" or\n\t   r._field == \"annularZernikeCoeff4\" or\n\t   r._field == \"annularZernikeCoeff5\" or\n       r._field == \"annularZernikeCoeff6\" or\n       r._field == \"annularZernikeCoeff7\" or\n       r._field == \"annularZernikeCoeff8\" or\n\t   r._field == \"annularZernikeCoeff9\" or\n\t   r._field == \"annularZernikeCoeff10\" or\n\t   r._field == \"annularZernikeCoeff11\" or\n       r._field == \"annularZernikeCoeff12\" or\n       r._field == \"annularZernikeCoeff13\" or\n       r._field == \"annularZernikeCoeff14\" or\n\t   r._field == \"annularZernikeCoeff15\" or\n\t   r._field == \"annularZernikeCoeff16\" or\n\t   r._field == \"annularZernikeCoeff17\" or\n       r._field == \"annularZernikeCoeff18\" or\n       r._field == \"annularZernikeCoeff19\")\n  )\n  |> keep(columns: [\"_time\", \"_value\", \"_field\"])\n  \njoin(\n    tables: {sensorEvents: sensorEvents, coeffs: coeffs},\n    on: [\"_time\"]\n)\n  |> map(fn: (r) => {\n      // Parse the index from the field name and convert to int\n      index = int(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\")) + 4\n      time_delay = duration(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\") + \"s\")\n      \n      // Generate synthetic time by adding seconds based on index\n      // synthetic_time = date.add(d: r._time, to: duration(v: index)) // 1s interval\n      //time_string = date.add(d: time(v: 2019-07-17T12:05:21.012934584Z), to: 1s)\n      zernike_name = \"zernike_\" + string(v: r.index)\n\n      multiplierArray = [0.75453564, 0.2711315 , 0.2711315 , 0.82237164, 0.82237164,\n                         0.39572461, 0.39572461, 1.68719298, 0.93956571, 0.93956571,\n                         0.51643078, 0.51643078, 1.76255706, 1.76255706, 1.09112012,\n                         1.09112012, 0.63498144, 0.63498144, 2.82321385, 1.87588235,\n                         1.87588235, 1.26437424, 1.26437424, 0.75241174, 0.75241174]\n\n      // Multiply Zernike coefficient by the corresponding value in the array\n      value = r._value * multiplierArray[index - 4]\n      adjusted_coeff = if value < 0.0 then -value else value\n\n\n\n      return {\n          zernike_coeff: adjusted_coeff,\n          _time: experimental.addDuration(d: time_delay, to: 2019-07-17T04:00:04.0Z)\n      }\n  })\n  |> sort(columns: [\"index\"]) \n  |> yield(name: \"zernikeCoefficientsOverTime\")",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\nimport \"date\"\nimport \"experimental\"\nsensorEvents = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      r._field == \"sensorId\" and \n      r._value == 7\n  )\n  |> keep(columns: [\"_time\"])\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)  // Limit to the last instance\n\ncoeffs = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      (r._field == \"annularZernikeCoeff0\" or\n       r._field == \"annularZernikeCoeff1\" or\n       r._field == \"annularZernikeCoeff2\" or\n\t   r._field == \"annularZernikeCoeff3\" or\n\t   r._field == \"annularZernikeCoeff4\" or\n\t   r._field == \"annularZernikeCoeff5\" or\n       r._field == \"annularZernikeCoeff6\" or\n       r._field == \"annularZernikeCoeff7\" or\n       r._field == \"annularZernikeCoeff8\" or\n\t   r._field == \"annularZernikeCoeff9\" or\n\t   r._field == \"annularZernikeCoeff10\" or\n\t   r._field == \"annularZernikeCoeff11\" or\n       r._field == \"annularZernikeCoeff12\" or\n       r._field == \"annularZernikeCoeff13\" or\n       r._field == \"annularZernikeCoeff14\" or\n\t   r._field == \"annularZernikeCoeff15\" or\n\t   r._field == \"annularZernikeCoeff16\" or\n\t   r._field == \"annularZernikeCoeff17\" or\n       r._field == \"annularZernikeCoeff18\" or\n       r._field == \"annularZernikeCoeff19\")\n  )\n  |> keep(columns: [\"_time\", \"_value\", \"_field\"])\n  \njoin(\n    tables: {sensorEvents: sensorEvents, coeffs: coeffs},\n    on: [\"_time\"]\n)\n  |> map(fn: (r) => {\n      // Parse the index from the field name and convert to int\n      index = int(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\")) + 4\n      time_delay = duration(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\") + \"s\")\n      \n      // Generate synthetic time by adding seconds based on index\n      // synthetic_time = date.add(d: r._time, to: duration(v: index)) // 1s interval\n      //time_string = date.add(d: time(v: 2019-07-17T12:05:21.012934584Z), to: 1s)\n      zernike_name = \"zernike_\" + string(v: r.index)\n\n      multiplierArray = [0.75453564, 0.2711315 , 0.2711315 , 0.82237164, 0.82237164,\n                         0.39572461, 0.39572461, 1.68719298, 0.93956571, 0.93956571,\n                         0.51643078, 0.51643078, 1.76255706, 1.76255706, 1.09112012,\n                         1.09112012, 0.63498144, 0.63498144, 2.82321385, 1.87588235,\n                         1.87588235, 1.26437424, 1.26437424, 0.75241174, 0.75241174]\n\n      // Multiply Zernike coefficient by the corresponding value in the array\n      value = r._value * multiplierArray[index - 4]\n      adjusted_coeff = if value < 0.0 then -value else value\n\n\n\n      return {\n          zernike_coeff: adjusted_coeff,\n          _time: experimental.addDuration(d: time_delay, to: 2019-07-17T04:00:04.0Z)\n      }\n  })\n  |> sort(columns: [\"index\"]) \n  |> yield(name: \"zernikeCoefficientsOverTime\")",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Zk (arcsec)",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "bb25ead3-f4ca-4f87-a6eb-c56d89a55ea4",
+						"type": "scale",
+						"hex": "#F6F6F8",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "4bd9e35f-8a36-49f1-8138-f8c29c85fb31",
+						"type": "scale",
+						"hex": "#A4A8B6",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "0e6520c9-97af-44aa-998e-8a9c6b160cf9",
+						"type": "scale",
+						"hex": "#545667",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "index",
+						"displayName": "Noll Index",
+						"visible": true
+					},
+					{
+						"internalName": "_time",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "coefficient",
+						"displayName": "Zk (um)",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/452/cells/0f8c2059-4493-4ac2-98f9-af0564cbb19e"
+				}
+			},
+			{
+				"i": "b5661e6d-5ceb-4c8c-a78b-9eae49830e0f",
+				"x": 8,
+				"y": 3,
+				"w": 4,
+				"h": 3,
+				"name": "Sensor 5",
+				"queries": [
+					{
+						"query": "import \"strings\"\nimport \"date\"\nimport \"experimental\"\nsensorEvents = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      r._field == \"sensorId\" and \n      r._value == 5\n  )\n  |> keep(columns: [\"_time\"])\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)  // Limit to the last instance\n\ncoeffs = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      (r._field == \"annularZernikeCoeff0\" or\n       r._field == \"annularZernikeCoeff1\" or\n       r._field == \"annularZernikeCoeff2\" or\n\t   r._field == \"annularZernikeCoeff3\" or\n\t   r._field == \"annularZernikeCoeff4\" or\n\t   r._field == \"annularZernikeCoeff5\" or\n       r._field == \"annularZernikeCoeff6\" or\n       r._field == \"annularZernikeCoeff7\" or\n       r._field == \"annularZernikeCoeff8\" or\n\t   r._field == \"annularZernikeCoeff9\" or\n\t   r._field == \"annularZernikeCoeff10\" or\n\t   r._field == \"annularZernikeCoeff11\" or\n       r._field == \"annularZernikeCoeff12\" or\n       r._field == \"annularZernikeCoeff13\" or\n       r._field == \"annularZernikeCoeff14\" or\n\t   r._field == \"annularZernikeCoeff15\" or\n\t   r._field == \"annularZernikeCoeff16\" or\n\t   r._field == \"annularZernikeCoeff17\" or\n       r._field == \"annularZernikeCoeff18\" or\n       r._field == \"annularZernikeCoeff19\")\n  )\n  |> keep(columns: [\"_time\", \"_value\", \"_field\"])\n  \njoin(\n    tables: {sensorEvents: sensorEvents, coeffs: coeffs},\n    on: [\"_time\"]\n)\n  |> map(fn: (r) => {\n      // Parse the index from the field name and convert to int\n      index = int(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\")) + 4\n      time_delay = duration(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\") + \"s\")\n      \n      // Generate synthetic time by adding seconds based on index\n      // synthetic_time = date.add(d: r._time, to: duration(v: index)) // 1s interval\n      //time_string = date.add(d: time(v: 2019-07-17T12:05:21.012934584Z), to: 1s)\n      zernike_name = \"zernike_\" + string(v: r.index)\n\n      multiplierArray = [0.75453564, 0.2711315 , 0.2711315 , 0.82237164, 0.82237164,\n                         0.39572461, 0.39572461, 1.68719298, 0.93956571, 0.93956571,\n                         0.51643078, 0.51643078, 1.76255706, 1.76255706, 1.09112012,\n                         1.09112012, 0.63498144, 0.63498144, 2.82321385, 1.87588235,\n                         1.87588235, 1.26437424, 1.26437424, 0.75241174, 0.75241174]\n\n      // Multiply Zernike coefficient by the corresponding value in the array\n      value = r._value * multiplierArray[index - 4]\n      adjusted_coeff = if value < 0.0 then -value else value\n\n      return {\n          zernike_coeff: adjusted_coeff,\n          _time: experimental.addDuration(d: time_delay, to: 2019-07-17T04:00:04.0Z)\n      }\n  })\n  |> sort(columns: [\"index\"]) \n  |> yield(name: \"zernikeCoefficientsOverTime\")",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\nimport \"date\"\nimport \"experimental\"\nsensorEvents = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      r._field == \"sensorId\" and \n      r._value == 5\n  )\n  |> keep(columns: [\"_time\"])\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)  // Limit to the last instance\n\ncoeffs = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      (r._field == \"annularZernikeCoeff0\" or\n       r._field == \"annularZernikeCoeff1\" or\n       r._field == \"annularZernikeCoeff2\" or\n\t   r._field == \"annularZernikeCoeff3\" or\n\t   r._field == \"annularZernikeCoeff4\" or\n\t   r._field == \"annularZernikeCoeff5\" or\n       r._field == \"annularZernikeCoeff6\" or\n       r._field == \"annularZernikeCoeff7\" or\n       r._field == \"annularZernikeCoeff8\" or\n\t   r._field == \"annularZernikeCoeff9\" or\n\t   r._field == \"annularZernikeCoeff10\" or\n\t   r._field == \"annularZernikeCoeff11\" or\n       r._field == \"annularZernikeCoeff12\" or\n       r._field == \"annularZernikeCoeff13\" or\n       r._field == \"annularZernikeCoeff14\" or\n\t   r._field == \"annularZernikeCoeff15\" or\n\t   r._field == \"annularZernikeCoeff16\" or\n\t   r._field == \"annularZernikeCoeff17\" or\n       r._field == \"annularZernikeCoeff18\" or\n       r._field == \"annularZernikeCoeff19\")\n  )\n  |> keep(columns: [\"_time\", \"_value\", \"_field\"])\n  \njoin(\n    tables: {sensorEvents: sensorEvents, coeffs: coeffs},\n    on: [\"_time\"]\n)\n  |> map(fn: (r) => {\n      // Parse the index from the field name and convert to int\n      index = int(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\")) + 4\n      time_delay = duration(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\") + \"s\")\n      \n      // Generate synthetic time by adding seconds based on index\n      // synthetic_time = date.add(d: r._time, to: duration(v: index)) // 1s interval\n      //time_string = date.add(d: time(v: 2019-07-17T12:05:21.012934584Z), to: 1s)\n      zernike_name = \"zernike_\" + string(v: r.index)\n\n      multiplierArray = [0.75453564, 0.2711315 , 0.2711315 , 0.82237164, 0.82237164,\n                         0.39572461, 0.39572461, 1.68719298, 0.93956571, 0.93956571,\n                         0.51643078, 0.51643078, 1.76255706, 1.76255706, 1.09112012,\n                         1.09112012, 0.63498144, 0.63498144, 2.82321385, 1.87588235,\n                         1.87588235, 1.26437424, 1.26437424, 0.75241174, 0.75241174]\n\n      // Multiply Zernike coefficient by the corresponding value in the array\n      value = r._value * multiplierArray[index - 4]\n      adjusted_coeff = if value < 0.0 then -value else value\n\n      return {\n          zernike_coeff: adjusted_coeff,\n          _time: experimental.addDuration(d: time_delay, to: 2019-07-17T04:00:04.0Z)\n      }\n  })\n  |> sort(columns: [\"index\"]) \n  |> yield(name: \"zernikeCoefficientsOverTime\")",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Zk (arcsec)",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "bb25ead3-f4ca-4f87-a6eb-c56d89a55ea4",
+						"type": "scale",
+						"hex": "#F6F6F8",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "4bd9e35f-8a36-49f1-8138-f8c29c85fb31",
+						"type": "scale",
+						"hex": "#A4A8B6",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "0e6520c9-97af-44aa-998e-8a9c6b160cf9",
+						"type": "scale",
+						"hex": "#545667",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "index",
+						"displayName": "Noll Index",
+						"visible": true
+					},
+					{
+						"internalName": "_time",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "coefficient",
+						"displayName": "Zk (um)",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/452/cells/b5661e6d-5ceb-4c8c-a78b-9eae49830e0f"
+				}
+			},
+			{
+				"i": "1807e9f2-d557-4504-91c5-1305632e3c8d",
+				"x": 0,
+				"y": 0,
+				"w": 4,
+				"h": 3,
+				"name": "Sensor 6",
+				"queries": [
+					{
+						"query": "import \"strings\"\nimport \"date\"\nimport \"experimental\"\nimport \"math\"\n\nsensorEvents = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      r._field == \"sensorId\" and \n      r._value == 6\n  )\n  |> keep(columns: [\"_time\"])\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)\n\ncoeffs = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      (r._field == \"annularZernikeCoeff0\" or\n       r._field == \"annularZernikeCoeff1\" or\n       r._field == \"annularZernikeCoeff2\" or\n       r._field == \"annularZernikeCoeff3\" or\n       r._field == \"annularZernikeCoeff4\" or\n       r._field == \"annularZernikeCoeff5\" or\n       r._field == \"annularZernikeCoeff6\" or\n       r._field == \"annularZernikeCoeff7\" or\n       r._field == \"annularZernikeCoeff8\" or\n       r._field == \"annularZernikeCoeff9\" or\n       r._field == \"annularZernikeCoeff10\" or\n       r._field == \"annularZernikeCoeff11\" or\n       r._field == \"annularZernikeCoeff12\" or\n       r._field == \"annularZernikeCoeff13\" or\n       r._field == \"annularZernikeCoeff14\" or\n       r._field == \"annularZernikeCoeff15\" or\n       r._field == \"annularZernikeCoeff16\" or\n       r._field == \"annularZernikeCoeff17\" or\n       r._field == \"annularZernikeCoeff18\" or\n       r._field == \"annularZernikeCoeff19\")\n  )\n  |> keep(columns: [\"_time\", \"_value\", \"_field\"])\n  \njoin(\n    tables: {sensorEvents: sensorEvents, coeffs: coeffs},\n    on: [\"_time\"]\n)\n  |> map(fn: (r) => {\n      index = int(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\")) + 4\n      time_delay = duration(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\") + \"s\")\n      zernike_name = \"zernike_\" + string(v: r.index)\n\n      multiplierArray = [0.75453564, 0.2711315 , 0.2711315 , 0.82237164, 0.82237164,\n                         0.39572461, 0.39572461, 1.68719298, 0.93956571, 0.93956571,\n                         0.51643078, 0.51643078, 1.76255706, 1.76255706, 1.09112012,\n                         1.09112012, 0.63498144, 0.63498144, 2.82321385, 1.87588235,\n                         1.87588235, 1.26437424, 1.26437424, 0.75241174, 0.75241174]\n\n      // Calculate the adjusted coefficient and take its absolute value\n      value = r._value * multiplierArray[index - 4]\n      adjusted_coeff = if value < 0.0 then -value else value\n\n      return {\n          zernike_coeff: adjusted_coeff,\n          _time: experimental.addDuration(d: time_delay, to: 2019-07-17T04:00:04.0Z)\n      }\n  })\n  |> sort(columns: [\"index\"]) \n  |> yield(name: \"zernikeCoefficientsOverTime\")",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\nimport \"date\"\nimport \"experimental\"\nimport \"math\"\n\nsensorEvents = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      r._field == \"sensorId\" and \n      r._value == 6\n  )\n  |> keep(columns: [\"_time\"])\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)\n\ncoeffs = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      (r._field == \"annularZernikeCoeff0\" or\n       r._field == \"annularZernikeCoeff1\" or\n       r._field == \"annularZernikeCoeff2\" or\n       r._field == \"annularZernikeCoeff3\" or\n       r._field == \"annularZernikeCoeff4\" or\n       r._field == \"annularZernikeCoeff5\" or\n       r._field == \"annularZernikeCoeff6\" or\n       r._field == \"annularZernikeCoeff7\" or\n       r._field == \"annularZernikeCoeff8\" or\n       r._field == \"annularZernikeCoeff9\" or\n       r._field == \"annularZernikeCoeff10\" or\n       r._field == \"annularZernikeCoeff11\" or\n       r._field == \"annularZernikeCoeff12\" or\n       r._field == \"annularZernikeCoeff13\" or\n       r._field == \"annularZernikeCoeff14\" or\n       r._field == \"annularZernikeCoeff15\" or\n       r._field == \"annularZernikeCoeff16\" or\n       r._field == \"annularZernikeCoeff17\" or\n       r._field == \"annularZernikeCoeff18\" or\n       r._field == \"annularZernikeCoeff19\")\n  )\n  |> keep(columns: [\"_time\", \"_value\", \"_field\"])\n  \njoin(\n    tables: {sensorEvents: sensorEvents, coeffs: coeffs},\n    on: [\"_time\"]\n)\n  |> map(fn: (r) => {\n      index = int(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\")) + 4\n      time_delay = duration(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\") + \"s\")\n      zernike_name = \"zernike_\" + string(v: r.index)\n\n      multiplierArray = [0.75453564, 0.2711315 , 0.2711315 , 0.82237164, 0.82237164,\n                         0.39572461, 0.39572461, 1.68719298, 0.93956571, 0.93956571,\n                         0.51643078, 0.51643078, 1.76255706, 1.76255706, 1.09112012,\n                         1.09112012, 0.63498144, 0.63498144, 2.82321385, 1.87588235,\n                         1.87588235, 1.26437424, 1.26437424, 0.75241174, 0.75241174]\n\n      // Calculate the adjusted coefficient and take its absolute value\n      value = r._value * multiplierArray[index - 4]\n      adjusted_coeff = if value < 0.0 then -value else value\n\n      return {\n          zernike_coeff: adjusted_coeff,\n          _time: experimental.addDuration(d: time_delay, to: 2019-07-17T04:00:04.0Z)\n      }\n  })\n  |> sort(columns: [\"index\"]) \n  |> yield(name: \"zernikeCoefficientsOverTime\")",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Zk (arcsec)",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "bb25ead3-f4ca-4f87-a6eb-c56d89a55ea4",
+						"type": "scale",
+						"hex": "#F6F6F8",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "4bd9e35f-8a36-49f1-8138-f8c29c85fb31",
+						"type": "scale",
+						"hex": "#A4A8B6",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "0e6520c9-97af-44aa-998e-8a9c6b160cf9",
+						"type": "scale",
+						"hex": "#545667",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "index",
+						"displayName": "Noll Index",
+						"visible": true
+					},
+					{
+						"internalName": "_time",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "coefficient",
+						"displayName": "Zk (um)",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/452/cells/1807e9f2-d557-4504-91c5-1305632e3c8d"
+				}
+			},
+			{
+				"i": "b166cfa2-ef00-4700-9a08-c235a8fda202",
+				"x": 4,
+				"y": 6,
+				"w": 4,
+				"h": 3,
+				"name": "Sensor 1",
+				"queries": [
+					{
+						"query": "import \"strings\"\nimport \"date\"\nimport \"experimental\"\nsensorEvents = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      r._field == \"sensorId\" and \n      r._value == 1\n  )\n  |> keep(columns: [\"_time\"])\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)  // Limit to the last instance\n\ncoeffs = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      (r._field == \"annularZernikeCoeff0\" or\n       r._field == \"annularZernikeCoeff1\" or\n       r._field == \"annularZernikeCoeff2\" or\n\t   r._field == \"annularZernikeCoeff3\" or\n\t   r._field == \"annularZernikeCoeff4\" or\n\t   r._field == \"annularZernikeCoeff5\" or\n       r._field == \"annularZernikeCoeff6\" or\n       r._field == \"annularZernikeCoeff7\" or\n       r._field == \"annularZernikeCoeff8\" or\n\t   r._field == \"annularZernikeCoeff9\" or\n\t   r._field == \"annularZernikeCoeff10\" or\n\t   r._field == \"annularZernikeCoeff11\" or\n       r._field == \"annularZernikeCoeff12\" or\n       r._field == \"annularZernikeCoeff13\" or\n       r._field == \"annularZernikeCoeff14\" or\n\t   r._field == \"annularZernikeCoeff15\" or\n\t   r._field == \"annularZernikeCoeff16\" or\n\t   r._field == \"annularZernikeCoeff17\" or\n       r._field == \"annularZernikeCoeff18\" or\n       r._field == \"annularZernikeCoeff19\")\n  )\n  |> keep(columns: [\"_time\", \"_value\", \"_field\"])\n  \njoin(\n    tables: {sensorEvents: sensorEvents, coeffs: coeffs},\n    on: [\"_time\"]\n)\n  |> map(fn: (r) => {\n      // Parse the index from the field name and convert to int\n      index = int(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\")) + 4\n      time_delay = duration(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\") + \"s\")\n      \n      // Generate synthetic time by adding seconds based on index\n      // synthetic_time = date.add(d: r._time, to: duration(v: index)) // 1s interval\n      //time_string = date.add(d: time(v: 2019-07-17T12:05:21.012934584Z), to: 1s)\n      zernike_name = \"zernike_\" + string(v: r.index)\n\n      multiplierArray = [0.75453564, 0.2711315 , 0.2711315 , 0.82237164, 0.82237164,\n                         0.39572461, 0.39572461, 1.68719298, 0.93956571, 0.93956571,\n                         0.51643078, 0.51643078, 1.76255706, 1.76255706, 1.09112012,\n                         1.09112012, 0.63498144, 0.63498144, 2.82321385, 1.87588235,\n                         1.87588235, 1.26437424, 1.26437424, 0.75241174, 0.75241174]\n\n      // Multiply Zernike coefficient by the corresponding value in the array\n      value = r._value * multiplierArray[index - 4]\n      adjusted_coeff = if value < 0.0 then -value else value\n\n      return {\n          zernike_coeff: adjusted_coeff,\n          _time: experimental.addDuration(d: time_delay, to: 2019-07-17T04:00:04.0Z)\n      }\n  })\n  |> sort(columns: [\"index\"]) \n  |> yield(name: \"zernikeCoefficientsOverTime\")",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\nimport \"date\"\nimport \"experimental\"\nsensorEvents = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      r._field == \"sensorId\" and \n      r._value == 1\n  )\n  |> keep(columns: [\"_time\"])\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)  // Limit to the last instance\n\ncoeffs = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      (r._field == \"annularZernikeCoeff0\" or\n       r._field == \"annularZernikeCoeff1\" or\n       r._field == \"annularZernikeCoeff2\" or\n\t   r._field == \"annularZernikeCoeff3\" or\n\t   r._field == \"annularZernikeCoeff4\" or\n\t   r._field == \"annularZernikeCoeff5\" or\n       r._field == \"annularZernikeCoeff6\" or\n       r._field == \"annularZernikeCoeff7\" or\n       r._field == \"annularZernikeCoeff8\" or\n\t   r._field == \"annularZernikeCoeff9\" or\n\t   r._field == \"annularZernikeCoeff10\" or\n\t   r._field == \"annularZernikeCoeff11\" or\n       r._field == \"annularZernikeCoeff12\" or\n       r._field == \"annularZernikeCoeff13\" or\n       r._field == \"annularZernikeCoeff14\" or\n\t   r._field == \"annularZernikeCoeff15\" or\n\t   r._field == \"annularZernikeCoeff16\" or\n\t   r._field == \"annularZernikeCoeff17\" or\n       r._field == \"annularZernikeCoeff18\" or\n       r._field == \"annularZernikeCoeff19\")\n  )\n  |> keep(columns: [\"_time\", \"_value\", \"_field\"])\n  \njoin(\n    tables: {sensorEvents: sensorEvents, coeffs: coeffs},\n    on: [\"_time\"]\n)\n  |> map(fn: (r) => {\n      // Parse the index from the field name and convert to int\n      index = int(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\")) + 4\n      time_delay = duration(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\") + \"s\")\n      \n      // Generate synthetic time by adding seconds based on index\n      // synthetic_time = date.add(d: r._time, to: duration(v: index)) // 1s interval\n      //time_string = date.add(d: time(v: 2019-07-17T12:05:21.012934584Z), to: 1s)\n      zernike_name = \"zernike_\" + string(v: r.index)\n\n      multiplierArray = [0.75453564, 0.2711315 , 0.2711315 , 0.82237164, 0.82237164,\n                         0.39572461, 0.39572461, 1.68719298, 0.93956571, 0.93956571,\n                         0.51643078, 0.51643078, 1.76255706, 1.76255706, 1.09112012,\n                         1.09112012, 0.63498144, 0.63498144, 2.82321385, 1.87588235,\n                         1.87588235, 1.26437424, 1.26437424, 0.75241174, 0.75241174]\n\n      // Multiply Zernike coefficient by the corresponding value in the array\n      value = r._value * multiplierArray[index - 4]\n      adjusted_coeff = if value < 0.0 then -value else value\n\n      return {\n          zernike_coeff: adjusted_coeff,\n          _time: experimental.addDuration(d: time_delay, to: 2019-07-17T04:00:04.0Z)\n      }\n  })\n  |> sort(columns: [\"index\"]) \n  |> yield(name: \"zernikeCoefficientsOverTime\")",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Zk (arcsec)",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "bb25ead3-f4ca-4f87-a6eb-c56d89a55ea4",
+						"type": "scale",
+						"hex": "#F6F6F8",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "4bd9e35f-8a36-49f1-8138-f8c29c85fb31",
+						"type": "scale",
+						"hex": "#A4A8B6",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "0e6520c9-97af-44aa-998e-8a9c6b160cf9",
+						"type": "scale",
+						"hex": "#545667",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "index",
+						"displayName": "Noll Index",
+						"visible": true
+					},
+					{
+						"internalName": "_time",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "coefficient",
+						"displayName": "Zk (um)",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/452/cells/b166cfa2-ef00-4700-9a08-c235a8fda202"
+				}
+			},
+			{
+				"i": "e01394e1-3918-4850-a5dd-07e7a35afb32",
+				"x": 4,
+				"y": 3,
+				"w": 4,
+				"h": 3,
+				"name": "Sensor 4",
+				"queries": [
+					{
+						"query": "import \"strings\"\nimport \"date\"\nimport \"experimental\"\nsensorEvents = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      r._field == \"sensorId\" and \n      r._value == 4\n  )\n  |> keep(columns: [\"_time\"])\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)  // Limit to the last instance\n\ncoeffs = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      (r._field == \"annularZernikeCoeff0\" or\n       r._field == \"annularZernikeCoeff1\" or\n       r._field == \"annularZernikeCoeff2\" or\n\t   r._field == \"annularZernikeCoeff3\" or\n\t   r._field == \"annularZernikeCoeff4\" or\n\t   r._field == \"annularZernikeCoeff5\" or\n       r._field == \"annularZernikeCoeff6\" or\n       r._field == \"annularZernikeCoeff7\" or\n       r._field == \"annularZernikeCoeff8\" or\n\t   r._field == \"annularZernikeCoeff9\" or\n\t   r._field == \"annularZernikeCoeff10\" or\n\t   r._field == \"annularZernikeCoeff11\" or\n       r._field == \"annularZernikeCoeff12\" or\n       r._field == \"annularZernikeCoeff13\" or\n       r._field == \"annularZernikeCoeff14\" or\n\t   r._field == \"annularZernikeCoeff15\" or\n\t   r._field == \"annularZernikeCoeff16\" or\n\t   r._field == \"annularZernikeCoeff17\" or\n       r._field == \"annularZernikeCoeff18\" or\n       r._field == \"annularZernikeCoeff19\")\n  )\n  |> keep(columns: [\"_time\", \"_value\", \"_field\"])\n  \njoin(\n    tables: {sensorEvents: sensorEvents, coeffs: coeffs},\n    on: [\"_time\"]\n)\n  |> map(fn: (r) => {\n      // Parse the index from the field name and convert to int\n      index = int(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\")) + 4\n      time_delay = duration(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\") + \"s\")\n      \n      // Generate synthetic time by adding seconds based on index\n      // synthetic_time = date.add(d: r._time, to: duration(v: index)) // 1s interval\n      //time_string = date.add(d: time(v: 2019-07-17T12:05:21.012934584Z), to: 1s)\n      zernike_name = \"zernike_\" + string(v: r.index)\n      multiplierArray = [0.75453564, 0.2711315 , 0.2711315 , 0.82237164, 0.82237164,\n                         0.39572461, 0.39572461, 1.68719298, 0.93956571, 0.93956571,\n                         0.51643078, 0.51643078, 1.76255706, 1.76255706, 1.09112012,\n                         1.09112012, 0.63498144, 0.63498144, 2.82321385, 1.87588235,\n                         1.87588235, 1.26437424, 1.26437424, 0.75241174, 0.75241174]\n\n      // Multiply Zernike coefficient by the corresponding value in the array\n      value = r._value * multiplierArray[index - 4]\n      adjusted_coeff = if value < 0.0 then -value else value\n\n\n      return {\n          zernike_coeff: adjusted_coeff,\n          _time: experimental.addDuration(d: time_delay, to: 2019-07-17T04:00:04.0Z)\n      }\n  })\n  |> sort(columns: [\"index\"]) \n  |> yield(name: \"zernikeCoefficientsOverTime\")",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\nimport \"date\"\nimport \"experimental\"\nsensorEvents = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      r._field == \"sensorId\" and \n      r._value == 4\n  )\n  |> keep(columns: [\"_time\"])\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)  // Limit to the last instance\n\ncoeffs = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      (r._field == \"annularZernikeCoeff0\" or\n       r._field == \"annularZernikeCoeff1\" or\n       r._field == \"annularZernikeCoeff2\" or\n\t   r._field == \"annularZernikeCoeff3\" or\n\t   r._field == \"annularZernikeCoeff4\" or\n\t   r._field == \"annularZernikeCoeff5\" or\n       r._field == \"annularZernikeCoeff6\" or\n       r._field == \"annularZernikeCoeff7\" or\n       r._field == \"annularZernikeCoeff8\" or\n\t   r._field == \"annularZernikeCoeff9\" or\n\t   r._field == \"annularZernikeCoeff10\" or\n\t   r._field == \"annularZernikeCoeff11\" or\n       r._field == \"annularZernikeCoeff12\" or\n       r._field == \"annularZernikeCoeff13\" or\n       r._field == \"annularZernikeCoeff14\" or\n\t   r._field == \"annularZernikeCoeff15\" or\n\t   r._field == \"annularZernikeCoeff16\" or\n\t   r._field == \"annularZernikeCoeff17\" or\n       r._field == \"annularZernikeCoeff18\" or\n       r._field == \"annularZernikeCoeff19\")\n  )\n  |> keep(columns: [\"_time\", \"_value\", \"_field\"])\n  \njoin(\n    tables: {sensorEvents: sensorEvents, coeffs: coeffs},\n    on: [\"_time\"]\n)\n  |> map(fn: (r) => {\n      // Parse the index from the field name and convert to int\n      index = int(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\")) + 4\n      time_delay = duration(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\") + \"s\")\n      \n      // Generate synthetic time by adding seconds based on index\n      // synthetic_time = date.add(d: r._time, to: duration(v: index)) // 1s interval\n      //time_string = date.add(d: time(v: 2019-07-17T12:05:21.012934584Z), to: 1s)\n      zernike_name = \"zernike_\" + string(v: r.index)\n      multiplierArray = [0.75453564, 0.2711315 , 0.2711315 , 0.82237164, 0.82237164,\n                         0.39572461, 0.39572461, 1.68719298, 0.93956571, 0.93956571,\n                         0.51643078, 0.51643078, 1.76255706, 1.76255706, 1.09112012,\n                         1.09112012, 0.63498144, 0.63498144, 2.82321385, 1.87588235,\n                         1.87588235, 1.26437424, 1.26437424, 0.75241174, 0.75241174]\n\n      // Multiply Zernike coefficient by the corresponding value in the array\n      value = r._value * multiplierArray[index - 4]\n      adjusted_coeff = if value < 0.0 then -value else value\n\n\n      return {\n          zernike_coeff: adjusted_coeff,\n          _time: experimental.addDuration(d: time_delay, to: 2019-07-17T04:00:04.0Z)\n      }\n  })\n  |> sort(columns: [\"index\"]) \n  |> yield(name: \"zernikeCoefficientsOverTime\")",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Zk (arcsec)",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "bb25ead3-f4ca-4f87-a6eb-c56d89a55ea4",
+						"type": "scale",
+						"hex": "#F6F6F8",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "4bd9e35f-8a36-49f1-8138-f8c29c85fb31",
+						"type": "scale",
+						"hex": "#A4A8B6",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "0e6520c9-97af-44aa-998e-8a9c6b160cf9",
+						"type": "scale",
+						"hex": "#545667",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "index",
+						"displayName": "Noll Index",
+						"visible": true
+					},
+					{
+						"internalName": "_time",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "coefficient",
+						"displayName": "Zk (um)",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/452/cells/e01394e1-3918-4850-a5dd-07e7a35afb32"
+				}
+			},
+			{
+				"i": "c71524f6-3b7a-403a-8b00-f1de79e4fd85",
+				"x": 8,
+				"y": 6,
+				"w": 4,
+				"h": 3,
+				"name": "Sensor 2",
+				"queries": [
+					{
+						"query": "import \"strings\"\nimport \"date\"\nimport \"experimental\"\nsensorEvents = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      r._field == \"sensorId\" and \n      r._value == 2\n  )\n  |> keep(columns: [\"_time\"])\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)  // Limit to the last instance\n\ncoeffs = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      (r._field == \"annularZernikeCoeff0\" or\n       r._field == \"annularZernikeCoeff1\" or\n       r._field == \"annularZernikeCoeff2\" or\n\t   r._field == \"annularZernikeCoeff3\" or\n\t   r._field == \"annularZernikeCoeff4\" or\n\t   r._field == \"annularZernikeCoeff5\" or\n       r._field == \"annularZernikeCoeff6\" or\n       r._field == \"annularZernikeCoeff7\" or\n       r._field == \"annularZernikeCoeff8\" or\n\t   r._field == \"annularZernikeCoeff9\" or\n\t   r._field == \"annularZernikeCoeff10\" or\n\t   r._field == \"annularZernikeCoeff11\" or\n       r._field == \"annularZernikeCoeff12\" or\n       r._field == \"annularZernikeCoeff13\" or\n       r._field == \"annularZernikeCoeff14\" or\n\t   r._field == \"annularZernikeCoeff15\" or\n\t   r._field == \"annularZernikeCoeff16\" or\n\t   r._field == \"annularZernikeCoeff17\" or\n       r._field == \"annularZernikeCoeff18\" or\n       r._field == \"annularZernikeCoeff19\")\n  )\n  |> keep(columns: [\"_time\", \"_value\", \"_field\"])\n  \njoin(\n    tables: {sensorEvents: sensorEvents, coeffs: coeffs},\n    on: [\"_time\"]\n)\n  |> map(fn: (r) => {\n      // Parse the index from the field name and convert to int\n      index = int(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\")) + 4\n      time_delay = duration(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\") + \"s\")\n      \n      // Generate synthetic time by adding seconds based on index\n      // synthetic_time = date.add(d: r._time, to: duration(v: index)) // 1s interval\n      //time_string = date.add(d: time(v: 2019-07-17T12:05:21.012934584Z), to: 1s)\n      zernike_name = \"zernike_\" + string(v: r.index)\n      multiplierArray = [0.75453564, 0.2711315 , 0.2711315 , 0.82237164, 0.82237164,\n                         0.39572461, 0.39572461, 1.68719298, 0.93956571, 0.93956571,\n                         0.51643078, 0.51643078, 1.76255706, 1.76255706, 1.09112012,\n                         1.09112012, 0.63498144, 0.63498144, 2.82321385, 1.87588235,\n                         1.87588235, 1.26437424, 1.26437424, 0.75241174, 0.75241174]\n\n      // Multiply Zernike coefficient by the corresponding value in the array\n      value = r._value * multiplierArray[index - 4]\n      adjusted_coeff = if value < 0.0 then -value else value\n\n\n\n      return {\n          zernike_coeff: adjusted_coeff,\n          _time: experimental.addDuration(d: time_delay, to: 2019-07-17T04:00:04.0Z)\n      }\n  })\n  |> sort(columns: [\"index\"]) \n  |> yield(name: \"zernikeCoefficientsOverTime\")",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\nimport \"date\"\nimport \"experimental\"\nsensorEvents = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      r._field == \"sensorId\" and \n      r._value == 2\n  )\n  |> keep(columns: [\"_time\"])\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)  // Limit to the last instance\n\ncoeffs = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      (r._field == \"annularZernikeCoeff0\" or\n       r._field == \"annularZernikeCoeff1\" or\n       r._field == \"annularZernikeCoeff2\" or\n\t   r._field == \"annularZernikeCoeff3\" or\n\t   r._field == \"annularZernikeCoeff4\" or\n\t   r._field == \"annularZernikeCoeff5\" or\n       r._field == \"annularZernikeCoeff6\" or\n       r._field == \"annularZernikeCoeff7\" or\n       r._field == \"annularZernikeCoeff8\" or\n\t   r._field == \"annularZernikeCoeff9\" or\n\t   r._field == \"annularZernikeCoeff10\" or\n\t   r._field == \"annularZernikeCoeff11\" or\n       r._field == \"annularZernikeCoeff12\" or\n       r._field == \"annularZernikeCoeff13\" or\n       r._field == \"annularZernikeCoeff14\" or\n\t   r._field == \"annularZernikeCoeff15\" or\n\t   r._field == \"annularZernikeCoeff16\" or\n\t   r._field == \"annularZernikeCoeff17\" or\n       r._field == \"annularZernikeCoeff18\" or\n       r._field == \"annularZernikeCoeff19\")\n  )\n  |> keep(columns: [\"_time\", \"_value\", \"_field\"])\n  \njoin(\n    tables: {sensorEvents: sensorEvents, coeffs: coeffs},\n    on: [\"_time\"]\n)\n  |> map(fn: (r) => {\n      // Parse the index from the field name and convert to int\n      index = int(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\")) + 4\n      time_delay = duration(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\") + \"s\")\n      \n      // Generate synthetic time by adding seconds based on index\n      // synthetic_time = date.add(d: r._time, to: duration(v: index)) // 1s interval\n      //time_string = date.add(d: time(v: 2019-07-17T12:05:21.012934584Z), to: 1s)\n      zernike_name = \"zernike_\" + string(v: r.index)\n      multiplierArray = [0.75453564, 0.2711315 , 0.2711315 , 0.82237164, 0.82237164,\n                         0.39572461, 0.39572461, 1.68719298, 0.93956571, 0.93956571,\n                         0.51643078, 0.51643078, 1.76255706, 1.76255706, 1.09112012,\n                         1.09112012, 0.63498144, 0.63498144, 2.82321385, 1.87588235,\n                         1.87588235, 1.26437424, 1.26437424, 0.75241174, 0.75241174]\n\n      // Multiply Zernike coefficient by the corresponding value in the array\n      value = r._value * multiplierArray[index - 4]\n      adjusted_coeff = if value < 0.0 then -value else value\n\n\n\n      return {\n          zernike_coeff: adjusted_coeff,\n          _time: experimental.addDuration(d: time_delay, to: 2019-07-17T04:00:04.0Z)\n      }\n  })\n  |> sort(columns: [\"index\"]) \n  |> yield(name: \"zernikeCoefficientsOverTime\")",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Zk (arcsec)",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "bb25ead3-f4ca-4f87-a6eb-c56d89a55ea4",
+						"type": "scale",
+						"hex": "#F6F6F8",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "4bd9e35f-8a36-49f1-8138-f8c29c85fb31",
+						"type": "scale",
+						"hex": "#A4A8B6",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "0e6520c9-97af-44aa-998e-8a9c6b160cf9",
+						"type": "scale",
+						"hex": "#545667",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "index",
+						"displayName": "Noll Index",
+						"visible": true
+					},
+					{
+						"internalName": "_time",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "coefficient",
+						"displayName": "Zk (um)",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/452/cells/c71524f6-3b7a-403a-8b00-f1de79e4fd85"
+				}
+			},
+			{
+				"i": "dd97ab37-efd1-46e7-ad4e-ca898e56a389",
+				"x": 0,
+				"y": 3,
+				"w": 4,
+				"h": 3,
+				"name": "Sensor 3",
+				"queries": [
+					{
+						"query": "import \"strings\"\nimport \"date\"\nimport \"experimental\"\nsensorEvents = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      r._field == \"sensorId\" and \n      r._value == 3\n  )\n  |> keep(columns: [\"_time\"])\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)  // Limit to the last instance\n\ncoeffs = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      (r._field == \"annularZernikeCoeff0\" or\n       r._field == \"annularZernikeCoeff1\" or\n       r._field == \"annularZernikeCoeff2\" or\n\t   r._field == \"annularZernikeCoeff3\" or\n\t   r._field == \"annularZernikeCoeff4\" or\n\t   r._field == \"annularZernikeCoeff5\" or\n       r._field == \"annularZernikeCoeff6\" or\n       r._field == \"annularZernikeCoeff7\" or\n       r._field == \"annularZernikeCoeff8\" or\n\t   r._field == \"annularZernikeCoeff9\" or\n\t   r._field == \"annularZernikeCoeff10\" or\n\t   r._field == \"annularZernikeCoeff11\" or\n       r._field == \"annularZernikeCoeff12\" or\n       r._field == \"annularZernikeCoeff13\" or\n       r._field == \"annularZernikeCoeff14\" or\n\t   r._field == \"annularZernikeCoeff15\" or\n\t   r._field == \"annularZernikeCoeff16\" or\n\t   r._field == \"annularZernikeCoeff17\" or\n       r._field == \"annularZernikeCoeff18\" or\n       r._field == \"annularZernikeCoeff19\")\n  )\n  |> keep(columns: [\"_time\", \"_value\", \"_field\"])\n  \njoin(\n    tables: {sensorEvents: sensorEvents, coeffs: coeffs},\n    on: [\"_time\"]\n)\n  |> map(fn: (r) => {\n      // Parse the index from the field name and convert to int\n      index = int(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\")) + 4\n      time_delay = duration(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\") + \"s\")\n      \n      // Generate synthetic time by adding seconds based on index\n      // synthetic_time = date.add(d: r._time, to: duration(v: index)) // 1s interval\n      //time_string = date.add(d: time(v: 2019-07-17T12:05:21.012934584Z), to: 1s)\n      zernike_name = \"zernike_\" + string(v: r.index)\n\n      multiplierArray = [0.75453564, 0.2711315 , 0.2711315 , 0.82237164, 0.82237164,\n                         0.39572461, 0.39572461, 1.68719298, 0.93956571, 0.93956571,\n                         0.51643078, 0.51643078, 1.76255706, 1.76255706, 1.09112012,\n                         1.09112012, 0.63498144, 0.63498144, 2.82321385, 1.87588235,\n                         1.87588235, 1.26437424, 1.26437424, 0.75241174, 0.75241174]\n\n      // Multiply Zernike coefficient by the corresponding value in the array\n      value = r._value * multiplierArray[index - 4]\n      adjusted_coeff = if value < 0.0 then -value else value\n\n\n      return {\n          zernike_coeff: adjusted_coeff,\n          _time: experimental.addDuration(d: time_delay, to: 2019-07-17T04:00:04.0Z)\n      }\n  })\n  |> sort(columns: [\"index\"]) \n  |> yield(name: \"zernikeCoefficientsOverTime\")",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\nimport \"date\"\nimport \"experimental\"\nsensorEvents = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      r._field == \"sensorId\" and \n      r._value == 3\n  )\n  |> keep(columns: [\"_time\"])\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)  // Limit to the last instance\n\ncoeffs = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      (r._field == \"annularZernikeCoeff0\" or\n       r._field == \"annularZernikeCoeff1\" or\n       r._field == \"annularZernikeCoeff2\" or\n\t   r._field == \"annularZernikeCoeff3\" or\n\t   r._field == \"annularZernikeCoeff4\" or\n\t   r._field == \"annularZernikeCoeff5\" or\n       r._field == \"annularZernikeCoeff6\" or\n       r._field == \"annularZernikeCoeff7\" or\n       r._field == \"annularZernikeCoeff8\" or\n\t   r._field == \"annularZernikeCoeff9\" or\n\t   r._field == \"annularZernikeCoeff10\" or\n\t   r._field == \"annularZernikeCoeff11\" or\n       r._field == \"annularZernikeCoeff12\" or\n       r._field == \"annularZernikeCoeff13\" or\n       r._field == \"annularZernikeCoeff14\" or\n\t   r._field == \"annularZernikeCoeff15\" or\n\t   r._field == \"annularZernikeCoeff16\" or\n\t   r._field == \"annularZernikeCoeff17\" or\n       r._field == \"annularZernikeCoeff18\" or\n       r._field == \"annularZernikeCoeff19\")\n  )\n  |> keep(columns: [\"_time\", \"_value\", \"_field\"])\n  \njoin(\n    tables: {sensorEvents: sensorEvents, coeffs: coeffs},\n    on: [\"_time\"]\n)\n  |> map(fn: (r) => {\n      // Parse the index from the field name and convert to int\n      index = int(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\")) + 4\n      time_delay = duration(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\") + \"s\")\n      \n      // Generate synthetic time by adding seconds based on index\n      // synthetic_time = date.add(d: r._time, to: duration(v: index)) // 1s interval\n      //time_string = date.add(d: time(v: 2019-07-17T12:05:21.012934584Z), to: 1s)\n      zernike_name = \"zernike_\" + string(v: r.index)\n\n      multiplierArray = [0.75453564, 0.2711315 , 0.2711315 , 0.82237164, 0.82237164,\n                         0.39572461, 0.39572461, 1.68719298, 0.93956571, 0.93956571,\n                         0.51643078, 0.51643078, 1.76255706, 1.76255706, 1.09112012,\n                         1.09112012, 0.63498144, 0.63498144, 2.82321385, 1.87588235,\n                         1.87588235, 1.26437424, 1.26437424, 0.75241174, 0.75241174]\n\n      // Multiply Zernike coefficient by the corresponding value in the array\n      value = r._value * multiplierArray[index - 4]\n      adjusted_coeff = if value < 0.0 then -value else value\n\n\n      return {\n          zernike_coeff: adjusted_coeff,\n          _time: experimental.addDuration(d: time_delay, to: 2019-07-17T04:00:04.0Z)\n      }\n  })\n  |> sort(columns: [\"index\"]) \n  |> yield(name: \"zernikeCoefficientsOverTime\")",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Zk (arcsec)",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "bb25ead3-f4ca-4f87-a6eb-c56d89a55ea4",
+						"type": "scale",
+						"hex": "#F6F6F8",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "4bd9e35f-8a36-49f1-8138-f8c29c85fb31",
+						"type": "scale",
+						"hex": "#A4A8B6",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "0e6520c9-97af-44aa-998e-8a9c6b160cf9",
+						"type": "scale",
+						"hex": "#545667",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "index",
+						"displayName": "Noll Index",
+						"visible": true
+					},
+					{
+						"internalName": "_time",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "coefficient",
+						"displayName": "Zk (um)",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/452/cells/dd97ab37-efd1-46e7-ad4e-ca898e56a389"
+				}
+			},
+			{
+				"i": "10ffeea1-5580-410f-a244-d14517d09d53",
+				"x": 0,
+				"y": 6,
+				"w": 4,
+				"h": 3,
+				"name": "Sensor 0",
+				"queries": [
+					{
+						"query": "import \"strings\"\nimport \"date\"\nimport \"experimental\"\nsensorEvents = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      r._field == \"sensorId\" and \n      r._value == 0\n  )\n  |> keep(columns: [\"_time\"])\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)  // Limit to the last instance\n\ncoeffs = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      (r._field == \"annularZernikeCoeff0\" or\n       r._field == \"annularZernikeCoeff1\" or\n       r._field == \"annularZernikeCoeff2\" or\n\t   r._field == \"annularZernikeCoeff3\" or\n\t   r._field == \"annularZernikeCoeff4\" or\n\t   r._field == \"annularZernikeCoeff5\" or\n       r._field == \"annularZernikeCoeff6\" or\n       r._field == \"annularZernikeCoeff7\" or\n       r._field == \"annularZernikeCoeff8\" or\n\t   r._field == \"annularZernikeCoeff9\" or\n\t   r._field == \"annularZernikeCoeff10\" or\n\t   r._field == \"annularZernikeCoeff11\" or\n       r._field == \"annularZernikeCoeff12\" or\n       r._field == \"annularZernikeCoeff13\" or\n       r._field == \"annularZernikeCoeff14\" or\n\t   r._field == \"annularZernikeCoeff15\" or\n\t   r._field == \"annularZernikeCoeff16\" or\n\t   r._field == \"annularZernikeCoeff17\" or\n       r._field == \"annularZernikeCoeff18\" or\n       r._field == \"annularZernikeCoeff19\")\n  )\n  |> keep(columns: [\"_time\", \"_value\", \"_field\"])\n  \njoin(\n    tables: {sensorEvents: sensorEvents, coeffs: coeffs},\n    on: [\"_time\"]\n)\n  |> map(fn: (r) => {\n      // Parse the index from the field name and convert to int\n      index = int(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\")) + 4\n      time_delay = duration(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\") + \"s\")\n      \n      // Generate synthetic time by adding seconds based on index\n      // synthetic_time = date.add(d: r._time, to: duration(v: index)) // 1s interval\n      //time_string = date.add(d: time(v: 2019-07-17T12:05:21.012934584Z), to: 1s)\n      zernike_name = \"zernike_\" + string(v: r.index)\n      multiplierArray = [0.75453564, 0.2711315 , 0.2711315 , 0.82237164, 0.82237164,\n                         0.39572461, 0.39572461, 1.68719298, 0.93956571, 0.93956571,\n                         0.51643078, 0.51643078, 1.76255706, 1.76255706, 1.09112012,\n                         1.09112012, 0.63498144, 0.63498144, 2.82321385, 1.87588235,\n                         1.87588235, 1.26437424, 1.26437424, 0.75241174, 0.75241174]\n\n      // Multiply Zernike coefficient by the corresponding value in the array\n      value = r._value * multiplierArray[index - 4]\n      adjusted_coeff = if value < 0.0 then -value else value\n\n\n      return {\n          zernike_coeff: adjusted_coeff,\n          _time: experimental.addDuration(d: time_delay, to: 2019-07-17T04:00:04.0Z)\n      }\n  })\n  |> sort(columns: [\"index\"]) \n  |> yield(name: \"zernikeCoefficientsOverTime\")",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "import \"strings\"\nimport \"date\"\nimport \"experimental\"\nsensorEvents = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      r._field == \"sensorId\" and \n      r._value == 0\n  )\n  |> keep(columns: [\"_time\"])\n  |> sort(columns: [\"_time\"], desc: true)\n  |> limit(n: 1)  // Limit to the last instance\n\ncoeffs = from(bucket: \"efd/autogen\")\n  |> range(start: dashboardTime, stop: upperDashboardTime)\n  |> filter(fn: (r) => \n      r._measurement == \"lsst.sal.MTAOS.logevent_wavefrontError\" and \n      (r._field == \"annularZernikeCoeff0\" or\n       r._field == \"annularZernikeCoeff1\" or\n       r._field == \"annularZernikeCoeff2\" or\n\t   r._field == \"annularZernikeCoeff3\" or\n\t   r._field == \"annularZernikeCoeff4\" or\n\t   r._field == \"annularZernikeCoeff5\" or\n       r._field == \"annularZernikeCoeff6\" or\n       r._field == \"annularZernikeCoeff7\" or\n       r._field == \"annularZernikeCoeff8\" or\n\t   r._field == \"annularZernikeCoeff9\" or\n\t   r._field == \"annularZernikeCoeff10\" or\n\t   r._field == \"annularZernikeCoeff11\" or\n       r._field == \"annularZernikeCoeff12\" or\n       r._field == \"annularZernikeCoeff13\" or\n       r._field == \"annularZernikeCoeff14\" or\n\t   r._field == \"annularZernikeCoeff15\" or\n\t   r._field == \"annularZernikeCoeff16\" or\n\t   r._field == \"annularZernikeCoeff17\" or\n       r._field == \"annularZernikeCoeff18\" or\n       r._field == \"annularZernikeCoeff19\")\n  )\n  |> keep(columns: [\"_time\", \"_value\", \"_field\"])\n  \njoin(\n    tables: {sensorEvents: sensorEvents, coeffs: coeffs},\n    on: [\"_time\"]\n)\n  |> map(fn: (r) => {\n      // Parse the index from the field name and convert to int\n      index = int(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\")) + 4\n      time_delay = duration(v: strings.replaceAll(v: r._field, t: \"annularZernikeCoeff\", u: \"\") + \"s\")\n      \n      // Generate synthetic time by adding seconds based on index\n      // synthetic_time = date.add(d: r._time, to: duration(v: index)) // 1s interval\n      //time_string = date.add(d: time(v: 2019-07-17T12:05:21.012934584Z), to: 1s)\n      zernike_name = \"zernike_\" + string(v: r.index)\n      multiplierArray = [0.75453564, 0.2711315 , 0.2711315 , 0.82237164, 0.82237164,\n                         0.39572461, 0.39572461, 1.68719298, 0.93956571, 0.93956571,\n                         0.51643078, 0.51643078, 1.76255706, 1.76255706, 1.09112012,\n                         1.09112012, 0.63498144, 0.63498144, 2.82321385, 1.87588235,\n                         1.87588235, 1.26437424, 1.26437424, 0.75241174, 0.75241174]\n\n      // Multiply Zernike coefficient by the corresponding value in the array\n      value = r._value * multiplierArray[index - 4]\n      adjusted_coeff = if value < 0.0 then -value else value\n\n\n      return {\n          zernike_coeff: adjusted_coeff,\n          _time: experimental.addDuration(d: time_delay, to: 2019-07-17T04:00:04.0Z)\n      }\n  })\n  |> sort(columns: [\"index\"]) \n  |> yield(name: \"zernikeCoefficientsOverTime\")",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "flux"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Zk (arcsec)",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "bb25ead3-f4ca-4f87-a6eb-c56d89a55ea4",
+						"type": "scale",
+						"hex": "#F6F6F8",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "4bd9e35f-8a36-49f1-8138-f8c29c85fb31",
+						"type": "scale",
+						"hex": "#A4A8B6",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					},
+					{
+						"id": "0e6520c9-97af-44aa-998e-8a9c6b160cf9",
+						"type": "scale",
+						"hex": "#545667",
+						"name": "T-Max 400 Film",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "index",
+						"displayName": "Noll Index",
+						"visible": true
+					},
+					{
+						"internalName": "_time",
+						"displayName": "",
+						"visible": false
+					},
+					{
+						"internalName": "coefficient",
+						"displayName": "Zk (um)",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/452/cells/10ffeea1-5580-410f-a244-d14517d09d53"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Deprecated: ComCam Zks asec2| Suberlak | AOS  ",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/452",
+			"cells": "/chronograf/v1/dashboards/452/cells",
+			"templates": "/chronograf/v1/dashboards/452/templates"
+		}
+	}
+}
